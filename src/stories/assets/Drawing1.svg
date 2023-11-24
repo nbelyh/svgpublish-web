@@ -1,0 +1,334 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st21">
+	
+
+	<style type="text/css">
+	.st1 {visibility:visible;}
+	.st2 {fill:#5b9bd5;fill-opacity:0.2;filter:url(#filter_1.3333333730698);stroke:none;}
+	.st3 {fill:#edf5fe;stroke:none;stroke-width:0.25;}
+	.st4 {fill:#595959;font-family:Calibri;font-size:2.33334em;}
+	.st5 {fill:#000000;fill-opacity:0.23;filter:url(#filter_1.3333333730698);stroke:#000000;stroke-opacity:0.23;}
+	.st6 {fill:#4672c4;fill-opacity:0.92;stroke:#ffffff;stroke-width:0.75;}
+	.st7 {fill:#ffffff;font-family:Calibri;font-size:1.24999em;}
+	.st8 {fill:#538135;fill-opacity:0.92;stroke:#ffffff;stroke-width:0.25;}
+	.st9 {fill:#feffff;font-family:Calibri;font-size:1.24999em;}
+	.st10 {font-size:1em;}
+	.st11 {fill:#a5a5a5;fill-opacity:0.92;stroke:#ffffff;stroke-width:0.25;}
+	.st12 {marker-end:url(#mrkr4-37);stroke:#bdd0e9;stroke-linecap:round;stroke-linejoin:round;stroke-width:1;}
+	.st13 {fill:#bdd0e9;fill-opacity:1;stroke:#bdd0e9;stroke-opacity:1;stroke-width:0.28409090909091;}
+	.st14 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2;}
+	.st15 {fill:#000000;font-family:Calibri;font-size:0.833336em;}
+	.st16 {fill:#538135;fill-opacity:0.92;stroke:#ffffff;stroke-width:0.75;}
+	.st17 {fill:#5b9bd5;fill-opacity:0.92;stroke:#ffffff;stroke-width:0.25;}
+	.st18 {fill:#1e4e79;fill-opacity:0.92;stroke:#ffffff;stroke-width:0.25;}
+	.st19 {fill:#5b9bd5;fill-opacity:0.25;filter:url(#filter_2);stroke:#5b9bd5;stroke-opacity:0.25;}
+	.st20 {fill:#4f87bb;stroke:#41719c;stroke-width:0.75;}
+	.st21 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
+</style>
+
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none" />
+		</g>
+		<marker style="overflow:visible" id="mrkr4-37" class="st13" refX="-7.04" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) " />
+		</marker>
+	</defs>
+	<defs id="Filters">
+		<filter id="filter_1.3333333730698">
+			<feGaussianBlur stdDeviation="1.3333333730698" />
+		</filter>
+		<filter id="filter_2">
+			<feGaussianBlur stdDeviation="2" />
+		</filter>
+	</defs>
+	<g id="viewport">
+		
+		
+		
+		
+		
+		<g id="shape1" transform="translate(175.748,-1102.55)" class="rounded-rectangle">
+			
+			<desc>Article Publishing Flowchart</desc>
+			
+			
+			
+			<g id="shadow1-2" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<path d="M3.65 1190.55 L492.42 1190.55 A3.64746 3.64746 -180 0 0 496.06 1186.9 L496.06 1134.55 A3.64746 3.64746 -180         0 0 492.42 1130.9 L3.65 1130.9 A3.64746 3.64746 -180 0 0 -0 1134.55 L0 1186.9 A3.64746 3.64746 -180         0 0 3.65 1190.55 Z" class="st2" />
+			</g>
+			<path d="M3.65 1190.55 L492.42 1190.55 A3.64746 3.64746 -180 0 0 496.06 1186.9 L496.06 1134.55 A3.64746 3.64746 -180        0 0 492.42 1130.9 L3.65 1130.9 A3.64746 3.64746 -180 0 0 -0 1134.55 L0 1186.9 A3.64746 3.64746 -180 0 0        3.65 1190.55 Z" class="st3" />
+			<text x="89.77" y="1169.13" class="st4">Article Publishing Flowchart</text>		</g>
+		<g id="shape2" transform="translate(338.904,-1020.47)" class="start/end">
+			
+			<desc>Article is submitted</desc>
+			
+			
+			
+			
+			<g id="shadow2-8" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<path d="M19.88 1190.55 L133.19 1190.55 A19.8836 19.8836 -180 0 0 133.19 1150.78 L19.88 1150.78 A19.8836 19.8836         -180 1 0 19.88 1190.55 Z" class="st5" />
+			</g>
+			<path d="M19.88 1190.55 L133.19 1190.55 A19.8836 19.8836 -180 0 0 133.19 1150.78 L19.88 1150.78 A19.8836 19.8836 -180        1 0 19.88 1190.55 Z" class="st6" />
+			<text x="17.46" y="1175.17" class="st7">Article is submitted</text>		</g>
+		<g id="shape51" transform="translate(90.7087,-715.392)" class="process">
+			
+			<desc>Author edits article per guidelines</desc>
+			
+			
+			
+			
+			<g id="shadow51-14" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st5" />
+			</g>
+			<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st8" />
+			<text x="5.96" y="1148.25" class="st9">Author edits article per <tspan x="45.62" dy="1.2em" class="st10">guidelines</tspan></text>		</g>
+		<g id="shape16" transform="translate(48.8434,-64.1525)" class="start/end">
+			
+			<desc>Article is accepted</desc>
+			
+			
+			
+			
+			<g id="shadow16-21" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<path d="M19.88 1190.55 L133.19 1190.55 A19.8836 19.8836 -180 0 0 133.19 1150.78 L19.88 1150.78 A19.8836 19.8836         -180 1 0 19.88 1190.55 Z" class="st5" />
+			</g>
+			<path d="M19.88 1190.55 L133.19 1190.55 A19.8836 19.8836 -180 0 0 133.19 1150.78 L19.88 1150.78 A19.8836 19.8836 -180        1 0 19.88 1190.55 Z" class="st8" />
+			<text x="20.89" y="1175.17" class="st9">Article is accepted</text>		</g>
+		<g id="shape19" transform="translate(622.828,-64.1525)" class="start/end">
+			
+			<desc>Article is rejected</desc>
+			
+			
+			
+			
+			<g id="shadow19-27" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<path d="M19.88 1190.55 L133.19 1190.55 A19.8836 19.8836 -180 0 0 133.19 1150.78 L19.88 1150.78 A19.8836 19.8836         -180 1 0 19.88 1190.55 Z" class="st5" />
+			</g>
+			<path d="M19.88 1190.55 L133.19 1190.55 A19.8836 19.8836 -180 0 0 133.19 1150.78 L19.88 1150.78 A19.8836 19.8836 -180        1 0 19.88 1190.55 Z" class="st11" />
+			<text x="23.45" y="1175.17" class="st9">Article is rejected</text>		</g>
+		<g id="shape20" transform="translate(500.24,-760.386)" class="dynamic-connector">
+			
+			<desc>Yes</desc>
+			
+			
+			
+			<path d="M0 1197.63 L21.26 1197.63 L21.26 1197.65 L61.82 1197.65" class="st12" />
+			<rect x="22.9584" y="1191.49" width="13.7598" height="12.0001" class="st14" />
+			<text x="22.96" y="1200.49" class="st15">Yes</text>		</g>
+		<g id="shape29" transform="translate(599.325,-177.147)" class="dynamic-connector">
+			
+			
+			<path d="M0 1190.55 L97.04 1190.55 A3 3 0 0 1 103.04 1190.55 L151.29 1190.55 L151.29 614.41 L129.88 614.41" class="st12" />
+		</g>
+		<g id="shape44" transform="translate(330.162,-760.339)" class="dynamic-connector">
+			
+			<desc>No</desc>
+			
+			
+			
+			<path d="M0 1197.58 L-21.26 1197.58 L-21.26 1197.69 L-79.34 1197.69" class="st12" />
+			<rect x="-45.5606" y="1191.82" width="11.7285" height="12.0001" class="st14" />
+			<text x="-45.56" y="1200.82" class="st15">No</text>		</g>
+		<g id="shape46" transform="translate(500.479,-915.236)" class="dynamic-connector">
+			
+			<desc>No</desc>
+			
+			
+			
+			<path d="M0 1190.55 L297.3 1190.55 L297.3 2021.75 L282.46 2021.75" class="st12" />
+			<rect x="178.172" y="1183.84" width="11.7285" height="12.0001" class="st14" />
+			<text x="178.17" y="1192.84" class="st15">No</text>		</g>
+		<g id="shape60" transform="translate(167.244,-791.003)" class="dynamic-connector">
+			
+			
+			<path d="M0 1190.55 L-0 1143.1 L247.96 1143.1 L247.96 1164.51" class="st12" />
+		</g>
+		<g id="shape62" transform="translate(330.4,-858.543)" class="decision">
+			
+			<desc>Article suitable for journal?</desc>
+			
+			
+			
+			
+			<g id="shadow62-65" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st5" />
+			</g>
+			<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st16" />
+			<text x="39.44" y="1129.36" class="st9">Article suitable <tspan x="49.45" dy="1.2em" class="st10">for journal?</tspan></text>		</g>
+		<g id="shape64" transform="translate(408.353,-1020.47)" class="dynamic-connector">
+			
+			
+			<path d="M7.09 1190.55 L7.09 1232.05" class="st12" />
+		</g>
+		<g id="shape65" transform="translate(330.162,-696.614)" class="decision">
+			
+			<desc>Author has followed style guide?</desc>
+			
+			
+			
+			
+			<g id="shadow65-77" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st5" />
+			</g>
+			<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st16" />
+			<text x="51.58" y="1120.36" class="st9">Author has <tspan x="58.36" dy="1.2em" class="st10">followed </tspan><tspan x="48.71" dy="1.2em" class="st10">style guide?</tspan></text>		</g>
+		<g id="shape73" transform="translate(48.8434,-250.373)" class="process">
+			
+			<desc>Check language, style and images</desc>
+			
+			
+			
+			
+			<g id="shadow73-85" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st5" />
+			</g>
+			<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st8" />
+			<text x="11.15" y="1148.25" class="st9">Check language, style <tspan x="41.87" dy="1.2em" class="st10">and images</tspan></text>		</g>
+		<g id="shape77" transform="translate(232.441,-250.373)" class="process">
+			
+			<desc>Author makes minor revisions</desc>
+			
+			
+			
+			
+			<g id="shadow77-92" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st5" />
+			</g>
+			<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st17" />
+			<text x="13.96" y="1148.25" class="st9">Author makes minor <tspan x="49.6" dy="1.2em" class="st10">revisions</tspan></text>		</g>
+		<g id="shape80" transform="translate(232.441,-281.092)" class="dynamic-connector">
+			
+			
+			<path d="M0 1183.46 L-23.49 1183.46" class="st12" />
+		</g>
+		<g id="shape87" transform="translate(446.254,-250.373)" class="process">
+			
+			<desc>Author makes major revisions</desc>
+			
+			
+			
+			
+			<g id="shadow87-104" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st5" />
+			</g>
+			<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st18" />
+			<text x="14.24" y="1148.25" class="st9">Author makes major <tspan x="49.6" dy="1.2em" class="st10">revisions</tspan></text>		</g>
+		<g id="shape89" transform="translate(446.254,-139.341)" class="process">
+			
+			<desc>Revised article is sent for second review</desc>
+			
+			
+			
+			
+			<g id="shadow89-111" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st5" />
+			</g>
+			<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st18" />
+			<text x="11.09" y="1148.25" class="st9">Revised article is sent <tspan x="22.07" dy="1.2em" class="st10">for second review</tspan></text>		</g>
+		<g id="shape91" transform="translate(515.703,-250.373)" class="dynamic-connector">
+			
+			
+			<path d="M7.09 1190.55 L7.09 1218.93" class="st12" />
+		</g>
+		<g id="shape94" transform="translate(118.292,-250.373)" class="dynamic-connector">
+			
+			
+			<path d="M7.09 1190.55 L7.09 1329.96" class="st12" />
+		</g>
+		<g id="shape98" transform="translate(330.4,-534.685)" class="decision">
+			
+			<desc>Reviewers’ recommendation?</desc>
+			
+			
+			
+			
+			<g id="shadow98-128" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st19" />
+			</g>
+			<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st20" />
+			<text x="51.88" y="1129.36" class="st9">Reviewers’ <tspan x="28.78" dy="1.2em" class="st10">recommendation?</tspan></text>		</g>
+		<g id="shape99" transform="translate(330.4,-380.146)" class="decision">
+			
+			<desc>Revision scope?</desc>
+			
+			
+			
+			
+			<g id="shadow99-135" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st19" />
+			</g>
+			<path d="M0 1133.86 L85.04 1077.17 L170.08 1133.86 L85.04 1190.55 L0 1133.86 Z" class="st20" />
+			<text x="36.67" y="1138.36" class="st9">Revision scope?</text>		</g>
+		<g id="shape100" transform="translate(645.633,-715.487)" class="dynamic-connector">
+			
+			
+			<path d="M0 1190.55 L0 1225.72 L-230.19 1225.72 L-230.19 1250.93" class="st12" />
+		</g>
+		<g id="shape101" transform="translate(330.4,-591.378)" class="dynamic-connector">
+			
+			<desc>Accept</desc>
+			
+			
+			
+			<path d="M0 1190.55 L-205.02 1190.55 L-205.02 1448.9" class="st12" />
+			<rect x="-144.826" y="1185.26" width="27.8229" height="12.0001" class="st14" />
+			<text x="-144.83" y="1194.26" class="st15">Accept</text>		</g>
+		<g id="shape102" transform="translate(500.479,-591.378)" class="dynamic-connector">
+			
+			<desc>Reject</desc>
+			
+			
+			
+			<path d="M0 1190.55 L198.88 1190.55 L198.88 1670.97" class="st12" />
+			<rect x="121.297" y="1184.63" width="25.3521" height="12.0001" class="st14" />
+			<text x="121.3" y="1193.63" class="st15">Reject</text>		</g>
+		<g id="shape103" transform="translate(408.353,-534.685)" class="dynamic-connector">
+			
+			<desc>Accept with revisions</desc>
+			
+			
+			
+			<path d="M7.09 1190.55 L7.09 1224.66" class="st12" />
+			<rect x="-36.0683" y="1205.13" width="86.3097" height="12.0001" class="st14" />
+			<text x="-36.07" y="1214.13" class="st15">Accept with revisions</text>		</g>
+		<g id="shape104" transform="translate(330.4,-436.839)" class="dynamic-connector">
+			
+			<desc>Minor</desc>
+			
+			
+			
+			<path d="M0 1190.55 L-21.42 1190.55 L-21.42 1294.37" class="st12" />
+			<rect x="-33.8531" y="1235.88" width="24.8585" height="12.0001" class="st14" />
+			<text x="-33.85" y="1244.88" class="st15">Minor</text>		</g>
+		<g id="shape105" transform="translate(500.479,-436.839)" class="dynamic-connector">
+			
+			<desc>Major</desc>
+			
+			
+			
+			<path d="M0 1190.55 L22.31 1190.55 L22.31 1294.37" class="st12" />
+			<rect x="8.84978" y="1235.76" width="24.4921" height="12.0001" class="st14" />
+			<text x="8.85" y="1244.76" class="st15">Major</text>		</g>
+		<g id="shape10" transform="translate(422.407,-858.543)" class="dynamic-connector">
+			
+			<desc>Yes</desc>
+			
+			
+			
+			<path d="M-6.97 1190.55 L-6.97 1211.81 L-7.21 1211.81 L-7.21 1232.05" class="st12" />
+			<rect x="-14.0859" y="1204.64" width="13.7598" height="12.0001" class="st14" />
+			<text x="-14.09" y="1213.64" class="st15">Yes</text>		</g>
+		<g id="shape67" transform="translate(569.098,-715.487)" class="process">
+			
+			<desc>Article is sent for peer review</desc>
+			
+			
+			
+			
+			<g id="shadow67-188" transform="matrix(1,0,0,1,0,4)" class="st1">
+				<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st5" />
+			</g>
+			<rect x="0" y="1114.94" width="153.071" height="75.6108" class="st8" />
+			<text x="25.01" y="1148.25" class="st9">Article is sent for <tspan x="40.27" dy="1.2em" class="st10">peer review</tspan></text>		</g>
+	</g>
+<SvgPublishData xmlns="http://vispublish">{"shapes":{"shape1":{"ShapeId":"shape1","Text":"Article Publishing Flowchart","MasterName":"Rounded Rectangle"},"shape2":{"ShapeId":"shape2","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape62"],"Layers":[2],"Text":"Article is submitted","MasterName":"Start/End"},"shape51":{"ShapeId":"shape51","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape65"],"ConnectedFrom":["shape65"],"Layers":[2],"Text":"Author edits article per guidelines","MasterName":"Process"},"shape16":{"ShapeId":"shape16","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedFrom":["shape73"],"Layers":[2],"Text":"Article is accepted","MasterName":"Start/End"},"shape19":{"ShapeId":"shape19","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedFrom":["shape62","shape98"],"Layers":[2],"Text":"Article is rejected","MasterName":"Start/End"},"shape20":{"ShapeId":"shape20","Layers":[1],"Text":"Yes","MasterName":"Dynamic connector"},"shape29":{"ShapeId":"shape29","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape44":{"ShapeId":"shape44","Layers":[1],"Text":"No","MasterName":"Dynamic connector"},"shape46":{"ShapeId":"shape46","Layers":[1],"Text":"No","MasterName":"Dynamic connector"},"shape60":{"ShapeId":"shape60","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape62":{"ShapeId":"shape62","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape19","shape65"],"ConnectedFrom":["shape2"],"Layers":[2],"Text":"Article suitable \nfor journal?","MasterName":"Decision"},"shape64":{"ShapeId":"shape64","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape65":{"ShapeId":"shape65","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape67","shape51"],"ConnectedFrom":["shape51","shape62"],"Layers":[2],"Text":"Author has \nfollowed \nstyle guide?","MasterName":"Decision"},"shape73":{"ShapeId":"shape73","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape16"],"ConnectedFrom":["shape77","shape98"],"Layers":[2],"Text":"Check language, style and images","MasterName":"Process"},"shape77":{"ShapeId":"shape77","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape73"],"ConnectedFrom":["shape99"],"Layers":[2],"Text":"Author makes minor revisions","MasterName":"Process"},"shape80":{"ShapeId":"shape80","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape87":{"ShapeId":"shape87","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape89"],"ConnectedFrom":["shape99"],"Layers":[2],"Text":"Author makes major revisions","MasterName":"Process"},"shape89":{"ShapeId":"shape89","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape67"],"ConnectedFrom":["shape87"],"Layers":[2],"Text":"Revised article is sent for second review","MasterName":"Process"},"shape91":{"ShapeId":"shape91","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape94":{"ShapeId":"shape94","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape98":{"ShapeId":"shape98","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape73","shape19","shape99"],"ConnectedFrom":["shape67"],"Layers":[2],"Text":"Reviewers’ recommendation?","MasterName":"Decision"},"shape99":{"ShapeId":"shape99","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape77","shape87"],"ConnectedFrom":["shape98"],"Layers":[2],"Text":"Revision scope?","MasterName":"Decision"},"shape100":{"ShapeId":"shape100","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape101":{"ShapeId":"shape101","Layers":[1],"Text":"Accept","MasterName":"Dynamic connector"},"shape102":{"ShapeId":"shape102","Layers":[1],"Text":"Reject","MasterName":"Dynamic connector"},"shape103":{"ShapeId":"shape103","Layers":[1],"Text":"Accept with revisions","MasterName":"Dynamic connector"},"shape104":{"ShapeId":"shape104","Layers":[1],"Text":"Minor","MasterName":"Dynamic connector"},"shape105":{"ShapeId":"shape105","Layers":[1],"Text":"Major","MasterName":"Dynamic connector"},"shape10":{"ShapeId":"shape10","Layers":[1],"Text":"Yes","MasterName":"Dynamic connector"},"shape67":{"ShapeId":"shape67","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape98"],"ConnectedFrom":["shape65","shape89"],"Layers":[2],"Text":"Article is sent for \npeer review","MasterName":"Process"}},"pages":[{"Name":"Page -1","Id":0,"FileName":"Drawing1.svg"}],"currentPage":{"Name":"Page -1","Id":0,"FileName":"Drawing1.svg"},"layers":[{"Name":"Connector","Index":1,"Visible":true},{"Name":"Flowchart","Index":2,"Visible":true}],"enableProps":true,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":true,"enablePages":true,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":true,"openHyperlinksInNewWindow":true,"transformVisioFileLinks":false,"useReadablePageNames":true,"keepRelativeLinks":true,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":false,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipKeepOnHover":false,"tooltipTimeout":false,"popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverUseMousePosition":false,"enableContainerTip":false,"suppressMobileTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"viewBox":"0 0 841.89 1190.55","layerView":{"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":false,"enableLayerShowAll":false},"selectionView":{"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"dilate":4,"mode":"normal","selectColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":false,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":false,"nextShapeColor":"rgba(255, 160, 255, 0.90)"}}</SvgPublishData></svg>

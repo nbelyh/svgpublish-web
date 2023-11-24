@@ -1,0 +1,54 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st5">
+	
+
+	<style type="text/css">
+	.st1 {fill:white;font-family:'Sans Serif';font-size:14;stroke:black;stroke-width:0.75;}
+	.st2 {fill:#f59d56;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24;}
+	.st3 {fill:#000000;font-family:Calibri;font-size:0.666664em;}
+	.st4 {font-size:1em;}
+	.st5 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
+</style>
+
+	
+	
+	
+<g id="viewport"><g>
+		
+		
+		
+		
+		
+		
+		<g id="shape5" transform="translate(309.375,-198)" class="external-interactor">
+				
+				<desc>Three links with default: https://unmanagedvisio.com (default...</desc>
+				
+				
+				
+				
+				<rect x="0" y="261" width="135" height="63" class="st2" />
+				<text x="1" y="269.2" class="st3">Three links with default:<tspan x="1" dy="2.4em" class="st4">https://unmanagedvisio.com (default)</tspan><tspan x="1" dy="1.2em" class="st4">https://google.com</tspan><tspan x="1" dy="1.2em" class="st4">https://microsoft.com</tspan></text>			</g>
+			
+		
+		<g id="shape6" transform="translate(165.375,-198)" class="external-interactor">
+				
+				<desc>Two links: https://unmanagedvisio.com https://google.com</desc>
+				
+				
+				
+				
+				<rect x="0" y="261" width="135" height="63" class="st2" />
+				<text x="1" y="269.2" class="st3">Two links:<tspan x="1" dy="2.4em" class="st4">https://unmanagedvisio.com</tspan><tspan x="1" dy="1.2em" class="st4">https://google.com</tspan></text>			</g>
+			
+		
+		<g id="shape7" transform="translate(21.375,-198)" class="external-interactor">
+				
+				<desc>One links: https://unmanagedvisio.com</desc>
+				
+				
+				
+				
+				<rect x="0" y="261" width="135" height="63" class="st2" />
+				<text x="1" y="269.2" class="st3">One links:<tspan x="1" dy="2.4em" class="st4">https://unmanagedvisio.com</tspan></text>			</g>
+			
+	</g></g><SvgPublishData xmlns="http://vispublish">{"shapes":{"shape5":{"ShapeId":"shape5","DefaultLink":1,"Links":[{"PageId":-1,"Address":"https://unmanagedvisio.com/","Description":"","Zoom":0.0},{"PageId":-1,"Address":"https://google.com/","Description":"","Zoom":0.0},{"PageId":-1,"Address":"https://microsoft.com/","Description":"","Zoom":0.0}],"Props":{"Cost":null,"Duration":null,"Resources":null},"Layers":[1],"Text":"Three links with default:\n\u2028https://unmanagedvisio.com (default)\nhttps://google.com\nhttps://microsoft.com","MasterName":"External interactor"},"shape6":{"ShapeId":"shape6","Links":[{"PageId":-1,"Address":"https://unmanagedvisio.com/","Description":"","Zoom":0.0},{"PageId":-1,"Address":"https://google.com/","Description":"","Zoom":0.0}],"Props":{"Cost":null,"Duration":null,"Resources":null},"Layers":[1],"Text":"Two links:\n\u2028https://unmanagedvisio.com\nhttps://google.com","MasterName":"External interactor"},"shape7":{"ShapeId":"shape7","DefaultLink":1,"Links":[{"PageId":-1,"Address":"https://unmanagedvisio.com/","Description":"","Zoom":0.0}],"Props":{"Cost":null,"Duration":null,"Resources":null},"Layers":[1],"Text":"One links:\n\u2028https://unmanagedvisio.com","MasterName":"External interactor"}},"pages":[{"Name":"Page-1","Id":5,"FileName":"Links.svg"}],"currentPage":{"Name":"Page-1","Id":5,"FileName":"Links.svg"},"layers":[{"Name":"Flowchart","Index":1,"Visible":true},{"Name":"Connector","Index":2,"Visible":true}],"enableProps":true,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":true,"enablePages":true,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":true,"openHyperlinksInNewWindow":true,"transformVisioFileLinks":false,"useReadablePageNames":true,"keepRelativeLinks":true,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":false,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipKeepOnHover":false,"tooltipTimeout":false,"popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverUseMousePosition":false,"enableContainerTip":false,"suppressMobileTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"viewBox":"0 0 468 324","layerView":{"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":false,"enableLayerShowAll":false},"selectionView":{"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"dilate":4,"mode":"normal","selectColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":false,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":false,"nextShapeColor":"rgba(255, 160, 255, 0.90)"}}</SvgPublishData></svg>
