@@ -85,12 +85,18 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
     if (props.url) {
       getContent(props.url).then(content => {
+        if (containerRef.current) {
 
-        contextRef.current = new SvgPublishContext(containerRef.current!, content, props);
-        if (contextRef.current?.services?.selection && props.selectedShapeId) {
-          contextRef.current.services.selection.setSelection(props.selectedShapeId);
+          const init = mergeProps({} as any, props);
+
+          contextRef.current = new SvgPublishContext(containerRef.current, content, init);
+          if (contextRef.current?.services?.selection && props.selectedShapeId) {
+            contextRef.current.services.selection.setSelection(props.selectedShapeId);
+          }
+          contextRef.current.events.addEventListener('linkClicked', onLinkClicked);
         }
-        contextRef.current.events.addEventListener('linkClicked', onLinkClicked);
+      }, err => {
+        console.error(err);
       })
     }
 
