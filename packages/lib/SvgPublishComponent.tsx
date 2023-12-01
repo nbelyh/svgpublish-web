@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SvgPublishContext /*, LinkClickedEvent*/ } from 'svgpublish';
+import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent } from 'svgpublish';
 import { IDiagramInfo } from 'svgpublish/dist/interfaces/IDiagramInfo';
 import { IServices } from 'svgpublish/dist/interfaces/IServices';
 
@@ -33,23 +33,22 @@ export interface ISvgPublishComponentProps {
   enableBoxSelection?: boolean;
 
   selectedShapeId?: string;
+
+  onLinkClicked?: (evt: LinkClickedEvent) => void | null;
+  onSelectionChanged?: (evt: SelectionChangedEvent) => void;
+  onViewChanged?: (evt: ViewChangedEvent) => void;
 }
 
 export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   const containerRef = React.useRef(null);
-  const contextRef = React.useRef<SvgPublishContext | null>(null);
+  const [context, setContext] = React.useState<SvgPublishContext | null>(null);
 
   const getContent = React.useCallback(async (url: string) => {
     const response = await fetch(url);
     const content = await response.text();
     return content;
   }, []);
-
-  const onLinkClicked = (/*evt: LinkClickedEvent*/) => {
-    // evt.preventDefault();
-    // console.log('Link clicked', evt);
-  };
 
   const mergeProps = React.useCallback((src: IDiagramInfo, p: ISvgPublishComponentProps) => {
     const result: IDiagramInfo = {
@@ -82,6 +81,30 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   }, []);
 
   React.useEffect(() => {
+    if (context && props.onLinkClicked) {
+      const onLinkClicked = (evt: Event) => props.onLinkClicked!(evt as LinkClickedEvent);
+      context.events.addEventListener('linkClicked', onLinkClicked);
+      return () => context.events.removeEventListener('linkClicked', onLinkClicked);
+    }
+  }, [context, props.onLinkClicked]);
+
+  React.useEffect(() => {
+    if (context && props.onSelectionChanged) {
+      const onSelectionChanged = (evt: Event) => props.onSelectionChanged!(evt as SelectionChangedEvent);
+      context.events.addEventListener('selectionChanged', onSelectionChanged);
+      return () => context.events.removeEventListener('selectionChanged', onSelectionChanged);
+    }
+  }, [context, props.onSelectionChanged]);
+
+  React.useEffect(() => {
+    if (context && props.onViewChanged) {
+      const onViewChanged = (evt: Event) => props.onViewChanged!(evt as ViewChangedEvent);
+      context.events.addEventListener('viewChanged', onViewChanged);
+      return () => context.events.removeEventListener('viewChanged', onViewChanged);
+    }
+  }, [context, props.onViewChanged]);
+
+  React.useEffect(() => {
 
     if (props.url) {
       getContent(props.url).then(content => {
@@ -89,11 +112,11 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
           const init = mergeProps({} as any, props);
 
-          contextRef.current = new SvgPublishContext(containerRef.current, content, init);
-          if (contextRef.current?.services?.selection && props.selectedShapeId) {
-            contextRef.current.services.selection.setSelection(props.selectedShapeId);
+          const newContext = new SvgPublishContext(containerRef.current, content, init);
+          if (newContext?.services?.selection && props.selectedShapeId) {
+            newContext.services.selection.setSelection(props.selectedShapeId);
           }
-          contextRef.current.events.addEventListener('linkClicked', onLinkClicked);
+          setContext(newContext);
         }
       }, err => {
         console.error(err);
@@ -101,17 +124,15 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     }
 
     return () => {
-      if (contextRef.current) {
-        contextRef.current.events.removeEventListener('linkClicked', onLinkClicked);
-        contextRef.current.destroy();
-        contextRef.current = null;
+      if (context) {
+        context.destroy();
+        setContext(null);
       }
     };
 
   }, [props.url]);
 
   const enableService = (name: keyof IServices, enable?: boolean) => {
-    const context = contextRef.current;
     if (context) {
       const service = context.services?.[name];
       if (service) {
@@ -128,29 +149,30 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   }
 
   React.useEffect(() => {
-    if (contextRef.current?.diagram) {
-      contextRef.current.diagram.enablePan = !!props.enablePan;
+    if (context?.diagram) {
+      context.diagram.enablePan = !!props.enablePan;
     }
-  }, [props.enablePan]);
+  }, [context, props.enablePan]);
 
   React.useEffect(() => {
-    if (contextRef.current?.diagram) {
-      contextRef.current.diagram.enableZoom = !!props.enableZoom;
+    if (context?.diagram) {
+      context.diagram.enableZoom = !!props.enableZoom;
     }
-  }, [props.enableZoom]);
+  }, [context, props.enableZoom]);
 
   React.useEffect(() => {
-    contextRef.current?.services?.view?.reset()
-  }, [props.width, props.height]);
+    context?.services?.view?.reset()
+  }, [context, props.width, props.height]);
 
   React.useEffect(() => {
-    if (contextRef.current?.diagram) {
-      contextRef.current.diagram = mergeProps(contextRef.current.diagram, props);
+    if (context?.diagram) {
+      context.diagram = mergeProps(context.diagram, props);
     }
     enableService('selection', props.enableSelection);
     enableService('hover', props.enableHover);
     enableService('links', props.enableFollowHyperlinks);
   }, [
+    context,
     props.enableSelection,
     props.enableHover,
     props.enableBlur,
@@ -170,13 +192,14 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   ]);
 
   React.useEffect(() => {
-    if (contextRef.current?.services?.selection) {
-      if (props.selectedShapeId)
-        contextRef.current.services.selection.setSelection(props.selectedShapeId);
-      else
-        contextRef.current.services.selection.clearSelection();
+    if (context?.services?.selection) {
+      if (props.selectedShapeId) {
+        context.services.selection.setSelection(props.selectedShapeId);
+      } else {
+        context.services.selection.clearSelection();
+      }
     }
-  }, [props.selectedShapeId]);
+  }, [context, props.selectedShapeId]);
 
   const style: React.CSSProperties = {
     ...props.style,

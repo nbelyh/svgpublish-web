@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { SvgPublishComponent } from '../../lib/SvgPublishComponent';
 
@@ -104,5 +105,16 @@ export const SelectionFillLighten: Story = {
     enableBlur: false,
     selectColor: 'rgba(255, 255, 0, 0.5)',
     selectedShapeId: 'shape4',
+  },
+};
+
+export const Event: Story = {
+  parameters: {
+    layout: 'fullscreen',
+  },
+  argTypes: {
+    onSelectionChanged: { 
+      action: 'onSelectionChanged',
+    },
   },
 };
