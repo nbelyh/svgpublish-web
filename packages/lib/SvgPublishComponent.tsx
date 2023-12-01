@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { SvgPublishContext, LinkClickedEvent } from 'svgpublish';
+import { SvgPublishContext /*, LinkClickedEvent*/ } from 'svgpublish';
 import { IDiagramInfo } from 'svgpublish/dist/interfaces/IDiagramInfo';
+import { IServices } from 'svgpublish/dist/interfaces/IServices';
 
 export interface ISvgPublishComponentProps {
   url: string;
@@ -12,8 +13,11 @@ export interface ISvgPublishComponentProps {
   enablePan?: boolean;
   enableZoomShift?: boolean;
   enableZoomCtrl?: boolean;
+  twoFingersTouch?: boolean;
 
   enableLinks?: boolean;
+  enableFollowHyperlinks?: boolean;
+  openHyperlinksInNewWindow?: boolean;
 
   enableSelection?: boolean;
   enableHover?: boolean;
@@ -42,39 +46,47 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     return content;
   }, []);
 
-  const onLinkClicked = (evt: LinkClickedEvent) => {
-    evt.preventDefault();
-    console.log('Link clicked', evt);
+  const onLinkClicked = (/*evt: LinkClickedEvent*/) => {
+    // evt.preventDefault();
+    // console.log('Link clicked', evt);
   };
+
+  const mergeProps = React.useCallback((src: IDiagramInfo, p: ISvgPublishComponentProps) => {
+    const result: IDiagramInfo = {
+      ...src,
+      enableZoom: p.enableZoom,
+      enablePan: p.enablePan,
+      enableZoomShift: p.enableZoomShift,
+      enableZoomCtrl: p.enableZoomCtrl,
+
+      enableFollowHyperlinks: p.enableFollowHyperlinks,
+
+      enableSelection: p.enableSelection,
+      enableHover: p.enableHover,
+      twoFingersTouch: p.twoFingersTouch,
+      openHyperlinksInNewWindow: p.openHyperlinksInNewWindow,
+      selectionView: {
+        ...src.selectionView,
+        mode: p.selectionMode,
+        selectColor: p.selectColor,
+        hoverColor: p.hoverColor,
+        hyperlinkColor: p.hyperlinkColor,
+        enableBoxSelection: p.enableBoxSelection,
+        enableBlur: p.enableBlur,
+        blur: p.blur,
+        dilate: p.dilate,
+        enableDilate: p.enableDilate,
+      }
+    };
+    return result;
+  }, []);
 
   React.useEffect(() => {
 
     if (props.url) {
       getContent(props.url).then(content => {
 
-        const init: Partial<IDiagramInfo> = {
-          enableZoom: props.enableZoom,
-          enablePan: props.enablePan,
-          enableZoomShift: props.enableZoomShift,
-          enableZoomCtrl: props.enableZoomCtrl,
-      
-          enableLinks: props.enableLinks,
-          enableSelection: props.enableSelection,
-          enableHover: props.enableHover,
-          selectionView: {
-            mode: props.selectionMode,
-            selectColor: props.selectColor,
-            hoverColor: props.hoverColor,
-            hyperlinkColor: props.hyperlinkColor,
-            enableBoxSelection: props.enableBoxSelection,
-            enableBlur: props.enableBlur,
-            blur: props.blur,
-            dilate: props.dilate,
-            enableDilate: props.enableDilate,
-          }
-        };
-
-        contextRef.current = new SvgPublishContext(containerRef.current!, content, init);
+        contextRef.current = new SvgPublishContext(containerRef.current!, content, props);
         if (contextRef.current?.services?.selection && props.selectedShapeId) {
           contextRef.current.services.selection.setSelection(props.selectedShapeId);
         }
@@ -92,6 +104,23 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   }, [props.url]);
 
+  const enableService = (name: keyof IServices, enable?: boolean) => {
+    const context = contextRef.current;
+    if (context) {
+      const service = context.services?.[name];
+      if (service) {
+        service.reset();
+        if (!enable) {
+          context.enableService(name, false);
+        }
+      } else {
+        if (enable) {
+          context.enableService(name, true);
+        }
+      }
+    }
+  }
+
   React.useEffect(() => {
     if (contextRef.current?.diagram) {
       contextRef.current.diagram.enablePan = !!props.enablePan;
@@ -105,56 +134,16 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   }, [props.enableZoom]);
 
   React.useEffect(() => {
-    contextRef.current?.enableService('links', !!props.enableLinks)
-  }, [props.enableLinks]);
-
-  React.useEffect(() => {
     contextRef.current?.services?.view?.reset()
   }, [props.width, props.height]);
 
   React.useEffect(() => {
     if (contextRef.current?.diagram) {
-      
-      contextRef.current.diagram = {
-        ...contextRef.current.diagram,
-        enableSelection: !!props.enableSelection,
-        enableHover: !!props.enableHover,
-      };
-
-      contextRef.current.diagram.selectionView = {
-        ...contextRef.current.diagram.selectionView,
-        mode: props.selectionMode,
-        selectColor: props.selectColor,
-        hoverColor: props.hoverColor,
-        hyperlinkColor: props.hyperlinkColor,
-        enableBoxSelection: props.enableBoxSelection,
-        enableBlur: props.enableBlur,
-        blur: props.blur,
-        dilate: props.dilate,
-        enableDilate: props.enableDilate,
-      };
+      contextRef.current.diagram = mergeProps(contextRef.current.diagram, props);
     }
-    if (contextRef.current?.services?.selection) {
-      contextRef.current?.services?.selection?.reset();
-      if (!props.enableSelection) {
-        contextRef.current?.enableService('selection', false);
-      }
-    } else {
-      if (props.enableSelection) {
-        contextRef.current?.enableService('selection', true);
-      }
-    }
-
-    if (contextRef.current?.services?.hover) {
-      contextRef.current?.services?.hover?.reset();
-      if (!props.enableHover) {
-        contextRef.current?.enableService('hover', false);
-      }
-    } else {
-      if (props.enableHover) {
-        contextRef.current?.enableService('hover', true);
-      }
-    }
+    enableService('selection', props.enableSelection);
+    enableService('hover', props.enableHover);
+    enableService('links', props.enableFollowHyperlinks);
   }, [
     props.enableSelection,
     props.enableHover,
@@ -167,6 +156,11 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     props.hoverColor,
     props.hyperlinkColor,
     props.enableBoxSelection,
+    props.openHyperlinksInNewWindow,
+    props.twoFingersTouch,
+    props.enableFollowHyperlinks,
+    props.enableZoomShift,
+    props.enableZoomCtrl,
   ]);
 
   React.useEffect(() => {
@@ -181,7 +175,8 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   const style: React.CSSProperties = {
     ...props.style,
     width: props.width ?? '100%',
-    height: props.height ?? '100%'
+    height: props.height ?? '100%',
+    overflow: 'hidden',
   };
 
   return (

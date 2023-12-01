@@ -93,3 +93,13 @@ export const RequireShiftForZoom: Story = {
     enableZoomShift: true,
   },
 }
+
+export const RequireTwoFingersTouch: Story = {
+  parameters: {
+    controls: { include: ['twoFingersTouch']}
+  },
+  args: {
+    twoFingersTouch: true,
+  },
+}
+

@@ -5,7 +5,7 @@ function App() {
   return (
     <SvgPublishComponent
       url="/connected-highlight.svg"
-      enablePan enableZoom enableLinks
+      enablePan enableZoom enableFollowHyperlinks
     />
   )
 }

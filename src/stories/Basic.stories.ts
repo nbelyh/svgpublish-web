@@ -13,14 +13,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Default: Story = {
+export const EmbedForceCtrl: Story = {
   parameters: {
     layout: 'fullscreen',
-    controls: { include: ['url']}
+    controls: { include: ['url', 'enableZoomCtrl']}
   },
   args: {
     url: '/src/stories/assets/POW.svg',
     height: '80vh',
+    enableZoomCtrl: true,
   },
 };
 
@@ -28,11 +29,12 @@ export const Default: Story = {
 export const WidthAndHeight: Story = {
   parameters: {
     layout: 'centered',
-    controls: { include: ['url', 'width', 'height']}
+    controls: { include: ['url', 'width', 'height', 'enableZoomCtrl']}
   },
   args: {
     url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg',
     height: 500,
     width: 500,
+    enableZoomCtrl: false,
   },
 };

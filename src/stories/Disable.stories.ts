@@ -34,7 +34,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const None: Story = {
+export const Enabled: Story = {
   parameters: {
     layout: 'fullscreen',
     controls: { include: ['enableSelection', 'enableHover', 'enablePan', 'enableZoom']}

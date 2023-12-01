@@ -6,6 +6,7 @@ import { SvgPublishComponent } from '../../lib/SvgPublishComponent';
 const meta = {
   title: 'Basic/Selection',
   component: SvgPublishComponent,
+  tags: ['autodocs'],
   argTypes: {
     selectionMode: {
       control: 'select',
@@ -27,6 +28,7 @@ const meta = {
     blur: 2,
     enableBoxSelection: false,
     selectedShapeId: 'shape2',
+    enableZoomCtrl: true,
   },
 } satisfies Meta<typeof SvgPublishComponent>;
 
@@ -54,13 +56,13 @@ export const BoxSelection: Story = {
   },
 };
 
-export const Color: Story = {
+export const RedColor: Story = {
   parameters: {
     controls: { include: ['selectColor', 'hoverColor', 'hyperlinkColor']}
   },
   args: {
     selectColor: 'rgba(255, 0, 0, 0.8)',
-    hoverColor: 'rgba(255, 255, 0, 0.4)',
+    hoverColor: 'rgba(255, 0, 0, 0.4)',
     hyperlinkColor: 'rgba(0, 255, 0, 0.8)',
   },
 };
@@ -78,7 +80,7 @@ export const Thin: Story = {
   },
 };
 
-export const SelectionMode: Story = {
+export const SelectionFillDarken: Story = {
   parameters: {
     controls: { include: ['selectionMode', 'selectColor', 'dilate', 'enableDilate']}
   },
@@ -88,5 +90,19 @@ export const SelectionMode: Story = {
     enableDilate: false,
     enableBlur: false,
     selectColor: 'rgba(255, 255, 0, 0.5)',
+  },
+};
+
+export const SelectionFillLighten: Story = {
+  parameters: {
+    controls: { include: ['selectionMode', 'selectColor', 'dilate', 'enableDilate']}
+  },
+  args: {
+    selectionMode: 'lighten',
+    dilate: 0,
+    enableDilate: false,
+    enableBlur: false,
+    selectColor: 'rgba(255, 255, 0, 0.5)',
+    selectedShapeId: 'shape4',
   },
 };

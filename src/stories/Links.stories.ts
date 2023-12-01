@@ -17,16 +17,15 @@ const meta = {
   },
   args: {
     url: '/src/stories/assets/Links.svg',
-    enableSelection: true,
-    enableHover: true,
     height: '80vh',
     selectionMode: 'normal',
     enableDilate: true,
-    dilate: 2,
     enableBlur: true,
-    blur: 2,
     enableBoxSelection: false,
-    selectedShapeId: 'shape2',
+    enableFollowHyperlinks: true,
+    enableSelection: false,
+    enablePan: false,
+    enableHover: true,
   },
 } satisfies Meta<typeof SvgPublishComponent>;
 
@@ -36,13 +35,27 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
   parameters: {
-    layout: 'fullscreen',
-    controls: { include: ['enableLinks']}
+    controls: { include: ['enableFollowHyperlinks']}
+  },
+};
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const OpenInNew: Story = {
+  parameters: {
+    controls: { include: ['enableFollowHyperlinks', 'openHyperlinksInNewWindow']}
   },
   args: {
-    enableLinks: true,
-    enableSelection: false,
-    enablePan: false,
-    enableHover: false,
+    openHyperlinksInNewWindow: true
+  }
+};
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const MetroSBahn: Story = {
+  parameters: {
+    controls: { include: ['enableFollowHyperlinks', 'openHyperlinksInNewWindow']}
   },
+  args: {
+    url: '/src/stories/assets/ViennaSbahn.svg',
+    openHyperlinksInNewWindow: true
+  }
 };
