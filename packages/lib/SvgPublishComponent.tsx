@@ -1,41 +1,7 @@
 import * as React from 'react';
-import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IDiagramInfo, IServices } from 'svgpublish';
-
-export interface ISvgPublishComponentProps {
-  url: string;
-  style?: React.CSSProperties;
-  width?: number | string;
-  height?: number | string;
-
-  enableZoom?: boolean;
-  enablePan?: boolean;
-  enableZoomShift?: boolean;
-  enableZoomCtrl?: boolean;
-  twoFingersTouch?: boolean;
-
-  enableLinks?: boolean;
-  enableFollowHyperlinks?: boolean;
-  openHyperlinksInNewWindow?: boolean;
-
-  enableSelection?: boolean;
-  enableHover?: boolean;
-
-  enableBlur?: boolean;
-  blur?: number;
-  enableDilate?: boolean;
-  dilate?: number;
-  selectionMode?: 'normal' | 'lighten' | 'darken';
-  selectColor?: string;
-  hoverColor?: string;
-  hyperlinkColor?: string;
-  enableBoxSelection?: boolean;
-
-  selectedShapeId?: string;
-
-  onLinkClicked?: (evt: LinkClickedEvent) => void | null;
-  onSelectionChanged?: (evt: SelectionChangedEvent) => void;
-  onViewChanged?: (evt: ViewChangedEvent) => void;
-}
+import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IServices } from 'svgpublish';
+import { ISvgPublishComponentProps } from './ISvgPublishComponentProps';
+import { mergeProps } from './Utils';
 
 export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
@@ -44,38 +10,12 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   const getContent = React.useCallback(async (url: string) => {
     const response = await fetch(url);
-    const content = await response.text();
-    return content;
-  }, []);
-
-  const mergeProps = React.useCallback((src: IDiagramInfo, p: ISvgPublishComponentProps) => {
-    const result: IDiagramInfo = {
-      ...src,
-      enableZoom: p.enableZoom,
-      enablePan: p.enablePan,
-      enableZoomShift: p.enableZoomShift,
-      enableZoomCtrl: p.enableZoomCtrl,
-
-      enableFollowHyperlinks: p.enableFollowHyperlinks,
-
-      enableSelection: p.enableSelection,
-      enableHover: p.enableHover,
-      twoFingersTouch: p.twoFingersTouch,
-      openHyperlinksInNewWindow: p.openHyperlinksInNewWindow,
-      selectionView: {
-        ...src.selectionView,
-        mode: p.selectionMode,
-        selectColor: p.selectColor,
-        hoverColor: p.hoverColor,
-        hyperlinkColor: p.hyperlinkColor,
-        enableBoxSelection: p.enableBoxSelection,
-        enableBlur: p.enableBlur,
-        blur: p.blur,
-        dilate: p.dilate,
-        enableDilate: p.enableDilate,
-      }
-    };
-    return result;
+    if (response.ok) {
+      const content = await response.text();
+      return content;
+    } else {
+      throw new Error(`Failed to load content from ${url}`);
+    }
   }, []);
 
   React.useEffect(() => {
@@ -116,8 +56,16 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
           }
           setContext(newContext);
         }
-      }, err => {
-        console.error(err);
+      }, (err) => {
+        if (context) {
+          context.destroy();
+          setContext(null);
+        }
+        if (props.onError) {
+          props.onError(err);
+        } else {
+          console.error(err);
+        }
       })
     }
 
