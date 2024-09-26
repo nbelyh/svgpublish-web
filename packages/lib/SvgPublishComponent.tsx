@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent } from 'svgpublish';
-import { IDiagramInfo } from 'svgpublish/dist/interfaces/IDiagramInfo';
-import { IServices } from 'svgpublish/dist/interfaces/IServices';
+import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IDiagramInfo, IServices } from 'svgpublish';
 
 export interface ISvgPublishComponentProps {
   url: string;

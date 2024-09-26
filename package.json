@@ -1,7 +1,7 @@
 {
   "name": "svgpublish-react",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.6",
   "type": "module",
   "main": "dist/svgpublish-react.js",
   "types": "dist/main.d.ts",
@@ -17,9 +17,6 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "svgpublish": "0.0.13"
-  },
   "peerDependencies": {
     "react": ">= 16.13.1",
     "react-dom": ">= 16.13.1"
