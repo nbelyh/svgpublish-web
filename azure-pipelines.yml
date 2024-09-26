@@ -32,3 +32,9 @@ steps:
     command: publish
     publishRegistry: useExternalRegistry
     publishEndpoint: 'NPMJS'
+
+- task: Npm@1
+  displayName: 'npm run build-storybook'
+  inputs:
+    command: custom
+    customCommand: 'run build-storybook'
