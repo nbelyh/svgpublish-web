@@ -108,13 +108,29 @@ export const SelectionFillLighten: Story = {
   },
 };
 
-export const Event: Story = {
+export const EventSelectionChanged: Story = {
   parameters: {
     layout: 'fullscreen',
+    controls: { include: ['onSelectionChanged']}
   },
   argTypes: {
     onSelectionChanged: { 
       action: 'onSelectionChanged',
     },
+  },
+};
+
+export const SetSelection: Story = {
+  parameters: {
+    controls: { include: ['selectedShapeId']}
+  },
+  args: {
+    selectedShapeId: 'shape4',
+  },
+  argTypes: {
+    selectedShapeId: {
+      control: 'select',
+      options: ['shape1', 'shape2', 'shape3', 'shape4', 'shape5', 'shape6', 'shape8', 'shape9']
+    }
   },
 };
