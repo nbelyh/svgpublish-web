@@ -1,0 +1,1 @@
+export { SvgPublishComponent } from './SvgPublishComponent'

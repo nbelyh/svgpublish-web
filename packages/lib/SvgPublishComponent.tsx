@@ -203,8 +203,8 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   const style: React.CSSProperties = {
     ...props.style,
-    width: props.width ?? '100%',
-    height: props.height ?? '100%',
+    width: (typeof props.width === 'number' || props.width) ? props.width : '100%',
+    height: (typeof props.height === 'number' || props.height) ? props.height : '100%',
     overflow: 'hidden',
   };
 
