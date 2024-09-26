@@ -16,7 +16,7 @@ const meta = {
     layout: 'fullscreen'
   },
   args: {
-    url: '/src/stories/assets/Links.svg',
+    url: '/assets/Links.svg',
     height: '80vh',
     selectionMode: 'normal',
     enableDilate: true,
@@ -55,7 +55,7 @@ export const MetroSBahn: Story = {
     controls: { include: ['enableFollowHyperlinks', 'openHyperlinksInNewWindow']}
   },
   args: {
-    url: '/src/stories/assets/ViennaSbahn.svg',
+    url: '/assets/ViennaSbahn.svg',
     openHyperlinksInNewWindow: true
   }
 };

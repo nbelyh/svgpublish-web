@@ -19,7 +19,7 @@ export const DefaultEmbedWithCtrlWheel: Story = {
     controls: { include: ['url', 'enableZoomCtrl']}
   },
   args: {
-    url: '/src/stories/assets/POW.svg',
+    url: '/assets/POW.svg',
     height: '80vh',
     enableZoomCtrl: true,
   },

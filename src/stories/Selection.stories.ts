@@ -17,7 +17,7 @@ const meta = {
     layout: 'fullscreen'
   },
   args: {
-    url: '/src/stories/assets/CustomerFlow.svg',
+    url: '/CustomerFlow.svg',
     enableSelection: true,
     enableHover: true,
     height: '80vh',
