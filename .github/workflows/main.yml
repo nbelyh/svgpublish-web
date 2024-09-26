@@ -22,10 +22,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run storybook build
+        run: npm run build-storybook
+        
       - name: Publish to npm
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Run storybook build
-        run: npm run build-storybook
