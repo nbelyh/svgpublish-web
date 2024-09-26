@@ -12,6 +12,7 @@ export default defineConfig({
     dts({ include: ['lib'] })    
   ],
   build: {
+    sourcemap: true,
     rollupOptions: {
       external: ['react', 'react/jsx-runtime'],
     },
