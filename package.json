@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "start": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "build-app": "tsc && vite build",
     "prepublishOnly": "npm run build"
   },
   "files": [
