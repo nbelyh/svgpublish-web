@@ -1,7 +1,7 @@
 {
   "name": "svgpublish-react",
   "private": false,
-  "version": "0.0.12",
+  "version": "0.0.13",
   "type": "module",
   "main": "dist/svgpublish-react.js",
   "types": "dist/main.d.ts",
@@ -19,11 +19,11 @@
     "dist"
   ],
   "dependencies": {
-    "svgpublish": "^0.0.18"
+    "svgpublish": "^0.0.19"
   },
   "peerDependencies": {
-    "react": ">= 16.13.1",
-    "react-dom": ">= 16.13.1"
+    "react": ">= 17.0.1",
+    "react-dom": ">= 17.0.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.5.3",
@@ -33,18 +33,18 @@
     "@storybook/react": "7.5.3",
     "@storybook/react-vite": "7.5.3",
     "@storybook/testing-library": "^0.2.2",
-    "@types/react": "^16.14.33",
-    "@types/react-dom": "^16.9.16",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "@typescript-eslint/parser": "^6.10.0",
-    "@vitejs/plugin-react": "^4.2.0",
-    "eslint": "^8.53.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.4",
+    "@types/react": "^16.14.62",
+    "@types/react-dom": "^16.9.24",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.12",
     "eslint-plugin-storybook": "^0.6.15",
     "storybook": "7.5.3",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0",
-    "vite-plugin-dts": "^4.2.2"
+    "typescript": "^5.6.2",
+    "vite": "^4.5.5",
+    "vite-plugin-dts": "^4.2.3"
   }
 }
