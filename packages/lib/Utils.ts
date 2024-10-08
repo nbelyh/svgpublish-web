@@ -26,6 +26,16 @@ export function mergeProps(src: IDiagramInfo, p: ISvgPublishComponentProps) {
       blur: p.blur,
       dilate: p.dilate,
       enableDilate: p.enableDilate,
+      enableConnDilate: p.enableConnDilate,
+      connDilate: p.connDilate,
+      nextShapeColor: p.nextShapeColor,
+      enableNextShapeColor: p.enableNextShapeColor,
+      prevShapeColor: p.prevShapeColor,
+      enablePrevShapeColor: p.enablePrevShapeColor,
+      nextConnColor: p.nextConnColor,
+      enableNextConnColor: p.enableNextConnColor,
+      prevConnColor: p.prevConnColor,
+      enablePrevConnColor: p.enablePrevConnColor,
     }
   };
   return result;

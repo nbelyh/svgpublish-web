@@ -1,33 +1,33 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { SvgPublishComponent } from '../../lib/SvgPublishComponent';
+import { SvgPublishComponent } from "../../lib/SvgPublishComponent";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Basic/Selection',
+  title: "Basic/Selection",
   component: SvgPublishComponent,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     selectionMode: {
-      control: 'select',
-      options: ['normal', 'lighten', 'darken']
-    }
+      control: "select",
+      options: ["normal", "lighten", "darken"],
+    },
   },
   parameters: {
-    layout: 'fullscreen'
+    layout: "fullscreen",
   },
   args: {
-    url: '/assets/CustomerFlow.svg',
+    url: "/assets/CustomerFlow.svg",
     enableSelection: true,
     enableHover: true,
-    height: '80vh',
-    selectionMode: 'normal',
+    height: "80vh",
+    selectionMode: "normal",
     enableDilate: true,
     dilate: 2,
     enableBlur: true,
     blur: 2,
     enableBoxSelection: false,
-    selectedShapeId: 'shape2',
+    selectedShapeId: "shape2",
     enableZoomCtrl: true,
   },
 } satisfies Meta<typeof SvgPublishComponent>;
@@ -38,98 +38,124 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
   parameters: {
-    layout: 'fullscreen',
-    controls: { include: ['enableSelection', 'enableHover', 'enableBlur', 'blur', 'enableDilate', 'dilate', 'selectionMode', 'selectColor', 'hoverColor', 'hyperlinkColor', 'enableBoxSelection']}
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "enableSelection",
+        "enableHover",
+        "enableBlur",
+        "blur",
+        "enableDilate",
+        "dilate",
+        "selectionMode",
+        "selectColor",
+        "hoverColor",
+        "hyperlinkColor",
+        "enableBoxSelection",
+      ],
+    },
   },
-  args: {
-  },
+  args: {},
 };
 
 export const BoxSelection: Story = {
   parameters: {
-    controls: { include: ['selectColor', 'hoverColor', 'enableBoxSelection']}
+    controls: { include: ["selectColor", "hoverColor", "enableBoxSelection"] },
   },
   args: {
-    selectColor: 'rgba(0, 50, 255, 0.8)',
-    hoverColor: 'rgba(0, 50, 255, 0.4)',
+    selectColor: "rgba(0, 50, 255, 0.8)",
+    hoverColor: "rgba(0, 50, 255, 0.4)",
     enableBoxSelection: true,
   },
 };
 
 export const RedColor: Story = {
   parameters: {
-    controls: { include: ['selectColor', 'hoverColor', 'hyperlinkColor']}
+    controls: { include: ["selectColor", "hoverColor", "hyperlinkColor"] },
   },
   args: {
-    selectColor: 'rgba(255, 0, 0, 0.8)',
-    hoverColor: 'rgba(255, 0, 0, 0.4)',
-    hyperlinkColor: 'rgba(0, 255, 0, 0.8)',
+    selectColor: "rgba(255, 0, 0, 0.8)",
+    hoverColor: "rgba(255, 0, 0, 0.4)",
+    hyperlinkColor: "rgba(0, 255, 0, 0.8)",
   },
 };
 
 export const Thin: Story = {
   parameters: {
-    controls: { include: ['dilate']}
+    controls: { include: ["dilate"] },
   },
   args: {
     dilate: 1,
     enableDilate: true,
     blur: 0,
     enableBlur: false,
-    selectColor: 'rgba(255, 0, 0, 0.8)',
+    selectColor: "rgba(255, 0, 0, 0.8)",
   },
 };
 
 export const SelectionFillDarken: Story = {
   parameters: {
-    controls: { include: ['selectionMode', 'selectColor', 'dilate', 'enableDilate']}
+    controls: {
+      include: ["selectionMode", "selectColor", "dilate", "enableDilate"],
+    },
   },
   args: {
-    selectionMode: 'darken',
+    selectionMode: "darken",
     dilate: 0,
     enableDilate: false,
     enableBlur: false,
-    selectColor: 'rgba(255, 255, 0, 0.5)',
+    selectColor: "rgba(255, 255, 0, 0.5)",
   },
 };
 
 export const SelectionFillLighten: Story = {
   parameters: {
-    controls: { include: ['selectionMode', 'selectColor', 'dilate', 'enableDilate']}
+    controls: {
+      include: ["selectionMode", "selectColor", "dilate", "enableDilate"],
+    },
   },
   args: {
-    selectionMode: 'lighten',
+    selectionMode: "lighten",
     dilate: 0,
     enableDilate: false,
     enableBlur: false,
-    selectColor: 'rgba(255, 255, 0, 0.5)',
-    selectedShapeId: 'shape4',
+    selectColor: "rgba(255, 255, 0, 0.5)",
+    selectedShapeId: "shape4",
   },
 };
 
 export const EventSelectionChanged: Story = {
   parameters: {
-    layout: 'fullscreen',
-    controls: { include: ['onSelectionChanged']}
+    layout: "fullscreen",
+    controls: { include: ["onSelectionChanged"] },
   },
   argTypes: {
-    onSelectionChanged: { 
-      action: 'onSelectionChanged',
+    onSelectionChanged: {
+      action: "onSelectionChanged",
     },
   },
 };
 
 export const SetSelection: Story = {
   parameters: {
-    controls: { include: ['selectedShapeId']}
+    controls: { include: ["selectedShapeId"] },
   },
   args: {
-    selectedShapeId: 'shape4',
+    selectedShapeId: "shape4",
   },
   argTypes: {
     selectedShapeId: {
-      control: 'select',
-      options: ['shape1', 'shape2', 'shape3', 'shape4', 'shape5', 'shape6', 'shape8', 'shape9']
-    }
+      control: "select",
+      options: [
+        "shape1",
+        "shape2",
+        "shape3",
+        "shape4",
+        "shape5",
+        "shape6",
+        "shape8",
+        "shape9",
+      ],
+    },
   },
 };

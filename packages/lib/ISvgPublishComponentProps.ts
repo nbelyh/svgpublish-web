@@ -22,12 +22,22 @@ export interface ISvgPublishComponentProps {
   enableBlur?: boolean;
   blur?: number;
   enableDilate?: boolean;
+  enableConnDilate?: boolean;
   dilate?: number;
+  connDilate?: number;
   selectionMode?: 'normal' | 'lighten' | 'darken';
   selectColor?: string;
   hoverColor?: string;
   hyperlinkColor?: string;
   enableBoxSelection?: boolean;
+  enablePrevShapeColor?: boolean;
+  nextShapeColor?: string;
+  enableNextShapeColor?: boolean;
+  prevShapeColor?: string;
+  enablePrevConnColor?: boolean;
+  nextConnColor?: string;
+  enableNextConnColor?: boolean;
+  prevConnColor?: string;
 
   selectedShapeId?: string;
 

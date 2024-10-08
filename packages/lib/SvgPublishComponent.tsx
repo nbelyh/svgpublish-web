@@ -135,6 +135,16 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     props.enableFollowHyperlinks,
     props.enableZoomShift,
     props.enableZoomCtrl,
+    props.nextShapeColor,
+    props.enableNextConnColor,
+    props.prevShapeColor,
+    props.enablePrevShapeColor,
+    props.nextConnColor,
+    props.enableNextShapeColor,
+    props.prevConnColor,
+    props.enablePrevConnColor,
+    props.enableConnDilate,
+    props.connDilate
   ]);
 
   React.useEffect(() => {
