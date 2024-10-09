@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IServices } from 'svgpublish';
+import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IServices, IDiagramInfo } from 'svgpublish';
 import { ISvgPublishComponentProps } from './ISvgPublishComponentProps';
 import { mergeProps } from './Utils';
 
@@ -48,7 +48,8 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
       getContent(props.url).then(content => {
         if (containerRef.current) {
 
-          const init = mergeProps({} as any, props);
+          const init: Partial<IDiagramInfo> = {};
+          mergeProps(init, props);
 
           const newContext = new SvgPublishContext(containerRef.current, content, init);
           if (newContext?.services?.selection && props.selectedShapeId) {
@@ -112,7 +113,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   React.useEffect(() => {
     if (context?.diagram) {
-      context.diagram = mergeProps(context.diagram, props);
+      mergeProps(context.diagram, props);
     }
     enableService('selection', props.enableSelection);
     enableService('hover', props.enableHover);
