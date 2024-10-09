@@ -46,6 +46,45 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  parameters: {
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "enableSelection",
+        "selectionMode",
+        "enableHover",
+        "selectColor",
+        "hoverColor",
+        "enableBoxSelection",
+        "enablePrevShapeColor",
+        "prevShapeColor",
+        "enableNextShapeColor",
+        "nextShapeColor",
+        "enablePrevConnColor",
+        "prevConnColor",
+        "enableNextConnColor",
+        "nextConnColor",
+        "enableConnDilate",
+        "connDilate",
+      ],
+    },
+  },
+  args: {
+    selectionMode: 'lighten',
+    enablePrevShapeColor: true,
+    prevShapeColor: "rgba(255, 0, 0, 0.4)",
+    enableNextShapeColor: true,
+    nextShapeColor: "rgba(0, 255, 0, 0.4)",
+    enablePrevConnColor: true,
+    prevConnColor: "rgba(255, 0, 0, 1)",
+    enableNextConnColor: true,
+    nextConnColor: "rgba(0, 255, 0, 0.4)",
+    enableBoxSelection: true,
+    enableConnDilate: false,
+  },
+};
+
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const ShapesOnly: Story = {
   parameters: {
