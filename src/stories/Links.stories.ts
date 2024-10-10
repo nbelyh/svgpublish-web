@@ -61,5 +61,7 @@ export const MetroSBahn: Story = {
   args: {
     url: "/assets/ViennaSbahn.svg",
     openHyperlinksInNewWindow: true,
+    enablePan: true,
+    enableZoom: true,
   },
 };

@@ -38,10 +38,18 @@ export const Default: Story = {
   parameters: {
     layout: "fullscreen",
     controls: {
-      include: ["enableSelection", "enableHover", "enablePan", "enableZoom"],
+      include: [
+        "enableSelection", 
+        "enableHover", 
+        "enablePan", 
+        "enableZoom"
+      ],
     },
   },
-  args: {},
+  args: {
+    enablePan: true,
+    enableZoom: true,
+  },
 };
 
 export const DisablePanAndZoom: Story = {

@@ -21,6 +21,9 @@ export const DefaultEmbedWithCtrlWheel: Story = {
   args: {
     url: "/assets/POW.svg",
     height: "80vh",
+    enablePan: true,
+    enableZoom: true,
+    twoFingersTouch: true,
     enableZoomCtrl: true,
   },
 };
@@ -35,6 +38,9 @@ export const WidthAndHeight: Story = {
     url: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg",
     height: 500,
     width: 500,
-    enableZoomCtrl: false,
+    enablePan: true,
+    enableZoom: true,
+    twoFingersTouch: true,
+    enableZoomCtrl: true,
   },
 };

@@ -27,6 +27,10 @@ const meta = {
     blur: 2,
     enableBoxSelection: false,
     selectedShapeId: "shape2",
+    enablePan: true,
+    enableZoom: true,
+    twoFingersTouch: true,
+    enableZoomCtrl: true,
   },
 } satisfies Meta<typeof SvgPublishComponent>;
 

@@ -240,6 +240,9 @@ export const DatabaseDiagram: Story = {
   },
   args: {
     url: "/assets/AdvWorksOLTPSchemaVisio.svg",
+    enableZoom: true,
+    enablePan: true,
+    enableZoomCtrl: false,
     selectionMode: 'lighten',
     enableBoxSelection: true,
     enableConnDilate: true,
