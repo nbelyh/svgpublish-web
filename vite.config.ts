@@ -5,6 +5,9 @@ import dts from 'vite-plugin-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ['svgpublish'],
+  },
   plugins: [
     react({
       jsxRuntime: 'classic',

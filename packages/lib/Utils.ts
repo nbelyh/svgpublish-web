@@ -96,4 +96,29 @@ export function mergeProps(target: Partial<IDiagramInfo>, p: ISvgPublishComponen
   if (typeof p.enablePrevConnColor !== 'undefined') {
     target.selectionView.enablePrevConnColor = p.enablePrevConnColor;
   }
+
+  if (typeof p.tooltipTrigger !== 'undefined') {
+    target.tooltipTrigger = p.tooltipTrigger;
+  }
+  if (typeof p.tooltipTimeout !== 'undefined') {
+    target.tooltipDelay = p.tooltipTimeout;
+  }
+  if (typeof p.tooltipTimeoutShow !== 'undefined') {
+    target.tooltipDelayShow = p.tooltipTimeoutShow;
+  }
+  if (typeof p.tooltipTimeoutHide !== 'undefined') {
+    target.tooltipDelayHide = p.tooltipTimeoutHide;
+  }
+  if (typeof p.tooltipPlacement !== 'undefined') {
+    target.tooltipPlacement = p.tooltipPlacement;
+  }
+  if (typeof p.tooltipUseMousePosition !== 'undefined') {
+    target.tooltipUseMousePosition = p.tooltipUseMousePosition;
+  }
+  if (typeof p.tooltipOutsideClick !== 'undefined') {
+    target.tooltipOutsideClick = p.tooltipOutsideClick;
+  }
+  if (typeof p.tooltipInteractive !== 'undefined') {
+    target.tooltipInteractive = p.tooltipInteractive;
+  }
 }

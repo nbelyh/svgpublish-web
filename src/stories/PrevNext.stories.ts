@@ -219,6 +219,7 @@ export const DatabaseDiagram: Story = {
     layout: "fullscreen",
     controls: {
       include: [
+        "url",
         "enableSelection",
         "selectionMode",
         "enableHover",

@@ -118,6 +118,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     enableService('selection', props.enableSelection);
     enableService('hover', props.enableHover);
     enableService('links', props.enableFollowHyperlinks);
+    enableService('tooltip', props.enableTooltips);
   }, [
     context,
     props.enableSelection,
@@ -145,7 +146,19 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     props.prevConnColor,
     props.enablePrevConnColor,
     props.enableConnDilate,
-    props.connDilate
+    props.connDilate,
+
+    props.enableTooltips,
+    props.tooltipTrigger,
+    props.tooltipTimeout,
+    props.tooltipTimeoutShow,
+    props.tooltipTimeoutHide,
+    props.tooltipPlacement,
+    props.tooltipUseMousePosition,
+    props.tooltipOutsideClick,
+    props.tooltipInteractive
+    // props.enableTooltipMarkdown,
+    // props.tooltipMarkdown,
   ]);
 
   React.useEffect(() => {

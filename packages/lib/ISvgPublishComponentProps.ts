@@ -39,6 +39,20 @@ export interface ISvgPublishComponentProps {
   enableNextConnColor?: boolean;
   prevConnColor?: string;
 
+  enableTooltips?: boolean;
+  tooltipTrigger?: 'mouseenter' | 'click' | 'mouseenter click';
+  tooltipTimeout?: boolean;
+  tooltipTimeoutShow?: number;
+  tooltipTimeoutHide?: number;
+  tooltipPlacement: 'auto' | 'auto-start' | 'auto-end' |
+    'top' | 'top-start' | 'top-end' |
+    'right' | 'right-start' | 'right-end' |
+    'bottom' | 'bottom-start' | 'bottom-end' |
+    'left' | 'left-start' | 'left-end';
+  tooltipUseMousePosition?: boolean;
+  tooltipOutsideClick?: boolean;
+  tooltipInteractive?: boolean;
+
   selectedShapeId?: string;
 
   onError?: (err: Error) => void;
