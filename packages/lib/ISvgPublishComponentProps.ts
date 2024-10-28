@@ -26,7 +26,7 @@ export interface ISvgPublishComponentProps {
   dilate?: number;
   connDilate?: number;
   selectionMode?: 'normal' | 'lighten' | 'darken';
-  selectColor?: string;
+  selectionColor?: string;
   hoverColor?: string;
   hyperlinkColor?: string;
   enableBoxSelection?: boolean;
@@ -41,9 +41,9 @@ export interface ISvgPublishComponentProps {
 
   enableTooltips?: boolean;
   tooltipTrigger?: 'mouseenter' | 'click' | 'mouseenter click';
-  tooltipTimeout?: boolean;
-  tooltipTimeoutShow?: number;
-  tooltipTimeoutHide?: number;
+  tooltipDelay?: boolean;
+  tooltipDelayShow?: number;
+  tooltipDelayHide?: number;
   tooltipPlacement?: 'auto' | 'auto-start' | 'auto-end' |
     'top' | 'top-start' | 'top-end' |
     'right' | 'right-start' | 'right-end' |

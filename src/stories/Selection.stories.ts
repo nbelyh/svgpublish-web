@@ -48,7 +48,7 @@ export const Default: Story = {
         "enableDilate",
         "dilate",
         "selectionMode",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "hyperlinkColor",
         "enableBoxSelection",
@@ -60,10 +60,10 @@ export const Default: Story = {
 
 export const BoxSelection: Story = {
   parameters: {
-    controls: { include: ["selectColor", "hoverColor", "enableBoxSelection"] },
+    controls: { include: ["selectionColor", "hoverColor", "enableBoxSelection"] },
   },
   args: {
-    selectColor: "rgba(0, 50, 255, 0.8)",
+    selectionColor: "rgba(0, 50, 255, 0.8)",
     hoverColor: "rgba(0, 50, 255, 0.4)",
     enableBoxSelection: true,
   },
@@ -71,10 +71,10 @@ export const BoxSelection: Story = {
 
 export const RedColor: Story = {
   parameters: {
-    controls: { include: ["selectColor", "hoverColor", "hyperlinkColor"] },
+    controls: { include: ["selectionColor", "hoverColor", "hyperlinkColor"] },
   },
   args: {
-    selectColor: "rgba(255, 0, 0, 0.8)",
+    selectionColor: "rgba(255, 0, 0, 0.8)",
     hoverColor: "rgba(255, 0, 0, 0.4)",
     hyperlinkColor: "rgba(0, 255, 0, 0.8)",
   },
@@ -89,14 +89,14 @@ export const Thin: Story = {
     enableDilate: true,
     blur: 0,
     enableBlur: false,
-    selectColor: "rgba(255, 0, 0, 0.8)",
+    selectionColor: "rgba(255, 0, 0, 0.8)",
   },
 };
 
 export const SelectionFillDarken: Story = {
   parameters: {
     controls: {
-      include: ["selectionMode", "selectColor", "dilate", "enableDilate"],
+      include: ["selectionMode", "selectionColor", "dilate", "enableDilate"],
     },
   },
   args: {
@@ -104,14 +104,14 @@ export const SelectionFillDarken: Story = {
     dilate: 0,
     enableDilate: false,
     enableBlur: false,
-    selectColor: "rgba(255, 255, 0, 0.5)",
+    selectionColor: "rgba(255, 255, 0, 0.5)",
   },
 };
 
 export const SelectionFillLighten: Story = {
   parameters: {
     controls: {
-      include: ["selectionMode", "selectColor", "dilate", "enableDilate"],
+      include: ["selectionMode", "selectionColor", "dilate", "enableDilate"],
     },
   },
   args: {
@@ -119,7 +119,7 @@ export const SelectionFillLighten: Story = {
     dilate: 0,
     enableDilate: false,
     enableBlur: false,
-    selectColor: "rgba(255, 255, 0, 0.5)",
+    selectionColor: "rgba(255, 255, 0, 0.5)",
     selectedShapeId: "shape4",
   },
 };

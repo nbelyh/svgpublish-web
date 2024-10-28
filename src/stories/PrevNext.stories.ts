@@ -38,7 +38,7 @@ const meta = {
     enableNextConnColor: true,
     nextConnColor: "#00ff00",
 
-    selectColor: "rgba(255, 255, 0, 0.4)",
+    selectionColor: "rgba(255, 255, 0, 0.4)",
     hoverColor: "rgba(255, 255, 0, 0.2)"
   },
 } satisfies Meta<typeof SvgPublishComponent>;
@@ -54,7 +54,7 @@ export const Default: Story = {
         "enableSelection",
         "selectionMode",
         "enableHover",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "enableBoxSelection",
         "enablePrevShapeColor",
@@ -93,7 +93,7 @@ export const ShapesOnly: Story = {
       include: [
         "enableSelection",
         "enableHover",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "enableBoxSelection",
         "enablePrevShapeColor",
@@ -117,7 +117,7 @@ export const ConnectorsOnly: Story = {
       include: [
         "enableSelection",
         "enableHover",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "enableBoxSelection",
         "enablePrevConnColor",
@@ -141,7 +141,7 @@ export const SingleColor: Story = {
       include: [
         "enableSelection",
         "enableHover",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "enableBoxSelection",
         "enablePrevShapeColor",
@@ -167,7 +167,7 @@ export const NextOnly: Story = {
       include: [
         "enableSelection",
         "enableHover",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "enableBoxSelection",
         "enablePrevShapeColor",
@@ -194,7 +194,7 @@ export const ConnectorDilate: Story = {
       include: [
         "enableSelection",
         "enableHover",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "enableConnDilate",
         "connDilate",
@@ -223,7 +223,7 @@ export const DatabaseDiagram: Story = {
         "enableSelection",
         "selectionMode",
         "enableHover",
-        "selectColor",
+        "selectionColor",
         "hoverColor",
         "enableBoxSelection",
         "enablePrevShapeColor",
