@@ -44,7 +44,7 @@ export interface ISvgPublishComponentProps {
   tooltipTimeout?: boolean;
   tooltipTimeoutShow?: number;
   tooltipTimeoutHide?: number;
-  tooltipPlacement: 'auto' | 'auto-start' | 'auto-end' |
+  tooltipPlacement?: 'auto' | 'auto-start' | 'auto-end' |
     'top' | 'top-start' | 'top-end' |
     'right' | 'right-start' | 'right-end' |
     'bottom' | 'bottom-start' | 'bottom-end' |
