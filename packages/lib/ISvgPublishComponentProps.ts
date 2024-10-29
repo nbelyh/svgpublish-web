@@ -1,4 +1,4 @@
-import { LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent } from 'svgpublish';
+import { DiagramInfoSelectionMode, DiagramInfoTooltipPlacement, DiagramInfoTooltipTheme, DiagramInfoTooltipTrigger, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent } from 'svgpublish';
 
 export interface ISvgPublishComponentProps {
   url: string;
@@ -25,7 +25,7 @@ export interface ISvgPublishComponentProps {
   enableConnDilate?: boolean;
   dilate?: number;
   connDilate?: number;
-  selectionMode?: 'normal' | 'lighten' | 'darken';
+  selectionMode?: DiagramInfoSelectionMode;
   selectionColor?: string;
   hoverColor?: string;
   hyperlinkColor?: string;
@@ -40,21 +40,17 @@ export interface ISvgPublishComponentProps {
   prevConnColor?: string;
 
   enableTooltips?: boolean;
-  tooltipTrigger?: 'mouseenter' | 'click' | 'mouseenter click';
+  tooltipTrigger?: DiagramInfoTooltipTrigger;
   tooltipDelay?: boolean;
   tooltipDelayShow?: number;
   tooltipDelayHide?: number;
-  tooltipPlacement?: 'auto' | 'auto-start' | 'auto-end' |
-    'top' | 'top-start' | 'top-end' |
-    'right' | 'right-start' | 'right-end' |
-    'bottom' | 'bottom-start' | 'bottom-end' |
-    'left' | 'left-start' | 'left-end';
+  tooltipPlacement?: DiagramInfoTooltipPlacement;
   tooltipUseMousePosition?: boolean;
   tooltipInteractive?: boolean;
 
   enableTooltipMarkdown?: boolean;
   tooltipMarkdown?: string;
-  tooltipTheme?: 'dark' | 'light' | 'translucent';
+  tooltipTheme?: DiagramInfoTooltipTheme;
 
   selectedShapeId?: string;
 
