@@ -21,7 +21,7 @@ export function mergeProps(target: Partial<IDiagramInfo>, p: ISvgPublishComponen
     'twoFingersTouch', 
     'openHyperlinksInNewWindow',
     'tooltipTrigger', 'tooltipDelay', 'tooltipDelayShow', 'tooltipDelayHide',
-    'tooltipPlacement', 'tooltipUseMousePosition', 'tooltipOutsideClick', 'tooltipInteractive'
+    'tooltipPlacement', 'tooltipUseMousePosition', 'tooltipInteractive'
   ];
 
   keysToAssign.forEach(key => assignIfDefined(target, p, key));

@@ -53,6 +53,9 @@ export interface ISvgPublishComponentProps {
   tooltipOutsideClick?: boolean;
   tooltipInteractive?: boolean;
 
+  enableTooltipMarkdown?: boolean;
+  tooltipMarkdown?: string;
+
   selectedShapeId?: string;
 
   onError?: (err: Error) => void;

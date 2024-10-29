@@ -155,10 +155,9 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     props.tooltipDelayHide,
     props.tooltipPlacement,
     props.tooltipUseMousePosition,
-    props.tooltipOutsideClick,
-    props.tooltipInteractive
-    // props.enableTooltipMarkdown,
-    // props.tooltipMarkdown,
+    props.tooltipInteractive,
+    props.enableTooltipMarkdown,
+    props.tooltipMarkdown,
   ]);
 
   React.useEffect(() => {
