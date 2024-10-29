@@ -97,3 +97,20 @@ export const Interactive: Story = {
     tooltipInteractive: true,
   },
 };
+
+export const Theme: Story = {
+
+  parameters: {
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "url",
+        'tooltipTheme',
+      ]
+    },
+  },
+  args: {
+    tooltipUseMousePosition: true,
+    tooltipTheme: 'light',
+  },
+};

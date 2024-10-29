@@ -50,11 +50,11 @@ export interface ISvgPublishComponentProps {
     'bottom' | 'bottom-start' | 'bottom-end' |
     'left' | 'left-start' | 'left-end';
   tooltipUseMousePosition?: boolean;
-  tooltipOutsideClick?: boolean;
   tooltipInteractive?: boolean;
 
   enableTooltipMarkdown?: boolean;
   tooltipMarkdown?: string;
+  tooltipTheme?: 'dark' | 'light' | 'translucent';
 
   selectedShapeId?: string;
 
