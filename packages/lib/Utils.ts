@@ -20,7 +20,7 @@ export function mergeProps(target: Partial<IDiagramInfo>, p: ISvgPublishComponen
     'enableHover', 
     'twoFingersTouch', 
     'openHyperlinksInNewWindow',
-    'tooltipTrigger', 'tooltipDelay', 'tooltipDelayShow', 'tooltipDelayHide',
+    'tooltipTrigger', 'tooltipDelay', 'tooltipDelayShow', 'tooltipDelayHide', 'tooltipMarkdown', 'enableTooltipMarkdown',
     'tooltipPlacement', 'tooltipUseMousePosition', 'tooltipInteractive', 'tooltipTheme',
   ];
 

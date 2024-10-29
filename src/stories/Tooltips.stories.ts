@@ -114,3 +114,23 @@ export const Theme: Story = {
     tooltipTheme: 'light',
   },
 };
+
+export const Markdown: Story = {
+
+  parameters: {
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "url",
+        'tooltipMarkdown',
+        'enableTooltipMarkdown',
+      ]
+    },
+  },
+  args: {
+    enableTooltipMarkdown: true,
+    tooltipInteractive: true,
+    tooltipTheme: 'light',
+    tooltipMarkdown: 'This is a **markdown** tooltip with a [link](https://www.google.com). <br>The shape comment is: {{Comment}}',
+  },
+};
