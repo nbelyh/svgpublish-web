@@ -22,7 +22,6 @@ const meta = {
     tooltipTrigger: 'mouseenter',
     tooltipPlacement: 'top',
     tooltipUseMousePosition: false,
-    tooltipOutsideClick: true
   },
 } satisfies Meta<typeof SvgPublishComponent>;
 
@@ -40,7 +39,6 @@ export const Default: Story = {
         "tooltipTrigger",
         "tooltipPlacement",
         "tooltipUseMousePosition",
-        "tooltipOutsideClick",
         "tooltipDelay",
         "tooltipDelayShow",
         "tooltipDelayHide",
