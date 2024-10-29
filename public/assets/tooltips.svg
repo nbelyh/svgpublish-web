@@ -1,28 +1,33 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st3">
+﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st4">
 	
 
 	<style type="text/css">
 	.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
 	.st2 {fill:#000000;font-family:Calibri;font-size:1.00001em;}
-	.st3 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
+	.st3 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25;}
+	.st4 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
 </style>
 
 	<g id="viewport">
 		
 		
-		<g id="shape1" transform="translate(226.772,-524.409)">
+		<g id="shape1" transform="translate(226.535,-574.522)">
 			
 			<desc>HOVER ME</desc>
 			
 			
-			<rect x="0" y="785.197" width="106.299" height="56.6929" class="st1" />
-			<text x="26.43" y="817.14" class="st2">HOVER ME</text>		</g>
-		<g id="shape2" transform="translate(226.772,-425.197)">
+			<path d="M0.24 841.89 L106.54 841.89 L106.54 785.2 A53.3858 53.3858 -180 1 0 0.24 785.2 L0.24 841.89 Z" class="st1" />
+			<text x="26.67" y="787.94" class="st2">HOVER ME</text>		</g>
+		<g id="shape2" transform="translate(226.772,-382.562)">
 			
 			<desc>HOVER ME</desc>
 			
 			
-			<rect x="0" y="785.197" width="106.299" height="56.6929" class="st1" />
-			<text x="26.43" y="817.14" class="st2">HOVER ME</text>		</g>
+			<path d="M0 799.25 A54.4461 54.4461 -180 0 0 106.3 799.25 L106.3 742.56 L0 742.56 L0 799.25 Z" class="st1" />
+			<text x="26.43" y="795.83" class="st2">HOVER ME</text>		</g>
+		<g id="shape3" transform="translate(921.796,212.009) rotate(90.5729)">
+			
+			<path d="M0 791.44 C-0.47 818 30.52 833 51.38 826.37 C71.05 820.11 81.71 794.61 100.51 778.53 C109.27 771.03 119.82 765.59        128.73 766.06 C146.68 767.01 158.03 791.97 171.7 810.99 C183.88 827.93 197.91 840.16 215.95 841.73 C223.86        842.41 232.54 841.05 240 837.23 C259.64 827.18 270.84 800.11 283.48 791.44" class="st3" />
+		</g>
 	</g>
-<SvgPublishData xmlns="http://vispublish">{"shapes":{"shape1":{"ShapeId":"shape1","Comment":"This is some comment","Text":"HOVER ME"},"shape2":{"ShapeId":"shape2","Comment":"This is another comment","Text":"HOVER ME"}},"pages":[{"Name":"Page-1","Id":0,"FileName":"tooltips.svg"}],"currentPage":{"Name":"Page-1","Id":0,"FileName":"tooltips.svg"},"layers":[],"enableProps":true,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":true,"enablePages":true,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":true,"openHyperlinksInNewWindow":true,"transformVisioFileLinks":false,"useReadablePageNames":true,"keepRelativeLinks":true,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":false,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipInteractive":false,"tooltipDelay":false,"popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverUseMousePosition":false,"enableContainerTip":false,"suppressMobileTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"viewBox":"0 0 595.276 841.89","layerView":{"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":false,"enableLayerShowAll":false},"selectionView":{"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"enableConnDilate":false,"dilate":4,"connDilate":1,"mode":"normal","selectionColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":false,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":false,"nextShapeColor":"rgba(255, 160, 255, 0.90)","enablePrevConnColor":false,"prevConnColor":"rgba(255, 0, 0, 1.00)","enableNextConnColor":false,"nextConnColor":"rgba(255, 0, 0, 1.00)"}}</SvgPublishData></svg>
+<SvgPublishData xmlns="http://vispublish">{"shapes":{"shape1":{"ShapeId":"shape1","Comment":"This is some comment","Text":"HOVER ME"},"shape2":{"ShapeId":"shape2","Comment":"This is another comment","Text":"HOVER ME"},"shape3":{"ShapeId":"shape3","Comment":"Some Line Comment","Text":""}},"pages":[{"Name":"Page-1","Id":0,"FileName":"tooltips.svg"}],"currentPage":{"Name":"Page-1","Id":0,"FileName":"tooltips.svg"},"layers":[],"enableProps":true,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":true,"enablePages":true,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":true,"openHyperlinksInNewWindow":true,"transformVisioFileLinks":false,"useReadablePageNames":true,"keepRelativeLinks":true,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":false,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipInteractive":false,"tooltipDelay":false,"popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverUseMousePosition":false,"enableContainerTip":false,"suppressMobileTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"viewBox":"0 0 595.276 841.89","layerView":{"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":false,"enableLayerShowAll":false},"selectionView":{"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"enableConnDilate":false,"dilate":4,"connDilate":1,"mode":"normal","selectionColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":false,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":false,"nextShapeColor":"rgba(255, 160, 255, 0.90)","enablePrevConnColor":false,"prevConnColor":"rgba(255, 0, 0, 1.00)","enableNextConnColor":false,"nextConnColor":"rgba(255, 0, 0, 1.00)"}}</SvgPublishData></svg>

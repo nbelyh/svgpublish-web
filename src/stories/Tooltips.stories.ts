@@ -7,6 +7,23 @@ const meta = {
   title: "Basic/Tooltips",
   component: SvgPublishComponent,
   tags: ["autodocs"],
+  args: {
+    url: "/assets/tooltips.svg",
+    enablePan: true,
+    enableZoom: true,
+    twoFingersTouch: true,
+    enableZoomCtrl: true,
+    height: "80vh",
+
+    enableTooltips: true,
+    tooltipDelay: false,
+    tooltipDelayShow: 500,
+    tooltipDelayHide: 100,
+    tooltipTrigger: 'mouseenter',
+    tooltipPlacement: 'top',
+    tooltipUseMousePosition: false,
+    tooltipOutsideClick: true
+  },
 } satisfies Meta<typeof SvgPublishComponent>;
 
 export default meta;
@@ -30,21 +47,55 @@ export const Default: Story = {
       ]
     },
   },
-  args: {
-    url: "/assets/tooltips.svg",
-    enablePan: true,
-    enableZoom: true,
-    twoFingersTouch: true,
-    enableZoomCtrl: true,
-    height: "80vh",
+};
 
-    enableTooltips: true,
-    tooltipDelay: false,
-    tooltipDelayShow: 500,
-    tooltipDelayHide: 100,
-    tooltipTrigger: 'mouseenter',
-    tooltipPlacement: 'bottom',
-    tooltipUseMousePosition: false,
-    tooltipOutsideClick: true
+export const Delay: Story = {
+
+  parameters: {
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "url",
+        "enableTooltips",
+        "tooltipDelay",
+        "tooltipDelayShow",
+        "tooltipDelayHide",
+      ]
+    },
+  },
+  args: {
+    tooltipDelay: true,
+  },
+};
+
+export const UseMousePosition: Story = {
+
+  parameters: {
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "url",
+        "useMousePosition",
+      ]
+    },
+  },
+  args: {
+    tooltipUseMousePosition: true,
+  },
+};
+
+export const Interactive: Story = {
+
+  parameters: {
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "url",
+        "useMousePosition",
+      ]
+    },
+  },
+  args: {
+    tooltipInteractive: true,
   },
 };
