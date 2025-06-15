@@ -2,6 +2,7 @@ import * as React from 'react';
 import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IServices, IDiagramInfo } from 'svgpublish';
 import { ISvgPublishComponentProps } from './ISvgPublishComponentProps';
 import { mergeProps } from './Utils';
+import useVisible from './useVisible';
 
 export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
@@ -42,9 +43,15 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     }
   }, [context, props.onViewChanged]);
 
+  const isVisible = useVisible(containerRef);
+
+  const urlRef = React.useRef(props.url);
+  
   React.useEffect(() => {
 
-    if (props.url) {
+    const initialize = isVisible && (!context || props.url !== urlRef.current);
+    if (initialize) {
+      urlRef.current = props.url;
       getContent(props.url).then(content => {
         if (containerRef.current) {
 
@@ -71,13 +78,13 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     }
 
     return () => {
-      if (context) {
+      if (initialize && context) {
         context.destroy();
         setContext(null);
       }
     };
 
-  }, [props.url]);
+  }, [props.url, isVisible]);
 
   const enableService = (name: keyof IServices, enable?: boolean) => {
     if (context) {
@@ -109,7 +116,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   React.useEffect(() => {
     context?.services?.view?.reset()
-  }, [context, props.width, props.height]);
+  }, [context, props.width, props.height, isVisible]);
 
   React.useEffect(() => {
     if (context?.diagram) {
