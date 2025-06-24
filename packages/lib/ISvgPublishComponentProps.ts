@@ -55,6 +55,7 @@ export interface ISvgPublishComponentProps {
   selectedShapeId?: string;
 
   onError?: (err: Error) => void;
+  onGetContent?: (url: string) => Promise<string>;
 
   onLinkClicked?: (evt: LinkClickedEvent) => void | null;
   onSelectionChanged?: (evt: SelectionChangedEvent) => void;

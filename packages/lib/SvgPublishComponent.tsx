@@ -10,6 +10,9 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   const [context, setContext] = React.useState<SvgPublishContext | null>(null);
 
   const getContent = React.useCallback(async (url: string) => {
+    if (props.onGetContent) {
+      return await props.onGetContent(url);
+    }
     const response = await fetch(url);
     if (response.ok) {
       const content = await response.text();
@@ -17,7 +20,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     } else {
       throw new Error(`Failed to load content from ${url}`);
     }
-  }, []);
+  }, [props.onGetContent]);
 
   React.useEffect(() => {
     if (context && props.onLinkClicked) {
