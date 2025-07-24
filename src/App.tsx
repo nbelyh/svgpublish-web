@@ -1,5 +1,5 @@
 import React from 'react'
-import { SvgPublishComponent } from '../lib/SvgPublishComponent'
+import { SvgPublishComponent } from '../component/SvgPublishComponent'
 
 function App() {
 

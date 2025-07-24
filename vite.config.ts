@@ -12,7 +12,7 @@ export default defineConfig({
     react({
       jsxRuntime: 'classic',
     }),
-    dts({ include: ['lib'] })    
+    dts({ include: ['component'] })
   ],
   build: {
     sourcemap: true,
@@ -21,7 +21,7 @@ export default defineConfig({
     },
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, 'lib/main.ts'),
+      entry: resolve(__dirname, 'component/main.ts'),
       formats: ['es']
     }
   }
