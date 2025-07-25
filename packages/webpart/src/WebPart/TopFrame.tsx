@@ -6,6 +6,7 @@ import { ActionButton, Breadcrumb, IBreadcrumbItem, IconButton, Stack, ThemeProv
 import { SvgPublishComponent, LinkClickedEvent } from 'svgpublish-react';
 import { stringifyError } from './Errors';
 import { ErrorPlaceholder } from './components/ErrorPlaceholder';
+import { AppSidebar } from './components/AppSidebar';
 import { UsageLogService } from './services/UsageLogService';
 
 const isUrlAbsolute = (url: string) => url.indexOf('://') > 0 || url.indexOf('//') === 0;
@@ -141,11 +142,20 @@ export function TopFrame(props: {
   const feeedbackButtonTarget = '_blank';
 
   const [hashLinkTooltip, setHashLinkTooltip] = React.useState('Copy WebPart Link');
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   const onCopyHashLink = async () => {
     await navigator.clipboard.writeText(pageUrl);
     setHashLinkTooltip('Link copied!');
     setTimeout(() => setHashLinkTooltip('Copy WebPart Link'), 2000);
+  }
+
+  const onOpenSidebar = () => {
+    setIsSidebarOpen(true);
+  }
+
+  const onCloseSidebar = () => {
+    setIsSidebarOpen(false);
   }
 
   return (
@@ -161,6 +171,11 @@ export function TopFrame(props: {
               <IconButton iconProps={{ iconName: 'PageLink' }} title='Copy WebPart Link' onClick={onCopyHashLink} />
             </TooltipHost>
           </Stack.Item>}
+          <Stack.Item align='center'>
+            <TooltipHost content="Open sidebar">
+              <IconButton iconProps={{ iconName: 'OpenPane' }} title='Open Sidebar' onClick={onOpenSidebar} />
+            </TooltipHost>
+          </Stack.Item>
           {props.webpart.enableFeedback && <Stack.Item align='center'>
             <ActionButton target={feeedbackButtonTarget} href={formattedFeedbackUrl}>{feedbackButtonText}</ActionButton>
           </Stack.Item>}
@@ -211,6 +226,10 @@ export function TopFrame(props: {
 
         onLinkClicked={onLinkClicked}
         onError={onError}
+      />
+      <AppSidebar
+        isOpen={isSidebarOpen}
+        onDismiss={onCloseSidebar}
       />
     </ThemeProvider>
   );
