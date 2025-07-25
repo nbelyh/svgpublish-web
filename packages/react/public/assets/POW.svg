@@ -1,0 +1,1521 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st35">
+	
+
+	<style type="text/css">
+	.st1 {fill:#4672c4;fill-opacity:0;stroke:#c7c8c8;stroke-width:0.72;}
+	.st2 {fill:#4672c4;stroke:#c7c8c8;stroke-width:0.72;}
+	.st3 {fill:#feffff;font-family:Calibri;font-size:1.00001em;}
+	.st4 {fill:#4672c4;fill-opacity:0;}
+	.st5 {stroke:#c7c8c8;stroke-width:0.25;visibility:hidden;}
+	.st6 {fill:#4672c4;fill-opacity:0;stroke:#c7c8c8;stroke-width:0.25;}
+	.st7 {fill:#4672c4;stroke:#c7c8c8;stroke-width:0.25;}
+	.st8 {fill:#4672c4;stroke:#c7c8c8;stroke-width:0.25;visibility:hidden;}
+	.st9 {fill:#4672c4;stroke:#c7c8c8;stroke-width:0.24;}
+	.st10 {fill:#ffffff;stroke:#c7c8c8;stroke-width:0.24;visibility:hidden;}
+	.st11 {fill:#ffffff;stroke:#c7c8c8;stroke-width:0.72;visibility:hidden;}
+	.st12 {fill:#c7c8c8;fill-opacity:1;stroke:#c7c8c8;stroke-opacity:1;stroke-width:0.35714285714286;}
+	.st13 {fill:#000000;stroke:#c8c8c8;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.72;visibility:hidden;}
+	.st14 {fill:#feffff;font-family:Calibri;font-size:0.666664em;}
+	.st15 {font-size:1em;}
+	.st16 {fill:#000000;stroke:#c7c8c8;stroke-width:0.72;}
+	.st17 {fill:none;stroke:#c7c8c8;stroke-width:0.72;visibility:hidden;}
+	.st18 {fill:#000000;font-family:Calibri;font-size:0.666664em;}
+	.st19 {marker-end:url(#mrkr4-424);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.72;}
+	.st20 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.28571428571429;}
+	.st21 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2;}
+	.st22 {fill:#ffff00;stroke:#000000;stroke-width:0.24;visibility:hidden;}
+	.st23 {fill:#000000;stroke:none;stroke-width:0.24;visibility:hidden;}
+	.st24 {fill:#4672c4;stroke:#c7c8c8;stroke-width:0.24;visibility:hidden;}
+	.st25 {fill:none;stroke:none;stroke-width:0.25;}
+	.st26 {fill:#000000;font-family:Calibri;font-size:1.5em;}
+	.st27 {fill:#7f7f7f;font-family:Calibri;font-size:1.16666em;}
+	.st28 {fill:#72767a;stroke:#72767a;stroke-linecap:butt;stroke-width:1.5;}
+	.st29 {fill:none;stroke:#72767a;stroke-linecap:butt;stroke-width:1.5;}
+	.st30 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st31 {fill:#ff827c;stroke:#ff827c;stroke-opacity:0.6;stroke-width:1;}
+	.st32 {stroke:#ffffff;stroke-linecap:butt;stroke-width:2;}
+	.st33 {fill:#6cde84;stroke:#6cde84;stroke-width:1;}
+	.st34 {fill:none;}
+	.st35 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
+</style>
+
+	<defs id="Markers">
+		<g id="lend1">
+			<path d="M 1 -1 L 0 0 L 1 1 " style="stroke-linecap:round;stroke-linejoin:round;fill:none" />
+		</g>
+		<marker style="overflow:visible" id="mrkr1-64" class="st12" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend1" transform="scale(-2.8,-2.8) " />
+		</marker>
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none" />
+		</g>
+		<marker style="overflow:visible" id="mrkr4-424" class="st20" refX="-7" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-3.5,-3.5) " />
+		</marker>
+	</defs>
+	<g id="viewport">
+		
+		
+		
+		
+		
+		
+		
+		<g id="group74-1" transform="translate(63.7795,-51)">
+			
+			
+			
+			<g id="shape75-2">
+				
+				
+				<rect x="0" y="244.177" width="713.895" height="351.099" class="st1" />
+			</g>
+			<g id="shape76-4" transform="translate(-561.26,595.276) rotate(-90)">
+				
+				<desc>Procurement Process</desc>
+				
+				
+				
+				<path d="M0 595.28 L351.1 595.28 L351.1 561.26 L0 561.26 L0 595.28 Z" class="st2" />
+				<text x="123.56" y="581.87" class="st3">Procurement Process</text>			</g>
+		</g>
+		<g id="shape77" transform="translate(97.7953,-51)" class="swimlane-list">
+			
+			
+			<rect x="0" y="244.177" width="679.879" height="351.099" class="st4" />
+			<rect x="0" y="244.177" width="679.879" height="351.099" class="st5" />
+		</g>
+		<g id="group70-10" transform="translate(97.7953,-287.717)">
+			
+			
+			
+			<g id="shape71-11">
+				
+				
+				<rect x="0" y="480.893" width="679.879" height="114.383" class="st6" />
+			</g>
+			<g id="shape72-13" transform="translate(354.089,0)">
+				
+			</g>
+			<g id="shape73-15" transform="translate(-558.472,595.276) rotate(-90)">
+				
+				<desc>Request Creator</desc>
+				
+				
+				
+				<path d="M0 595.28 L114.38 595.28 L114.38 558.47 L0 558.47 L0 595.28 Z" class="st7" />
+				<text x="17.53" y="580.47" class="st3">Request Creator</text>			</g>
+		</g>
+		<g id="group82-18" transform="translate(97.7953,-172.913)">
+			
+			
+			
+			<g id="shape83-19">
+				
+				
+				<rect x="0" y="480.472" width="679.879" height="114.803" class="st6" />
+			</g>
+			<g id="shape84-21" transform="translate(354.089,0)">
+				
+			</g>
+			<g id="shape85-23" transform="translate(-558.472,595.276) rotate(-90)">
+				
+				<desc>Procurement</desc>
+				
+				
+				
+				<path d="M0 595.28 L114.8 595.28 L114.8 558.47 L0 558.47 L0 595.28 Z" class="st7" />
+				<text x="25.34" y="580.47" class="st3">Procurement</text>			</g>
+		</g>
+		<g id="group86-26" transform="translate(97.7953,-51)">
+			
+			
+			
+			<g id="shape87-27">
+				
+				
+				<rect x="0" y="473.362" width="679.879" height="121.913" class="st6" />
+			</g>
+			<g id="shape88-29" transform="translate(354.089,0)">
+				
+			</g>
+			<g id="shape89-31" transform="translate(-558.472,595.276) rotate(-90)">
+				
+				<desc>Finance</desc>
+				
+				
+				
+				<path d="M0 595.28 L121.91 595.28 L121.91 558.47 L0 558.47 L0 595.28 Z" class="st7" />
+				<text x="42.12" y="580.47" class="st3">Finance</text>			</g>
+		</g>
+		<g id="shape78" transform="translate(134.599,-51)" class="phase-list">
+			
+			
+			<rect x="0" y="244.177" width="643.075" height="351.099" class="st8" />
+		</g>
+		<g id="shape79" transform="translate(134.599,-51)" class="separator">
+			
+			
+			<g id="shape80-37">
+				
+				
+			</g>
+			<g id="shape81-39" transform="translate(-36.8039,-351.099)">
+				
+				<desc>Phase</desc>
+				
+				
+				
+				<path d="M0 595.28 L679.88 595.28 L0 595.28 Z" class="st7" />
+			</g>
+		</g>
+		<g id="shape110" transform="translate(325.984,-307.398)" class="task">
+			
+			
+			
+			<desc>Set file status as Rejected – Incomplete information</desc>
+			<g id="shape111-42">
+				
+				<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="5.66929" ry="5.66929" class="st9" />
+			</g>
+			<g id="group112-44">
+				
+				<g id="shape113-45">
+					
+					<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+				<g id="shape114-47" transform="translate(1.8,-1.8)">
+					
+					<rect x="0" y="542.183" width="67.2661" height="53.0929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+			</g>
+			<g id="shape115-49" transform="translate(36.2438,-2.12598)">
+				
+				
+			</g>
+			<g id="group116-51" transform="translate(36.6038,-2.83465)">
+				
+				
+				<g id="shape117-52">
+					
+					<rect x="0" y="583.937" width="11.3386" height="11.3386" class="st11" />
+				</g>
+				<g id="shape118-54" transform="translate(2.83465,-2.83465)">
+					
+				</g>
+			</g>
+			<g id="shape119-56" transform="translate(36.6038,-3.68504)">
+				
+				
+			</g>
+			<g id="shape120-58" transform="translate(37.7178,-3.68504)">
+				
+				
+			</g>
+			<g id="group121-60" transform="translate(36.2438,-2.83465)">
+				
+				
+				<g id="shape122-61" transform="translate(9.93392,1180.21) rotate(179.753)">
+					
+				</g>
+			</g>
+			<g id="shape123-65" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape124-67" transform="translate(3.00394,-42.689)">
+				
+			</g>
+			<g id="group125-69" transform="translate(2.50394,-44.189)">
+				
+				<g id="shape126-70">
+					
+					<rect x="0" y="587.276" width="12" height="8" class="st13" />
+				</g>
+				<g id="shape127-72" transform="translate(-1.9984E-15,-4.20339)">
+					
+				</g>
+			</g>
+			<g id="shape128-74" transform="translate(2.50394,-44.189)">
+				
+			</g>
+			<g id="shape129-76" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape130-78" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape131-80" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape132-82" transform="translate(-548.544,590.967) rotate(-90)">
+				
+				
+			</g>
+			<g id="shape110-84">
+				
+				
+				<text x="9.2" y="554.93" class="st14">Set file status as <tspan x="18.3" dy="1.2em" class="st15">Rejected </tspan>– <tspan x="16.99" dy="1.2em" class="st15">Incomplete </tspan><tspan x="16.11" dy="1.2em" class="st15">information</tspan></text>			</g>
+		</g>
+		<g id="shape133" transform="translate(228.189,-192.953)" class="task">
+			
+			
+			
+			<desc>Start procurement approval process</desc>
+			<g id="shape134-90">
+				
+				<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="5.66929" ry="5.66929" class="st9" />
+			</g>
+			<g id="group135-92">
+				
+				<g id="shape136-93">
+					
+					<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+				<g id="shape137-95" transform="translate(1.8,-1.8)">
+					
+					<rect x="0" y="542.183" width="67.2661" height="53.0929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+			</g>
+			<g id="shape138-97" transform="translate(36.2438,-2.12598)">
+				
+				
+			</g>
+			<g id="group139-99" transform="translate(36.6038,-2.83465)">
+				
+				
+				<g id="shape140-100">
+					
+					<rect x="0" y="583.937" width="11.3386" height="11.3386" class="st11" />
+				</g>
+				<g id="shape141-102" transform="translate(2.83465,-2.83465)">
+					
+				</g>
+			</g>
+			<g id="shape142-104" transform="translate(36.6038,-3.68504)">
+				
+				
+			</g>
+			<g id="shape143-106" transform="translate(37.7178,-3.68504)">
+				
+				
+			</g>
+			<g id="group144-108" transform="translate(36.2438,-2.83465)">
+				
+				
+				<g id="shape145-109" transform="translate(9.93392,1180.21) rotate(179.753)">
+					
+				</g>
+			</g>
+			<g id="shape146-112" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape147-114" transform="translate(3.00394,-42.689)">
+				
+			</g>
+			<g id="group148-116" transform="translate(2.50394,-44.189)">
+				
+				<g id="shape149-117">
+					
+					<rect x="0" y="587.276" width="12" height="8" class="st13" />
+				</g>
+				<g id="shape150-119" transform="translate(-1.9984E-15,-4.20339)">
+					
+				</g>
+			</g>
+			<g id="shape151-121" transform="translate(2.50394,-44.189)">
+				
+			</g>
+			<g id="shape152-123" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape153-125" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape154-127" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape155-129" transform="translate(-548.544,590.967) rotate(-90)">
+				
+				
+			</g>
+			<g id="shape133-131">
+				
+				
+				<text x="5.29" y="564.53" class="st14">Start procurement <tspan x="7.85" dy="1.2em" class="st15">approval process</tspan></text>			</g>
+		</g>
+		<g id="shape156" transform="translate(339.449,-203.725)" class="gateway">
+			
+			
+			
+			<desc>Check if request has complete information</desc>
+			<g id="shape157-135">
+				
+				<path d="M21.97 595.28 L43.94 577.7 L21.97 560.13 L0 577.7 L21.97 595.28 Z" class="st2" />
+			</g>
+			<g id="shape158-137" transform="translate(15.1866,-8.97142)">
+				
+				<path d="M0 578.07 L5.05 586.65 L0 595.23 L3.04 595.28 L6.78 588.83 L10.38 595.28 L13.56 595.23 L8.38 586.65 L13.56         578.07 L10.44 578.07 L6.78 584.05 L3.33 578.07 L0 578.07 Z" class="st16" />
+			</g>
+			<g id="group159-139" transform="translate(11.7855,-7.43955)">
+				
+				<g id="shape160-140">
+					
+				</g>
+				<g id="shape161-142" transform="translate(4.16585,-5.01113)">
+					
+				</g>
+			</g>
+			<g id="shape162-144" transform="translate(11.436,-7.09169)">
+				
+			</g>
+			<g id="shape163-146" transform="translate(12.5415,-8.36305)">
+				
+			</g>
+			<g id="shape164-148" transform="translate(12.28,-7.68866)">
+				
+			</g>
+			<g id="group165-150" transform="translate(11.7855,-7.43955)">
+				
+				<g id="shape166-151">
+					
+					<ellipse cx="10.183" cy="585.14" rx="10.183" ry="10.1352" class="st17" />
+				</g>
+				<g id="shape167-153" transform="translate(4.16585,-5.01113)">
+					
+				</g>
+			</g>
+			<g id="group168-155" transform="translate(11.7855,-7.43955)">
+				
+				<g id="shape169-156">
+					
+					<ellipse cx="10.183" cy="585.14" rx="10.183" ry="10.1352" class="st17" />
+				</g>
+				<g id="shape170-158" transform="translate(3.97138,-3.5068)">
+					
+				</g>
+			</g>
+			<g id="shape156-160">
+				
+				
+				<text x="-4.2" y="604.48" class="st18">Check if request <tspan x="0.15" dy="1.2em" class="st15">has complete </tspan><tspan x="2.64" dy="1.2em" class="st15">information</tspan></text>			</g>
+		</g>
+		<g id="shape171" transform="translate(432.283,-193.016)" class="task">
+			
+			
+			
+			<desc>Retrieve supplier details from SharePoint</desc>
+			<g id="shape172-165">
+				
+				<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="5.66929" ry="5.66929" class="st9" />
+			</g>
+			<g id="group173-167">
+				
+				<g id="shape174-168">
+					
+					<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+				<g id="shape175-170" transform="translate(1.8,-1.8)">
+					
+					<rect x="0" y="542.183" width="67.2661" height="53.0929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+			</g>
+			<g id="shape176-172" transform="translate(36.2438,-2.12598)">
+				
+				
+			</g>
+			<g id="group177-174" transform="translate(36.6038,-2.83465)">
+				
+				
+				<g id="shape178-175">
+					
+					<rect x="0" y="583.937" width="11.3386" height="11.3386" class="st11" />
+				</g>
+				<g id="shape179-177" transform="translate(2.83465,-2.83465)">
+					
+				</g>
+			</g>
+			<g id="shape180-179" transform="translate(36.6038,-3.68504)">
+				
+				
+			</g>
+			<g id="shape181-181" transform="translate(37.7178,-3.68504)">
+				
+				
+			</g>
+			<g id="group182-183" transform="translate(36.2438,-2.83465)">
+				
+				
+				<g id="shape183-184" transform="translate(9.93392,1180.21) rotate(179.753)">
+					
+				</g>
+			</g>
+			<g id="shape184-187" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape185-189" transform="translate(3.00394,-42.689)">
+				
+			</g>
+			<g id="group186-191" transform="translate(2.50394,-44.189)">
+				
+				<g id="shape187-192">
+					
+					<rect x="0" y="587.276" width="12" height="8" class="st13" />
+				</g>
+				<g id="shape188-194" transform="translate(-1.9984E-15,-4.20339)">
+					
+				</g>
+			</g>
+			<g id="shape189-196" transform="translate(2.50394,-44.189)">
+				
+			</g>
+			<g id="shape190-198" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape191-200" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape192-202" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape193-204" transform="translate(-548.544,590.967) rotate(-90)">
+				
+				
+			</g>
+			<g id="shape171-206">
+				
+				
+				<text x="7.84" y="559.73" class="st14">Retrieve supplier <tspan x="15.86" dy="1.2em" class="st15">details from </tspan><tspan x="17.66" dy="1.2em" class="st15">SharePoint</tspan></text>			</g>
+		</g>
+		<g id="shape194" transform="translate(558.425,-193.016)" class="task">
+			
+			
+			
+			<desc>Send purchase order to supplier</desc>
+			<g id="shape195-211">
+				
+				<rect x="0" y="538.583" width="72.2835" height="56.6929" rx="5.66929" ry="5.66929" class="st9" />
+			</g>
+			<g id="group196-213">
+				
+				<g id="shape197-214">
+					
+					<rect x="0" y="538.583" width="72.2835" height="56.6929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+				<g id="shape198-216" transform="translate(1.8,-1.8)">
+					
+					<rect x="0" y="542.183" width="68.6835" height="53.0929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+			</g>
+			<g id="shape199-218" transform="translate(36.9524,-2.12598)">
+				
+				
+			</g>
+			<g id="group200-220" transform="translate(37.3124,-2.83465)">
+				
+				
+				<g id="shape201-221">
+					
+					<rect x="0" y="583.937" width="11.3386" height="11.3386" class="st11" />
+				</g>
+				<g id="shape202-223" transform="translate(2.83465,-2.83465)">
+					
+				</g>
+			</g>
+			<g id="shape203-225" transform="translate(37.3124,-3.68504)">
+				
+				
+			</g>
+			<g id="shape204-227" transform="translate(38.4265,-3.68504)">
+				
+				
+			</g>
+			<g id="group205-229" transform="translate(36.9524,-2.83465)">
+				
+				
+				<g id="shape206-230" transform="translate(9.93392,1180.21) rotate(179.753)">
+					
+				</g>
+			</g>
+			<g id="shape207-233" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape208-235" transform="translate(3.00394,-42.689)">
+				
+			</g>
+			<g id="group209-237" transform="translate(2.50394,-44.189)">
+				
+				<g id="shape210-238">
+					
+					<rect x="0" y="587.276" width="12" height="8" class="st13" />
+				</g>
+				<g id="shape211-240" transform="translate(-1.9984E-15,-4.20339)">
+					
+				</g>
+			</g>
+			<g id="shape212-242" transform="translate(2.50394,-44.189)">
+				
+			</g>
+			<g id="shape213-244" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape214-246" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape215-248" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape216-250" transform="translate(-547.835,590.967) rotate(-90)">
+				
+				
+			</g>
+			<g id="shape194-252">
+				
+				
+				<text x="2.45" y="564.53" class="st14">Send purchase order <tspan x="18.7" dy="1.2em" class="st15">to supplier</tspan></text>			</g>
+		</g>
+		<g id="shape217" transform="translate(559.338,-307.398)" class="task">
+			
+			
+			
+			<desc>Set file status as Accepted</desc>
+			<g id="shape218-256">
+				
+				<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="5.66929" ry="5.66929" class="st9" />
+			</g>
+			<g id="group219-258">
+				
+				<g id="shape220-259">
+					
+					<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+				<g id="shape221-261" transform="translate(1.8,-1.8)">
+					
+					<rect x="0" y="542.183" width="67.2661" height="53.0929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+			</g>
+			<g id="shape222-263" transform="translate(36.2438,-2.12598)">
+				
+				
+			</g>
+			<g id="group223-265" transform="translate(36.6038,-2.83465)">
+				
+				
+				<g id="shape224-266">
+					
+					<rect x="0" y="583.937" width="11.3386" height="11.3386" class="st11" />
+				</g>
+				<g id="shape225-268" transform="translate(2.83465,-2.83465)">
+					
+				</g>
+			</g>
+			<g id="shape226-270" transform="translate(36.6038,-3.68504)">
+				
+				
+			</g>
+			<g id="shape227-272" transform="translate(37.7178,-3.68504)">
+				
+				
+			</g>
+			<g id="group228-274" transform="translate(36.2438,-2.83465)">
+				
+				
+				<g id="shape229-275" transform="translate(9.93392,1180.21) rotate(179.753)">
+					
+				</g>
+			</g>
+			<g id="shape230-278" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape231-280" transform="translate(3.00394,-42.689)">
+				
+			</g>
+			<g id="group232-282" transform="translate(2.50394,-44.189)">
+				
+				<g id="shape233-283">
+					
+					<rect x="0" y="587.276" width="12" height="8" class="st13" />
+				</g>
+				<g id="shape234-285" transform="translate(-1.9984E-15,-4.20339)">
+					
+				</g>
+			</g>
+			<g id="shape235-287" transform="translate(2.50394,-44.189)">
+				
+			</g>
+			<g id="shape236-289" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape237-291" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape238-293" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape239-295" transform="translate(-548.544,590.967) rotate(-90)">
+				
+				
+			</g>
+			<g id="shape217-297">
+				
+				
+				<text x="9.2" y="564.53" class="st14">Set file status as <tspan x="20.21" dy="1.2em" class="st15">Accepted</tspan></text>			</g>
+		</g>
+		<g id="shape240" transform="translate(674.646,-307.398)" class="task">
+			
+			
+			
+			<desc>Set file status as rejected – budget not approved</desc>
+			<g id="shape241-301">
+				
+				<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="5.66929" ry="5.66929" class="st9" />
+			</g>
+			<g id="group242-303">
+				
+				<g id="shape243-304">
+					
+					<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+				<g id="shape244-306" transform="translate(1.8,-1.8)">
+					
+					<rect x="0" y="542.183" width="67.2661" height="53.0929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+			</g>
+			<g id="shape245-308" transform="translate(36.2438,-2.12598)">
+				
+				
+			</g>
+			<g id="group246-310" transform="translate(36.6038,-2.83465)">
+				
+				
+				<g id="shape247-311">
+					
+					<rect x="0" y="583.937" width="11.3386" height="11.3386" class="st11" />
+				</g>
+				<g id="shape248-313" transform="translate(2.83465,-2.83465)">
+					
+				</g>
+			</g>
+			<g id="shape249-315" transform="translate(36.6038,-3.68504)">
+				
+				
+			</g>
+			<g id="shape250-317" transform="translate(37.7178,-3.68504)">
+				
+				
+			</g>
+			<g id="group251-319" transform="translate(36.2438,-2.83465)">
+				
+				
+				<g id="shape252-320" transform="translate(9.93392,1180.21) rotate(179.753)">
+					
+				</g>
+			</g>
+			<g id="shape253-323" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape254-325" transform="translate(3.00394,-42.689)">
+				
+			</g>
+			<g id="group255-327" transform="translate(2.50394,-44.189)">
+				
+				<g id="shape256-328">
+					
+					<rect x="0" y="587.276" width="12" height="8" class="st13" />
+				</g>
+				<g id="shape257-330" transform="translate(-1.9984E-15,-4.20339)">
+					
+				</g>
+			</g>
+			<g id="shape258-332" transform="translate(2.50394,-44.189)">
+				
+			</g>
+			<g id="shape259-334" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape260-336" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape261-338" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape262-340" transform="translate(-548.544,590.967) rotate(-90)">
+				
+				
+			</g>
+			<g id="shape240-342">
+				
+				
+				<text x="9.2" y="559.73" class="st14">Set file status as <tspan x="6.66" dy="1.2em" class="st15">rejected </tspan>– budget <tspan x="13.46" dy="1.2em" class="st15">not approved</tspan></text>			</g>
+		</g>
+		<g id="shape265" transform="translate(432.283,-78.2126)" class="task">
+			
+			
+			
+			<desc>Start budget approval</desc>
+			<g id="shape266-347">
+				
+				<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="5.66929" ry="5.66929" class="st9" />
+			</g>
+			<g id="group267-349">
+				
+				<g id="shape268-350">
+					
+					<rect x="0" y="538.583" width="70.8661" height="56.6929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+				<g id="shape269-352" transform="translate(1.8,-1.8)">
+					
+					<rect x="0" y="542.183" width="67.2661" height="53.0929" rx="2.12598" ry="2.12598" class="st10" />
+				</g>
+			</g>
+			<g id="shape270-354" transform="translate(36.2438,-2.12598)">
+				
+				
+			</g>
+			<g id="group271-356" transform="translate(36.6038,-2.83465)">
+				
+				
+				<g id="shape272-357">
+					
+					<rect x="0" y="583.937" width="11.3386" height="11.3386" class="st11" />
+				</g>
+				<g id="shape273-359" transform="translate(2.83465,-2.83465)">
+					
+				</g>
+			</g>
+			<g id="shape274-361" transform="translate(36.6038,-3.68504)">
+				
+				
+			</g>
+			<g id="shape275-363" transform="translate(37.7178,-3.68504)">
+				
+				
+			</g>
+			<g id="group276-365" transform="translate(36.2438,-2.83465)">
+				
+				
+				<g id="shape277-366" transform="translate(9.93392,1180.21) rotate(179.753)">
+					
+				</g>
+			</g>
+			<g id="shape278-369" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape279-371" transform="translate(3.00394,-42.689)">
+				
+			</g>
+			<g id="group280-373" transform="translate(2.50394,-44.189)">
+				
+				<g id="shape281-374">
+					
+					<rect x="0" y="587.276" width="12" height="8" class="st13" />
+				</g>
+				<g id="shape282-376" transform="translate(-1.9984E-15,-4.20339)">
+					
+				</g>
+			</g>
+			<g id="shape283-378" transform="translate(2.50394,-44.189)">
+				
+			</g>
+			<g id="shape284-380" transform="translate(3.50394,-43.189)">
+				
+			</g>
+			<g id="shape285-382" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape286-384" transform="translate(3.00394,-44.189)">
+				
+			</g>
+			<g id="shape287-386" transform="translate(-548.544,590.967) rotate(-90)">
+				
+				
+			</g>
+			<g id="shape265-388">
+				
+				
+				<text x="15.18" y="564.53" class="st14">Start budget <tspan x="21.17" dy="1.2em" class="st15">approval</tspan></text>			</g>
+		</g>
+		<g id="shape304" transform="translate(571.89,-88.9843)" class="gateway">
+			
+			
+			
+			<desc>Budget approval</desc>
+			<g id="shape305-392">
+				
+				<path d="M21.97 595.28 L43.94 577.7 L21.97 560.13 L0 577.7 L21.97 595.28 Z" class="st2" />
+			</g>
+			<g id="shape306-394" transform="translate(15.1866,-8.97142)">
+				
+				<path d="M0 578.07 L5.05 586.65 L0 595.23 L3.04 595.28 L6.78 588.83 L10.38 595.28 L13.56 595.23 L8.38 586.65 L13.56         578.07 L10.44 578.07 L6.78 584.05 L3.33 578.07 L0 578.07 Z" class="st16" />
+			</g>
+			<g id="group307-396" transform="translate(11.7855,-7.43955)">
+				
+				<g id="shape308-397">
+					
+				</g>
+				<g id="shape309-399" transform="translate(4.16585,-5.01113)">
+					
+				</g>
+			</g>
+			<g id="shape310-401" transform="translate(11.436,-7.09169)">
+				
+			</g>
+			<g id="shape311-403" transform="translate(12.5415,-8.36305)">
+				
+			</g>
+			<g id="shape312-405" transform="translate(12.28,-7.68866)">
+				
+			</g>
+			<g id="group313-407" transform="translate(11.7855,-7.43955)">
+				
+				<g id="shape314-408">
+					
+					<ellipse cx="10.183" cy="585.14" rx="10.183" ry="10.1352" class="st17" />
+				</g>
+				<g id="shape315-410" transform="translate(4.16585,-5.01113)">
+					
+				</g>
+			</g>
+			<g id="group316-412" transform="translate(11.7855,-7.43955)">
+				
+				<g id="shape317-413">
+					
+					<ellipse cx="10.183" cy="585.14" rx="10.183" ry="10.1352" class="st17" />
+				</g>
+				<g id="shape318-415" transform="translate(3.97138,-3.5068)">
+					
+				</g>
+			</g>
+			<g id="shape304-417">
+				
+				
+				<text x="-4.79" y="604.48" class="st18">Budget approval</text>			</g>
+		</g>
+		<g id="shape319" transform="translate(191.339,-321.572)" class="dynamic-connector">
+			
+			
+			
+			<path d="M0 595.28 L0 689.88 A5.66929 5.66929 -180 0 0 5.67 695.55 L31.81 695.55" class="st19" />
+		</g>
+		<g id="shape320" transform="translate(299.055,-214.213)" class="dynamic-connector">
+			
+			
+			
+			<path d="M0 588.19 L35.35 588.19" class="st19" />
+		</g>
+		<g id="shape321" transform="translate(383.386,-214.244)" class="dynamic-connector">
+			
+			<desc>Yes</desc>
+			
+			
+			
+			
+			<path d="M0 588.22 L43.86 588.16" class="st19" />
+			<rect x="16.4647" y="583.389" width="11.0078" height="9.59985" class="st21" />
+			<text x="16.46" y="590.59" class="st18">Yes</text>		</g>
+		<g id="shape322" transform="translate(460.63,-193.016)" class="dynamic-connector">
+			
+			
+			
+			<path d="M7.09 595.28 L7.09 648.35" class="st19" />
+		</g>
+		<g id="shape323" transform="translate(503.15,-99.4724)" class="dynamic-connector">
+			
+			
+			
+			<path d="M0 588.19 L63.7 588.19" class="st19" />
+		</g>
+		<g id="shape324" transform="translate(586.772,-124.134)" class="dynamic-connector">
+			
+			<desc>Accepted</desc>
+			
+			
+			
+			
+			<path d="M7.09 595.28 L7.09 531.43" class="st19" />
+			<rect x="-9.55092" y="564.396" width="30.4406" height="9.59985" class="st21" />
+			<text x="-9.55" y="571.6" class="st18">Accepted</text>		</g>
+		<g id="shape325" transform="translate(587.582,-249.709)" class="dynamic-connector">
+			
+			
+			
+			<path d="M6.98 595.28 L6.98 574.12 a0.101869 0.101869 0 0 1 0.101869 -0.101869 L7.09 574.02 a0.101869 0.101869 -180 0        0 0.101869 -0.101869 L7.19 542.63" class="st19" />
+		</g>
+		<g id="shape326" transform="translate(615.827,-106.559)" class="dynamic-connector">
+			
+			<desc>Rejected</desc>
+			
+			
+			
+			
+			<path d="M0 595.28 L88.58 595.28 A5.66929 5.66929 -180 0 0 94.25 589.61 L94.25 399.48" class="st19" />
+			<rect x="78.6024" y="544.276" width="28.4642" height="9.59985" class="st21" />
+			<text x="78.6" y="551.48" class="st18">Rejected</text>		</g>
+		<g id="shape327" transform="translate(354.331,-238.875)" class="dynamic-connector">
+			
+			<desc>No</desc>
+			
+			
+			
+			
+			<path d="M7.09 595.28 L7.09 531.79" class="st19" />
+			<rect x="2.67869" y="557.688" width="9.38287" height="9.59985" class="st21" />
+			<text x="2.68" y="564.89" class="st18">No</text>		</g>
+		<g id="shape97" transform="translate(177.165,-321.572)" class="start-event">
+			
+			
+			
+			<desc>Purchase request created</desc>
+			<g id="shape98-474">
+				
+				
+				<ellipse cx="14.1732" cy="581.102" rx="14.1732" ry="14.1732" class="st9" />
+			</g>
+			<g id="shape99-476">
+				
+				<ellipse cx="14.1732" cy="581.102" rx="11.3386" ry="11.3386" class="st22" />
+			</g>
+			<g id="shape100-478" transform="translate(6.00945,-6.00945)">
+				
+				<ellipse cx="8.16378" cy="587.112" rx="8.16378" ry="8.16378" class="st23" />
+			</g>
+			<g id="shape101-480" transform="translate(2.83465,-2.83465)">
+				
+				<ellipse cx="11.3386" cy="583.937" rx="11.3386" ry="11.3386" class="st24" />
+			</g>
+			<g id="shape102-482" transform="translate(6.37795,-8.50394)">
+				
+			</g>
+			<g id="shape103-484" transform="translate(23.1442,-8.55331) scale(-1,1)">
+				
+			</g>
+			<g id="shape104-486" transform="translate(6.47835,-6.47835)">
+				
+			</g>
+			<g id="shape105-488" transform="translate(6.00945,-9.73301)">
+				
+			</g>
+			<g id="shape106-490" transform="translate(6.00945,-7.14255)">
+				
+			</g>
+			<g id="shape107-492" transform="translate(6.37795,-8.50394)">
+				
+			</g>
+			<g id="shape108-494" transform="translate(7.76997,-6.73228)">
+				
+			</g>
+			<g id="shape109-496" transform="translate(5.66929,-5.66929)">
+				
+			</g>
+			<g id="shape97-498">
+				
+				
+				<text x="-28.78" y="603.96" class="st18">Purchase request created</text>			</g>
+		</g>
+		<g id="shape367" transform="translate(200.655,-457.466)">
+			
+			
+			<g id="shape340-502" transform="translate(85.748,-46.9429)">
+				
+				<desc>Purchase Order Workflow</desc>
+				
+				
+				<rect x="0" y="575.276" width="269.083" height="20" class="st25" />
+				<text x="39.7" y="590.68" class="st26">Purchase Order Workflow</text>			</g>
+			<g id="shape342-505" transform="translate(0,-11.3386)">
+				
+				<desc>Send a purchase order to your procurement team, get supplier ...</desc>
+				
+				
+				<rect x="0" y="575.276" width="440.579" height="20" class="st25" />
+				<text x="7.44" y="581.08" class="st27">Send a purchase order to your procurement team, get supplier details, and <tspan x="42.02" dy="1.2em" class="st15">instantly start the budget approval process with this workflow.</tspan></text>			</g>
+		</g>
+		<g id="shape488" transform="translate(159.165,-352.918)" class="flow-step">
+			
+			
+			
+			<g id="group489-510" transform="translate(9,-9)">
+				
+				<g id="shape490-511">
+					
+					
+				</g>
+				<g id="shape491-512">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape492-514">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape493-516">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape494-518">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        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        JRU5ErkJggg==" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group495-522" transform="translate(9,-9)">
+				
+				<g id="shape496-523">
+					
+					
+				</g>
+				<g id="shape497-524" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape498" transform="translate(228.189,-252.646)" class="flow-step">
+			
+			
+			
+			<g id="group499-526" transform="translate(9,-9)">
+				
+				<g id="shape500-527">
+					
+					
+				</g>
+				<g id="shape501-528">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape502-530">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape503-532">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape504-534">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        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" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group505-538" transform="translate(9,-9)">
+				
+				<g id="shape506-539">
+					
+					
+				</g>
+				<g id="shape507-540" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape508" transform="translate(340.417,-238.875)" class="flow-condition">
+			
+			
+			
+			<g id="group509-542">
+				
+				<g id="shape510-543">
+					
+					
+					<rect x="0" y="577.276" width="18" height="18" class="st31" />
+				</g>
+				<g id="shape511-545" transform="translate(4.33578,-4.25092)">
+					
+					<path d="M9.33 585.95 L0 595.28" class="st32" />
+					<path d="M0 585.95 L9.33 595.28" class="st32" />
+				</g>
+			</g>
+			<g id="group512-549" transform="translate(9,-9)">
+				
+				<g id="shape513-550">
+					
+					
+				</g>
+				<g id="shape514-551">
+					
+				</g>
+			</g>
+			<g id="group515-552" transform="translate(9,-9)">
+				
+				<g id="shape516-553">
+					
+					
+				</g>
+				<g id="shape517-554">
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape518" transform="translate(383.386,-224.3)" class="flow-condition">
+			
+			
+			
+			<g id="group519-556" transform="translate(9,-9)">
+				
+				<g id="shape520-557">
+					
+					
+				</g>
+				<g id="shape521-558">
+					
+				</g>
+			</g>
+			<g id="group522-559">
+				
+				<g id="shape523-560">
+					
+					
+					<rect x="0" y="577.276" width="18" height="18" class="st33" />
+				</g>
+				<g id="shape524-562" transform="translate(2.95308,-5.38381)">
+					
+					<path d="M0 590.76 L4.08 595.28 L12.09 586.9 L0 590.76 Z" class="st34" />
+					<path d="M0 590.76 L4.08 595.28 L12.09 586.9" class="st32" />
+				</g>
+			</g>
+			<g id="group525-565" transform="translate(9,-9)">
+				
+				<g id="shape526-566">
+					
+					
+				</g>
+				<g id="shape527-567">
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape528" transform="translate(325.984,-367.091)" class="flow-step">
+			
+			
+			
+			<g id="group529-569" transform="translate(9,-9)">
+				
+				<g id="shape530-570">
+					
+					
+				</g>
+				<g id="shape531-571">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape532-573">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape533-575">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape534-577">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        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        JRU5ErkJggg==" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group535-581" transform="translate(9,-9)">
+				
+				<g id="shape536-582">
+					
+					
+				</g>
+				<g id="shape537-583" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape538" transform="translate(432.283,-252.709)" class="flow-step">
+			
+			
+			
+			<g id="group539-585" transform="translate(9,-9)">
+				
+				<g id="shape540-586">
+					
+					
+				</g>
+				<g id="shape541-587">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape542-589">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape543-591">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape544-593">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        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        JRU5ErkJggg==" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group545-597" transform="translate(9,-9)">
+				
+				<g id="shape546-598">
+					
+					
+				</g>
+				<g id="shape547-599" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape548" transform="translate(432.283,-137.906)" class="flow-step">
+			
+			
+			
+			<g id="group549-601" transform="translate(9,-9)">
+				
+				<g id="shape550-602">
+					
+					
+				</g>
+				<g id="shape551-603">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape552-605">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape553-607">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape554-609">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        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" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group555-613" transform="translate(9,-9)">
+				
+				<g id="shape556-614">
+					
+					
+				</g>
+				<g id="shape557-615" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape558" transform="translate(615.827,-109.559)" class="flow-condition">
+			
+			
+			
+			<g id="group559-617">
+				
+				<g id="shape560-618">
+					
+					
+					<rect x="0" y="577.276" width="18" height="18" class="st31" />
+				</g>
+				<g id="shape561-620" transform="translate(4.33578,-4.25092)">
+					
+					<path d="M9.33 585.95 L0 595.28" class="st32" />
+					<path d="M0 585.95 L9.33 595.28" class="st32" />
+				</g>
+			</g>
+			<g id="group562-624" transform="translate(9,-9)">
+				
+				<g id="shape563-625">
+					
+					
+				</g>
+				<g id="shape564-626">
+					
+				</g>
+			</g>
+			<g id="group565-627" transform="translate(9,-9)">
+				
+				<g id="shape566-628">
+					
+					
+				</g>
+				<g id="shape567-629">
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape568" transform="translate(572.858,-124.134)" class="flow-condition">
+			
+			
+			
+			<g id="group569-631" transform="translate(9,-9)">
+				
+				<g id="shape570-632">
+					
+					
+				</g>
+				<g id="shape571-633">
+					
+				</g>
+			</g>
+			<g id="group572-634">
+				
+				<g id="shape573-635">
+					
+					
+					<rect x="0" y="577.276" width="18" height="18" class="st33" />
+				</g>
+				<g id="shape574-637" transform="translate(2.95308,-5.38381)">
+					
+					<path d="M0 590.76 L4.08 595.28 L12.09 586.9 L0 590.76 Z" class="st34" />
+					<path d="M0 590.76 L4.08 595.28 L12.09 586.9" class="st32" />
+				</g>
+			</g>
+			<g id="group575-640" transform="translate(9,-9)">
+				
+				<g id="shape576-641">
+					
+					
+				</g>
+				<g id="shape577-642">
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape578" transform="translate(674.646,-367.091)" class="flow-step">
+			
+			
+			
+			<g id="group579-644" transform="translate(9,-9)">
+				
+				<g id="shape580-645">
+					
+					
+				</g>
+				<g id="shape581-646">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape582-648">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape583-650">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape584-652">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        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        JRU5ErkJggg==" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group585-656" transform="translate(9,-9)">
+				
+				<g id="shape586-657">
+					
+					
+				</g>
+				<g id="shape587-658" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape588" transform="translate(558.425,-252.709)" class="flow-step">
+			
+			
+			
+			<g id="group589-660" transform="translate(9,-9)">
+				
+				<g id="shape590-661">
+					
+					
+				</g>
+				<g id="shape591-662">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape592-664">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape593-666">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape594-668">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        ORw0KGgoAAAANSUhEUgAAAHMAAABzCAYAAACrQz3mAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7        DAcdvqGQAAASVSURBVHhe7Zo9ihVBFIVnCS7BJbgEl+ASXIKYmhiYCiamYmY6qZkYTDAgKBoIDiiIBoKiIGggtJznlNypOa+7qvr        2q3dfnwMfjmem27G+V/1T3UdHt08GcSDQUsSEliImtBQxoaWICS1FTGgpYkJLERNaipjQUsSEliImtBQxoaWICS1FTGgpYkJLERN        aipjQUsSEliImtBQxoaWICS1FTGh5oFx/+Ga4dfx+eHz6ZXj56efw7OwH/bmw0DI4V+6cbsTdffrxvzgWydwzrLjj11+HD99+n6u        ajmR25Oq9F8ONR2834iDi+68/51raIpk74tr9V8PNJ+/cxLFI5gIkcQ+ef94M8K4imTPJryh7RjILKb2i7BnJLAQS9z2SWYhkdoC        WDkhmB2jpgGR2gJYOSGYHaOmAZHaAlg5IZgdo6UA0mfh6yWA5EqtcdozcoaUDksmDhRQ7Tq7Q0gHJ5MG42HFyhZYOSOblYEkTDxX        sOLlCSwck82IWnZEJWjogmf+y+Gy00NIByRw2z2fx9MiOy6LQ0oE1y8R7SItetW6Dlg54ycRhCvvC4CTwd4/no0vIHJuN6Rkv+54        LtHRgrsySTze+P+fdIE+ZU78vXkTD74pxYd93gZYOzJGJWVd6rsHPtc5SL5lTsxGvgKasSiY+4aUiE3gFs2WGzpVZOhttViWTDQ7        koseLYNsGD+uetZkjs2Y22qxGJl78yveDe7T8040Zwe7dag+3LTLxu2DG2X/XwmajzWpk5oLGDp/scFw7O61MzHjscyyYbS2z0WY        VMjGQ+T4wU8eCw679eQxoTazMtD0On3nmzkabVcjEINrtS8TgsGq3ATWH2lxmAkeItB+P2WizCpn5g1t82ktitwFTs9lmm8zE2Jp        qzWy0WYXM/Cq1dPvW7ZApmYyW2WgjmSPxkokZne8rp3U22kjmSLxk4muE3T/OnY02kjkSb5mIvY/1mI02kjmSJWQumVXIxAyw27d        ezdZIkcxCamXm/0mcp6bC7jNrDomSWUitTCZm6p4xvzfFea4mkllIrUwEa7F2H2Nrs0w+W4obi2QW0iJz21OTfAEcA89uH2qvOiW        zkBaZyLYlNPS4cs1nb6J2ViKSWUirTBw+81k3RemVbx7JLKRVJlIjFLO19aZeMguZIxPBeTJfELBA9tx/QzILmTvQKZCK8yH2h1s        R/Il1Uo8lNsksxEvmkpHMQiSTRzIXSg+Z+XtLrtDSAcm8HJzna2+7qqClA5J5Mdj/tgURN2jpQDSZBwEtHZDMDtDSAcnsAC0dkMw        O0NIByewALR2QzA7Q0gHJ7AAtHZDMDtDSAcnsAC0dwLNIvNODB837GslsBHKxyIxnkfkLWr0imU5gwRmCcTjGoHo8bK6NZC4I3rz        Dy1lJ8NKRzB2DJw14XQSvjniffyVzD0jnX1xgzTn/SuYeYs+/NRdYkhmE/PzLLrAkMzD2/AuRkin2F1qKmNBSxISWIia0FDGhpYg        JLUVMaCliQksRE1qKmNBSxISWIia0FDGhpYgJLUVMaCliQksRE1qKmNBSxISWIia0FDGhpQjIyfAXSDi0MpDGL94AAAAASUVORK5        CYII=" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group595-672" transform="translate(9,-9)">
+				
+				<g id="shape596-673">
+					
+					
+				</g>
+				<g id="shape597-674" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+		<g id="shape598" transform="translate(559.338,-367.091)" class="flow-step">
+			
+			
+			
+			<g id="group599-676" transform="translate(9,-9)">
+				
+				<g id="shape600-677">
+					
+					
+				</g>
+				<g id="shape601-678">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st28" />
+				</g>
+				<g id="shape602-680">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 Z" class="st29" />
+				</g>
+				<g id="shape603-682">
+					
+					<path d="M0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28 0 595.28 0 595.28 C0 595.28          0 595.28 0 595.28 Z" class="st29" />
+				</g>
+			</g>
+			<g id="shape604-684">
+				
+				
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+				<image x="0" y="577.276" width="18" height="18" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVB        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        JRU5ErkJggg==" />
+				<rect x="0" y="577.276" width="18" height="18" class="st30" />
+			</g>
+			<g id="group605-688" transform="translate(9,-9)">
+				
+				<g id="shape606-689">
+					
+					
+				</g>
+				<g id="shape607-690" transform="translate(595.276,595.276) rotate(90)">
+					
+					
+				</g>
+			</g>
+		</g>
+	</g>
+<SvgPublishData xmlns="http://vispublish">{"shapes":{"shape77":{"ShapeId":"shape77","Text":"","IsContainer":true,"ContainerText":"","ContainerCategories":"","MasterName":"Swimlane List"},"shape78":{"ShapeId":"shape78","Text":"","IsContainer":true,"ContainerText":"","ContainerCategories":"","MasterName":"Phase List"},"shape79":{"ShapeId":"shape79","Text":"","IsContainer":true,"ContainerText":"Phase","ContainerCategories":"Phase","MasterName":"Separator"},"shape110":{"ShapeId":"shape110","Props":{"Categories":"","Documentation":"","LoopType":"None","TaskType":"None","IsForCompensation":false,"BoundaryType":"Default","":"Request Creator"},"ConnectedFrom":["shape156"],"Layers":[2],"Text":"Set file status as Rejected – Incomplete information","MasterName":"Task"},"shape133":{"ShapeId":"shape133","Props":{"Categories":"","Documentation":"","LoopType":"None","TaskType":"None","IsForCompensation":false,"BoundaryType":"Default","":"Procurement"},"ConnectedTo":["shape156"],"ConnectedFrom":["shape97"],"Layers":[2],"Text":"Start procurement approval process","MasterName":"Task"},"shape156":{"ShapeId":"shape156","Props":{"Categories":"","Documentation":"","GatewayType":"Exclusive","ExclusiveType":"Data","MarkerVisible":true,"":"Procurement"},"ConnectedTo":["shape171","shape110"],"ConnectedFrom":["shape133"],"Layers":[2],"Text":"Check if request has complete information","MasterName":"Gateway"},"shape171":{"ShapeId":"shape171","Props":{"Categories":"","Documentation":"","LoopType":"None","TaskType":"None","IsForCompensation":false,"BoundaryType":"Default","":"Procurement"},"ConnectedTo":["shape265"],"ConnectedFrom":["shape156"],"Layers":[2],"Text":"Retrieve supplier details from SharePoint","MasterName":"Task"},"shape194":{"ShapeId":"shape194","Props":{"Categories":"","Documentation":"","LoopType":"None","TaskType":"None","IsForCompensation":false,"BoundaryType":"Default","":"Procurement"},"ConnectedTo":["shape217"],"ConnectedFrom":["shape304"],"Layers":[2],"Text":"Send purchase order to supplier","MasterName":"Task"},"shape217":{"ShapeId":"shape217","Props":{"Categories":"","Documentation":"","LoopType":"None","TaskType":"None","IsForCompensation":false,"BoundaryType":"Default","":"Request Creator"},"ConnectedFrom":["shape194"],"Layers":[2],"Text":"Set file status as Accepted","MasterName":"Task"},"shape240":{"ShapeId":"shape240","Props":{"Categories":"","Documentation":"","LoopType":"None","TaskType":"None","IsForCompensation":false,"BoundaryType":"Default","":"Request Creator"},"ConnectedFrom":["shape304"],"Layers":[2],"Text":"Set file status as rejected – budget not approved","MasterName":"Task"},"shape265":{"ShapeId":"shape265","Props":{"Categories":"","Documentation":"","LoopType":"None","TaskType":"None","IsForCompensation":false,"BoundaryType":"Default","":"Finance"},"ConnectedTo":["shape304"],"ConnectedFrom":["shape171"],"Layers":[2],"Text":"Start budget approval","MasterName":"Task"},"shape304":{"ShapeId":"shape304","Props":{"Categories":"","Documentation":"","GatewayType":"Exclusive","ExclusiveType":"Data","MarkerVisible":true,"":"Finance"},"ConnectedTo":["shape194","shape240"],"ConnectedFrom":["shape265"],"Layers":[2],"Text":"Budget approval","MasterName":"Gateway"},"shape319":{"ShapeId":"shape319","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"","MasterName":"Dynamic Connector"},"shape320":{"ShapeId":"shape320","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"","MasterName":"Dynamic Connector"},"shape321":{"ShapeId":"shape321","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"Yes","MasterName":"Dynamic Connector"},"shape322":{"ShapeId":"shape322","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"","MasterName":"Dynamic Connector"},"shape323":{"ShapeId":"shape323","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"","MasterName":"Dynamic Connector"},"shape324":{"ShapeId":"shape324","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"Accepted","MasterName":"Dynamic Connector"},"shape325":{"ShapeId":"shape325","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"","MasterName":"Dynamic Connector"},"shape326":{"ShapeId":"shape326","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"Rejected","MasterName":"Dynamic Connector"},"shape327":{"ShapeId":"shape327","Props":{"Categories":"","Documentation":"","ConnectingObjectType":"Sequence Flow","ConditionType":"None"},"Layers":[1],"Text":"No","MasterName":"Dynamic Connector"},"shape97":{"ShapeId":"shape97","Props":{"Categories":"","Documentation":"","EventType":"Start","TriggerOrResult":"None","":"Request Creator"},"ConnectedTo":["shape133"],"Layers":[2],"Text":"Purchase request created","MasterName":"Start Event"},"shape488":{"ShapeId":"shape488","Props":{"Connector":"SharePoint","Trigger":"When an item is created","":"Request Creator"},"Comment":"SharePoint - When an item is created","Layers":[3],"Text":"","MasterName":"Flow Step"},"shape498":{"ShapeId":"shape498","Props":{"Connector":"Approvals","Action":"Start and wait for an approval","":"Procurement"},"Comment":"Approvals - Start and wait for an approval","Layers":[3],"Text":"","MasterName":"Flow Step"},"shape508":{"ShapeId":"shape508","Props":{"":"Procurement"},"Layers":[3],"Text":"","MasterName":"Flow Condition"},"shape518":{"ShapeId":"shape518","Props":{"":"Procurement"},"Layers":[3],"Text":"","MasterName":"Flow Condition"},"shape528":{"ShapeId":"shape528","Props":{"Connector":"SharePoint","Action":"Update item","":"Request Creator"},"Comment":"SharePoint - Update item","Layers":[3],"Text":"","MasterName":"Flow Step"},"shape538":{"ShapeId":"shape538","Props":{"Connector":"SharePoint","Action":"Get item","":"Procurement"},"Comment":"SharePoint - Get item","Layers":[3],"Text":"","MasterName":"Flow Step"},"shape548":{"ShapeId":"shape548","Props":{"Connector":"Approvals","Action":"Start and wait for an approval","":"Finance"},"Comment":"Approvals - Start and wait for an approval","Layers":[3],"Text":"","MasterName":"Flow Step"},"shape558":{"ShapeId":"shape558","Props":{"":"Finance"},"Layers":[3],"Text":"","MasterName":"Flow Condition"},"shape568":{"ShapeId":"shape568","Props":{"":"Finance"},"Layers":[3],"Text":"","MasterName":"Flow Condition"},"shape578":{"ShapeId":"shape578","Props":{"Connector":"SharePoint","Action":"Update item","":"Request Creator"},"Comment":"SharePoint - Update item","Layers":[3],"Text":"","MasterName":"Flow Step"},"shape588":{"ShapeId":"shape588","Props":{"Connector":"Office 365 Outlook","Action":"Send an email","":"Procurement"},"Comment":"Office 365 Outlook - Send an email","Layers":[3],"Text":"","MasterName":"Flow Step"},"shape598":{"ShapeId":"shape598","Props":{"Connector":"SharePoint","Action":"Update item","":"Request Creator"},"Comment":"SharePoint - Update item","Layers":[3],"Text":"","MasterName":"Flow Step"}},"pages":[{"Name":"Page-1","Id":0,"FileName":"POW.svg"},{"Name":"Read me","Id":5,"FileName":"POW__Read me.svg"}],"currentPage":{"Name":"Page-1","Id":0,"FileName":"POW.svg"},"layers":[{"Name":"Connector","Index":1,"Visible":true},{"Name":"Flowchart","Index":2,"Visible":true},{"Name":"Microsoft Flow","Index":3,"Visible":true},{"Name":"Microsoft Flow Inactive","Index":4,"Visible":false}],"enableProps":true,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":true,"enablePages":true,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":true,"openHyperlinksInNewWindow":true,"transformVisioFileLinks":false,"useReadablePageNames":true,"keepRelativeLinks":true,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":false,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipInteractive":false,"tooltipDelay":false,"tooltipDelayShow":"","sidebarDefaultWidth":"","tooltipDelayHide":"","popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverTimeoutShow":"","popoverTimeoutHide":"","popoverUseMousePosition":false,"enableContainerTip":false,"suppressMobileTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"viewBox":"0 0 841.89 595.276","layerView":{"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":false,"enableLayerShowAll":false},"selectionView":{"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"dilate":4,"mode":"normal","selectionColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":false,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":false,"nextShapeColor":"rgba(255, 160, 255, 0.90)"}}</SvgPublishData></svg>
