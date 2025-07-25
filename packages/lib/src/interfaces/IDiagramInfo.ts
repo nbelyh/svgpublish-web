@@ -41,7 +41,7 @@ export interface IDiagramInfo {
 
   enableSelection?: boolean;
 
-  // enableSidebar: boolean;
+  enableSidebar: boolean;
 
   // enableD3: boolean;
   // skipMinification: boolean;

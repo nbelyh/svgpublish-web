@@ -1,0 +1,94 @@
+
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync versions
+        run: npm run version-sync
+
+      - name: Run Build
+        run: npm run build
+
+      - name: Get current version from package.json
+        id: local_version_svgpublish
+        run: echo "local_version_svgpublish=$(jq -r '.version' package.json)" >> $GITHUB_ENV
+
+      - name: Get published version from npm
+        id: published_version_svgpublish
+        run: echo "published_version_svgpublish=$(npm view svgpublish version || echo '0.0.0')" >> $GITHUB_ENV
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './packages/storybook/storybook-static'
+      - name: Deploy to GitHub Pages
+        id: pages
+        uses: actions/deploy-pages@v4
+
+      - name: Publish svgpublish
+        run: |
+          if [ "$local_version_svgpublish" != "$published_version_svgpublish" ]; then
+            echo "New version detected: $local_version. Publishing..."
+            npm publish -w packages/lib --provenance
+          else
+            echo "No new version. Skipping publish."
+          fi
+        env:
+          local_version_svgpublish: ${{ env.local_version_svgpublish }}
+          published_version_svgpublish: ${{ env.published_version_svgpublish }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Get current version from package.json
+        id: local_version_svgpublish_react
+        run: echo "local_version_svgpublish_react=$(jq -r '.version' package.json)" >> $GITHUB_ENV
+
+      - name: Get published version from npm
+        id: published_version_svgpublish_react
+        run: echo "published_version_svgpublish_react=$(npm view svgpublish-react version || echo '0.0.0')" >> $GITHUB_ENV
+
+      - name: Publish svgpublish_react
+        run: |
+          if [ "$local_version_svgpublish_react" != "$published_version_svgpublish_react" ]; then
+            echo "New version detected: $local_version. Publishing..."
+            npm publish -w packages/react --provenance
+          else
+            echo "No new version. Skipping publish."
+          fi
+        env:
+          local_version_svgpublish_react: ${{ env.local_version_svgpublish_react }}
+          published_version_svgpublish_react: ${{ env.published_version_svgpublish_react }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

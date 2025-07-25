@@ -1,6 +1,3 @@
-> [!WARNING]
-> All svgpublish-web related packages (including this one) were consolidated in the svgpublish-web monorepo. This one is archived.
-
 ## SvgPublish sharepoint web part
 
 An EARLY PREVIEW (alpha) of SvgPublish sharepoint integration webpart

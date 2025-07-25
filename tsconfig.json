@@ -1,0 +1,17 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/lib"
+    },
+    {
+      "path": "./packages/react"
+    },
+    {
+      "path": "./packages/webpart"
+    },
+    {
+      "path": "./packages/storybook"
+    }
+  ]
+}

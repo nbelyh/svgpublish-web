@@ -8,27 +8,44 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            compilerOptions: {
+              declaration: true,
+              outDir: './dist',
+            },
+          },
+        },
         exclude: /node_modules/,
       },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js'],
   },
   experiments: {
     outputModule: true
+  },
+  externals: {
+    'react': 'react',
+    'react/jsx-runtime': 'react/jsx-runtime'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     library: {
       type: 'module'
-    }
+    },
+    clean: true
   },
   watchOptions: {
     ignored: /node_modules/

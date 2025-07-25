@@ -49,11 +49,11 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   const isVisible = useVisible(containerRef);
 
   const urlRef = React.useRef(props.url);
-  
+
   React.useEffect(() => {
 
     const initialize = isVisible && (!context || props.url !== urlRef.current);
-    if (initialize) {
+    if (initialize && props.url) {
       urlRef.current = props.url;
       getContent(props.url).then(content => {
         if (containerRef.current) {

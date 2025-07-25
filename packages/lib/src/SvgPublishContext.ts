@@ -7,7 +7,8 @@ import { IDiagramInfo } from './interfaces/IDiagramInfo';
 import { IServices } from './interfaces/IServices';
 import { VisioSvgParser } from './services/VisioSvgParser';
 import { Utils } from './services/Utils';
-import { TooltipService } from './services/TooltipServic';
+import { TooltipService } from './services/TooltipService';
+import { SidebarService } from './services/SidebarService';
 
 export class SvgPublishContext implements ISvgPublishContext {
 
@@ -38,6 +39,7 @@ export class SvgPublishContext implements ISvgPublishContext {
     this.enableService('links', this.diagram.enableFollowHyperlinks);
     this.enableService('hover', this.diagram.enableHover);
     this.enableService('tooltip', this.diagram.enableTooltips);
+    this.enableService('sidebar', this.diagram.enableSidebar);
   }
 
   public destroy() {
@@ -54,6 +56,7 @@ export class SvgPublishContext implements ISvgPublishContext {
       case 'links': return new LinksService(this);
       case 'hover': return new HoverService(this);
       case 'tooltip': return new TooltipService(this);
+      case 'sidebar': return new SidebarService(this);
     }
   }
 

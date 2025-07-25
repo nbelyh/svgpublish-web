@@ -1,7 +1,7 @@
-@import '~@fluentui/react/dist/sass/References.scss';
+@import '../../../../../../node_modules/@fluentui/react/dist/sass/References.scss';
 
 // Retrieve all the CSS classes for brand icons from Office UI Fabric
 :global {
-  @import '~@fluentui/react/dist/sass/mixins/BrandIcon.Mixins';
-  @import '~@fluentui/react/dist/sass/BrandIcon';
+  @import '../../../../../../node_modules/@fluentui/react/dist/sass/mixins/BrandIcon.Mixins';
+  @import '../../../../../../node_modules/@fluentui/react/dist/sass/BrandIcon';
 }

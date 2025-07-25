@@ -1,5 +1,5 @@
 {
-  "extends": "./node_modules/@microsoft/rush-stack-compiler-5.3/includes/tsconfig-web.json",
+  "extends": "./../../node_modules/@microsoft/rush-stack-compiler-5.3/includes/tsconfig-web.json",
   "compilerOptions": {
     "target": "ES2015",
     "forceConsistentCasingInFileNames": true,
@@ -14,8 +14,9 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "outDir": "lib",
+    "rootDir": "src",
     "typeRoots": [
-      "./node_modules/@types",
+      "./../../node_modules/@types",
     ],
     "types": [
       "webpack-env",

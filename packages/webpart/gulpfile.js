@@ -47,17 +47,22 @@ const eslintSubTask = build.subTask('eslint-subTask', function (gulp, buildOptio
 build.rig.addPreBuildTask(build.task('eslint', eslintSubTask));
 
 let watchLevel = 0;
-const watchCustomSubTask = build.subTask('watch-svgpublishlib', function (gulp, buildOptions, done) {
+const watchCustomSubTask = build.subTask('watch-dependencies', function (gulp, buildOptions, done) {
   if (!watchLevel && buildOptions.args._[0] === 'serve') {
     ++watchLevel;
-    gulp.watch('node_modules/svgpublish/dist/**/*', (e) => {
+
+    // Watch for changes in svgpublish-react (directly from workspace)
+    gulp.watch('../react/dist/**/*', (e) => {
+      console.log('SvgPublish React changed, triggering reload...');
       return gulp.src('./src/index.ts')
         .pipe(gulp.dest('./src/'));
     });
+
+    console.log('Watching for changes in dependencies...');
   }
   done();
 });
-let watchCustomTask = build.task('watchCustomTask', watchCustomSubTask);
+let watchCustomTask = build.task('watchDependencies', watchCustomSubTask);
 build.rig.addPostBuildTask(watchCustomTask);
 
 build.initialize(gulp);
