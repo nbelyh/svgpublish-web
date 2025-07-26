@@ -321,11 +321,6 @@ export class Configuration {
                   label: "Enable Sidebar",
                   inlineLabel: true,
                 }),
-                PropertyPaneToggle('rightSidebar', {
-                  label: "Position Sidebar on Right",
-                  disabled: !properties.enableSidebar,
-                  inlineLabel: true,
-                }),
                 PropertyPaneToggle('showSidebarOnSelection', {
                   label: "Show Sidebar Only on Selection",
                   disabled: !properties.enableSidebar,
@@ -336,19 +331,23 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
-                PropertyPaneDropdown('sidebarSize', {
-                  label: "Sidebar Size",
+                PropertyPaneDropdown('sidebarType', {
+                  label: "Sidebar Type",
                   disabled: !properties.enableSidebar,
                   options: [
-                    { key: 'small', text: "Small" },
+                    { key: 'smallFixedFar', text: "Small (Left)" },
+                    { key: 'smallFixedNear', text: "Small (Right)" },
                     { key: 'medium', text: "Medium" },
                     { key: 'large', text: "Large" },
-                    { key: 'custom', text: "Custom" },
+                    { key: 'largeFixed', text: "Large Fixed" },
+                    { key: 'extraLarge', text: "Extra Large" },
+                    { key: 'custom', text: "Custom (Left)" },
+                    { key: 'customNear', text: "Custom (Right)" },
                   ],
                 }),
                 PropertyPaneTextField('sidebarDefaultWidth', {
                   label: "Custom Sidebar Width",
-                  disabled: !properties.enableSidebar || properties.sidebarSize !== 'custom',
+                  disabled: !properties.enableSidebar || (properties.sidebarType !== 'custom' && properties.sidebarType !== 'customNear'),
                   value: properties.sidebarDefaultWidth,
                   placeholder: "ex: 300px, 25%",
                   description: "Specify width with units (px, %, em, etc.)",

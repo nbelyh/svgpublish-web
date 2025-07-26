@@ -53,12 +53,11 @@ export interface ISvgPublishComponentProps {
   tooltipTheme?: DiagramInfoTooltipTheme;
 
   enableSidebar?: boolean;
-  rightSidebar?: boolean;
+  sidebarType?: 'small' | 'smallFixedFar' | 'smallFixedNear' | 'medium' | 'large' | 'largeFixed' | 'extraLarge' | 'custom' | 'customNear';
   showSidebarOnSelection?: boolean;
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;
   sidebarMarkdown?: string;
-  sidebarSize?: 'small' | 'medium' | 'large' | 'custom';
   sidebarDefaultWidth?: string;
 
   selectedShapeId?: string;

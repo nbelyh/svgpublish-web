@@ -4,34 +4,39 @@ import { Panel, PanelType, Text, Stack } from '@fluentui/react';
 export const AppSidebar = (props: {
   isOpen: boolean;
   onDismiss: () => void;
-  rightSidebar?: boolean;
+  sidebarType?: 'small' | 'smallFixedFar' | 'smallFixedNear' | 'medium' | 'large' | 'largeFixed' | 'extraLarge' | 'custom' | 'customNear';
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;
   sidebarMarkdown?: string;
-  sidebarSize?: 'small' | 'medium' | 'large' | 'custom';
   sidebarDefaultWidth?: string;
 }) => {
 
   // TODO: Will integrate with marked library later for proper markdown rendering
 
   const getPanelType = (): PanelType => {
-    const isRightSide = props.rightSidebar;
-
-    switch (props.sidebarSize || 'medium') {
+    switch (props.sidebarType || 'medium') {
       case 'small':
-        return isRightSide ? PanelType.smallFixedNear : PanelType.smallFixedFar;
+        return PanelType.smallFixedFar;
+      case 'smallFixedFar':
+        return PanelType.smallFixedFar;
+      case 'smallFixedNear':
+        return PanelType.smallFixedNear;
       case 'medium':
-        return isRightSide ? PanelType.medium : PanelType.medium;
+        return PanelType.medium;
       case 'large':
-        return isRightSide ? PanelType.large : PanelType.large;
+        return PanelType.large;
+      case 'largeFixed':
+        return PanelType.largeFixed;
+      case 'extraLarge':
+        return PanelType.extraLarge;
       case 'custom':
-        return isRightSide ? PanelType.customNear : PanelType.custom;
+        return PanelType.custom;
+      case 'customNear':
+        return PanelType.customNear;
       default:
-        return isRightSide ? PanelType.medium : PanelType.medium;
+        return PanelType.medium;
     }
-  };
-
-  const renderSidebarContent = () => {
+  };  const renderSidebarContent = () => {
     if (props.enableSidebarMarkdown && props.sidebarMarkdown) {
       // TODO: Will use marked library for proper markdown rendering
       return (
@@ -41,22 +46,27 @@ export const AppSidebar = (props: {
       );
     }
 
+    const getSidebarPosition = () => {
+      const type = props.sidebarType || 'medium';
+      return type.includes('Near') ? 'right' : 'left';
+    };
+
     return (
       <Stack tokens={{ childrenGap: 16 }}>
         <Text variant="medium">
           This is the sidebar content area. Configure custom content using the sidebar markdown option.
         </Text>
         <Text variant="small" style={{ color: 'gray' }}>
-          Sidebar is positioned on the {props.rightSidebar ? 'right' : 'left'} side with size: {props.sidebarSize || 'medium'}
-          {props.sidebarSize === 'custom' && props.sidebarDefaultWidth && ` (${props.sidebarDefaultWidth})`}
+          Sidebar is positioned on the {getSidebarPosition()} side with type: {props.sidebarType || 'medium'}
+          {(props.sidebarType === 'custom' || props.sidebarType === 'customNear') && props.sidebarDefaultWidth && ` (${props.sidebarDefaultWidth})`}
         </Text>
         <Stack tokens={{ childrenGap: 8 }}>
           <Text variant="mediumPlus" style={{ fontWeight: 'bold' }}>Configuration:</Text>
           <Text variant="small">• Show Title: {props.enableSidebarTitle !== false ? 'Yes' : 'No'}</Text>
           <Text variant="small">• Custom Content: {props.enableSidebarMarkdown ? 'Enabled' : 'Disabled'}</Text>
-          <Text variant="small">• Position: {props.rightSidebar ? 'Right' : 'Left'}</Text>
-          <Text variant="small">• Size: {props.sidebarSize || 'medium'}</Text>
-          {props.sidebarSize === 'custom' && (
+          <Text variant="small">• Position: {getSidebarPosition()}</Text>
+          <Text variant="small">• Type: {props.sidebarType || 'medium'}</Text>
+          {(props.sidebarType === 'custom' || props.sidebarType === 'customNear') && (
             <Text variant="small">• Custom Width: {props.sidebarDefaultWidth || '300px'}</Text>
           )}
         </Stack>
@@ -70,7 +80,7 @@ export const AppSidebar = (props: {
       isOpen={props.isOpen}
       onDismiss={props.onDismiss}
       type={getPanelType()}
-      {...(props.sidebarSize === 'custom' && { customWidth: props.sidebarDefaultWidth || '300px' })}
+      {...((props.sidebarType === 'custom' || props.sidebarType === 'customNear') && { customWidth: props.sidebarDefaultWidth || '300px' })}
       closeButtonAriaLabel="Close sidebar"
       isHiddenOnDismiss={true}
     >
