@@ -4,9 +4,9 @@ This document compares the reference C# options (from `reference/Options/`) with
 
 ## Overview
 
-**Current Implementation Status**: ~45% of reference options implemented  
-**Remaining Work**: ~55% of reference options missing  
-**Latest Update**: Added complete sidebar configuration options ✅
+**Current Implementation Status**: ~50% of reference options implemented  
+**Remaining Work**: ~50% of reference options missing  
+**Latest Update**: Complete sidebar implementation with native Fluent UI integration ✅
 
 ---
 
@@ -52,11 +52,11 @@ This document compares the reference C# options (from `reference/Options/`) with
 
 #### **Sidebar Configuration (Fully Implemented)**
 - `enableSidebar` - Enable/disable sidebar
-- `rightSidebar` - Position sidebar on right side
+- `sidebarType` - Sidebar type/position (smallFixedFar, smallFixedNear, medium, large, etc.)
 - `showSidebarOnSelection` - Show sidebar only when shape is selected
 - `enableSidebarTitle` - Show/hide sidebar title
 - `enableSidebarMarkdown`, `sidebarMarkdown` - Custom sidebar content
-- `sidebarDefaultWidth` - Configurable sidebar width
+- `sidebarDefaultWidth` - Configurable sidebar width for custom types
 
 #### **Layer View Options (Partially Implemented)**
 - `enableLayerLookup` - Search within layers
@@ -103,7 +103,7 @@ string SelectedSearchProps { get; set; }     // Properties to include in search
 
 ```csharp
 bool EnableSidebar { get; set; }          // Enable sidebar ✅
-bool RightSidebar { get; set; }           // Position sidebar on right ✅
+bool RightSidebar { get; set; }           // Position sidebar on right ✅ (Improved to sidebarType)
 bool ShowSidebarOnSelection { get; set; } // Show only when shape selected ✅
 bool EnableSidbarTitle { get; set; }      // Show sidebar title ✅
 bool EnableSidebarMarkdown { get; set; }  // Custom sidebar content ✅
@@ -111,14 +111,16 @@ string SidebarMarkdown { get; set; }      // Custom sidebar HTML/markdown ✅
 string SidebarDefaultWidth { get; set; }  // Default sidebar width ✅
 ```
 
-**Status**: ✅ **FULLY IMPLEMENTED** - All sidebar configuration options now available
+**Status**: ✅ **FULLY IMPLEMENTED** - All sidebar configuration options now available, improved with native Fluent UI integration
+**Enhancement**: Replaced simple `rightSidebar` boolean with `sidebarType` using native Fluent UI PanelType options
 **Files Updated**: 
-- `IDiagramInfo.ts` - Added interface properties
+- `IDiagramInfo.ts` - Added interface properties with sidebarType
 - `ISvgPublishComponentProps.ts` - Added React component props
 - `IWebPartProps.ts` - Added WebPart properties  
 - `Utils.ts` - Added property mapping
 - `WebPart.ts` - Added default values
-- `Configuration.ts` - Added property pane controls
+- `Configuration.ts` - Added property pane controls with native panel types
+- `AppSidebar.tsx` - Native Fluent UI Panel integration
 - `Sidebar.stories.ts` - Added Storybook examples
 
 ### **4. Properties & Shape Data**
@@ -221,30 +223,6 @@ bool SuppressMobileTip { get; set; }       // Suppress mobile tooltips
 ```
 
 **Impact**: Limited mobile support and deployment flexibility
-
-### **11. File & Deployment Configuration**
-**Reference**: `IPublishOptions` lines 15-25, 325-340
-
-```csharp
-string FileName { get; set; }                    // Target file name
-string UrlPrefix { get; set; }                   // URL prefix for links
-SupportFilesOption SupportFiles { get; set; }    // Deploy/Skip/UseCDN
-bool OpenTargetFileInBrowser { get; set; }       // Auto-open in browser
-```
-
-**Impact**: Limited deployment configuration options
-
-### **12. Publication Platform Integrations**
-**Reference**: `IPublishOptions` lines 340-350
-
-```csharp
-IDiskPublishOptions Disk { get; }         // Disk publication options
-IGitHubPublishOptions GitHub { get; }     // GitHub publication options
-ISharePointPublishOptions SharePoint { get; } // SharePoint publication options
-```
-
-**Status**: Platform-specific options not implemented
-**Impact**: No platform-specific optimizations or integrations
 
 ---
 
