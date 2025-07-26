@@ -8,23 +8,25 @@ function assignIfDefined(target: any, source: any, key: string) {
   }
 }
 
+const KEYS_TO_ASSIGN: (keyof IDiagramInfo)[] = [
+  'enableZoom',
+  'enablePan',
+  'enableZoomShift',
+  'enableZoomCtrl',
+  'enableFollowHyperlinks',
+  'enableSelection',
+  'enableHover',
+  'twoFingersTouch',
+  'openHyperlinksInNewWindow',
+  'tooltipTrigger', 'tooltipDelay', 'tooltipDelayShow', 'tooltipDelayHide', 'tooltipMarkdown', 'enableTooltipMarkdown',
+  'tooltipPlacement', 'tooltipUseMousePosition', 'tooltipInteractive', 'tooltipTheme',
+  'enableSidebar', 'sidebarType', 'showSidebarOnSelection',
+  'enableSidebarTitle', 'enableSidebarMarkdown', 'sidebarMarkdown', 'sidebarDefaultWidth',
+];
+
 export function mergeProps(target: Partial<IDiagramInfo>, p: ISvgPublishComponentProps) {
 
-  const keysToAssign: (keyof IDiagramInfo)[] = [
-    'enableZoom',
-    'enablePan',
-    'enableZoomShift',
-    'enableZoomCtrl',
-    'enableFollowHyperlinks',
-    'enableSelection',
-    'enableHover',
-    'twoFingersTouch',
-    'openHyperlinksInNewWindow',
-    'tooltipTrigger', 'tooltipDelay', 'tooltipDelayShow', 'tooltipDelayHide', 'tooltipMarkdown', 'enableTooltipMarkdown',
-    'tooltipPlacement', 'tooltipUseMousePosition', 'tooltipInteractive', 'tooltipTheme',
-    'enableSidebar', 'rightSidebar', 'showSidebarOnSelection',
-    'enableSidebarTitle', 'enableSidebarMarkdown', 'sidebarMarkdown', 'sidebarDefaultWidth',
-  ];  keysToAssign.forEach(key => assignIfDefined(target, p, key));
+  KEYS_TO_ASSIGN.forEach(key => assignIfDefined(target, p, key));
 
   if (!target.selectionView) {
     target.selectionView = {};
