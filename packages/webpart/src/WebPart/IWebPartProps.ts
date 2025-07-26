@@ -66,4 +66,13 @@ export interface IWebPartProps {
   tooltipUseMousePosition?: boolean;
   tooltipInteractive?: boolean;
   tooltipTheme?: DiagramInfoTooltipTheme;
+
+  enableSidebar?: boolean;
+  rightSidebar?: boolean;
+  alwaysHideSidebar?: boolean;
+  showSidebarOnSelection?: boolean;
+  enableSidebarTitle?: boolean;
+  enableSidebarMarkdown?: boolean;
+  sidebarMarkdown?: string;
+  sidebarDefaultWidth?: string;
 }

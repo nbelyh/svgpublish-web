@@ -72,6 +72,15 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
     this.setDefault('tooltipInteractive', false);
     this.setDefault('tooltipTheme', 'dark');
 
+    this.setDefault('enableSidebar', true);
+    this.setDefault('rightSidebar', false);
+    this.setDefault('alwaysHideSidebar', false);
+    this.setDefault('showSidebarOnSelection', false);
+    this.setDefault('enableSidebarTitle', true);
+    this.setDefault('enableSidebarMarkdown', false);
+    this.setDefault('sidebarMarkdown', '');
+    this.setDefault('sidebarDefaultWidth', '300px');
+
     sp.setup({ spfxContext: this.context as any });
   }
 

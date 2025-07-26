@@ -42,6 +42,13 @@ export interface IDiagramInfo {
   enableSelection?: boolean;
 
   enableSidebar: boolean;
+  rightSidebar?: boolean;
+  alwaysHideSidebar?: boolean;
+  showSidebarOnSelection?: boolean;
+  enableSidebarTitle?: boolean;
+  enableSidebarMarkdown?: boolean;
+  sidebarMarkdown?: string;
+  sidebarDefaultWidth?: string;
 
   // enableD3: boolean;
   // skipMinification: boolean;
@@ -64,14 +71,6 @@ export interface IDiagramInfo {
 
   // enableSearch: boolean;
   // enableMultiPageSearch: boolean;
-
-  // rightSidebar: boolean;
-  // alwaysHideSidebar: boolean;
-  // showSidebarOnSelection: boolean;
-
-  // enableSidbarTitle: boolean;
-  // enableSidebarMarkdown: boolean;
-  // sidebarMarkdown: string;
 
   // enablePopovers: boolean;
   // enablePopoverMarkdown: boolean;

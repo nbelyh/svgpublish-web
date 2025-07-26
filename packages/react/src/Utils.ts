@@ -11,17 +11,19 @@ function assignIfDefined(target: any, source: any, key: string) {
 export function mergeProps(target: Partial<IDiagramInfo>, p: ISvgPublishComponentProps) {
 
   const keysToAssign: (keyof IDiagramInfo)[] = [
-    'enableZoom', 
-    'enablePan', 
-    'enableZoomShift', 
-    'enableZoomCtrl', 
+    'enableZoom',
+    'enablePan',
+    'enableZoomShift',
+    'enableZoomCtrl',
     'enableFollowHyperlinks',
-    'enableSelection', 
-    'enableHover', 
-    'twoFingersTouch', 
+    'enableSelection',
+    'enableHover',
+    'twoFingersTouch',
     'openHyperlinksInNewWindow',
     'tooltipTrigger', 'tooltipDelay', 'tooltipDelayShow', 'tooltipDelayHide', 'tooltipMarkdown', 'enableTooltipMarkdown',
     'tooltipPlacement', 'tooltipUseMousePosition', 'tooltipInteractive', 'tooltipTheme',
+    'enableSidebar', 'rightSidebar', 'alwaysHideSidebar', 'showSidebarOnSelection',
+    'enableSidebarTitle', 'enableSidebarMarkdown', 'sidebarMarkdown', 'sidebarDefaultWidth',
   ];
 
   keysToAssign.forEach(key => assignIfDefined(target, p, key));

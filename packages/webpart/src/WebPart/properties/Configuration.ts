@@ -314,6 +314,57 @@ export class Configuration {
               ]
             },
             {
+              groupName: "Sidebar",
+              isCollapsed: true,
+              groupFields: [
+                PropertyPaneToggle('enableSidebar', {
+                  label: "Enable Sidebar",
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('rightSidebar', {
+                  label: "Position Sidebar on Right",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('alwaysHideSidebar', {
+                  label: "Always Hide Sidebar by Default",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('showSidebarOnSelection', {
+                  label: "Show Sidebar Only on Selection",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('enableSidebarTitle', {
+                  label: "Show Sidebar Title",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneTextField('sidebarDefaultWidth', {
+                  label: "Default Sidebar Width",
+                  disabled: !properties.enableSidebar,
+                  value: properties.sidebarDefaultWidth,
+                  placeholder: "ex: 300px, 25%",
+                  description: "Specify width with units (px, %, em, etc.)",
+                }),
+                PropertyPaneToggle('enableSidebarMarkdown', {
+                  label: "Enable Custom Sidebar Content",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneTextField('sidebarMarkdown', {
+                  label: "Custom Sidebar Content",
+                  disabled: !(properties.enableSidebar && properties.enableSidebarMarkdown),
+                  value: properties.sidebarMarkdown,
+                  placeholder: "Enter HTML or Markdown content...",
+                  description: "Custom content to display in the sidebar",
+                  multiline: true,
+                  rows: 4,
+                }),
+              ]
+            },
+            {
               groupName: "Logging",
               isCollapsed: true,
               groupFields: [

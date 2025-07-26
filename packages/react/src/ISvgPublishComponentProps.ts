@@ -52,6 +52,15 @@ export interface ISvgPublishComponentProps {
   tooltipMarkdown?: string;
   tooltipTheme?: DiagramInfoTooltipTheme;
 
+  enableSidebar?: boolean;
+  rightSidebar?: boolean;
+  alwaysHideSidebar?: boolean;
+  showSidebarOnSelection?: boolean;
+  enableSidebarTitle?: boolean;
+  enableSidebarMarkdown?: boolean;
+  sidebarMarkdown?: string;
+  sidebarDefaultWidth?: string;
+
   selectedShapeId?: string;
 
   onError?: (err: Error) => void;
