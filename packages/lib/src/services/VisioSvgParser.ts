@@ -6,7 +6,7 @@ export class VisioSvgParser {
     const doc = parser.parseFromString(content, 'text/xml');
 
     const diagramNode = doc.documentElement.getElementsByTagNameNS("http://vispublish", "SvgPublishData")[0];
-    const diagramInfo = diagramNode && JSON.parse(diagramNode.innerHTML);
+    const diagramInfo = diagramNode && JSON.parse(diagramNode.textContent);
 
     const viewBox = diagramInfo?.viewBox || doc.documentElement.getAttribute('viewBox');
     doc.documentElement.removeAttribute('viewBox');
