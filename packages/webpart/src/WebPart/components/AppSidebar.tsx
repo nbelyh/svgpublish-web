@@ -83,6 +83,7 @@ export const AppSidebar = (props: {
       {...((props.sidebarType === 'custom' || props.sidebarType === 'customNear') && { customWidth: props.sidebarDefaultWidth || '300px' })}
       closeButtonAriaLabel="Close sidebar"
       isHiddenOnDismiss={true}
+      isBlocking={false}
     >
       {renderSidebarContent()}
     </Panel>
