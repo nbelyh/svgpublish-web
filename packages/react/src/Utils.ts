@@ -22,11 +22,9 @@ export function mergeProps(target: Partial<IDiagramInfo>, p: ISvgPublishComponen
     'openHyperlinksInNewWindow',
     'tooltipTrigger', 'tooltipDelay', 'tooltipDelayShow', 'tooltipDelayHide', 'tooltipMarkdown', 'enableTooltipMarkdown',
     'tooltipPlacement', 'tooltipUseMousePosition', 'tooltipInteractive', 'tooltipTheme',
-    'enableSidebar', 'rightSidebar', 'alwaysHideSidebar', 'showSidebarOnSelection',
+    'enableSidebar', 'rightSidebar', 'showSidebarOnSelection',
     'enableSidebarTitle', 'enableSidebarMarkdown', 'sidebarMarkdown', 'sidebarDefaultWidth',
-  ];
-
-  keysToAssign.forEach(key => assignIfDefined(target, p, key));
+  ];  keysToAssign.forEach(key => assignIfDefined(target, p, key));
 
   if (!target.selectionView) {
     target.selectionView = {};

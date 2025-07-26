@@ -43,7 +43,6 @@ export interface IDiagramInfo {
 
   enableSidebar: boolean;
   rightSidebar?: boolean;
-  alwaysHideSidebar?: boolean;
   showSidebarOnSelection?: boolean;
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;

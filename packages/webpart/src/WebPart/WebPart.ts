@@ -74,7 +74,6 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
 
     this.setDefault('enableSidebar', true);
     this.setDefault('rightSidebar', false);
-    this.setDefault('alwaysHideSidebar', false);
     this.setDefault('showSidebarOnSelection', false);
     this.setDefault('enableSidebarTitle', true);
     this.setDefault('enableSidebarMarkdown', false);

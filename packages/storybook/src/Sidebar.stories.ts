@@ -35,7 +35,6 @@ const meta = {
     // Basic sidebar settings
     enableSidebar: true,
     rightSidebar: false,
-    alwaysHideSidebar: false,
     showSidebarOnSelection: false,
     enableSidebarTitle: true,
     enableSidebarMarkdown: false,
@@ -55,7 +54,6 @@ export const Default: Story = {
       include: [
         "enableSidebar",
         "rightSidebar",
-        "alwaysHideSidebar",
         "showSidebarOnSelection",
         "enableSidebarTitle",
         "sidebarDefaultWidth",
@@ -71,7 +69,6 @@ export const RightSidebar: Story = {
       include: [
         "enableSidebar",
         "rightSidebar",
-        "alwaysHideSidebar",
         "showSidebarOnSelection",
         "enableSidebarTitle",
         "sidebarDefaultWidth",
@@ -83,25 +80,6 @@ export const RightSidebar: Story = {
   },
 };
 
-export const HiddenByDefault: Story = {
-  parameters: {
-    layout: "fullscreen",
-    controls: {
-      include: [
-        "enableSidebar",
-        "rightSidebar",
-        "alwaysHideSidebar",
-        "showSidebarOnSelection",
-        "enableSidebarTitle",
-        "sidebarDefaultWidth",
-      ],
-    },
-  },
-  args: {
-    alwaysHideSidebar: true,
-  },
-};
-
 export const ShowOnSelection: Story = {
   parameters: {
     layout: "fullscreen",
@@ -109,7 +87,6 @@ export const ShowOnSelection: Story = {
       include: [
         "enableSidebar",
         "rightSidebar",
-        "alwaysHideSidebar",
         "showSidebarOnSelection",
         "enableSidebarTitle",
         "sidebarDefaultWidth",
@@ -129,7 +106,6 @@ export const CustomContent: Story = {
       include: [
         "enableSidebar",
         "rightSidebar",
-        "alwaysHideSidebar",
         "showSidebarOnSelection",
         "enableSidebarTitle",
         "enableSidebarMarkdown",

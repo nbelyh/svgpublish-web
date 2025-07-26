@@ -53,7 +53,6 @@ This document compares the reference C# options (from `reference/Options/`) with
 #### **Sidebar Configuration (Fully Implemented)**
 - `enableSidebar` - Enable/disable sidebar
 - `rightSidebar` - Position sidebar on right side
-- `alwaysHideSidebar` - Hide sidebar by default
 - `showSidebarOnSelection` - Show sidebar only when shape is selected
 - `enableSidebarTitle` - Show/hide sidebar title
 - `enableSidebarMarkdown`, `sidebarMarkdown` - Custom sidebar content
@@ -105,7 +104,6 @@ string SelectedSearchProps { get; set; }     // Properties to include in search
 ```csharp
 bool EnableSidebar { get; set; }          // Enable sidebar ✅
 bool RightSidebar { get; set; }           // Position sidebar on right ✅
-bool AlwaysHideSidebar { get; set; }      // Hide sidebar by default ✅
 bool ShowSidebarOnSelection { get; set; } // Show only when shape selected ✅
 bool EnableSidbarTitle { get; set; }      // Show sidebar title ✅
 bool EnableSidebarMarkdown { get; set; }  // Custom sidebar content ✅

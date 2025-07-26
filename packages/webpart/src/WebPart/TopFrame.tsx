@@ -142,7 +142,15 @@ export function TopFrame(props: {
   const feeedbackButtonTarget = '_blank';
 
   const [hashLinkTooltip, setHashLinkTooltip] = React.useState('Copy WebPart Link');
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+
+  // Initialize sidebar state based on configuration
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(() => {
+    if (!props.webpart.enableSidebar) return false;
+    return false; // Default to closed
+  });
+
+  // Track selection state for showSidebarOnSelection functionality
+  const [hasSelection, setHasSelection] = React.useState(false);
 
   const onCopyHashLink = async () => {
     await navigator.clipboard.writeText(pageUrl);
@@ -151,12 +159,34 @@ export function TopFrame(props: {
   }
 
   const onOpenSidebar = () => {
-    setIsSidebarOpen(true);
+    // Only allow opening if sidebar is enabled
+    if (props.webpart.enableSidebar) {
+      setIsSidebarOpen(true);
+    }
   }
 
   const onCloseSidebar = () => {
     setIsSidebarOpen(false);
   }
+
+  // Handle selection changes for showSidebarOnSelection functionality
+  const onSelectionChanged = (evt: any) => {
+    const hasSelectedShapes = evt.selectedShapeIds && evt.selectedShapeIds.length > 0;
+    setHasSelection(hasSelectedShapes);
+
+    // Auto-open sidebar on selection if configured
+    if (props.webpart.showSidebarOnSelection && hasSelectedShapes && props.webpart.enableSidebar) {
+      setIsSidebarOpen(true);
+    }
+    // Auto-close sidebar when deselecting if configured
+    else if (props.webpart.showSidebarOnSelection && !hasSelectedShapes) {
+      setIsSidebarOpen(false);
+    }
+  };
+
+  // Determine if sidebar should be shown
+  const shouldShowSidebar = props.webpart.enableSidebar &&
+    (!props.webpart.showSidebarOnSelection || hasSelection || isSidebarOpen);
 
   return (
     <ThemeProvider style={rootStyle}>
@@ -171,11 +201,13 @@ export function TopFrame(props: {
               <IconButton iconProps={{ iconName: 'PageLink' }} title='Copy WebPart Link' onClick={onCopyHashLink} />
             </TooltipHost>
           </Stack.Item>}
-          <Stack.Item align='center'>
-            <TooltipHost content="Open sidebar">
-              <IconButton iconProps={{ iconName: 'OpenPane' }} title='Open Sidebar' onClick={onOpenSidebar} />
-            </TooltipHost>
-          </Stack.Item>
+          {props.webpart.enableSidebar && !props.webpart.showSidebarOnSelection && (
+            <Stack.Item align='center'>
+              <TooltipHost content="Open sidebar">
+                <IconButton iconProps={{ iconName: 'OpenPane' }} title='Open Sidebar' onClick={onOpenSidebar} />
+              </TooltipHost>
+            </Stack.Item>
+          )}
           {props.webpart.enableFeedback && <Stack.Item align='center'>
             <ActionButton target={feeedbackButtonTarget} href={formattedFeedbackUrl}>{feedbackButtonText}</ActionButton>
           </Stack.Item>}
@@ -225,12 +257,20 @@ export function TopFrame(props: {
         tooltipTheme={props.webpart.tooltipTheme}
 
         onLinkClicked={onLinkClicked}
+        onSelectionChanged={onSelectionChanged}
         onError={onError}
       />
-      <AppSidebar
-        isOpen={isSidebarOpen}
-        onDismiss={onCloseSidebar}
-      />
+      {shouldShowSidebar && (
+        <AppSidebar
+          isOpen={isSidebarOpen}
+          onDismiss={onCloseSidebar}
+          rightSidebar={props.webpart.rightSidebar}
+          enableSidebarTitle={props.webpart.enableSidebarTitle}
+          enableSidebarMarkdown={props.webpart.enableSidebarMarkdown}
+          sidebarMarkdown={props.webpart.sidebarMarkdown}
+          sidebarDefaultWidth={props.webpart.sidebarDefaultWidth}
+        />
+      )}
     </ThemeProvider>
   );
 }

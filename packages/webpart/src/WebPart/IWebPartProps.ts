@@ -69,7 +69,6 @@ export interface IWebPartProps {
 
   enableSidebar?: boolean;
   rightSidebar?: boolean;
-  alwaysHideSidebar?: boolean;
   showSidebarOnSelection?: boolean;
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;

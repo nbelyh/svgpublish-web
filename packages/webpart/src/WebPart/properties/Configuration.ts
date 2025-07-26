@@ -326,11 +326,6 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
-                PropertyPaneToggle('alwaysHideSidebar', {
-                  label: "Always Hide Sidebar by Default",
-                  disabled: !properties.enableSidebar,
-                  inlineLabel: true,
-                }),
                 PropertyPaneToggle('showSidebarOnSelection', {
                   label: "Show Sidebar Only on Selection",
                   disabled: !properties.enableSidebar,
