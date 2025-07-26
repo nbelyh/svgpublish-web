@@ -47,6 +47,7 @@ export interface IDiagramInfo {
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;
   sidebarMarkdown?: string;
+  sidebarSize?: 'small' | 'medium' | 'large' | 'custom';
   sidebarDefaultWidth?: string;
 
   // enableD3: boolean;

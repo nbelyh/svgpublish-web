@@ -58,6 +58,7 @@ export interface ISvgPublishComponentProps {
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;
   sidebarMarkdown?: string;
+  sidebarSize?: 'small' | 'medium' | 'large' | 'custom';
   sidebarDefaultWidth?: string;
 
   selectedShapeId?: string;

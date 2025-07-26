@@ -336,9 +336,19 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
-                PropertyPaneTextField('sidebarDefaultWidth', {
-                  label: "Default Sidebar Width",
+                PropertyPaneDropdown('sidebarSize', {
+                  label: "Sidebar Size",
                   disabled: !properties.enableSidebar,
+                  options: [
+                    { key: 'small', text: "Small" },
+                    { key: 'medium', text: "Medium" },
+                    { key: 'large', text: "Large" },
+                    { key: 'custom', text: "Custom" },
+                  ],
+                }),
+                PropertyPaneTextField('sidebarDefaultWidth', {
+                  label: "Custom Sidebar Width",
+                  disabled: !properties.enableSidebar || properties.sidebarSize !== 'custom',
                   value: properties.sidebarDefaultWidth,
                   placeholder: "ex: 300px, 25%",
                   description: "Specify width with units (px, %, em, etc.)",

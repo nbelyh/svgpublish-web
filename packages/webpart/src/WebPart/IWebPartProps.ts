@@ -73,5 +73,6 @@ export interface IWebPartProps {
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;
   sidebarMarkdown?: string;
+  sidebarSize?: 'small' | 'medium' | 'large' | 'custom';
   sidebarDefaultWidth?: string;
 }
