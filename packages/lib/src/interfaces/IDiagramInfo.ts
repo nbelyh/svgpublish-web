@@ -42,7 +42,7 @@ export interface IDiagramInfo {
   enableSelection?: boolean;
 
   enableSidebar: boolean;
-  sidebarType?: 'small' | 'smallFixedFar' | 'smallFixedNear' | 'medium' | 'large' | 'largeFixed' | 'extraLarge' | 'custom' | 'customNear';
+  sidebarType?: 'smallFixedFar' | 'smallFixedNear' | 'medium' | 'large' | 'largeFixed' | 'extraLarge' | 'custom' | 'customNear';
   showSidebarOnSelection?: boolean;
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;
