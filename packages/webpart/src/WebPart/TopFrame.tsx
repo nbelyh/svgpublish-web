@@ -268,6 +268,7 @@ export function TopFrame(props: {
           enableSidebarTitle={props.webpart.enableSidebarTitle}
           enableSidebarMarkdown={props.webpart.enableSidebarMarkdown}
           sidebarMarkdown={props.webpart.sidebarMarkdown}
+          sidebarSize={props.webpart.sidebarSize}
           sidebarDefaultWidth={props.webpart.sidebarDefaultWidth}
         />
       )}

@@ -1,2 +1,3 @@
 export { SvgPublishComponent } from './SvgPublishComponent'
-export * from 'svgpublish'
+export type { ISvgPublishComponentProps } from './ISvgPublishComponentProps'
+export type * from 'svgpublish'
