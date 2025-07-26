@@ -3,7 +3,7 @@ import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { IWebPartProps } from "./IWebPartProps";
 import { BlankPlaceholder } from './components/BlankPlaceholder';
 import { ActionButton, Breadcrumb, IBreadcrumbItem, IconButton, Stack, ThemeProvider, TooltipHost } from '@fluentui/react';
-import { SvgPublishComponent, LinkClickedEvent } from 'svgpublish-react';
+import { SvgPublishComponent, LinkClickedEvent, SelectionChangedEvent } from 'svgpublish-react';
 import { stringifyError } from './Errors';
 import { ErrorPlaceholder } from './components/ErrorPlaceholder';
 import { AppSidebar } from './components/AppSidebar';
@@ -170,16 +170,16 @@ export function TopFrame(props: {
   }
 
   // Handle selection changes for showSidebarOnSelection functionality
-  const onSelectionChanged = (evt: any) => {
-    const hasSelectedShapes = evt.selectedShapeIds && evt.selectedShapeIds.length > 0;
-    setHasSelection(hasSelectedShapes);
+  const onSelectionChanged = (evt: SelectionChangedEvent) => {
+    const selectedShapeId = evt.detail?.shapeId;
+    setHasSelection(!!selectedShapeId);
 
     // Auto-open sidebar on selection if configured
-    if (props.webpart.showSidebarOnSelection && hasSelectedShapes && props.webpart.enableSidebar) {
+    if (props.webpart.showSidebarOnSelection && selectedShapeId && props.webpart.enableSidebar) {
       setIsSidebarOpen(true);
     }
     // Auto-close sidebar when deselecting if configured
-    else if (props.webpart.showSidebarOnSelection && !hasSelectedShapes) {
+    else if (props.webpart.showSidebarOnSelection && !selectedShapeId) {
       setIsSidebarOpen(false);
     }
   };

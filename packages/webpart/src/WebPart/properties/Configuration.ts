@@ -322,7 +322,7 @@ export class Configuration {
                   inlineLabel: true,
                 }),
                 PropertyPaneToggle('showSidebarOnSelection', {
-                  label: "Show Sidebar Only on Selection",
+                  label: "Auto-Show Sidebar on Shape Selection",
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
