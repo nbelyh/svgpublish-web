@@ -38,7 +38,7 @@ export class HoverService extends BasicService implements IHoverService {
 
     for (const shapeId in diagram.shapes) {
 
-      var info = diagram.shapes[shapeId];
+      const info = diagram.shapes[shapeId];
 
       if (info.DefaultLink
         || info.Props && Object.keys(info.Props).length
@@ -53,15 +53,17 @@ export class HoverService extends BasicService implements IHoverService {
         const shape = Utils.findTargetElement(shapeId, this.context);
         if (shape) {
 
-          var filter = (diagram.enableFollowHyperlinks && info.DefaultLink)
+          const isHyperlink = diagram.enableFollowHyperlinks && info.DefaultLink;
+
+          const filter = isHyperlink
             ? SelectionUtils.getHyperlinkFilterId(this.context.guid)
             : SelectionUtils.getHoverFilterId(this.context.guid);
 
           this.subscribe(shape, 'mouseover', () => {
             if (!selectionService?.highlightedShapeIds?.[shapeId]) {
-              var hyperlinkColor = Utils.getValueOrDefault(selectionView?.hyperlinkColor, DefaultColors.hyperlinkColor);
-              var hoverColor = Utils.getValueOrDefault(selectionView?.hoverColor, DefaultColors.hoverColor);
-              var color = (diagram.enableFollowHyperlinks && info.DefaultLink) ? hyperlinkColor : hoverColor;
+              const hyperlinkColor = Utils.getValueOrDefault(selectionView?.hyperlinkColor, DefaultColors.hyperlinkColor);
+              const hoverColor = Utils.getValueOrDefault(selectionView?.hoverColor, DefaultColors.hoverColor);
+              const color = isHyperlink ? hyperlinkColor : hoverColor;
               SelectionUtils.setShapeHighlight(shape, boxId, filter, color, this.context);
             }
           });
