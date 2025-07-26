@@ -24,7 +24,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   React.useEffect(() => {
     if (context && props.onLinkClicked) {
-      const onLinkClicked = (evt: Event) => props.onLinkClicked!(evt as LinkClickedEvent);
+      const onLinkClicked = (evt: Event) => props.onLinkClicked?.(evt as LinkClickedEvent);
       context.events.addEventListener('linkClicked', onLinkClicked);
       return () => context.events.removeEventListener('linkClicked', onLinkClicked);
     }

@@ -8,7 +8,7 @@ import { sp } from '@pnp/sp';
 import { TopFrame } from './TopFrame';
 import { Configuration } from './properties/Configuration';
 import { IWebPartProps } from './IWebPartProps';
-import { DefaultColors } from 'svgpublish';
+import { DefaultColors } from 'svgpublish-react';
 
 export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
 

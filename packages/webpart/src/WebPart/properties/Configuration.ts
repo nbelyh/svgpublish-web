@@ -8,7 +8,7 @@ import { PropertyPaneSizeField } from './PropertyPaneSizeField';
 import { WebPartDefaults } from '../services/WebPartDefaults';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 import { PropertyPaneColorField } from './PropertyPaneColorField';
-import { DefaultColors } from 'svgpublish';
+import { DefaultColors } from 'svgpublish-react';
 import { PropertyPaneNumberField } from './PropertyPaneNumberField';
 
 export class Configuration {
