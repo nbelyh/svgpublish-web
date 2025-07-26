@@ -8,15 +8,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            compilerOptions: {
-              declaration: true,
-              outDir: './dist',
-            },
-          },
-        },
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
