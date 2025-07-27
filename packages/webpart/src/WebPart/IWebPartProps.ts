@@ -74,4 +74,7 @@ export interface IWebPartProps {
   enableSidebarMarkdown?: boolean;
   sidebarMarkdown?: string;
   sidebarDefaultWidth?: string;
+
+  enableProps?: boolean;
+  selectedProps?: string[];
 }

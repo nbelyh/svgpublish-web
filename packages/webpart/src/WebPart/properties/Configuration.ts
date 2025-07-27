@@ -352,6 +352,11 @@ export class Configuration {
                   placeholder: "ex: 300px, 25%",
                   description: "Specify width with units (px, %, em, etc.)",
                 }),
+                PropertyPaneToggle('enableProps', {
+                  label: "Show Shape Properties",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
                 PropertyPaneToggle('enableSidebarMarkdown', {
                   label: "Enable Custom Sidebar Content",
                   disabled: !properties.enableSidebar,

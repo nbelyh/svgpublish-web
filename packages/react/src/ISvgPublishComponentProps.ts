@@ -1,4 +1,13 @@
-import { DiagramInfoSelectionMode, DiagramInfoTooltipPlacement, DiagramInfoTooltipTheme, DiagramInfoTooltipTrigger, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent } from 'svgpublish';
+import {
+  DiagramInfoSelectionMode,
+  DiagramInfoTooltipPlacement,
+  DiagramInfoTooltipTheme,
+  DiagramInfoTooltipTrigger,
+  LinkClickedEvent,
+  SelectionChangedEvent,
+  ViewChangedEvent,
+  LoadEvent,
+} from 'svgpublish';
 
 export interface ISvgPublishComponentProps {
   url: string;
@@ -64,6 +73,7 @@ export interface ISvgPublishComponentProps {
 
   onError?: (err: Error) => void;
   onGetContent?: (url: string) => Promise<string>;
+  onLoad?: (evt: LoadEvent) => void;
 
   onLinkClicked?: (evt: LinkClickedEvent) => void | null;
   onSelectionChanged?: (evt: SelectionChangedEvent) => void;

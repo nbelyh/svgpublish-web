@@ -131,7 +131,7 @@ export class SelectionService extends BasicService implements ISelectionService 
       this.highlightedShapeIds = {};
 
       this.selectedShapeId = shapeId;
-      const selectionChangedEvent = new CustomEvent<ISelectionChangedEventData>('selectionChanged', {
+      const selectionChangedEvent = new CustomEvent<ISelectionChangedEventData>('svgpublish_SelectionChanged', {
         cancelable: false,
         detail: {
           triggerEvent: evt,

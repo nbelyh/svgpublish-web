@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IServices, IDiagramInfo } from 'svgpublish';
+import { SvgPublishContext, LinkClickedEvent, SelectionChangedEvent, ViewChangedEvent, IServices, IDiagramInfo, ILoadEventData, LoadEvent } from 'svgpublish';
 import { ISvgPublishComponentProps } from './ISvgPublishComponentProps';
 import { mergeProps } from './Utils';
 import useVisible from './useVisible';
@@ -9,40 +9,27 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
   const containerRef = React.useRef(null);
   const [context, setContext] = React.useState<SvgPublishContext | null>(null);
 
-  const getContent = React.useCallback(async (url: string) => {
-    if (props.onGetContent) {
-      return await props.onGetContent(url);
-    }
-    const response = await fetch(url);
-    if (response.ok) {
-      const content = await response.text();
-      return content;
-    } else {
-      throw new Error(`Failed to load content from ${url}`);
-    }
-  }, [props.onGetContent]);
-
   React.useEffect(() => {
     if (context && props.onLinkClicked) {
       const onLinkClicked = (evt: Event) => props.onLinkClicked?.(evt as LinkClickedEvent);
-      context.events.addEventListener('linkClicked', onLinkClicked);
-      return () => context.events.removeEventListener('linkClicked', onLinkClicked);
+      context.events.addEventListener('svgpublish_LinkClicked', onLinkClicked);
+      return () => context.events.removeEventListener('svgpublish_LinkClicked', onLinkClicked);
     }
   }, [context, props.onLinkClicked]);
 
   React.useEffect(() => {
     if (context && props.onSelectionChanged) {
-      const onSelectionChanged = (evt: Event) => props.onSelectionChanged!(evt as SelectionChangedEvent);
-      context.events.addEventListener('selectionChanged', onSelectionChanged);
-      return () => context.events.removeEventListener('selectionChanged', onSelectionChanged);
+      const onSelectionChanged = (evt: Event) => props.onSelectionChanged?.(evt as SelectionChangedEvent);
+      context.events.addEventListener('svgpublish_SelectionChanged', onSelectionChanged);
+      return () => context.events.removeEventListener('svgpublish_SelectionChanged', onSelectionChanged);
     }
   }, [context, props.onSelectionChanged]);
 
   React.useEffect(() => {
     if (context && props.onViewChanged) {
-      const onViewChanged = (evt: Event) => props.onViewChanged!(evt as ViewChangedEvent);
-      context.events.addEventListener('viewChanged', onViewChanged);
-      return () => context.events.removeEventListener('viewChanged', onViewChanged);
+      const onViewChanged = (evt: Event) => props.onViewChanged?.(evt as ViewChangedEvent);
+      context.events.addEventListener('svgpublish_ViewChanged', onViewChanged);
+      return () => context.events.removeEventListener('svgpublish_ViewChanged', onViewChanged);
     }
   }, [context, props.onViewChanged]);
 
@@ -55,29 +42,26 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     const initialize = isVisible && (!context || props.url !== urlRef.current);
     if (initialize && props.url) {
       urlRef.current = props.url;
-      getContent(props.url).then(content => {
-        if (containerRef.current) {
+      if (containerRef.current) {
 
-          const init: Partial<IDiagramInfo> = {};
-          mergeProps(init, props);
+        const init: Partial<IDiagramInfo> = {};
+        mergeProps(init, props);
 
-          const newContext = new SvgPublishContext(containerRef.current, content, init);
+        const newContext = new SvgPublishContext(containerRef.current, props.onGetContent);
+        newContext.events.addEventListener('svgpublish_Load', (evt: LoadEvent) => props.onLoad?.(evt as LoadEvent));
+        newContext.init(props.url, init).then(() => {
+          setContext(newContext);
           if (newContext?.services?.selection && props.selectedShapeId) {
             newContext.services.selection.setSelection(props.selectedShapeId);
           }
-          setContext(newContext);
-        }
-      }, (err) => {
-        if (context) {
-          context.destroy();
-          setContext(null);
-        }
-        if (props.onError) {
-          props.onError(err);
-        } else {
-          console.error(err);
-        }
-      })
+        }).catch(err => {
+          if (props.onError) {
+            props.onError(err);
+          } else {
+            console.error(err);
+          }
+        });
+      }
     }
 
     return () => {

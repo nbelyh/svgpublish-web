@@ -4,7 +4,10 @@
 // Nikolay Belykh, nbelyh@gmail.com
 //-----------------------------------------------------------------------
 
-export * from './LinkClickedEvent';
-export * from './SelectionChangedEvent';
-export * from './ViewChangedEvent';
-export * from './LoadEvent';
+import { ISvgPublishContext } from '../interfaces/ISvgPublishContext';
+
+export interface ILoadEventData {
+  context: ISvgPublishContext;
+}
+
+export type LoadEvent = CustomEvent<ILoadEventData>;

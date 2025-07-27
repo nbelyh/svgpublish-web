@@ -4,7 +4,7 @@
 // Nikolay Belykh, nbelyh@gmail.com
 //-----------------------------------------------------------------------
 
-import { IViewChangedEventData, ViewChangedEvent } from '../events';
+import { IViewChangedEventData } from '../events';
 import { ISvgPublishContext } from '../interfaces/ISvgPublishContext';
 import { Geometry } from './Geometry';
 import { BasicService } from './BasicService';
@@ -214,7 +214,7 @@ export class ViewService extends BasicService implements IViewService {
 
     this.viewPort.setAttribute("transform", s);
 
-    const viewChangedEvent = new CustomEvent<IViewChangedEventData>('viewChanged', {
+    const viewChangedEvent = new CustomEvent<IViewChangedEventData>('svgpublish_ViewChanged', {
       cancelable: false,
       detail: {
         context: this.context,

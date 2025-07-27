@@ -9,6 +9,17 @@ import { VisioSvgParser } from './services/VisioSvgParser';
 import { Utils } from './services/Utils';
 import { TooltipService } from './services/TooltipService';
 import { SidebarService } from './services/SidebarService';
+import { ILoadEventData } from './events';
+
+const defaultResolver = async (url: string) => {
+  const response = await fetch(url);
+  if (response.ok) {
+    const content = await response.text();
+    return content;
+  } else {
+    throw new Error(`Failed to load content from ${url}`);
+  }
+}
 
 export class SvgPublishContext implements ISvgPublishContext {
 
@@ -19,19 +30,25 @@ export class SvgPublishContext implements ISvgPublishContext {
   services: IServices;
   guid: string;
 
-  public constructor(container: HTMLElement, content: string, init?: Partial<IDiagramInfo>) {
+  public resolver: (url: string) => Promise<string>;
 
-    const { svgXml, viewBox, diagramInfo } = VisioSvgParser.parse(content);
-
-    container.innerHTML = svgXml;
-
+  public constructor(container: HTMLElement, resolver?: (url: string) => Promise<string>) {
     this.guid = Utils.generateUniqueId();
     this.container = container;
-    this.svg = container.querySelector('svg');
     this.events = new EventTarget;
-    this.diagram = { ...diagramInfo, ...init };
-
     this.services = {};
+    this.resolver = resolver || defaultResolver;
+  }
+
+  public async init(url: string, init: Partial<IDiagramInfo>) {
+
+    const content = await this.resolver(url);
+    const { svgXml, viewBox, diagramInfo } = VisioSvgParser.parse(content);
+
+    this.container.innerHTML = svgXml;
+
+    this.svg = this.container.querySelector('svg');
+    this.diagram = { ...diagramInfo, ...init };
 
     this.services.view = new ViewService(this, viewBox);
 
@@ -40,6 +57,14 @@ export class SvgPublishContext implements ISvgPublishContext {
     this.enableService('hover', this.diagram.enableHover);
     this.enableService('tooltip', this.diagram.enableTooltips);
     this.enableService('sidebar', this.diagram.enableSidebar);
+
+    const loadEvent = new CustomEvent<ILoadEventData>('svgpublish_Load', {
+      cancelable: false,
+      detail: {
+        context: this,
+      }
+    });
+    this.events.dispatchEvent(loadEvent);
   }
 
   public destroy() {

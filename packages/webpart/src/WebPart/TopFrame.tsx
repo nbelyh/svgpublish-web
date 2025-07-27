@@ -3,7 +3,7 @@ import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { IWebPartProps } from "./IWebPartProps";
 import { BlankPlaceholder } from './components/BlankPlaceholder';
 import { ActionButton, Breadcrumb, IBreadcrumbItem, IconButton, Stack, ThemeProvider, TooltipHost } from '@fluentui/react';
-import { SvgPublishComponent, LinkClickedEvent, SelectionChangedEvent } from 'svgpublish-react';
+import { SvgPublishComponent, ISvgPublishContext, LinkClickedEvent, SelectionChangedEvent, LoadEvent } from 'svgpublish-react';
 import { stringifyError } from './Errors';
 import { ErrorPlaceholder } from './components/ErrorPlaceholder';
 import { AppSidebar } from './components/AppSidebar';
@@ -56,6 +56,10 @@ export function TopFrame(props: {
     setUrl(defaultUrl);
     setBreadcrumb([{ key: defaultUrl, text: "Home", onClick: onBreadcrumbClick }]);
   }, [defaultUrl]);
+
+  const onLoad = (evt: LoadEvent) => {
+    setContext(evt.detail.context);
+  };
 
   const onLinkClicked = (evt: LinkClickedEvent) => {
 
@@ -151,6 +155,8 @@ export function TopFrame(props: {
 
   // Track selection state for showSidebarOnSelection functionality
   const [hasSelection, setHasSelection] = React.useState(false);
+  const [selectedShapeId, setSelectedShapeId] = React.useState<string | undefined>(undefined);
+  const [context, setContext] = React.useState<ISvgPublishContext | null>(null);
 
   const onCopyHashLink = async () => {
     await navigator.clipboard.writeText(pageUrl);
@@ -171,15 +177,16 @@ export function TopFrame(props: {
 
   // Handle selection changes for showSidebarOnSelection functionality
   const onSelectionChanged = (evt: SelectionChangedEvent) => {
-    const selectedShapeId = evt.detail?.shapeId;
-    setHasSelection(!!selectedShapeId);
+    const selectedShapeIdValue = evt.detail?.shapeId;
+    setHasSelection(!!selectedShapeIdValue);
+    setSelectedShapeId(selectedShapeIdValue);
 
     // Auto-open sidebar on selection if configured
-    if (props.webpart.showSidebarOnSelection && selectedShapeId && props.webpart.enableSidebar) {
+    if (props.webpart.showSidebarOnSelection && selectedShapeIdValue && props.webpart.enableSidebar) {
       setIsSidebarOpen(true);
     }
     // Auto-close sidebar when deselecting if configured
-    else if (props.webpart.showSidebarOnSelection && !selectedShapeId) {
+    else if (props.webpart.showSidebarOnSelection && !selectedShapeIdValue) {
       setIsSidebarOpen(false);
     }
   };
@@ -256,6 +263,7 @@ export function TopFrame(props: {
         tooltipInteractive={props.webpart.tooltipInteractive}
         tooltipTheme={props.webpart.tooltipTheme}
 
+        onLoad={onLoad}
         onLinkClicked={onLinkClicked}
         onSelectionChanged={onSelectionChanged}
         onError={onError}
@@ -264,11 +272,9 @@ export function TopFrame(props: {
         <AppSidebar
           isOpen={isSidebarOpen}
           onDismiss={onCloseSidebar}
-          sidebarType={props.webpart.sidebarType}
-          enableSidebarTitle={props.webpart.enableSidebarTitle}
-          enableSidebarMarkdown={props.webpart.enableSidebarMarkdown}
-          sidebarMarkdown={props.webpart.sidebarMarkdown}
-          sidebarDefaultWidth={props.webpart.sidebarDefaultWidth}
+          context={context}
+          selectedShapeId={selectedShapeId}
+          webpartConfig={props.webpart}
         />
       )}
     </ThemeProvider>

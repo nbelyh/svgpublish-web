@@ -37,7 +37,7 @@ export class LinksService extends BasicService implements ILinksService {
 
       const openHyperlinksInNewWindow = Utils.getValueOrDefault(diagram.openHyperlinksInNewWindow, true);
 
-      const linkClickedEvent = new CustomEvent<ILinkClickedEventData>('linkClicked', {
+      const linkClickedEvent = new CustomEvent<ILinkClickedEventData>('svgpublish_LinkClicked', {
         cancelable: true,
         detail: {
           context: this.context,
