@@ -44,11 +44,6 @@ export const AppSidebar = (props: {
             <SidebarProperties
               shapeInfo={selectedShapeInfo}
               selectedProps={props.webpartConfig.selectedProps || []}
-              labelsConfig={{
-                noDataLabel: 'No Shape Data',
-                propertyLabel: 'Property',
-                valueLabel: 'Value'
-              }}
               openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
             />
           )}

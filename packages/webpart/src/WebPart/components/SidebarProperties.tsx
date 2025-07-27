@@ -13,32 +13,20 @@ import { IShapeInfo } from 'svgpublish-react';
 export interface ISidebarPropertiesProps {
   shapeInfo?: IShapeInfo;
   selectedProps?: string[];
-  labelsConfig?: {
-    noDataLabel?: string;
-    propertyLabel?: string;
-    valueLabel?: string;
-  };
   openHyperlinksInNewWindow?: boolean;
 }
 
 export const SidebarProperties: React.FC<ISidebarPropertiesProps> = ({
   shapeInfo,
   selectedProps = [],
-  labelsConfig = {},
   openHyperlinksInNewWindow = true
 }) => {
-  const {
-    noDataLabel = 'No Shape Data',
-    propertyLabel = 'Property',
-    valueLabel = 'Value'
-  } = labelsConfig;
-
   // If no shape is selected or no properties exist
   if (!shapeInfo || !shapeInfo.Props || Object.keys(shapeInfo.Props).length === 0) {
     return (
       <Stack tokens={{ childrenGap: 16 }}>
         <Text variant="medium" styles={{ root: { color: '#666' } }}>
-          {noDataLabel}
+          No Shape Data
         </Text>
       </Stack>
     );
@@ -55,7 +43,7 @@ export const SidebarProperties: React.FC<ISidebarPropertiesProps> = ({
     return (
       <Stack tokens={{ childrenGap: 16 }}>
         <Text variant="medium" styles={{ root: { color: '#666' } }}>
-          {noDataLabel}
+          No Shape Data
         </Text>
       </Stack>
     );
@@ -65,7 +53,7 @@ export const SidebarProperties: React.FC<ISidebarPropertiesProps> = ({
   const columns: IColumn[] = [
     {
       key: 'property',
-      name: propertyLabel,
+      name: 'Property',
       fieldName: 'property',
       minWidth: 100,
       maxWidth: 150,
@@ -78,7 +66,7 @@ export const SidebarProperties: React.FC<ISidebarPropertiesProps> = ({
     },
     {
       key: 'value',
-      name: valueLabel,
+      name: 'Value',
       fieldName: 'value',
       minWidth: 150,
       isResizable: true,
