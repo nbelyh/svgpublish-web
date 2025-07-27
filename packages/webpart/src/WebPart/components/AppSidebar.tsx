@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Panel, PanelType, Text, Stack } from '@fluentui/react';
 import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
+import { CollapsibleSection } from './CollapsibleSection';
 import { IWebPartProps } from '../IWebPartProps';
 import { ISvgPublishContext } from 'svgpublish-react';
 
@@ -12,6 +13,20 @@ export const AppSidebar = (props: {
   selectedShapeId?: string;
   webpartConfig: IWebPartProps;
 }) => {
+
+  // State for managing collapsed sections
+  const [collapsedSections, setCollapsedSections] = React.useState<{[key: string]: boolean}>({
+    properties: false,
+    links: false,
+    content: false
+  });
+
+  const toggleSection = (sectionKey: string) => {
+    setCollapsedSections(prev => ({
+      ...prev,
+      [sectionKey]: !prev[sectionKey]
+    }));
+  };
 
   // TODO: Will integrate with marked library later for proper markdown rendering
 
@@ -33,32 +48,45 @@ export const AppSidebar = (props: {
     // If we have any content to show
     if (hasPropertiesContent || hasLinksContent || hasMarkdownContent) {
       return (
-        <Stack tokens={{ childrenGap: 16 }}>
+        <Stack style={{ marginTop: 16 }} tokens={{ childrenGap: 16 }}>
           {hasMarkdownContent && (
-            <Stack tokens={{ childrenGap: 8 }}>
-              <Text variant="mediumPlus" styles={{ root: { fontWeight: '600' } }}>
-                Content
-              </Text>
+            <CollapsibleSection
+              title="Content"
+              isCollapsed={collapsedSections.content}
+              onToggle={() => toggleSection('content')}
+            >
               <div style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '14px' }}>
                 {props.webpartConfig.sidebarMarkdown}
               </div>
-            </Stack>
+            </CollapsibleSection>
           )}
 
           {hasPropertiesContent && (
-            <SidebarProperties
-              shapeInfo={selectedShapeInfo}
-              selectedProps={props.webpartConfig.selectedProps || []}
-              openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
-            />
+            <CollapsibleSection
+              title="Properties"
+              isCollapsed={collapsedSections.properties}
+              onToggle={() => toggleSection('properties')}
+            >
+              <SidebarProperties
+                shapeInfo={selectedShapeInfo}
+                selectedProps={props.webpartConfig.selectedProps || []}
+                openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
+              />
+            </CollapsibleSection>
           )}
 
           {hasLinksContent && (
-            <SidebarLinks
-              shapeInfo={selectedShapeInfo}
-              openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
-              context={props.context}
-            />
+            <CollapsibleSection
+              title="Links"
+              isCollapsed={collapsedSections.links}
+              onToggle={() => toggleSection('links')}
+            >
+              <SidebarLinks
+                shapeInfo={selectedShapeInfo}
+                openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
+                context={props.context}
+              />
+            </CollapsibleSection>
           )}
         </Stack>
       );

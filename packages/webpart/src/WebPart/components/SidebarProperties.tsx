@@ -88,16 +88,14 @@ export const SidebarProperties: React.FC<ISidebarPropertiesProps> = ({
   }));
 
   return (
-    <Stack tokens={{ childrenGap: 16 }}>
-      <Text variant="mediumPlus">
-        Properties
-      </Text>
-
+    <Stack tokens={{ childrenGap: 8 }}>
       <DetailsList
         items={items}
         columns={columns}
+        setKey="set"
         layoutMode={DetailsListLayoutMode.justified}
         selectionMode={SelectionMode.none}
+        isHeaderVisible={false}
         compact={true}
       />
     </Stack>

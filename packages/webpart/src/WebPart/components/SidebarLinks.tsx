@@ -82,28 +82,22 @@ export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
   }
 
   return (
-    <Stack tokens={{ childrenGap: 16 }}>
-      <Text variant="mediumPlus">
-        Links
-      </Text>
+    <Stack tokens={{ childrenGap: 8 }} styles={{ root: { marginLeft: '8px' } }}>
+      {links.map((link, index) => {
+        const href = buildLinkTargetLocation(link);
+        const text = buildLinkText(link);
 
-      <Stack tokens={{ childrenGap: 8 }}>
-        {links.map((link, index) => {
-          const href = buildLinkTargetLocation(link);
-          const text = buildLinkText(link);
-
-          return (
-            <Link
-              key={index}
-              href={href}
-              target={link.Address && openHyperlinksInNewWindow ? '_blank' : '_self'}
-              rel={link.Address && openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
-            >
-              {text}
-            </Link>
-          );
-        })}
-      </Stack>
+        return (
+          <Link
+            key={index}
+            href={href}
+            target={link.Address && openHyperlinksInNewWindow ? '_blank' : '_self'}
+            rel={link.Address && openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
+          >
+            {text}
+          </Link>
+        );
+      })}
     </Stack>
   );
 };
