@@ -7,7 +7,6 @@ import { SvgPublishComponent, ISvgPublishContext, LinkClickedEvent, SelectionCha
 import { stringifyError } from './Errors';
 import { ErrorPlaceholder } from './components/ErrorPlaceholder';
 import { AppSidebar } from './components/AppSidebar';
-import { UsageLogService } from './services/UsageLogService';
 
 const isUrlAbsolute = (url: string) => url.indexOf('://') > 0 || url.indexOf('//') === 0;
 
@@ -39,9 +38,6 @@ export function TopFrame(props: {
 
   const setUrl = (url: string) => {
     _setUrl(url);
-    if (props.webpart.enableUsageLog) {
-      UsageLogService.logUrl(url, props.webpart.usageLogListTitle);
-    }
   }
 
   const onBreadcrumbClick = (ev?: React.MouseEvent<HTMLElement>, item?: IBreadcrumbItem) => {
@@ -98,10 +94,6 @@ export function TopFrame(props: {
           setBreadcrumb(b => [...b, { key: pageUrl, text: args.shape.Text, onClick: onBreadcrumbClick }]);
           setUrl(pageUrl);
         } else {
-
-          if (props.webpart.enableUsageLog) {
-            UsageLogService.logUrl(linkAddress, props.webpart.usageLogListTitle);
-          }
 
           const fileUrl = isUrlAbsolute(linkAddress)
             ? new URL(linkAddress)

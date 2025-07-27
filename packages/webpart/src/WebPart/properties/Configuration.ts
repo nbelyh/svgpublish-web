@@ -5,6 +5,7 @@ import { IPropertyPaneConfiguration, PropertyPaneDropdown, PropertyPaneTextField
 import { PropertyPaneVersionField } from './PropertyPaneVersionField';
 import { PropertyPaneUrlField } from './PropertyPaneUrlField';
 import { PropertyPaneSizeField } from './PropertyPaneSizeField';
+import { PropertyPaneIndentedToggle } from './PropertyPaneIndentedToggle';
 import { WebPartDefaults } from '../services/WebPartDefaults';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 import { PropertyPaneColorField } from './PropertyPaneColorField';
@@ -336,13 +337,13 @@ export class Configuration {
                   ],
                 }),
                 ...((properties.sidebarType === 'custom' || properties.sidebarType === 'customNear') ? [
-                PropertyPaneTextField('sidebarDefaultWidth', {
-                  label: "Custom Sidebar Width",
-                  disabled: !properties.enableSidebar,
-                  value: properties.sidebarDefaultWidth,
-                  placeholder: "ex: 300px, 25%",
-                  description: "Specify width with units (px, %, em, etc.)",
-                })] : []),
+                  PropertyPaneTextField('sidebarDefaultWidth', {
+                    label: "Custom Sidebar Width",
+                    disabled: !properties.enableSidebar,
+                    value: properties.sidebarDefaultWidth,
+                    placeholder: "ex: 300px, 25%",
+                    description: "Specify width with units (px, %, em, etc.)",
+                  })] : []),
                 PropertyPaneToggle('showSidebarOnSelection', {
                   label: "Auto-Show Sidebar on Selection",
                   disabled: !properties.enableSidebar,
@@ -368,20 +369,26 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
-                PropertyPaneToggle('enableLayerLookup', {
-                  label: "Enable Layer Search",
+                PropertyPaneIndentedToggle('enableLayerLookup', {
+                  label: "Layer Search",
                   disabled: !properties.enableSidebar || !properties.enableLayers,
                   inlineLabel: true,
+                  indentLevel: 1,
+                  checked: properties.enableLayerLookup,
                 }),
-                PropertyPaneToggle('enableLayerSort', {
+                PropertyPaneIndentedToggle('enableLayerSort', {
                   label: "Sort Layers Alphabetically",
                   disabled: !properties.enableSidebar || !properties.enableLayers,
                   inlineLabel: true,
+                  indentLevel: 1,
+                  checked: properties.enableLayerSort,
                 }),
-                PropertyPaneToggle('enableLayerShowAll', {
+                PropertyPaneIndentedToggle('enableLayerShowAll', {
                   label: "Show All/Hide All Buttons",
                   disabled: !properties.enableSidebar || !properties.enableLayers,
                   inlineLabel: true,
+                  indentLevel: 1,
+                  checked: properties.enableLayerShowAll,
                 }),
                 PropertyPaneToggle('enableSidebarMarkdown', {
                   label: "Enable Custom Sidebar Content",
@@ -396,21 +403,6 @@ export class Configuration {
                   description: "Custom content to display in the sidebar",
                   multiline: true,
                   rows: 4,
-                }),
-              ]
-            },
-            {
-              groupName: "Logging",
-              isCollapsed: true,
-              groupFields: [
-                PropertyPaneToggle('enableUsageLog', {
-                  label: "Enable Usage Logging",
-                }),
-                PropertyPaneTextField('usageLogListTitle', {
-                  value: properties.usageLogListTitle,
-                  disabled: !properties.enableUsageLog,
-                  label: "Usage Log List Title",
-                  placeholder: "ex: UsageLog",
                 }),
               ]
             },

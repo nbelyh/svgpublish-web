@@ -18,9 +18,6 @@ export interface IWebPartProps {
   feedbackUrl: string;
   feedbackButtonText: string;
 
-  enableUsageLog: boolean;
-  usageLogListTitle: string;
-
   enableSelection: boolean;
   enableBoxSelection: boolean;
   selectionMode: string;
