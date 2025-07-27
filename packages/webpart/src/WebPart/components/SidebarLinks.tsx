@@ -18,40 +18,6 @@ export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
   context
 }) => {
 
-  const pages = context?.diagram?.pages || [];
-  const currentPath = window.location.pathname;
-
-  // Build link target location based on the original vp-links.js logic
-  const buildLinkTargetLocation = (link: ILinkInfo): string => {
-    if (link.Address) {
-      return link.Address;
-    }
-
-    const linkPageId = link.PageId;
-    if (linkPageId >= 0 && pages) {
-      const targetPage = pages.find(p => p.Id === linkPageId);
-      if (targetPage && currentPath) {
-        const newPath = currentPath.replace(
-          currentPath.substring(currentPath.lastIndexOf('/') + 1),
-          targetPage.FileName
-        );
-        let href = window.location.protocol + "//" + window.location.host + newPath;
-
-        if (link.ShapeId) {
-          href += "#?shape=" + link.ShapeId;
-        }
-
-        if (link.Zoom) {
-          href += (link.ShapeId ? "&" : "#?") + "zoom=" + link.Zoom;
-        }
-
-        return href;
-      }
-    }
-
-    return "#";
-  };
-
   // Build link text based on the original vp-links.js logic
   const buildLinkText = (link: ILinkInfo): string => {
     if (link.Description) {
@@ -67,8 +33,9 @@ export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
     return link.Address || 'Link';
   };
 
-  // Filter and prepare links
-  const links = shapeInfo?.Links ? shapeInfo.Links.filter(link => link) : [];
+  // Filter links to only show external links (exclude page links)
+  const links = shapeInfo?.Links ?
+    shapeInfo.Links.filter(link => link && link.Address && !link.PageId) : [];
 
   // If no shape is selected or no links exist
   if (!shapeInfo || !shapeInfo.Links || links.length === 0) {
@@ -84,15 +51,14 @@ export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
   return (
     <Stack tokens={{ childrenGap: 8 }} styles={{ root: { marginLeft: '8px' } }}>
       {links.map((link, index) => {
-        const href = buildLinkTargetLocation(link);
         const text = buildLinkText(link);
 
         return (
           <Link
             key={index}
-            href={href}
-            target={link.Address && openHyperlinksInNewWindow ? '_blank' : '_self'}
-            rel={link.Address && openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
+            href={link.Address}
+            target={openHyperlinksInNewWindow ? '_blank' : '_self'}
+            rel={openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
           >
             {text}
           </Link>
