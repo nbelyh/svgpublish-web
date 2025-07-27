@@ -321,16 +321,6 @@ export class Configuration {
                   label: "Enable Sidebar",
                   inlineLabel: true,
                 }),
-                PropertyPaneToggle('showSidebarOnSelection', {
-                  label: "Auto-Show Sidebar on Shape Selection",
-                  disabled: !properties.enableSidebar,
-                  inlineLabel: true,
-                }),
-                PropertyPaneToggle('enableSidebarTitle', {
-                  label: "Show Sidebar Title",
-                  disabled: !properties.enableSidebar,
-                  inlineLabel: true,
-                }),
                 PropertyPaneDropdown('sidebarType', {
                   label: "Sidebar Type",
                   disabled: !properties.enableSidebar,
@@ -345,12 +335,23 @@ export class Configuration {
                     { key: 'customNear', text: "Custom (Right)" },
                   ],
                 }),
+                ...((properties.sidebarType === 'custom' || properties.sidebarType === 'customNear') ? [
                 PropertyPaneTextField('sidebarDefaultWidth', {
                   label: "Custom Sidebar Width",
-                  disabled: !properties.enableSidebar || (properties.sidebarType !== 'custom' && properties.sidebarType !== 'customNear'),
+                  disabled: !properties.enableSidebar,
                   value: properties.sidebarDefaultWidth,
                   placeholder: "ex: 300px, 25%",
                   description: "Specify width with units (px, %, em, etc.)",
+                })] : []),
+                PropertyPaneToggle('showSidebarOnSelection', {
+                  label: "Auto-Show Sidebar on Selection",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('enableSidebarTitle', {
+                  label: "Show Sidebar Title",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
                 }),
                 PropertyPaneToggle('enableProps', {
                   label: "Show Shape Properties",
