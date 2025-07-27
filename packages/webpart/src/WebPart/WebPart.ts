@@ -80,6 +80,7 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
     this.setDefault('sidebarMarkdown', '');
     this.setDefault('sidebarDefaultWidth', '300px');
     this.setDefault('enableProps', true);
+    this.setDefault('enableSidebarLinks', true);
 
     sp.setup({ spfxContext: this.context as any });
   }

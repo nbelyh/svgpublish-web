@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Panel, PanelType, Text, Stack } from '@fluentui/react';
 import { SidebarProperties } from './SidebarProperties';
+import { SidebarLinks } from './SidebarLinks';
 import { IWebPartProps } from '../IWebPartProps';
 import { ISvgPublishContext } from 'svgpublish-react';
 
@@ -23,10 +24,14 @@ export const AppSidebar = (props: {
     const hasPropertiesContent = props.webpartConfig.enableProps && selectedShapeInfo &&
       selectedShapeInfo.Props && Object.keys(selectedShapeInfo.Props).length > 0;
 
+    // Check if links should be shown and are available
+    const hasLinksContent = props.webpartConfig.enableSidebarLinks && selectedShapeInfo &&
+      selectedShapeInfo.Links && selectedShapeInfo.Links.length > 0;
+
     const hasMarkdownContent = props.webpartConfig.enableSidebarMarkdown && props.webpartConfig.sidebarMarkdown;
 
-    // If we have either properties or markdown, show them
-    if (hasPropertiesContent || hasMarkdownContent) {
+    // If we have any content to show
+    if (hasPropertiesContent || hasLinksContent || hasMarkdownContent) {
       return (
         <Stack tokens={{ childrenGap: 16 }}>
           {hasMarkdownContent && (
@@ -45,6 +50,14 @@ export const AppSidebar = (props: {
               shapeInfo={selectedShapeInfo}
               selectedProps={props.webpartConfig.selectedProps || []}
               openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
+            />
+          )}
+
+          {hasLinksContent && (
+            <SidebarLinks
+              shapeInfo={selectedShapeInfo}
+              openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
+              context={props.context}
             />
           )}
         </Stack>

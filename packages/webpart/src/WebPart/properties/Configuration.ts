@@ -358,6 +358,11 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
+                PropertyPaneToggle('enableSidebarLinks', {
+                  label: "Show Shape Links",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
                 PropertyPaneToggle('enableSidebarMarkdown', {
                   label: "Enable Custom Sidebar Content",
                   disabled: !properties.enableSidebar,

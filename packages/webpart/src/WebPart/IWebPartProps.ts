@@ -77,4 +77,5 @@ export interface IWebPartProps {
 
   enableProps?: boolean;
   selectedProps?: string[];
+  enableSidebarLinks?: boolean;
 }
