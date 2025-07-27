@@ -10,25 +10,19 @@ import {
 } from '@fluentui/react';
 import { IShapeInfo } from 'svgpublish-react';
 
-export interface ISidebarPropertiesProps {
+export const SidebarProperties = (props: {
   shapeInfo?: IShapeInfo;
   selectedProps?: string[];
   openHyperlinksInNewWindow?: boolean;
-}
-
-export const SidebarProperties: React.FC<ISidebarPropertiesProps> = ({
-  shapeInfo,
-  selectedProps = [],
-  openHyperlinksInNewWindow = true
 }) => {
 
   // Filter properties if selectedProps is specified
-  const filteredProps = shapeInfo?.Props ? Object.keys(shapeInfo.Props)
-    .filter(propName => selectedProps.length === 0 || selectedProps.indexOf(propName) >= 0)
-    .map(propName => [propName, shapeInfo.Props[propName]] as [string, string]) : [];
+  const filteredProps = props.shapeInfo?.Props ? Object.keys(props.shapeInfo.Props)
+    .filter(propName => props.selectedProps.length === 0 || props.selectedProps.indexOf(propName) >= 0)
+    .map(propName => [propName, props.shapeInfo.Props[propName]] as [string, string]) : [];
 
   // If no shape is selected, no properties exist, or no properties match the filter
-  if (!shapeInfo || !shapeInfo.Props || Object.keys(shapeInfo.Props).length === 0 || filteredProps.length === 0) {
+  if (filteredProps.length === 0) {
     return (
       <Stack tokens={{ childrenGap: 16 }}>
         <Text variant="medium">
@@ -68,8 +62,8 @@ export const SidebarProperties: React.FC<ISidebarPropertiesProps> = ({
           return (
             <Link
               href={item.value}
-              target={openHyperlinksInNewWindow ? '_blank' : '_self'}
-              rel={openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
+              target={props.openHyperlinksInNewWindow ? '_blank' : '_self'}
+              rel={props.openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
             >
               {item.value}
             </Link>

@@ -6,16 +6,9 @@ import {
 } from '@fluentui/react';
 import { IShapeInfo, ILinkInfo, ISvgPublishContext } from 'svgpublish-react';
 
-export interface ISidebarLinksProps {
-  shapeInfo?: IShapeInfo;
+export const SidebarLinks = (props: {
+  shape?: IShapeInfo;
   openHyperlinksInNewWindow?: boolean;
-  context?: ISvgPublishContext;
-}
-
-export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
-  shapeInfo,
-  openHyperlinksInNewWindow = true,
-  context
 }) => {
 
   // Build link text based on the original vp-links.js logic
@@ -34,11 +27,12 @@ export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
   };
 
   // Filter links to only show external links (exclude page links)
-  const links = shapeInfo?.Links ?
-    shapeInfo.Links.filter(link => link && link.Address && !link.PageId) : [];
+  const links = props.shape?.Links?.filter(link =>
+    link && (link.Address && +link.PageId < 0)
+  ) ?? [];
 
   // If no shape is selected or no links exist
-  if (!shapeInfo || !shapeInfo.Links || links.length === 0) {
+  if (links.length === 0) {
     return (
       <Stack tokens={{ childrenGap: 16 }}>
         <Text variant="medium">
@@ -52,16 +46,17 @@ export const SidebarLinks: React.FC<ISidebarLinksProps> = ({
     <Stack tokens={{ childrenGap: 8 }} styles={{ root: { marginLeft: '8px' } }}>
       {links.map((link, index) => {
         const text = buildLinkText(link);
+        const originalIndex = props.shape?.Links?.indexOf(link) ?? -1;
+        const isDefaultLink = props.shape?.DefaultLink === originalIndex;
 
         return (
           <Link
             key={index}
             href={link.Address}
-            target={openHyperlinksInNewWindow ? '_blank' : '_self'}
-            rel={openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
-          >
-            {text}
-          </Link>
+            target={props.openHyperlinksInNewWindow ? '_blank' : '_self'}
+            rel={props.openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
+            styles={isDefaultLink ? { root: { fontWeight: 'bold' } } : undefined}
+          >{text}</Link>
         );
       })}
     </Stack>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Panel, PanelType, Text, Stack } from '@fluentui/react';
 import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
+import { SidebarLayers } from './SidebarLayers';
 import { CollapsibleSection } from './CollapsibleSection';
 import { IWebPartProps } from '../IWebPartProps';
 import { ISvgPublishContext } from 'svgpublish-react';
@@ -18,6 +19,7 @@ export const AppSidebar = (props: {
   const [collapsedSections, setCollapsedSections] = React.useState<{[key: string]: boolean}>({
     properties: false,
     links: false,
+    layers: false,
     content: false
   });
 
@@ -40,13 +42,17 @@ export const AppSidebar = (props: {
       selectedShapeInfo.Props && Object.keys(selectedShapeInfo.Props).length > 0;
 
     // Check if links should be shown and are available
-    const hasLinksContent = props.webpartConfig.enableSidebarLinks && selectedShapeInfo &&
+    const hasLinksContent = props.webpartConfig.enableLinks && selectedShapeInfo &&
       selectedShapeInfo.Links && selectedShapeInfo.Links.length > 0;
+
+    // Check if layers should be shown and are available
+    const hasLayersContent = props.webpartConfig.enableLayers &&
+      props.context.diagram?.layers?.length > 0;
 
     const hasMarkdownContent = props.webpartConfig.enableSidebarMarkdown && props.webpartConfig.sidebarMarkdown;
 
     // If we have any content to show
-    if (hasPropertiesContent || hasLinksContent || hasMarkdownContent) {
+    if (hasPropertiesContent || hasLinksContent || hasLayersContent || hasMarkdownContent) {
       return (
         <Stack style={{ marginTop: 16 }} tokens={{ childrenGap: 16 }}>
           {hasMarkdownContent && (
@@ -82,9 +88,23 @@ export const AppSidebar = (props: {
               onToggle={() => toggleSection('links')}
             >
               <SidebarLinks
-                shapeInfo={selectedShapeInfo}
+                shape={selectedShapeInfo}
                 openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
+              />
+            </CollapsibleSection>
+          )}
+
+          {hasLayersContent && (
+            <CollapsibleSection
+              title="Layers"
+              isCollapsed={collapsedSections.layers}
+              onToggle={() => toggleSection('layers')}
+            >
+              <SidebarLayers
                 context={props.context}
+                enableLayerLookup={props.webpartConfig.enableLayerLookup}
+                enableLayerSort={props.webpartConfig.enableLayerSort}
+                enableLayerShowAll={props.webpartConfig.enableLayerShowAll}
               />
             </CollapsibleSection>
           )}

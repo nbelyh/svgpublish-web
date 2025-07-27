@@ -69,6 +69,10 @@ export interface ISvgPublishComponentProps {
   sidebarMarkdown?: string;
   sidebarDefaultWidth?: string;
 
+  enableLayerLookup?: boolean;
+  enableLayerSort?: boolean;
+  enableLayerShowAll?: boolean;
+
   selectedShapeId?: string;
 
   onError?: (err: Error) => void;

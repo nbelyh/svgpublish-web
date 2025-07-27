@@ -24,9 +24,6 @@ export class LinksService extends BasicService implements ILinksService {
 
     const diagram = this.context.diagram;
 
-    // if (diagram.enableLinks)
-    //     diagram.selectionChanged.add(showShapeLinks);
-
     const onClick = (evt: PointerEvent) => {
       evt.stopPropagation();
 
@@ -113,53 +110,4 @@ export class LinksService extends BasicService implements ILinksService {
 
     return "#";
   }
-
-  private buildLinkText(link: ILinkInfo) {
-
-    if (link.Description)
-      return link.Description;
-
-    if (link.SubAddress) {
-      return link.Address
-        ? link.Address + '[' + link.SubAddress + ']'
-        : link.SubAddress;
-    }
-
-    return link.Address;
-  }
-
-  // private showShapeLinks(shapeId) {
-
-  //     const diagram = this.component.diagram;
-  //     var shape = diagram.shapes[shapeId];
-
-  //     var labelnolinks = $("#panel-links").data('labelnolinks') || 'No Shape Links';
-  //     var $html = $('<span>' + labelnolinks + '</span>');
-
-  //     if (shape) {
-
-  //         $html = $("<table class='table borderless' />");
-
-  //         var $tbody = $html.append($('<tbody />'));
-
-  //         $.each(shape.Links, function (linkId, link) {
-
-  //             var href = buildLinkTargetLocation(link);
-  //             var text = buildLinkText(link);
-
-  //             var $a = $("<a />")
-  //                 .attr("href", href)
-  //                 .text(text);
-
-  //             if (link.Address && diagram.openHyperlinksInNewWindow)
-  //                 $a.attr("target", "_blank");
-
-  //             $tbody.append($('<tr />')
-  //                 .append($("<td />")
-  //                     .append($a)));
-  //         });
-  //     }
-
-  //     $("#panel-links").html($html);
-  // }
 }

@@ -268,6 +268,10 @@ export function TopFrame(props: {
         tooltipInteractive={props.webpart.tooltipInteractive}
         tooltipTheme={props.webpart.tooltipTheme}
 
+        enableLayerLookup={props.webpart.enableLayerLookup}
+        enableLayerSort={props.webpart.enableLayerSort}
+        enableLayerShowAll={props.webpart.enableLayerShowAll}
+
         onLoad={onLoad}
         onLinkClicked={onLinkClicked}
         onSelectionChanged={onSelectionChanged}

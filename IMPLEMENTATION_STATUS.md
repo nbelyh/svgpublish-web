@@ -61,7 +61,6 @@ This document compares the reference C# options (from `reference/Options/`) with
 #### **Layer View Options (Partially Implemented)**
 - `enableLayerLookup` - Search within layers
 - `enableLayerSort` - Alphabetical layer sorting
-- `enableLayerToggles` - Show/hide layer toggles
 - `enableLayerShowAll` - Show/hide all layers switch
 
 ---

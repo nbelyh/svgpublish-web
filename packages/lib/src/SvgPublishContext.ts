@@ -3,6 +3,7 @@ import { ViewService } from './services/ViewService';
 import { SelectionService } from './services/SelectionService';
 import { LinksService } from './services/LinksService';
 import { HoverService } from './services/HoverService';
+import { LayersService } from './services/LayersService';
 import { IDiagramInfo } from './interfaces/IDiagramInfo';
 import { IServices } from './interfaces/IServices';
 import { VisioSvgParser } from './services/VisioSvgParser';
@@ -57,6 +58,7 @@ export class SvgPublishContext implements ISvgPublishContext {
     this.enableService('hover', this.diagram.enableHover);
     this.enableService('tooltip', this.diagram.enableTooltips);
     this.enableService('sidebar', this.diagram.enableSidebar);
+    this.enableService('layers', this.diagram.enableLayers);
 
     const loadEvent = new CustomEvent<ILoadEventData>('svgpublish_Load', {
       cancelable: false,
@@ -82,6 +84,7 @@ export class SvgPublishContext implements ISvgPublishContext {
       case 'hover': return new HoverService(this);
       case 'tooltip': return new TooltipService(this);
       case 'sidebar': return new SidebarService(this);
+      case 'layers': return new LayersService(this);
     }
   }
 

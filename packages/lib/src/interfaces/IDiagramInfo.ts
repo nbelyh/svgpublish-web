@@ -18,8 +18,8 @@ export interface IDiagramInfo {
   pages: IPageInfo[];
   currentPage: IPageInfo;
 
-  // enableLayers?: boolean;
-  // layers: ILayerInfo[];
+  enableLayers?: boolean;
+  layers: ILayerInfo[];
 
   // searchIndex: any;
 

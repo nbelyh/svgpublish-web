@@ -4,6 +4,7 @@ import { IHoverService } from './IHoverService';
 import { ILinksService } from './ILinksService';
 import { ITooltipService } from './ITooltipService';
 import { ISidebarService } from './ISidebarService';
+import { ILayersService } from './ILayersService';
 
 export interface IServices {
   view?: IViewService;
@@ -12,4 +13,5 @@ export interface IServices {
   hover?: IHoverService;
   tooltip?: ITooltipService;
   sidebar?: ISidebarService;
+  layers?: ILayersService;
 };

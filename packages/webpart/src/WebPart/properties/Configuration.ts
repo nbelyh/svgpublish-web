@@ -325,14 +325,14 @@ export class Configuration {
                   label: "Sidebar Type",
                   disabled: !properties.enableSidebar,
                   options: [
-                    { key: 'smallFixedFar', text: "Small (Left)" },
-                    { key: 'smallFixedNear', text: "Small (Right)" },
+                    { key: 'smallFixedFar', text: "Small" },
+                    { key: 'smallFixedNear', text: "Small (Left)" },
                     { key: 'medium', text: "Medium" },
                     { key: 'large', text: "Large" },
                     { key: 'largeFixed', text: "Large Fixed" },
                     { key: 'extraLarge', text: "Extra Large" },
-                    { key: 'custom', text: "Custom (Left)" },
-                    { key: 'customNear', text: "Custom (Right)" },
+                    { key: 'custom', text: "Custom" },
+                    { key: 'customNear', text: "Custom (Left)" },
                   ],
                 }),
                 ...((properties.sidebarType === 'custom' || properties.sidebarType === 'customNear') ? [
@@ -358,9 +358,29 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
-                PropertyPaneToggle('enableSidebarLinks', {
+                PropertyPaneToggle('enableLinks', {
                   label: "Show Shape Links",
                   disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('enableLayers', {
+                  label: "Show Layers",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('enableLayerLookup', {
+                  label: "Enable Layer Search",
+                  disabled: !properties.enableSidebar || !properties.enableLayers,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('enableLayerSort', {
+                  label: "Sort Layers Alphabetically",
+                  disabled: !properties.enableSidebar || !properties.enableLayers,
+                  inlineLabel: true,
+                }),
+                PropertyPaneToggle('enableLayerShowAll', {
+                  label: "Show All/Hide All Buttons",
+                  disabled: !properties.enableSidebar || !properties.enableLayers,
                   inlineLabel: true,
                 }),
                 PropertyPaneToggle('enableSidebarMarkdown', {

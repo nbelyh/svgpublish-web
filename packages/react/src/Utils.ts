@@ -1,6 +1,7 @@
 import { IDiagramInfo } from 'svgpublish';
 import { ISvgPublishComponentProps } from './ISvgPublishComponentProps';
 import { ISelectionViewOptions } from 'svgpublish/dist/interfaces/ISelectionViewOptions';
+import { ILayerViewOptions } from 'svgpublish/dist/interfaces/ILayerViewOptions';
 
 function assignIfDefined(target: any, source: any, key: string) {
   if (typeof source[key] !== 'undefined') {
@@ -40,4 +41,14 @@ export function mergeProps(target: Partial<IDiagramInfo>, p: ISvgPublishComponen
   ];
 
   selectionViewKeys.forEach(key => assignIfDefined(target.selectionView, p, key));
+
+  if (!target.layerView) {
+    target.layerView = {};
+  }
+
+  const layerViewKeys: (keyof ILayerViewOptions)[] = [
+    'enableLayerLookup', 'enableLayerSort', 'enableLayerShowAll'
+  ];
+
+  layerViewKeys.forEach(key => assignIfDefined(target.layerView, p, key));
 }

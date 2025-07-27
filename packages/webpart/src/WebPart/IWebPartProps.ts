@@ -77,5 +77,8 @@ export interface IWebPartProps {
 
   enableProps?: boolean;
   selectedProps?: string[];
-  enableSidebarLinks?: boolean;
+  enableLayers?: boolean;
+  enableLayerLookup?: boolean;
+  enableLayerSort?: boolean;
+  enableLayerShowAll?: boolean;
 }
