@@ -63,6 +63,11 @@ export function TopFrame(props: {
 
   const onLinkClicked = (evt: LinkClickedEvent) => {
 
+    // Prevent navigation if CTRL key is held down (similar to vp-links.js logic)
+    if (evt.detail.triggerEvent && evt.detail.triggerEvent.ctrlKey) {
+      return;
+    }
+
     evt.preventDefault();
 
     const args = evt.detail;
