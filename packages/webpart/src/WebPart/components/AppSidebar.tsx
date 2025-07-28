@@ -47,7 +47,7 @@ export const AppSidebar = (props: {
 
     // Check if layers should be shown and are available
     const hasLayersContent = props.webpartConfig.enableLayers &&
-      props.context.diagram?.layers?.length > 0;
+      props.context?.diagram?.layers?.length > 0;
 
     const hasMarkdownContent = props.webpartConfig.enableSidebarMarkdown && props.webpartConfig.sidebarMarkdown;
 
