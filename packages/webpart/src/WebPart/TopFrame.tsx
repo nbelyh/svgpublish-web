@@ -51,6 +51,7 @@ export function TopFrame(props: {
   React.useEffect(() => {
     setUrl(defaultUrl);
     setBreadcrumb([{ key: defaultUrl, text: "Home", onClick: onBreadcrumbClick }]);
+    return () => setContext(undefined);
   }, [defaultUrl]);
 
   const onLoad = (evt: LoadEvent) => {
@@ -153,7 +154,7 @@ export function TopFrame(props: {
   // Track selection state for showSidebarOnSelection functionality
   const [hasSelection, setHasSelection] = React.useState(false);
   const [selectedShapeId, setSelectedShapeId] = React.useState<string | undefined>(undefined);
-  const [context, setContext] = React.useState<ISvgPublishContext | null>(null);
+  const [context, setContext] = React.useState<ISvgPublishContext>();
 
   const onCopyHashLink = async () => {
     await navigator.clipboard.writeText(pageUrl);
