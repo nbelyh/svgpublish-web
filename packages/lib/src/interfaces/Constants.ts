@@ -21,3 +21,13 @@ export type DiagramInfoTooltipTheme =
   'light-border' |
   'translucent';
 
+
+export type DiagramSidebarType =
+  'smallFixedFar' |
+  'smallFixedNear' |
+  'medium' |
+  'large' |
+  'largeFixed' |
+  'extraLarge' |
+  'custom' |
+  'customNear'

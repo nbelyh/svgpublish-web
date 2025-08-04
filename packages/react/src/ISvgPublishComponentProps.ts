@@ -3,6 +3,7 @@ import {
   DiagramInfoTooltipPlacement,
   DiagramInfoTooltipTheme,
   DiagramInfoTooltipTrigger,
+  DiagramSidebarType,
   LinkClickedEvent,
   SelectionChangedEvent,
   ViewChangedEvent,
@@ -62,7 +63,7 @@ export interface ISvgPublishComponentProps {
   tooltipTheme?: DiagramInfoTooltipTheme;
 
   enableSidebar?: boolean;
-  sidebarType?: 'smallFixedFar' | 'smallFixedNear' | 'medium' | 'large' | 'largeFixed' | 'extraLarge' | 'custom' | 'customNear';
+  sidebarType?: DiagramSidebarType;
   showSidebarOnSelection?: boolean;
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;

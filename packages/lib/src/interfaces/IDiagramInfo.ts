@@ -9,7 +9,7 @@ import { ILayerViewOptions } from './ILayerViewOptions';
 import { IShapeInfo } from './IShapeInfo';
 import { IPageInfo } from './IPageInfo';
 import { ILayerInfo } from './ILayerInfo';
-import { DiagramInfoTooltipPlacement, DiagramInfoTooltipTheme, DiagramInfoTooltipTrigger } from './Constants';
+import { DiagramInfoTooltipPlacement, DiagramInfoTooltipTheme, DiagramInfoTooltipTrigger, DiagramSidebarType } from './Constants';
 
 export interface IDiagramInfo {
 
@@ -42,7 +42,7 @@ export interface IDiagramInfo {
   enableSelection?: boolean;
 
   enableSidebar: boolean;
-  sidebarType?: 'smallFixedFar' | 'smallFixedNear' | 'medium' | 'large' | 'largeFixed' | 'extraLarge' | 'custom' | 'customNear';
+  sidebarType?: DiagramSidebarType;
   showSidebarOnSelection?: boolean;
   enableSidebarTitle?: boolean;
   enableSidebarMarkdown?: boolean;
