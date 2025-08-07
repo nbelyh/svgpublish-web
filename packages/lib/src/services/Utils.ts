@@ -4,7 +4,6 @@
 // Nikolay Belykh, nbelyh@gmail.com
 //-----------------------------------------------------------------------
 
-import { IShapeInfo } from '../interfaces/IShapeInfo';
 import { ISvgPublishContext } from "../interfaces/ISvgPublishContext";
 
 export class Utils {

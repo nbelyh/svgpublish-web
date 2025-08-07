@@ -6,21 +6,12 @@ import { HoverService } from './services/HoverService';
 import { LayersService } from './services/LayersService';
 import { IDiagramInfo } from './interfaces/IDiagramInfo';
 import { IServices } from './interfaces/IServices';
-import { VisioSvgParser } from './services/VisioSvgParser';
+import { ISvgSource } from './interfaces/ISvgSource';
 import { Utils } from './services/Utils';
 import { TooltipService } from './services/TooltipService';
 import { SidebarService } from './services/SidebarService';
-import { ILoadEventData } from './events';
-
-const defaultResolver = async (url: string) => {
-  const response = await fetch(url);
-  if (response.ok) {
-    const content = await response.text();
-    return content;
-  } else {
-    throw new Error(`Failed to load content from ${url}`);
-  }
-}
+import { IDiagramSettings } from './interfaces/IDiagramSettings';
+import { SvgParseService } from './services/SvgParseService';
 
 export class SvgPublishContext implements ISvgPublishContext {
 
@@ -31,42 +22,33 @@ export class SvgPublishContext implements ISvgPublishContext {
   services: IServices;
   guid: string;
 
-  public resolver: (url: string) => Promise<string>;
-
-  public constructor(container: HTMLElement, resolver?: (url: string) => Promise<string>) {
+  public constructor(container: HTMLElement) {
     this.guid = Utils.generateUniqueId();
     this.container = container;
     this.events = new EventTarget;
     this.services = {};
-    this.resolver = resolver || defaultResolver;
   }
 
-  public async init(url: string, init: Partial<IDiagramInfo>) {
+  public async init(url: string, resolver?: (url: string, defaultResolver: (url: string) => Promise<ISvgSource>) => Promise<ISvgSource>) {
 
-    const content = await this.resolver(url);
-    const { svgXml, viewBox, diagramInfo } = VisioSvgParser.parse(content);
+    const result = resolver
+      ? await resolver(url, SvgParseService.defaultResolver)
+      : await SvgParseService.defaultResolver(url);
 
-    this.container.innerHTML = svgXml;
+    this.diagram = result.diagramInfo || {} as IDiagramInfo;
+    this.container.innerHTML = result.svgXml;
 
     this.svg = this.container.querySelector('svg');
-    this.diagram = { ...diagramInfo, ...init };
 
-    this.services.view = new ViewService(this, viewBox);
+    this.services.view = new ViewService(this, result.viewBox);
 
-    this.enableService('selection', this.diagram.enableSelection);
-    this.enableService('links', this.diagram.enableFollowHyperlinks);
-    this.enableService('hover', this.diagram.enableHover);
-    this.enableService('tooltip', this.diagram.enableTooltips);
-    this.enableService('sidebar', this.diagram.enableSidebar);
-    this.enableService('layers', this.diagram.enableLayers);
-
-    const loadEvent = new CustomEvent<ILoadEventData>('svgpublish_Load', {
-      cancelable: false,
-      detail: {
-        context: this,
-      }
-    });
-    this.events.dispatchEvent(loadEvent);
+    const settings = this.diagram.settings || {} as IDiagramSettings;
+    this.enableService('selection', settings.enableSelection);
+    this.enableService('links', settings.enableFollowHyperlinks);
+    this.enableService('hover', settings.enableHover);
+    this.enableService('tooltip', settings.enableTooltips);
+    this.enableService('sidebar', settings.enableSidebar);
+    this.enableService('layers', settings.enableLayers);
   }
 
   public destroy() {

@@ -8,12 +8,11 @@ import { ISvgPublishContext } from '../interfaces/ISvgPublishContext';
 import { BasicService } from './BasicService';
 import { IHoverService } from '../interfaces/IHoverService';
 import { Utils } from './Utils';
-import { DefaultColors } from '../constants/DefaultColors';
+import { DefaultColors } from '../constants';
 import { SelectionUtils } from './SelectionUtils';
+import { IDiagramSettings } from '../interfaces/IDiagramSettings';
 
 export class HoverService extends BasicService implements IHoverService {
-
-  private enableBoxSelection: boolean = false;
 
   constructor(context: ISvgPublishContext) {
     super(context);
@@ -30,11 +29,11 @@ export class HoverService extends BasicService implements IHoverService {
     super.unsubscribe();
 
     const diagram = this.context.diagram;
-    const selectionView = diagram?.selectionView;
+    const settings = diagram.settings || {} as IDiagramSettings;
     const selectionService = this.context.services.selection;
 
     SelectionUtils.destroyHoverFilters(this.context);
-    SelectionUtils.createHoverFilters(this.context, selectionView);
+    SelectionUtils.createHoverFilters(this.context, settings);
 
     for (const shapeId in diagram.shapes) {
 
@@ -44,8 +43,8 @@ export class HoverService extends BasicService implements IHoverService {
         || info.Props && Object.keys(info.Props).length
         || info.Links?.length
         || info.Comment || info.PopoverMarkdown || info.SidebarMarkdown || info.TooltipMarkdown
-        || diagram.selectionView?.enableNextShapeColor && info.ConnectedTo?.length
-        || diagram.selectionView?.enablePrevShapeColor && info.ConnectedFrom?.length
+        || settings.enableNextShapeColor && info.ConnectedTo?.length
+        || settings.enablePrevShapeColor && info.ConnectedFrom?.length
       ) {
 
         const boxId = SelectionUtils.getSelectionBoxId(this.context.guid, shapeId);
@@ -53,7 +52,7 @@ export class HoverService extends BasicService implements IHoverService {
         const shape = Utils.findTargetElement(shapeId, this.context);
         if (shape) {
 
-          const isHyperlink = diagram.enableFollowHyperlinks && info.DefaultLink;
+          const isHyperlink = settings.enableFollowHyperlinks && info.DefaultLink;
 
           const filter = isHyperlink
             ? SelectionUtils.getHyperlinkFilterId(this.context.guid)
@@ -61,8 +60,8 @@ export class HoverService extends BasicService implements IHoverService {
 
           this.subscribe(shape, 'mouseover', () => {
             if (!selectionService?.highlightedShapeIds?.[shapeId]) {
-              const hyperlinkColor = Utils.getValueOrDefault(selectionView?.hyperlinkColor, DefaultColors.hyperlinkColor);
-              const hoverColor = Utils.getValueOrDefault(selectionView?.hoverColor, DefaultColors.hoverColor);
+              const hyperlinkColor = Utils.getValueOrDefault(settings.hyperlinkColor, DefaultColors.hyperlinkColor);
+              const hoverColor = Utils.getValueOrDefault(settings.hoverColor, DefaultColors.hoverColor);
               const color = isHyperlink ? hyperlinkColor : hoverColor;
               SelectionUtils.setShapeHighlight(shape, boxId, filter, color, this.context);
             }

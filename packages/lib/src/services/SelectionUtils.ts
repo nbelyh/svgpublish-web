@@ -1,6 +1,6 @@
-import { ISelectionViewOptions } from '../interfaces/ISelectionViewOptions';
+import { IDiagramSettings } from '../interfaces/IDiagramSettings';
 import { ISvgPublishContext } from '../interfaces/ISvgPublishContext';
-import { DefaultColors } from '../constants/DefaultColors';
+import { DefaultColors } from '../constants';
 import { SvgFilters } from './SvgFilters';
 import { Utils } from './Utils';
 
@@ -41,29 +41,33 @@ export class SelectionUtils {
     }
   }
 
-  private static getSvgFilterDefaults(selectionView: ISelectionViewOptions) {
+  private static getSvgFilterDefaults(settings: IDiagramSettings) {
     return {
-      blur: Utils.getValueOrDefault(selectionView?.blur, 2),
-      dilate: Utils.getValueOrDefault(selectionView?.dilate, 2),
-      enableBlur: Utils.getValueOrDefault(selectionView?.enableBlur, true),
-      enableDilate: Utils.getValueOrDefault(selectionView?.enableDilate, true),
-      mode: Utils.getValueOrDefault(selectionView?.selectionMode, "normal")
+      blur: Utils.getValueOrDefault(settings.blur, 2),
+      dilate: Utils.getValueOrDefault(settings.dilate, 2),
+      enableBlur: Utils.getValueOrDefault(settings.enableBlur, true),
+      enableDilate: Utils.getValueOrDefault(settings.enableDilate, true),
+      mode: settings.selectionMode || "normal"
     }
   }
 
-  public static createHoverFilters(context: ISvgPublishContext, selectionView: ISelectionViewOptions) {
+  public static createHoverFilters(context: ISvgPublishContext, settings: IDiagramSettings) {
 
-    const svgFilterDefaults = SelectionUtils.getSvgFilterDefaults(selectionView);
+    const svgFilterDefaults = SelectionUtils.getSvgFilterDefaults(settings);
 
-    SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getHoverFilterId(context.guid), {
-      ...svgFilterDefaults,
-      color: Utils.getValueOrDefault(selectionView?.hoverColor, DefaultColors.hoverColor)
-    });
+    if (settings.enableHover) {
+      SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getHoverFilterId(context.guid), {
+        ...svgFilterDefaults,
+        color: Utils.getValueOrDefault(settings.hoverColor, DefaultColors.hoverColor)
+      });
+    }
 
-    SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getHyperlinkFilterId(context.guid), {
-      ...svgFilterDefaults,
-      color: Utils.getValueOrDefault(selectionView?.hyperlinkColor, DefaultColors.hyperlinkColor)
-    });
+    if (settings.enableFollowHyperlinks) {
+      SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getHyperlinkFilterId(context.guid), {
+        ...svgFilterDefaults,
+        color: Utils.getValueOrDefault(settings.hyperlinkColor, DefaultColors.hyperlinkColor)
+      });
+    }
   }
 
   public static destroyHoverFilters(context: ISvgPublishContext) {
@@ -71,26 +75,28 @@ export class SelectionUtils {
     SelectionUtils.removeElementById(SelectionUtils.getHyperlinkFilterId(context.guid), context);
   }
 
-  public static createSelectionFilters(context: ISvgPublishContext, selectionView: ISelectionViewOptions) {
+  public static createSelectionFilters(context: ISvgPublishContext, settings: IDiagramSettings) {
 
-    const svgFilterDefaults = SelectionUtils.getSvgFilterDefaults(selectionView);
+    const svgFilterDefaults = SelectionUtils.getSvgFilterDefaults(settings);
 
-    SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getSelectionFilterId(context.guid), {
-      ...svgFilterDefaults,
-      color: Utils.getValueOrDefault(selectionView?.selectionColor, DefaultColors.selectionColor)
-    });
-
-    if (selectionView.enableNextShapeColor) {
-      SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getNextShapeFilterId(context.guid), {
+    if (settings.enableSelection) {
+      SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getSelectionFilterId(context.guid), {
         ...svgFilterDefaults,
-        color: Utils.getValueOrDefault(selectionView?.nextShapeColor, DefaultColors.nextShapeColor)
+        color: Utils.getValueOrDefault(settings.selectionColor, DefaultColors.selectionColor)
       });
     }
 
-    if (selectionView.enablePrevShapeColor) {
+    if (settings.enableNextShapeColor) {
+      SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getNextShapeFilterId(context.guid), {
+        ...svgFilterDefaults,
+        color: Utils.getValueOrDefault(settings.nextShapeColor, DefaultColors.nextShapeColor)
+      });
+    }
+
+    if (settings.enablePrevShapeColor) {
       SvgFilters.createFilterNode(context.svg, context.guid, SelectionUtils.getPrevShapeFilterId(context.guid), {
         ...svgFilterDefaults,
-        color: Utils.getValueOrDefault(selectionView?.prevShapeColor, DefaultColors.prevShapeColor)
+        color: Utils.getValueOrDefault(settings.prevShapeColor, DefaultColors.prevShapeColor)
       });
     }
   }
@@ -123,10 +129,10 @@ export class SelectionUtils {
       pathClone.id = id;
       pathClone.style.stroke = selectionColor;
 
-      const selectionView = context.diagram.selectionView;
+      const settings = context.diagram.settings || {} as IDiagramSettings;
 
-      if (selectionView.enableConnDilate) {
-        const strokeWidth = parseFloat(style.strokeWidth) + Utils.getValueOrDefault(selectionView.connDilate, 1);
+      if (settings.enableConnDilate) {
+        const strokeWidth = parseFloat(style.strokeWidth) + Utils.getValueOrDefault(settings.connDilate, 1);
         pathClone.style.strokeWidth = strokeWidth + "px";
       }
 
@@ -151,7 +157,8 @@ export class SelectionUtils {
   }
 
   public static removeShapeHighlight(shape: SVGElement, boxId: string, context: ISvgPublishContext) {
-    if (context.diagram.selectionView.enableBoxSelection) {
+    const settings = context.diagram.settings || {} as IDiagramSettings;
+    if (settings.enableBoxSelection) {
       SelectionUtils.removeElementById(boxId, context);
     } else {
       shape.removeAttribute('filter');
@@ -162,16 +169,16 @@ export class SelectionUtils {
 
     SelectionUtils.removeShapeHighlight(shape, boxId, context);
 
-    const selectionView = context.diagram.selectionView;
+    const settings = context.diagram.settings || {} as IDiagramSettings;
 
-    if (selectionView?.enableBoxSelection) {
+    if (settings.enableBoxSelection) {
 
       const rect = shape.getBBox();
       const options = {
         color: selectionColor,
-        dilate: selectionView.dilate || 4,
-        enableDilate: selectionView.enableDilate,
-        mode: selectionView.selectionMode
+        dilate: settings.dilate || 4,
+        enableDilate: settings.enableDilate,
+        mode: settings.selectionMode || 'normal',
       };
 
       const box = SvgFilters.createSelectionBox(boxId, rect, options);

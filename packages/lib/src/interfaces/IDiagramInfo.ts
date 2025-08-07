@@ -4,12 +4,10 @@
 // Nikolay Belykh, nbelyh@gmail.com
 //-----------------------------------------------------------------------
 
-import { ISelectionViewOptions } from './ISelectionViewOptions';
-import { ILayerViewOptions } from './ILayerViewOptions';
 import { IShapeInfo } from './IShapeInfo';
 import { IPageInfo } from './IPageInfo';
 import { ILayerInfo } from './ILayerInfo';
-import { DiagramInfoTooltipPlacement, DiagramInfoTooltipTheme, DiagramInfoTooltipTrigger, DiagramSidebarType } from './Constants';
+import { IDiagramSettings } from './IDiagramSettings';
 
 export interface IDiagramInfo {
 
@@ -18,101 +16,12 @@ export interface IDiagramInfo {
   pages: IPageInfo[];
   currentPage: IPageInfo;
 
-  enableLayers?: boolean;
   layers: ILayerInfo[];
 
-  // searchIndex: any;
+  searchIndex: { [pageId: string] : { [shapeId: string] : Object } };
 
-  fileName: string;
-  // urlPrefix: string;
+  viewBox?: string;
+  fileName?: string;
 
-  twoFingersTouch?: boolean;
-  // enableAutoFrameHeight?: boolean;
-  // safariFullscreen?: boolean;
-  // enablePages?: boolean;
-  // enablePageLookup?: boolean;
-  // enablePageSort?: boolean;
-
-  enableZoomShift?: boolean;
-  enableZoomCtrl?: boolean;
-
-  enableProps?: boolean;
-  enableLinks?: boolean;
-
-  enableSelection?: boolean;
-
-  enableSidebar: boolean;
-  sidebarType?: DiagramSidebarType;
-  showSidebarOnSelection?: boolean;
-  enableSidebarTitle?: boolean;
-  enableSidebarMarkdown?: boolean;
-  sidebarMarkdown?: string;
-  sidebarDefaultWidth?: string;
-
-  // enableD3: boolean;
-  // skipMinification: boolean;
-  // enableMustache: boolean;
-  // enableMarked: boolean;
-
-  enableFollowHyperlinks?: boolean;
-  openHyperlinksInNewWindow?: boolean;
-  // transformVisioFileLinks: boolean;
-
-  // useReadablePageNames: boolean;
-  // keepRelativeLinks: boolean;
-
-  // customTemplatePath: boolean;
-
-  // allPages: boolean;
-  // singlePage: boolean;
-  // selectedPages: boolean;
-  // selectedPagesText: string;
-
-  // enableSearch: boolean;
-  // enableMultiPageSearch: boolean;
-
-  // enablePopovers: boolean;
-  // enablePopoverMarkdown: boolean;
-  // popoverMarkdown: string;
-
-  // enableContentMarkdown: boolean;
-  // contentMarkdown: string;
-
-  // startPageId: number;
-
-  enableTooltips?: boolean;
-  enableTooltipMarkdown: boolean;
-  tooltipMarkdown: string;
-
-  tooltipTrigger?: DiagramInfoTooltipTrigger;
-  tooltipDelay: boolean;
-  tooltipDelayShow: number;
-  tooltipDelayHide: number;
-  tooltipPlacement: DiagramInfoTooltipPlacement;
-  tooltipUseMousePosition?: boolean;
-  tooltipInteractive: boolean;
-  tooltipTheme: DiagramInfoTooltipTheme;
-
-  // sidebarDefaultWidth: number;
-
-  // popoverTriggerOption: string;
-  // popoverTimeout: number;
-  // popoverLocationOption: string;
-  // popoverUseMousePosition: boolean;
-  // popoverOutsideClick: boolean;
-
-  // popoverKeepOnHover: boolean;
-
-  // enableContainerTip: boolean;
-
-  // enablePropertySearch?: boolean;
-  // enablePropertySearchFilter?: boolean;
-
-  enableHover?: boolean;
-
-  enablePan?: boolean;
-  enableZoom?: boolean;
-
-  selectionView: ISelectionViewOptions;
-  layerView: ILayerViewOptions;
+  settings: IDiagramSettings;
 }

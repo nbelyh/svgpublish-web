@@ -4,7 +4,7 @@
 // Nikolay Belykh, nbelyh@gmail.com
 //-----------------------------------------------------------------------
 
+export * from './interfaces';
+export * from './constants';
 export * from './events';
 export * from './SvgPublishContext'
-export * from './interfaces';
-export * from './constants/DefaultColors';

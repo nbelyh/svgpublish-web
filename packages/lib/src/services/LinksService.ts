@@ -10,6 +10,7 @@ import { ILinkClickedEventData } from '../events';
 import { Utils } from './Utils';
 import { BasicService } from './BasicService';
 import { ILinksService } from '../interfaces/ILinksService';
+import { IDiagramSettings } from '../interfaces/IDiagramSettings';
 
 export class LinksService extends BasicService implements ILinksService {
 
@@ -23,6 +24,7 @@ export class LinksService extends BasicService implements ILinksService {
     super.unsubscribe();
 
     const diagram = this.context.diagram;
+    const settings = diagram.settings || {} as IDiagramSettings;
 
     const onClick = (evt: PointerEvent) => {
       evt.stopPropagation();
@@ -32,7 +34,7 @@ export class LinksService extends BasicService implements ILinksService {
       const defaultLink = shape.DefaultLink && shape.Links[shape.DefaultLink - 1];
       const defaultLinkHref = defaultLink && this.buildDefaultHref(defaultLink);
 
-      const openHyperlinksInNewWindow = Utils.getValueOrDefault(diagram.openHyperlinksInNewWindow, true);
+      const openHyperlinksInNewWindow = Utils.getValueOrDefault(settings.openHyperlinksInNewWindow, true);
 
       const linkClickedEvent = new CustomEvent<ILinkClickedEventData>('svgpublish_LinkClicked', {
         cancelable: true,
@@ -70,7 +72,7 @@ export class LinksService extends BasicService implements ILinksService {
         if (!target)
           continue;
 
-        if (diagram.enableFollowHyperlinks) {
+        if (settings.enableFollowHyperlinks) {
           target.style.cursor = 'pointer';
           this.subscribe(target, 'click', onClick);
         } else {

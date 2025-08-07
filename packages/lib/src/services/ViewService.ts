@@ -24,6 +24,8 @@ export class ViewService extends BasicService implements IViewService {
   private stateOriginClient: { clientX: number, clientY: number } = null;
   private stateTf: DOMMatrix = null;
   private stateDiff: number = null;
+  private viewChangedDebounceTimer: number = null;
+  private viewChangedDebounceDelay = 80; // ms
 
   constructor(context: ISvgPublishContext, viewBox: string) {
     super(context);
@@ -71,11 +73,11 @@ export class ViewService extends BasicService implements IViewService {
   }
 
   private get enableZoom() {
-    return Utils.getValueOrDefault(this.context?.diagram?.enableZoom, true);
+    return Utils.getValueOrDefault(this.context?.diagram?.settings?.enableZoom, true);
   }
 
   private get enablePan() {
-    return Utils.getValueOrDefault(this.context?.diagram?.enablePan, true);
+    return Utils.getValueOrDefault(this.context?.diagram?.settings?.enablePan, true);
   }
 
   private subscribeAll() {
@@ -214,6 +216,21 @@ export class ViewService extends BasicService implements IViewService {
 
     this.viewPort.setAttribute("transform", s);
 
+    // Debounce event dispatch to avoid spamming listeners during pan/zoom
+    this.scheduleViewChanged(evt);
+  }
+
+  private scheduleViewChanged(evt: Event) {
+    if (this.viewChangedDebounceTimer !== null) {
+      clearTimeout(this.viewChangedDebounceTimer);
+    }
+    this.viewChangedDebounceTimer = window.setTimeout(() => {
+      this.viewChangedDebounceTimer = null;
+      this.dispatchViewChanged(evt);
+    }, this.viewChangedDebounceDelay);
+  }
+
+  private dispatchViewChanged(evt: Event) {
     const viewChangedEvent = new CustomEvent<IViewChangedEventData>('svgpublish_ViewChanged', {
       cancelable: false,
       detail: {
@@ -233,9 +250,9 @@ export class ViewService extends BasicService implements IViewService {
     if (!this.enableZoom)
       return;
 
-    if (this.context?.diagram?.enableZoomCtrl && !evt.ctrlKey)
+    if (this.context?.diagram?.settings?.enableZoomCtrl && !evt.ctrlKey)
       return;
-    if (this.context?.diagram?.enableZoomShift && !evt.shiftKey)
+    if (this.context?.diagram?.settings?.enableZoomShift && !evt.shiftKey)
       return;
 
     evt.preventDefault();
@@ -273,6 +290,28 @@ export class ViewService extends BasicService implements IViewService {
 
     this.stateTf = this.stateTf.multiply(k.inverse());
   }
+
+  public highlightShape(shapeId: string) {
+
+    const element = document.getElementById(shapeId);
+    if (element) {
+      element.animate([
+        { opacity: 1 },
+        { opacity: 0.3 },
+        { opacity: 1 },
+        { opacity: 0.3 },
+        { opacity: 1 }
+      ], {
+        duration: 1200,
+        easing: 'ease-in-out'
+      });
+    }
+
+    const selection = this.context.services?.selection;
+    if (selection) {
+      selection.setSelection(shapeId);
+    }
+  };
 
   /*
           continue pan (one touch or mouse) or pinch (with two touches)
@@ -364,7 +403,7 @@ export class ViewService extends BasicService implements IViewService {
 
     } else {
 
-      if (this.context.diagram.twoFingersTouch && touches) {
+      if (this.context.diagram.settings?.twoFingersTouch && touches) {
         this.state = null;
         return;
       }
@@ -389,7 +428,7 @@ export class ViewService extends BasicService implements IViewService {
 
     // prevent firing 'click' event in case we pan or zoom
     if (this.state === 'pan' || this.state === 'pinch') {
-        evt.stopPropagation();
+      evt.stopPropagation();
     }
 
     this.state = null;

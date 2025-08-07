@@ -2,6 +2,7 @@
 import { marked } from 'marked';
 import Mustache from 'mustache';
 import { ISvgPublishContext } from '../interfaces/ISvgPublishContext';
+import { IDiagramSettings } from '../interfaces/IDiagramSettings';
 import { BasicService } from './BasicService';
 import { Utils } from './Utils';
 import { ITooltipService } from '../interfaces/ITooltipService';
@@ -33,17 +34,18 @@ export class TooltipService extends BasicService implements ITooltipService {
     this.destroy();
 
     const diagram = this.context.diagram;
+    const settings = diagram.settings || {} as IDiagramSettings;
 
     tippy.setDefaultProps({
       allowHTML: true,
-      interactive: diagram.tooltipInteractive,
-      delay: diagram.tooltipDelay ? [diagram.tooltipDelayShow ?? undefined, diagram.tooltipDelayHide ?? undefined] : undefined,
-      trigger: diagram.tooltipTrigger,
-      placement: diagram.tooltipPlacement,
-      followCursor: diagram.tooltipUseMousePosition,
       appendTo: this.context.container,
-      plugins: diagram.tooltipUseMousePosition ? [followCursor] : [],
-      theme: diagram.tooltipTheme,
+      interactive: settings.tooltipInteractive,
+      delay: settings.tooltipDelay ? [settings.tooltipDelayShow ?? undefined, settings.tooltipDelayHide ?? undefined] : undefined,
+      trigger: settings.tooltipTrigger || 'mouseenter',
+      placement: settings.tooltipPlacement || 'auto',
+      followCursor: settings.tooltipUseMousePosition,
+      plugins: settings.tooltipUseMousePosition ? [followCursor] : [],
+      theme: settings.tooltipTheme || 'dark',
     });
 
     for (const shapeId in diagram.shapes) {
@@ -54,7 +56,7 @@ export class TooltipService extends BasicService implements ITooltipService {
       if (!target)
         continue;
 
-      const tooltipMarkdown = info.TooltipMarkdown || (diagram.enableTooltipMarkdown && diagram.tooltipMarkdown) || info.Comment || '';
+      const tooltipMarkdown = info.TooltipMarkdown || (settings.enableTooltipMarkdown && settings.tooltipMarkdown) || info.Comment || '';
       const md = tooltipMarkdown && Mustache.render(tooltipMarkdown, info);
       const content = md && marked.parseInline(md) as string;
 
