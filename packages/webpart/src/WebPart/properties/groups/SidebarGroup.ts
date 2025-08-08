@@ -14,6 +14,13 @@ export class SidebarGroup {
           indentLevel: 0,
           checked: properties.enableSidebar,
         }),
+        PropertyPaneIndentedToggle('showSidebarOnSelection', {
+          label: "Auto-Show Sidebar on Selection",
+          disabled: !properties.enableSidebar,
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.showSidebarOnSelection,
+        }),
         PropertyPaneDropdown('sidebarType', {
           label: "Sidebar Type",
           disabled: !properties.enableSidebar,
@@ -36,13 +43,6 @@ export class SidebarGroup {
             placeholder: "ex: 300px, 25%",
             description: "Specify width with units (px, %, em, etc.)",
           })] : []),
-        PropertyPaneIndentedToggle('showSidebarOnSelection', {
-          label: "Auto-Show Sidebar on Selection",
-          disabled: !properties.enableSidebar,
-          inlineLabel: true,
-          indentLevel: 0,
-          checked: properties.showSidebarOnSelection,
-        }),
         PropertyPaneIndentedToggle('enableSidebarTitle', {
           label: "Show Sidebar Title",
           disabled: !properties.enableSidebar,

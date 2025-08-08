@@ -292,11 +292,21 @@ export class ViewService extends BasicService implements IViewService {
   }
 
   public highlightShape(shapeId: string) {
-    this.context.svg.getElementById(shapeId).animate([
-      { opacity: 1, easing: 'ease-out' },
-      { opacity: 0.1, easing: 'ease-in' },
-      { opacity: 0 }],
-      2000);
+
+    const element = document.getElementById(shapeId);
+    if (element) {
+      element.animate([
+        { opacity: 1 },
+        { opacity: 0.3 },
+        { opacity: 1 },
+        { opacity: 0.3 },
+        { opacity: 1 }
+      ], {
+        duration: 1200,
+        easing: 'ease-in-out'
+      });
+    }
+
     const selection = this.context.services?.selection;
     if (selection) {
       selection.setSelection(shapeId);
