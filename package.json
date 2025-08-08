@@ -16,7 +16,7 @@
     "build:webpart": "npm run build -w packages/webpart",
     "clean": "npm run clean --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
-    "start": "concurrently \"npm run start:lib\" \"npm run start:webpart:delayed\" --names \"lib,webpart\" --prefix-colors \"blue,green,yellow\"",
+    "start": "concurrently \"npm run start:lib\" \"npm run start:webpart:delayed\" --names \"lib,webpart\" --prefix-colors \"blue,yellow\"",
     "start:lib": "npm run start -w packages/lib",
     "start:react": "npm run start -w packages/react",
     "start:react:delayed": "pwsh -c \"Start-Sleep 2; npm run start:react\"",
