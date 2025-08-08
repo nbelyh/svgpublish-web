@@ -11,7 +11,7 @@ import { FolderExplorer, IFolder } from '../../min-sp-controls-react/controls/fo
 import { IDefaultFolder } from '../services/IDefaultFolder';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { Text } from '@fluentui/react/lib/Text';
-import { mergeStyles } from '@fluentui/react';
+import { mergeStyles } from '@fluentui/react/lib/Styling';
 
 export function PropertyPaneUrlFieldComponent(props: {
   url: string;

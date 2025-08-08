@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { IPropertyPaneField, PropertyPaneFieldType, IPropertyPaneCustomFieldProps } from '@microsoft/sp-property-pane';
 
 import { PropertyPaneNumberFieldComponent } from './PropertyPaneNumberFieldComponent';
 
@@ -9,11 +8,11 @@ export function PropertyPaneNumberField(targetProperty: string, props: {
   label?: string;
   description?: string;
   disabled?: boolean;
-}): IPropertyPaneField<IPropertyPaneCustomFieldProps> {
+}) {
 
   return {
     targetProperty: targetProperty,
-    type: PropertyPaneFieldType.Custom,
+    type: 1,
     properties: {
       key: targetProperty,
 

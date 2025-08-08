@@ -1,11 +1,10 @@
-import { IPropertyPaneGroup } from '@microsoft/sp-property-pane';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { PropertyPaneColorField } from '../PropertyPaneColorField';
 import { DefaultColors } from 'svgpublish';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 export class HighlightGroup {
-  public static get(properties: IWebPartProps): IPropertyPaneGroup {
+  public static get(properties: IWebPartProps) {
     return {
       groupName: "Highlight",
       isCollapsed: true,

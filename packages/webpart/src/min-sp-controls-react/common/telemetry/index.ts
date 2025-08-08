@@ -1,6 +1,4 @@
 // import PnPTelemetry from "@pnp/telemetry-js";
-import { version } from './version';
-// import { Environment, EnvironmentType } from "@microsoft/sp-core-library";
 import * as React from 'react';
 
 const CONTROL_TYPE = "react";

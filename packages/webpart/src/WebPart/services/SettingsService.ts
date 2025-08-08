@@ -1,7 +1,6 @@
 import { IDefaultFolder } from './IDefaultFolder';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { sp } from '@pnp/sp';
-import { DefaultDiagramSettings, IDiagramSettings } from 'svgpublish';
 
 export class SettingsService {
 

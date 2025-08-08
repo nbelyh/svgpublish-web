@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { IPropertyPaneField, PropertyPaneFieldType, IPropertyPaneCustomFieldProps } from '@microsoft/sp-property-pane';
 
 import { PropertyPaneColorFieldComponent } from './PropertyPaneColorFieldComponent'
 
@@ -10,11 +9,11 @@ export function PropertyPaneColorField(targetProperty: string, props: {
   description?: string;
   disabled: boolean;
   defaultValue: string;
-}): IPropertyPaneField<IPropertyPaneCustomFieldProps> {
+}) {
 
   return {
     targetProperty: targetProperty,
-    type: PropertyPaneFieldType.Custom,
+    type: 1,
     properties: {
       key: targetProperty,
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Stack, Toggle, mergeStyles } from '@fluentui/react';
+import { Toggle } from '@fluentui/react/lib/Toggle';
+import { mergeStyles } from '@fluentui/react/lib/Styling';
 
 export function PropertyPaneIndentedToggleComponent(props: {
   label: string;

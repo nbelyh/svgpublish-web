@@ -1,12 +1,9 @@
 import * as React from 'react';
-import {
-  Stack,
-  Text,
-  Checkbox,
-  DefaultButton,
-  ActionButton,
-  SearchBox
-} from '@fluentui/react';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { Text } from '@fluentui/react/lib/Text';
+import { Checkbox } from '@fluentui/react/lib/Checkbox';
+import { DefaultButton } from '@fluentui/react/lib/Button';
+import { SearchBox } from '@fluentui/react/lib/SearchBox';
 import { ISvgPublishContext, ILayerInfo } from 'svgpublish';
 
 export const SidebarLayers = (props: {

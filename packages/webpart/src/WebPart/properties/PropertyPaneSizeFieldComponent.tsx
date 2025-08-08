@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { Dropdown, IDropdownOption, Stack, TextField, Text } from '@fluentui/react';
+import { Dropdown, IDropdownOption } from '@fluentui/react/lib/Dropdown';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { TextField } from '@fluentui/react/lib/TextField';
+import { Text } from '@fluentui/react/lib/Text';
 import * as strings from 'WebPartStrings';
 
 const makeSplitValue = (value: string) => {

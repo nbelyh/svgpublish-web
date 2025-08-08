@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { DefaultButton, Dialog, DialogFooter, DialogType, PrimaryButton, Stack, getColorFromString, ColorPicker, ContextualMenu } from '@fluentui/react';
+import { DefaultButton, PrimaryButton } from '@fluentui/react/lib/Button';
+import { Dialog, DialogFooter, DialogType } from '@fluentui/react/lib/Dialog';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { getColorFromString } from '@fluentui/react/lib/Color';
+import { ColorPicker } from '@fluentui/react/lib/ColorPicker';
+import { ContextualMenu } from '@fluentui/react/lib/ContextualMenu';
 
 import { PaletteColorPicker } from './PaletteColorPicker';
 import { SwatchPalette } from './SwatchPalette';

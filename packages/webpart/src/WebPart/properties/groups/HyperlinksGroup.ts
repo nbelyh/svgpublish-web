@@ -1,9 +1,8 @@
-import { IPropertyPaneGroup } from '@microsoft/sp-property-pane';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 export class HyperlinksGroup {
-  public static get(properties: IWebPartProps): IPropertyPaneGroup {
+  public static get(properties: IWebPartProps) {
     return {
       groupName: "Hyperlinks",
       isCollapsed: true,

@@ -1,5 +1,4 @@
 import { WebPartContext } from '@microsoft/sp-webpart-base';
-import { IPropertyPaneConfiguration } from '@microsoft/sp-property-pane';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 // Import all the group modules
@@ -16,7 +15,7 @@ import { AboutGroup } from './groups/AboutGroup';
 
 export class Configuration {
 
-  public static get(context: WebPartContext, properties: IWebPartProps): IPropertyPaneConfiguration {
+  public static get(context: WebPartContext, properties: IWebPartProps) {
     return {
       pages: [
         {

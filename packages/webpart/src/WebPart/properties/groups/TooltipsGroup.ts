@@ -1,11 +1,10 @@
 import { PropertyPaneDropdown } from '@microsoft/sp-property-pane';
-import { IPropertyPaneGroup } from '@microsoft/sp-property-pane';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { PropertyPaneNumberField } from '../PropertyPaneNumberField';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 export class TooltipsGroup {
-  public static get(properties: IWebPartProps): IPropertyPaneGroup {
+  public static get(properties: IWebPartProps) {
     return {
       groupName: "Tooltips",
       isCollapsed: true,

@@ -1,5 +1,8 @@
 import * as React from 'react'
-import { ActionButton, Breadcrumb, IBreadcrumbItem, IconButton, Stack, TooltipHost } from '@fluentui/react'
+import { ActionButton, IconButton } from '@fluentui/react/lib/Button';
+import { Breadcrumb, IBreadcrumbItem } from '@fluentui/react/lib/Breadcrumb';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { TooltipHost } from '@fluentui/react/lib/Tooltip';
 import { IDiagramSettings } from 'svgpublish'
 
 export const Header = (props: {

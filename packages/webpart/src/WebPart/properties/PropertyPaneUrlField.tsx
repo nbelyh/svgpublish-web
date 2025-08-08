@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { IPropertyPaneField, PropertyPaneFieldType, IPropertyPaneCustomFieldProps } from '@microsoft/sp-property-pane';
 
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { PropertyPaneUrlFieldComponent } from './PropertyPaneUrlFieldComponent';
@@ -10,11 +9,11 @@ export function PropertyPaneUrlField(targetProperty: string, props: {
   url: string;
   context: WebPartContext;
   getDefaultFolder: () => Promise<IDefaultFolder>;
-}): IPropertyPaneField<IPropertyPaneCustomFieldProps> {
+}) {
 
   return {
     targetProperty: targetProperty,
-    type: PropertyPaneFieldType.Custom,
+    type: 1,
     properties: {
       key: targetProperty,
 

@@ -1,11 +1,10 @@
 import { WebPartContext } from '@microsoft/sp-webpart-base';
-import { IPropertyPaneGroup } from '@microsoft/sp-property-pane';
 import { PropertyPaneUrlField } from '../PropertyPaneUrlField';
 import { SettingsService } from '../../services/SettingsService';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 export class SourceFileGroup {
-  public static get(context: WebPartContext, properties: IWebPartProps): IPropertyPaneGroup {
+  public static get(context: WebPartContext, properties: IWebPartProps) {
     return {
       groupName: "Source File",
       groupFields: [

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { DefaultButton, TooltipHost } from '@fluentui/react';
+import { DefaultButton } from '@fluentui/react/lib/Button';
+import { TooltipHost } from '@fluentui/react/lib/Tooltip';
 
 export function PropertyPaneResetFieldComponent(props: {
   value: string[];

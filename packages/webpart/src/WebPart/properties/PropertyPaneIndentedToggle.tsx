@@ -1,7 +1,5 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { IPropertyPaneField, PropertyPaneFieldType, IPropertyPaneCustomFieldProps } from '@microsoft/sp-property-pane';
-
 import { PropertyPaneIndentedToggleComponent } from './PropertyPaneIndentedToggleComponent'
 
 export function PropertyPaneIndentedToggle(targetProperty: string, props: {
@@ -10,11 +8,11 @@ export function PropertyPaneIndentedToggle(targetProperty: string, props: {
   inlineLabel?: boolean;
   indentLevel?: number;
   checked?: boolean;
-}): IPropertyPaneField<IPropertyPaneCustomFieldProps> {
+}) {
 
   return {
     targetProperty: targetProperty,
-    type: PropertyPaneFieldType.Custom,
+    type: 1,
     properties: {
       key: targetProperty,
 

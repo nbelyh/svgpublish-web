@@ -2,8 +2,6 @@
 // import { SPHelper } from './SPHelper';
 import '../extensions/String.extensions';
 
-//import * as _ from '@microsoft/sp-lodash-subset';
-
 import * as strings from 'ControlStrings';
 
 export const IMG_SUPPORTED_EXTENSIONS = ".gif,.jpg,.jpeg,.bmp,.dib,.tif,.tiff,.ico,.png,.jxr,.svg";

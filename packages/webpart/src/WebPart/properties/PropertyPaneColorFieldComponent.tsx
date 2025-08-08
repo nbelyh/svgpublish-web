@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Stack, Text, Label } from '@fluentui/react';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { Text } from '@fluentui/react/lib/Text';
+import { Label } from '@fluentui/react/lib/Label';
 import { ColorComboBox } from './components/ColorComboBox';
 
 export function PropertyPaneColorFieldComponent(props: {

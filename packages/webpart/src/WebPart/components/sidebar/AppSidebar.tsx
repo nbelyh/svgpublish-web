@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Panel, PanelType, Text, Stack } from '@fluentui/react';
+import { Panel, PanelType } from '@fluentui/react/lib/Panel';
+import { Text } from '@fluentui/react/lib/Text';
+import { Stack } from '@fluentui/react/lib/Stack';
 import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
 import { SidebarLayers } from './SidebarLayers';

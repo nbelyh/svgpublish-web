@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { IPalette, SwatchColorPicker, Stack, Label, useTheme } from '@fluentui/react';
+import { IPalette } from '@fluentui/react/lib/Styling';
+import { SwatchColorPicker } from '@fluentui/react/lib/SwatchColorPicker';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { Label } from '@fluentui/react/lib/Label';
+import { useTheme } from '@fluentui/react/lib/Theme';
 import { ISwatchPalette } from './SwatchPalette';
 import * as strings from 'WebPartStrings';
 

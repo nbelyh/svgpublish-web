@@ -1,13 +1,12 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-import { IPropertyPaneField, PropertyPaneFieldType, IPropertyPaneCustomFieldProps } from '@microsoft/sp-property-pane';
-import { Stack } from '@fluentui/react';
+import { Stack } from '@fluentui/react/lib/Stack';
 
-export function PropertyPaneVersionField(version: string): IPropertyPaneField<IPropertyPaneCustomFieldProps> {
+export function PropertyPaneVersionField(version: string) {
 
   return {
     targetProperty: '',
-    type: PropertyPaneFieldType.Custom,
+    type: 1,
     properties: {
       key: 'version',
       // eslint-disable-next-line  @typescript-eslint/no-unused-vars

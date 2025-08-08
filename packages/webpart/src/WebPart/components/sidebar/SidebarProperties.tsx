@@ -1,13 +1,8 @@
 import * as React from 'react';
-import {
-  Stack,
-  Text,
-  DetailsList,
-  IColumn,
-  DetailsListLayoutMode,
-  SelectionMode,
-  Link
-} from '@fluentui/react';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { Text } from '@fluentui/react/lib/Text';
+import { DetailsList, IColumn, DetailsListLayoutMode, SelectionMode } from '@fluentui/react/lib/DetailsList';
+import { Link } from '@fluentui/react/lib/Link';
 import { IShapeInfo } from 'svgpublish';
 
 export const SidebarProperties = (props: {

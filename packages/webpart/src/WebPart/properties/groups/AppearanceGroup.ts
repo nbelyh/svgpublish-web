@@ -1,13 +1,12 @@
 import * as strings from 'WebPartStrings';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
-import { IPropertyPaneGroup } from '@microsoft/sp-property-pane';
 import { PropertyPaneSizeField } from '../PropertyPaneSizeField';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { SettingsService } from '../../services/SettingsService';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 export class AppearanceGroup {
-  public static get(context: WebPartContext, properties: IWebPartProps): IPropertyPaneGroup {
+  public static get(context: WebPartContext, properties: IWebPartProps) {
     return {
       groupName: strings.PropertyPaneLabelAppearance,
       isCollapsed: true,

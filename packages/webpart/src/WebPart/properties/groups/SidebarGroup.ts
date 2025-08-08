@@ -1,10 +1,9 @@
 import { PropertyPaneDropdown, PropertyPaneTextField } from '@microsoft/sp-property-pane';
-import { IPropertyPaneGroup } from '@microsoft/sp-property-pane';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 export class SidebarGroup {
-  public static get(properties: IWebPartProps): IPropertyPaneGroup {
+  public static get(properties: IWebPartProps) {
     return {
       groupName: "Sidebar",
       isCollapsed: true,

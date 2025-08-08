@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { IBreadcrumbItem, ThemeProvider } from '@fluentui/react';
+import { IBreadcrumbItem } from '@fluentui/react/lib/Breadcrumb';
+import { ThemeProvider } from '@fluentui/react/lib/Theme';
 import { ISvgPublishContext, LinkClickedEvent, SelectionChangedEvent, SvgPublishContext } from 'svgpublish';
 import { ErrorPlaceholder } from './ErrorPlaceholder';
 import { AppSidebar } from './sidebar/AppSidebar';

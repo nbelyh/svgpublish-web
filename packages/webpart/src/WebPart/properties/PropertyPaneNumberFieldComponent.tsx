@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TextField } from '@fluentui/react';
+import { TextField } from '@fluentui/react/lib/TextField';
 
 export function PropertyPaneNumberFieldComponent(props: {
   value: number;

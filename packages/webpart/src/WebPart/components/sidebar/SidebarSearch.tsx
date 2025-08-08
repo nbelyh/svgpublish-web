@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { Stack, Text, SearchBox, Dropdown, useTheme } from '@fluentui/react';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { Text } from '@fluentui/react/lib/Text';
+import { SearchBox } from '@fluentui/react/lib/SearchBox';
+import { Dropdown } from '@fluentui/react/lib/Dropdown';
+import { useTheme } from '@fluentui/react/lib/Theme';
 import { ISvgPublishContext } from 'svgpublish';
 
 export interface ISidebarSearchProps {

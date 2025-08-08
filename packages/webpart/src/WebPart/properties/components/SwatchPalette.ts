@@ -1,4 +1,4 @@
-import { IPalette } from '@fluentui/react';
+import type { IPalette } from '@fluentui/react/lib/Styling';
 
 export interface ISwatchPalette {
   nameId: string;

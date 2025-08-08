@@ -1,5 +1,8 @@
 import * as React from 'react';
-import { Stack, Text, IconButton, useTheme } from '@fluentui/react';
+import { Stack } from '@fluentui/react/lib/Stack';
+import { Text } from '@fluentui/react/lib/Text';
+import { IconButton } from '@fluentui/react/lib/Button';
+import { useTheme } from '@fluentui/react/lib/Theme';
 
 export interface ICollapsibleSectionProps {
   title: string;

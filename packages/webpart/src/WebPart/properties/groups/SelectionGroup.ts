@@ -1,5 +1,4 @@
 import { PropertyPaneDropdown } from '@microsoft/sp-property-pane';
-import { IPropertyPaneGroup } from '@microsoft/sp-property-pane';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { PropertyPaneColorField } from '../PropertyPaneColorField';
 import { PropertyPaneNumberField } from '../PropertyPaneNumberField';
@@ -7,7 +6,7 @@ import { DefaultColors } from 'svgpublish';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
 export class SelectionGroup {
-  public static get(properties: IWebPartProps): IPropertyPaneGroup {
+  public static get(properties: IWebPartProps) {
     return {
       groupName: "Selection",
       isCollapsed: true,
