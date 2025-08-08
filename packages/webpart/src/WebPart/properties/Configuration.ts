@@ -374,12 +374,33 @@ export class Configuration {
                   disabled: !properties.enablePages,
                   inlineLabel: true,
                   indentLevel: 1,
+                  checked: properties.enablePageLookup,
                 }),
                 PropertyPaneIndentedToggle('enablePageSort', {
                   label: "Sort Pages Alphabetically",
                   disabled: !properties.enablePages,
                   inlineLabel: true,
                   indentLevel: 1,
+                  checked: properties.enablePageSort,
+                }),
+                PropertyPaneToggle('enableSearch', {
+                  label: "Enable Shape Search",
+                  disabled: !properties.enableSidebar,
+                  inlineLabel: true,
+                }),
+                PropertyPaneIndentedToggle('enableMultiPageSearch', {
+                  label: "Multi-Page Search",
+                  disabled: !properties.enableSidebar || !properties.enableSearch,
+                  inlineLabel: true,
+                  indentLevel: 1,
+                  checked: properties.enableMultiPageSearch,
+                }),
+                PropertyPaneIndentedToggle('enablePropertySearchFilter', {
+                  label: "Property Filter",
+                  disabled: !properties.enableSidebar || !properties.enableSearch,
+                  inlineLabel: true,
+                  indentLevel: 1,
+                  checked: properties.enablePropertySearchFilter,
                 }),
                 PropertyPaneToggle('enableLayers', {
                   label: "Show Layers",

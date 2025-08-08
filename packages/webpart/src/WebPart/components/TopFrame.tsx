@@ -52,6 +52,23 @@ export function TopFrame(props: {
     setSource({ pageUrl: pageUrl, zoom, shapeId });
   }
 
+  const navigateToShape = (shapeId: string, term?: string) => {
+    // If there's a search term, add it to the URL for highlighting
+    const url = term ? `${source.pageUrl}#?shape=${shapeId}&term=${encodeURIComponent(term)}` : `${source.pageUrl}#?shape=${shapeId}`;
+    setSource({ ...source, shapeId });
+
+    // Highlight the shape in the current view
+    if (context) {
+      context.services.view.highlightShape(shapeId);
+
+      // If search term is provided, highlight search results
+      if (term) {
+        // Note: This would need additional implementation in the core library to highlight search terms
+        console.log('Search highlighting for term:', term);
+      }
+    }
+  }
+
   React.useEffect(() => {
 
     const newContext = new SvgPublishContext(containerRef.current);
@@ -199,6 +216,7 @@ export function TopFrame(props: {
           selectedShapeId={selectedShapeId}
           settings={props.properties}
           onNavigateToPage={navigateToPage}
+          onNavigateToShape={navigateToShape}
           baseUrl={props.url}
         />
       )}

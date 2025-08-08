@@ -4,6 +4,7 @@ import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
 import { SidebarLayers } from './SidebarLayers';
 import { SidebarPages } from './SidebarPages';
+import { SidebarSearch } from './SidebarSearch';
 import { CollapsibleSection } from './CollapsibleSection';
 import { IDiagramSettings, ISvgPublishContext } from 'svgpublish';
 
@@ -14,6 +15,7 @@ export const AppSidebar = (props: {
   selectedShapeId?: string;
   settings: IDiagramSettings;
   onNavigateToPage?: (pageUrl: string, pageName: string) => void;
+  onNavigateToShape?: (shapeId: string, term?: string) => void;
   baseUrl?: string;
 }) => {
 
@@ -23,6 +25,7 @@ export const AppSidebar = (props: {
     links: false,
     layers: false,
     pages: false,
+    search: false,
     content: false
   });
 
@@ -56,10 +59,14 @@ export const AppSidebar = (props: {
     const hasPagesContent = props.settings.enablePages &&
       props.context?.diagram?.pages?.length > 0;
 
+    // Check if search should be shown and is available
+    const hasSearchContent = props.settings.enableSearch &&
+      props.context?.diagram?.searchIndex && Object.keys(props.context.diagram.searchIndex).length > 0;
+
     const hasMarkdownContent = props.settings.enableSidebarMarkdown && props.settings.sidebarMarkdown;
 
     // If we have any content to show
-    if (hasPropertiesContent || hasLinksContent || hasLayersContent || hasPagesContent || hasMarkdownContent) {
+    if (hasPropertiesContent || hasLinksContent || hasLayersContent || hasPagesContent || hasSearchContent || hasMarkdownContent) {
       return (
         <Stack style={{ marginTop: 16 }} tokens={{ childrenGap: 16 }}>
           {hasMarkdownContent && (
@@ -71,6 +78,23 @@ export const AppSidebar = (props: {
               <div style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '14px' }}>
                 {props.settings.sidebarMarkdown}
               </div>
+            </CollapsibleSection>
+          )}
+
+          {hasSearchContent && (
+            <CollapsibleSection
+              title="Search"
+              isCollapsed={collapsedSections.search}
+              onToggle={() => toggleSection('search')}
+            >
+              <SidebarSearch
+                context={props.context}
+                enableMultiPageSearch={props.settings.enableMultiPageSearch}
+                enablePropertySearchFilter={props.settings.enablePropertySearchFilter}
+                onNavigateToShape={props.onNavigateToShape}
+                onNavigateToPage={props.onNavigateToPage}
+                baseUrl={props.baseUrl}
+              />
             </CollapsibleSection>
           )}
 
