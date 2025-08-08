@@ -83,8 +83,6 @@ bool EnablePageSort { get; set; }        // Sort pages alphabetically
 
 ```csharp
 bool EnableSearch { get; set; }              // Enable search sidebar widget
-bool EnableMultiPageSearch { get; set; }     // Multi-page search index
-bool EnablePropertySearch { get; set; }      // Search by shape properties
 bool EnablePropertySearchFilter { get; set; } // Property search filtering
 string SelectedSearchProps { get; set; }     // Properties to include in search
 ```

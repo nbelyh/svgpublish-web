@@ -53,12 +53,12 @@ export function TopFrame(props: {
   }
 
   const navigateToShape = (shapeId: string, term?: string) => {
-    // If there's a search term, add it to the URL for highlighting
-    const url = term ? `${source.pageUrl}#?shape=${shapeId}&term=${encodeURIComponent(term)}` : `${source.pageUrl}#?shape=${shapeId}`;
-    setSource({ ...source, shapeId });
-
-    // Highlight the shape in the current view
+    // For current page shapes, just highlight and focus without page reload
     if (context) {
+      // First set focus to pan/zoom to the shape
+      // context.services.view.setFocusShape(shapeId);
+
+      // Then highlight it for visual emphasis
       context.services.view.highlightShape(shapeId);
 
       // If search term is provided, highlight search results

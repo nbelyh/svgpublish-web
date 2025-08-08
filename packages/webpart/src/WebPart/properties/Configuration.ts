@@ -388,13 +388,6 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
-                PropertyPaneIndentedToggle('enableMultiPageSearch', {
-                  label: "Multi-Page Search",
-                  disabled: !properties.enableSidebar || !properties.enableSearch,
-                  inlineLabel: true,
-                  indentLevel: 1,
-                  checked: properties.enableMultiPageSearch,
-                }),
                 PropertyPaneIndentedToggle('enablePropertySearchFilter', {
                   label: "Property Filter",
                   disabled: !properties.enableSidebar || !properties.enableSearch,

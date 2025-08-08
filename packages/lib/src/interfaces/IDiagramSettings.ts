@@ -38,8 +38,8 @@ export interface IDiagramSettings {
   // keepRelativeLinks: boolean;
   // customTemplatePath: boolean;
   enableSearch?: boolean;
-  enableMultiPageSearch?: boolean;
-  enablePropertySearch?: boolean;
+  // enableMultiPageSearch?: boolean;
+  // enablePropertySearch?: boolean;
   enablePropertySearchFilter?: boolean;
   // enablePopovers: boolean;
   // enablePopoverMarkdown: boolean;

@@ -1,19 +1,18 @@
 import * as React from 'react';
-import { Stack, Text, SearchBox, Dropdown, IDropdownOption, useTheme } from '@fluentui/react';
+import { Stack, Text, SearchBox, Dropdown, useTheme } from '@fluentui/react';
 import { ISvgPublishContext } from 'svgpublish';
 
 export interface ISidebarSearchProps {
   context: ISvgPublishContext;
-  enableMultiPageSearch?: boolean;
   enablePropertySearchFilter?: boolean;
   onNavigateToShape?: (shapeId: string, term?: string) => void;
   onNavigateToPage?: (pageUrl: string, pageName: string) => void;
   baseUrl?: string;
+  term?: string; // Optional search term to initialize the search
 }
 
 export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
   context,
-  enableMultiPageSearch,
   enablePropertySearchFilter,
   onNavigateToShape,
   onNavigateToPage,
@@ -23,21 +22,6 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
   const [searchTerm, setSearchTerm] = React.useState('');
   const [selectedProperties, setSelectedProperties] = React.useState<string[]>([]);
   const [searchResults, setSearchResults] = React.useState<any[]>([]);
-
-  // Get URL parameter function
-  const getUrlParameter = (name: string): string => {
-    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    const results = regex.exec(location.hash);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  };
-
-  // Initialize search term from URL on mount
-  React.useEffect(() => {
-    const urlTerm = getUrlParameter('term');
-    if (urlTerm) {
-      setSearchTerm(urlTerm);
-    }
-  }, []);
 
   // Parse search term to escape regex special characters
   const parseSearchTerm = (term: string): string => {
@@ -64,20 +48,18 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
       key: prop,
       text: prop
     }));
-  }, [context?.diagram?.searchIndex]);
+  }, [context?.diagram?.searchIndex]);  // Build page URL for external navigation
 
-  // Build page URL for external navigation
   const buildPageUrl = (pageId: number, shapeId: string, term: string): string => {
-    if (!baseUrl || !context?.diagram?.pages) {
-      return '';
-    }
-
     const page = context.diagram.pages.find(p => p.Id === pageId);
     if (!page) {
       return '';
     }
 
-    const targetUrl = `${baseUrl}#?shape=${shapeId}&term=${encodeURIComponent(term)}`;
+    // Replace current filename with target page filename
+    const currentPath = baseUrl || '';
+    const newPath = currentPath.replace(currentPath.substring(currentPath.lastIndexOf('/') + 1), page.FileName);
+    const targetUrl = `${newPath}#?shape=${shapeId}&term=${encodeURIComponent(term)}`;
     return targetUrl;
   };
 
@@ -93,7 +75,7 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
     const results: any[] = [];
     const currentPageId = context.diagram.currentPage?.Id;
 
-    const processPage = (pageId: string, isExternal: boolean) => {
+    const processPage = (pageId: number, isExternal: boolean) => {
       const pageSearchIndex = context.diagram.searchIndex[pageId];
       if (!pageSearchIndex) return;
 
@@ -121,7 +103,7 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
           let notes = foundProperties.join(', ');
 
           if (isExternal) {
-            const page = context.diagram.pages?.find(p => p.Id === parseInt(pageId));
+            const page = context.diagram.pages?.find(p => p.Id === pageId);
             if (page) {
               if (notes) notes += ' / ';
               notes += page.Name;
@@ -137,32 +119,28 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
 
           results.push({
             shapeId,
-            pageId: parseInt(pageId),
+            pageId,
             text: highlightedText,
             notes,
             isExternal,
-            url: isExternal ? buildPageUrl(parseInt(pageId), shapeId, term) : undefined
+            url: isExternal ? buildPageUrl(pageId, shapeId, term) : undefined
           });
         }
       }
     };
 
-    // Process current page first
-    if (currentPageId) {
-      processPage(currentPageId.toString(), false);
-    }
+    processPage(currentPageId, false);
 
     // Process other pages if multi-page search is enabled
-    if (enableMultiPageSearch) {
-      for (const pageId in context.diagram.searchIndex) {
-        if (parseInt(pageId) !== currentPageId) {
-          processPage(pageId, true);
-        }
+    for (const key in context.diagram.searchIndex) {
+      const pageId = parseInt(key);
+      if (pageId !== currentPageId) {
+        processPage(pageId, true);
       }
     }
 
     setSearchResults(results);
-  }, [context?.diagram, enableMultiPageSearch, baseUrl]);
+  }, [context?.diagram, baseUrl]);
 
   // Handle search term change
   React.useEffect(() => {

@@ -89,7 +89,6 @@ export const AppSidebar = (props: {
             >
               <SidebarSearch
                 context={props.context}
-                enableMultiPageSearch={props.settings.enableMultiPageSearch}
                 enablePropertySearchFilter={props.settings.enablePropertySearchFilter}
                 onNavigateToShape={props.onNavigateToShape}
                 onNavigateToPage={props.onNavigateToPage}
