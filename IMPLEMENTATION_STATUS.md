@@ -74,12 +74,6 @@ This document compares the reference C# options (from `reference/Options/`) with
 bool EnablePages { get; set; }           // Show "Pages" pane on sidebar
 bool EnablePageLookup { get; set; }      // Show "Page search" box  
 bool EnablePageSort { get; set; }        // Sort pages alphabetically
-bool AllPages { get; set; }              // Publish all pages
-bool SinglePage { get; set; }            // Publish single page only
-bool SelectedPages { get; set; }         // Publish selected pages
-string SelectedPagesText { get; set; }   // Comma-separated page list
-int StartPageId { get; set; }            // Root/start page
-bool UseReadablePageNames { get; set; }  // Use page names for files
 ```
 
 **Impact**: No multi-page navigation support, single page only

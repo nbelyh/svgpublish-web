@@ -198,6 +198,8 @@ export function TopFrame(props: {
           context={context}
           selectedShapeId={selectedShapeId}
           settings={props.properties}
+          onNavigateToPage={navigateToPage}
+          baseUrl={props.url}
         />
       )}
 

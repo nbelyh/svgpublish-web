@@ -365,6 +365,22 @@ export class Configuration {
                   disabled: !properties.enableSidebar,
                   inlineLabel: true,
                 }),
+                PropertyPaneToggle('enablePages', {
+                  label: "Enable Pages Navigation",
+                  inlineLabel: true,
+                }),
+                PropertyPaneIndentedToggle('enablePageLookup', {
+                  label: "Page Search",
+                  disabled: !properties.enablePages,
+                  inlineLabel: true,
+                  indentLevel: 1,
+                }),
+                PropertyPaneIndentedToggle('enablePageSort', {
+                  label: "Sort Pages Alphabetically",
+                  disabled: !properties.enablePages,
+                  inlineLabel: true,
+                  indentLevel: 1,
+                }),
                 PropertyPaneToggle('enableLayers', {
                   label: "Show Layers",
                   disabled: !properties.enableSidebar,

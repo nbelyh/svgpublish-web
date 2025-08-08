@@ -3,6 +3,7 @@ import { Panel, PanelType, Text, Stack } from '@fluentui/react';
 import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
 import { SidebarLayers } from './SidebarLayers';
+import { SidebarPages } from './SidebarPages';
 import { CollapsibleSection } from './CollapsibleSection';
 import { IDiagramSettings, ISvgPublishContext } from 'svgpublish';
 
@@ -12,6 +13,8 @@ export const AppSidebar = (props: {
   context: ISvgPublishContext,
   selectedShapeId?: string;
   settings: IDiagramSettings;
+  onNavigateToPage?: (pageUrl: string, pageName: string) => void;
+  baseUrl?: string;
 }) => {
 
   // State for managing collapsed sections
@@ -19,6 +22,7 @@ export const AppSidebar = (props: {
     properties: false,
     links: false,
     layers: false,
+    pages: false,
     content: false
   });
 
@@ -48,10 +52,14 @@ export const AppSidebar = (props: {
     const hasLayersContent = props.settings.enableLayers &&
       props.context?.diagram?.layers?.length > 0;
 
+    // Check if pages should be shown and are available
+    const hasPagesContent = props.settings.enablePages &&
+      props.context?.diagram?.pages?.length > 0;
+
     const hasMarkdownContent = props.settings.enableSidebarMarkdown && props.settings.sidebarMarkdown;
 
     // If we have any content to show
-    if (hasPropertiesContent || hasLinksContent || hasLayersContent || hasMarkdownContent) {
+    if (hasPropertiesContent || hasLinksContent || hasLayersContent || hasPagesContent || hasMarkdownContent) {
       return (
         <Stack style={{ marginTop: 16 }} tokens={{ childrenGap: 16 }}>
           {hasMarkdownContent && (
@@ -104,6 +112,22 @@ export const AppSidebar = (props: {
                 enableLayerLookup={props.settings.enableLayerLookup}
                 enableLayerSort={props.settings.enableLayerSort}
                 enableLayerShowAll={props.settings.enableLayerShowAll}
+              />
+            </CollapsibleSection>
+          )}
+
+          {hasPagesContent && (
+            <CollapsibleSection
+              title="Pages"
+              isCollapsed={collapsedSections.pages}
+              onToggle={() => toggleSection('pages')}
+            >
+              <SidebarPages
+                context={props.context}
+                enablePageLookup={props.settings.enablePageLookup}
+                enablePageSort={props.settings.enablePageSort}
+                onNavigateToPage={props.onNavigateToPage}
+                baseUrl={props.baseUrl}
               />
             </CollapsibleSection>
           )}

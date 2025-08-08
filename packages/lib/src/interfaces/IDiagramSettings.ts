@@ -4,11 +4,12 @@ export interface IDiagramSettings {
 
   enableLayers?: boolean;
   twoFingersTouch?: boolean;
+
   // enableAutoFrameHeight?: boolean;
-  // safariFullscreen?: boolean;
-  // enablePages?: boolean;
-  // enablePageLookup?: boolean;
-  // enablePageSort?: boolean;
+  enablePages?: boolean;
+  enablePageLookup?: boolean;
+  enablePageSort?: boolean;
+
   enableZoomShift?: boolean;
   enableZoomCtrl?: boolean;
 
@@ -34,13 +35,8 @@ export interface IDiagramSettings {
   rewriteVsdxHyperlinks?: boolean;
   rewriteOfficeHyperlinks?: boolean;
 
-  // useReadablePageNames: boolean;
   // keepRelativeLinks: boolean;
   // customTemplatePath: boolean;
-  // allPages: boolean;
-  // singlePage: boolean;
-  // selectedPages: boolean;
-  // selectedPagesText: string;
   // enableSearch: boolean;
   // enableMultiPageSearch: boolean;
   // enablePopovers: boolean;
@@ -48,7 +44,6 @@ export interface IDiagramSettings {
   // popoverMarkdown: string;
   // enableContentMarkdown: boolean;
   // contentMarkdown: string;
-  // startPageId: number;
   enableTooltips?: boolean;
   enableTooltipMarkdown?: boolean;
   tooltipMarkdown?: string;
