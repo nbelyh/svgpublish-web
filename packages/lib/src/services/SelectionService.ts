@@ -219,13 +219,4 @@ export class SelectionService extends BasicService implements ISelectionService 
     }
     this.selectedShapeId = null;
   }
-
-  public highlightShape(shapeId: string) {
-    this.context.svg.getElementById(shapeId).animate([
-      { opacity: 1, easing: 'ease-out' },
-      { opacity: 0.1, easing: 'ease-in' },
-      { opacity: 0 }],
-      2000);
-    this.setSelection(shapeId);
-  }
 }
