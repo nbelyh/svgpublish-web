@@ -17,7 +17,7 @@ export const AppSidebar = (props: {
   baseUrl?: string;
 }) => {
 
-  // State for managing collapsed sections
+    // State for managing collapsed sections
   const [collapsedSections, setCollapsedSections] = React.useState<{[key: string]: boolean}>({
     properties: false,
     links: false,
@@ -74,29 +74,18 @@ export const AppSidebar = (props: {
             </CollapsibleSection>
           )}
 
-          {hasPropertiesContent && (
+          {hasPagesContent && (
             <CollapsibleSection
-              title="Properties"
-              isCollapsed={collapsedSections.properties}
-              onToggle={() => toggleSection('properties')}
+              title="Pages"
+              isCollapsed={collapsedSections.pages}
+              onToggle={() => toggleSection('pages')}
             >
-              <SidebarProperties
-                shapeInfo={selectedShapeInfo}
-                selectedProps={props.settings.selectedProps || []}
-                openHyperlinksInNewWindow={props.settings.openHyperlinksInNewWindow}
-              />
-            </CollapsibleSection>
-          )}
-
-          {hasLinksContent && (
-            <CollapsibleSection
-              title="Links"
-              isCollapsed={collapsedSections.links}
-              onToggle={() => toggleSection('links')}
-            >
-              <SidebarLinks
-                shape={selectedShapeInfo}
-                openHyperlinksInNewWindow={props.settings.openHyperlinksInNewWindow}
+              <SidebarPages
+                context={props.context}
+                enablePageLookup={props.settings.enablePageLookup}
+                enablePageSort={props.settings.enablePageSort}
+                onNavigateToPage={props.onNavigateToPage}
+                baseUrl={props.baseUrl}
               />
             </CollapsibleSection>
           )}
@@ -116,18 +105,29 @@ export const AppSidebar = (props: {
             </CollapsibleSection>
           )}
 
-          {hasPagesContent && (
+          {hasLinksContent && (
             <CollapsibleSection
-              title="Pages"
-              isCollapsed={collapsedSections.pages}
-              onToggle={() => toggleSection('pages')}
+              title="Links"
+              isCollapsed={collapsedSections.links}
+              onToggle={() => toggleSection('links')}
             >
-              <SidebarPages
-                context={props.context}
-                enablePageLookup={props.settings.enablePageLookup}
-                enablePageSort={props.settings.enablePageSort}
-                onNavigateToPage={props.onNavigateToPage}
-                baseUrl={props.baseUrl}
+              <SidebarLinks
+                shape={selectedShapeInfo}
+                openHyperlinksInNewWindow={props.settings.openHyperlinksInNewWindow}
+              />
+            </CollapsibleSection>
+          )}
+
+          {hasPropertiesContent && (
+            <CollapsibleSection
+              title="Properties"
+              isCollapsed={collapsedSections.properties}
+              onToggle={() => toggleSection('properties')}
+            >
+              <SidebarProperties
+                shapeInfo={selectedShapeInfo}
+                selectedProps={props.settings.selectedProps || []}
+                openHyperlinksInNewWindow={props.settings.openHyperlinksInNewWindow}
               />
             </CollapsibleSection>
           )}
