@@ -1,9 +1,9 @@
 {
   "extends": "./../../node_modules/@microsoft/rush-stack-compiler-5.3/includes/tsconfig-web.json",
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "ES2020",
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "es2020",
     "moduleResolution": "node",
     "jsx": "react",
     "declaration": true,
@@ -22,8 +22,8 @@
       "webpack-env",
     ],
     "lib": [
-      "dom",
-      "es2015"
+      "DOM",
+      "ES2020"
     ],
     "baseUrl": "./src"
   },

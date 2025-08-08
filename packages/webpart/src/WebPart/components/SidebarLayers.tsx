@@ -7,7 +7,7 @@ import {
   ActionButton,
   SearchBox
 } from '@fluentui/react';
-import { ISvgPublishContext, ILayerInfo } from 'svgpublish-react';
+import { ISvgPublishContext, ILayerInfo } from 'svgpublish';
 
 export const SidebarLayers = (props: {
   context?: ISvgPublishContext;
@@ -22,9 +22,9 @@ export const SidebarLayers = (props: {
   const layers: ILayerInfo[] = layersService?.getLayers() || [];
 
   // Use props first, then fall back to context layerView options
-  const lookupEnabled = enableLayerLookup ?? context?.diagram?.layerView?.enableLayerLookup ?? false;
-  const sortEnabled = enableLayerSort ?? context?.diagram?.layerView?.enableLayerSort ?? false;
-  const showAllEnabled = enableLayerShowAll ?? context?.diagram?.layerView?.enableLayerShowAll ?? true;
+  const lookupEnabled = enableLayerLookup ?? context?.diagram?.settings?.enableLayerLookup ?? false;
+  const sortEnabled = enableLayerSort ?? context?.diagram?.settings?.enableLayerSort ?? false;
+  const showAllEnabled = enableLayerShowAll ?? context?.diagram?.settings?.enableLayerShowAll ?? true;
 
   const [layerStates, setLayerStates] = React.useState<{ [key: string]: boolean }>({});
   const [searchTerm, setSearchTerm] = React.useState<string>('');

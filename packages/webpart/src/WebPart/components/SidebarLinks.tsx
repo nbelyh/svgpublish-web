@@ -1,10 +1,6 @@
 import * as React from 'react';
-import {
-  Stack,
-  Text,
-  Link
-} from '@fluentui/react';
-import { IShapeInfo, ILinkInfo, ISvgPublishContext } from 'svgpublish-react';
+import { Stack, Text, Link } from '@fluentui/react';
+import { IShapeInfo, ILinkInfo} from 'svgpublish';
 
 export const SidebarLinks = (props: {
   shape?: IShapeInfo;

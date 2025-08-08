@@ -4,15 +4,14 @@ import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
 import { SidebarLayers } from './SidebarLayers';
 import { CollapsibleSection } from './CollapsibleSection';
-import { IWebPartProps } from '../IWebPartProps';
-import { ISvgPublishContext } from 'svgpublish-react';
+import { IDiagramSettings, ISvgPublishContext } from 'svgpublish';
 
 export const AppSidebar = (props: {
   isOpen: boolean;
   onDismiss: () => void;
   context: ISvgPublishContext,
   selectedShapeId?: string;
-  webpartConfig: IWebPartProps;
+  settings: IDiagramSettings;
 }) => {
 
   // State for managing collapsed sections
@@ -38,18 +37,18 @@ export const AppSidebar = (props: {
       props.context.diagram.shapes[props.selectedShapeId] : undefined;
 
     // Check if properties should be shown and are available
-    const hasPropertiesContent = props.webpartConfig.enableProps && selectedShapeInfo &&
+    const hasPropertiesContent = props.settings.enableProps && selectedShapeInfo &&
       selectedShapeInfo.Props && Object.keys(selectedShapeInfo.Props).length > 0;
 
     // Check if links should be shown and are available
-    const hasLinksContent = props.webpartConfig.enableLinks && selectedShapeInfo &&
+    const hasLinksContent = props.settings.enableLinks && selectedShapeInfo &&
       selectedShapeInfo.Links && selectedShapeInfo.Links.length > 0;
 
     // Check if layers should be shown and are available
-    const hasLayersContent = props.webpartConfig.enableLayers &&
+    const hasLayersContent = props.settings.enableLayers &&
       props.context?.diagram?.layers?.length > 0;
 
-    const hasMarkdownContent = props.webpartConfig.enableSidebarMarkdown && props.webpartConfig.sidebarMarkdown;
+    const hasMarkdownContent = props.settings.enableSidebarMarkdown && props.settings.sidebarMarkdown;
 
     // If we have any content to show
     if (hasPropertiesContent || hasLinksContent || hasLayersContent || hasMarkdownContent) {
@@ -62,7 +61,7 @@ export const AppSidebar = (props: {
               onToggle={() => toggleSection('content')}
             >
               <div style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '14px' }}>
-                {props.webpartConfig.sidebarMarkdown}
+                {props.settings.sidebarMarkdown}
               </div>
             </CollapsibleSection>
           )}
@@ -75,8 +74,8 @@ export const AppSidebar = (props: {
             >
               <SidebarProperties
                 shapeInfo={selectedShapeInfo}
-                selectedProps={props.webpartConfig.selectedProps || []}
-                openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
+                selectedProps={props.settings.selectedProps || []}
+                openHyperlinksInNewWindow={props.settings.openHyperlinksInNewWindow}
               />
             </CollapsibleSection>
           )}
@@ -89,7 +88,7 @@ export const AppSidebar = (props: {
             >
               <SidebarLinks
                 shape={selectedShapeInfo}
-                openHyperlinksInNewWindow={props.webpartConfig.openHyperlinksInNewWindow}
+                openHyperlinksInNewWindow={props.settings.openHyperlinksInNewWindow}
               />
             </CollapsibleSection>
           )}
@@ -102,9 +101,9 @@ export const AppSidebar = (props: {
             >
               <SidebarLayers
                 context={props.context}
-                enableLayerLookup={props.webpartConfig.enableLayerLookup}
-                enableLayerSort={props.webpartConfig.enableLayerSort}
-                enableLayerShowAll={props.webpartConfig.enableLayerShowAll}
+                enableLayerLookup={props.settings.enableLayerLookup}
+                enableLayerSort={props.settings.enableLayerSort}
+                enableLayerShowAll={props.settings.enableLayerShowAll}
               />
             </CollapsibleSection>
           )}
@@ -124,11 +123,11 @@ export const AppSidebar = (props: {
 
   return (
     <Panel
-      headerText={props.webpartConfig.enableSidebarTitle !== false ? "Sidebar" : undefined}
+      headerText={props.settings.enableSidebarTitle !== false ? "Sidebar" : undefined}
       isOpen={props.isOpen}
       onDismiss={props.onDismiss}
-      type={PanelType[(props.webpartConfig.sidebarType || 'medium') as keyof typeof PanelType] || PanelType.medium}
-      {...((props.webpartConfig.sidebarType === 'custom' || props.webpartConfig.sidebarType === 'customNear') && { customWidth: props.webpartConfig.sidebarDefaultWidth || '300px' })}
+      type={PanelType[(props.settings.sidebarType || 'medium') as keyof typeof PanelType] || PanelType.medium}
+      {...((props.settings.sidebarType === 'custom' || props.settings.sidebarType === 'customNear') && { customWidth: props.settings.sidebarDefaultWidth || '300px' })}
       closeButtonAriaLabel="Close sidebar"
       isHiddenOnDismiss={true}
       isBlocking={false}

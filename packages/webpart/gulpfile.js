@@ -51,9 +51,9 @@ const watchCustomSubTask = build.subTask('watch-dependencies', function (gulp, b
   if (!watchLevel && buildOptions.args._[0] === 'serve') {
     ++watchLevel;
 
-    // Watch for changes in svgpublish-react (directly from workspace)
-    gulp.watch('../react/dist/**/*', (e) => {
-      console.log('SvgPublish React changed, triggering reload...');
+    // Watch for changes in svgpublish (directly from workspace)
+    gulp.watch('../lib/**/*', (e) => {
+      console.log('Lib changed, triggering reload...');
       return gulp.src('./src/index.ts')
         .pipe(gulp.dest('./src/'));
     });

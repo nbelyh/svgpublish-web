@@ -98,9 +98,9 @@ export function PropertyPaneUrlFieldComponent(props: {
   );
 
   return (
-    <Stack tokens={{ childrenGap: 's2' }}>
+    <Stack tokens={{ childrenGap: 's1' }}>
+      <Text variant='small'>{props.url || "Not selected"}</Text>
       <FilePicker
-        label={strings.Document}
         accepts={[".svg"]}
         buttonLabel="Browse..."
         onSave={(filePickerResult: IFilePickerResult[]) => onUploadFile(filePickerResult)}
@@ -112,7 +112,6 @@ export function PropertyPaneUrlFieldComponent(props: {
         hideLocalMultipleUploadTab
         renderCustomUploadTabContent={renderCustomUploadTabContent}
       />
-      <Text variant='small'>{props.url || "Not selected"}</Text>
     </Stack>
   );
 }

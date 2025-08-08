@@ -1,23 +1,25 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { IPropertyPaneField, PropertyPaneFieldType, IPropertyPaneCustomFieldProps } from '@microsoft/sp-property-pane';
-import { Stack } from '@fluentui/react';
 
-export function PropertyPaneVersionField(version: string): IPropertyPaneField<IPropertyPaneCustomFieldProps> {
+import { PropertyPaneResetFieldComponent } from './PropertyPaneResetFieldComponent';
+
+export function PropertyPaneResetField(targetProperty: string, props: {
+  value: string[];
+}): IPropertyPaneField<IPropertyPaneCustomFieldProps> {
 
   return {
-    targetProperty: '',
+    targetProperty: targetProperty,
     type: PropertyPaneFieldType.Custom,
     properties: {
-      key: 'version',
-      // eslint-disable-next-line  @typescript-eslint/no-unused-vars
+      key: targetProperty,
+
       onRender: (parent: HTMLElement, context: any, changeCallback: (targetProperty: string, newValue: any) => void) => {
-        const elem = (
-          <Stack tokens={{ padding: 8, childrenGap: 4 }}>
-            <Stack.Item>{`SvgPublish WebPart Version: ${version}`}</Stack.Item>
-          </Stack>
-        );
-        return ReactDom.render(elem, parent);
+        return ReactDom.render(
+          <PropertyPaneResetFieldComponent
+            value={props.value}
+            setValue={(val) => changeCallback(targetProperty, val)}
+          />, parent);
       },
 
       onDispose(parent: HTMLElement): void {

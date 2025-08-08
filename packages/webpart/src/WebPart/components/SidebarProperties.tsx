@@ -8,7 +8,7 @@ import {
   SelectionMode,
   Link
 } from '@fluentui/react';
-import { IShapeInfo } from 'svgpublish-react';
+import { IShapeInfo } from 'svgpublish';
 
 export const SidebarProperties = (props: {
   shapeInfo?: IShapeInfo;

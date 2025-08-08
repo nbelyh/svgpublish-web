@@ -1,8 +1,9 @@
-import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { IDefaultFolder } from './IDefaultFolder';
+import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { sp } from '@pnp/sp';
+import { DefaultDiagramSettings, IDiagramSettings } from 'svgpublish';
 
-export class WebPartDefaults {
+export class SettingsService {
 
   private static defaultFolder: IDefaultFolder;
   public static async getDefaultFolder(context: WebPartContext): Promise<IDefaultFolder> {
@@ -80,5 +81,4 @@ export class WebPartDefaults {
     }
     return this.defaultHeight = '50vh';
   }
-
 }

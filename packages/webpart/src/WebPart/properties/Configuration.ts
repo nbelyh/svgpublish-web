@@ -1,16 +1,17 @@
 import * as strings from 'WebPartStrings';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
-import { IPropertyPaneConfiguration, PropertyPaneDropdown, PropertyPaneTextField, PropertyPaneToggle } from '@microsoft/sp-property-pane';
+import { IPropertyPaneConfiguration, PropertyPaneDropdown, PropertyPaneTextField, PropertyPaneToggle, PropertyPaneButton, PropertyPaneButtonType } from '@microsoft/sp-property-pane';
 
 import { PropertyPaneVersionField } from './PropertyPaneVersionField';
 import { PropertyPaneUrlField } from './PropertyPaneUrlField';
 import { PropertyPaneSizeField } from './PropertyPaneSizeField';
 import { PropertyPaneIndentedToggle } from './PropertyPaneIndentedToggle';
-import { WebPartDefaults } from '../services/WebPartDefaults';
+import { SettingsService } from '../services/SettingsService';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 import { PropertyPaneColorField } from './PropertyPaneColorField';
-import { DefaultColors } from 'svgpublish-react';
+import { DefaultColors } from 'svgpublish';
 import { PropertyPaneNumberField } from './PropertyPaneNumberField';
+import { PropertyPaneResetField } from './PropertyPaneResetField';
 
 export class Configuration {
 
@@ -21,13 +22,13 @@ export class Configuration {
           displayGroupsAsAccordion: true,
           groups: [
             {
-              groupName: strings.PropertyPaneLabelDrawingDisplay, // Drawing Display
+              groupName: "SVG File",
               groupFields: [
                 PropertyPaneUrlField('url', {
                   url: properties.url,
                   context: context,
-                  getDefaultFolder: () => WebPartDefaults.getDefaultFolder(context),
-                }),
+                  getDefaultFolder: () => SettingsService.getDefaultFolder(context),
+                })
               ]
             },
             {
@@ -47,14 +48,14 @@ export class Configuration {
                   description: strings.FieldWidthDescription,
                   value: properties.width,
                   screenUnits: 'w',
-                  getDefaultValue: () => WebPartDefaults.getDefaultWidth(context)
+                  getDefaultValue: () => SettingsService.getDefaultWidth(context)
                 }),
                 PropertyPaneSizeField('height', {
                   label: strings.FieldHeight,
                   description: strings.FieldHeightDescription,
                   value: properties.height,
                   screenUnits: 'h',
-                  getDefaultValue: () => WebPartDefaults.getDefaultHeight(context)
+                  getDefaultValue: () => SettingsService.getDefaultHeight(context)
                 }),
               ]
             },
@@ -81,18 +82,20 @@ export class Configuration {
                   disabled: !properties.enableHeader,
                   inlineLabel: true,
                 }),
-                PropertyPaneTextField('feedbackButtonText', {
-                  disabled: !properties.enableFeedback || !properties.enableHeader,
-                  label: "Button Text",
-                  placeholder: "Feedback",
-                  description: "Label for the feedback button.",
-                }),
-                PropertyPaneTextField('feedbackUrl', {
-                  disabled: !properties.enableFeedback || !properties.enableHeader,
-                  label: "Feedback URL",
-                  placeholder: "ex: https://some.site/?src={{URL}}",
-                  description: "URL to send feedback to. Use {{URL}} as a placeholder for the current page URL.",
-                }),
+                ...(properties.enableFeedback ? [
+                  PropertyPaneTextField('feedbackButtonText', {
+                    disabled: !properties.enableFeedback || !properties.enableHeader,
+                    label: "Button Text",
+                    placeholder: "Feedback",
+                    description: "Label for the feedback button.",
+                  })] : []),
+                ...(properties.enableFeedback ? [
+                  PropertyPaneTextField('feedbackUrl', {
+                    disabled: !properties.enableFeedback || !properties.enableHeader,
+                    label: "Feedback URL",
+                    placeholder: "ex: https://some.site/?src={{URL}}",
+                    description: "URL to send feedback to. Use {{URL}} as a placeholder for the current page URL.",
+                  })] : []),
               ]
             },
             {
@@ -235,16 +238,12 @@ export class Configuration {
                   label: "Open Hyperlinks in New Window",
                   inlineLabel: true,
                 }),
-                PropertyPaneToggle('forceOpeningOfficeFilesOnline', {
-                  label: "Force Open Office Files",
-                  inlineLabel: true,
-                }),
                 PropertyPaneToggle('rewriteVsdxHyperlinks', {
                   label: "Rewrite VSDX Hyperlinks as SVG",
                   inlineLabel: true,
                 }),
-                PropertyPaneToggle('rewriteDocxHyperlinks', {
-                  label: "Rewrite DOCX Hyperlinks as PDF",
+                PropertyPaneToggle('rewriteOfficeHyperlinks', {
+                  label: "Always Open Office Files in Browser",
                   inlineLabel: true,
                 }),
               ]
@@ -302,16 +301,18 @@ export class Configuration {
                   inlineLabel: true,
                   disabled: !properties.enableTooltips,
                 }),
-                PropertyPaneNumberField('tooltipDelayShow', {
-                  label: "Show Delay",
-                  disabled: !(properties.enableTooltips && properties.tooltipDelay),
-                  value: properties.tooltipDelayShow,
-                }),
-                PropertyPaneNumberField('tooltipDelayHide', {
-                  label: "Hide Delay",
-                  disabled: !(properties.enableTooltips && properties.tooltipDelay),
-                  value: properties.tooltipDelayHide,
-                }),
+                ...(properties.tooltipDelay ? [
+                  PropertyPaneNumberField('tooltipDelayShow', {
+                    label: "Show Delay",
+                    disabled: !(properties.enableTooltips && properties.tooltipDelay),
+                    value: properties.tooltipDelayShow,
+                  }),
+                  PropertyPaneNumberField('tooltipDelayHide', {
+                    label: "Hide Delay",
+                    disabled: !(properties.enableTooltips && properties.tooltipDelay),
+                    value: properties.tooltipDelayHide,
+                  }),
+                ] : []),
               ]
             },
             {
@@ -408,9 +409,12 @@ export class Configuration {
             },
             {
               groupName: strings.PropertyPaneLabelAbout,
-              isCollapsed: true,
+              isCollapsed: false,
               groupFields: [
-                PropertyPaneVersionField(context.manifest.version)
+                PropertyPaneResetField('protectedSettings', {
+                  value: properties.protectedSettings || []
+                }),
+                PropertyPaneVersionField(context.manifest.version),
               ]
             }
           ]

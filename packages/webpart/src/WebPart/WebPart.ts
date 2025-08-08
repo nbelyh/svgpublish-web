@@ -5,94 +5,82 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IPropertyPaneConfiguration } from '@microsoft/sp-property-pane';
 import { sp } from '@pnp/sp';
 
-import { TopFrame } from './TopFrame';
+import { TopFrame } from './components/TopFrame';
 import { Configuration } from './properties/Configuration';
 import { IWebPartProps } from './IWebPartProps';
-import { DefaultColors } from 'svgpublish-react';
+import { SettingsService } from './services/SettingsService';
+import { BlankPlaceholder } from './components/BlankPlaceholder';
+import { DefaultDiagramSettings, ISvgSource } from 'svgpublish';
+
+const NON_SETTINGS_KEYS = ['url', 'protectedSettings', 'width', 'height'];
+const ENUM_KEYS = ['selectionMode', 'tooltipTheme', 'tooltipTrigger', 'tooltipPlacement', 'sidebarType'];
 
 export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
-
-  setDefault (property: keyof IWebPartProps, value: any) {
-    if (typeof this.properties[property as string] === 'undefined') {
-      this.properties[property as string] = value;
-    }
-  }
 
   public async onInit() {
 
     await super.onInit();
 
-    this.setDefault('width', '100%');
-    this.setDefault('height', '50vh');
-    this.setDefault('url', '');
-    this.setDefault('enablePan', true);
-    this.setDefault('enableZoom', true);
-    this.setDefault('enableLinks', true);
-    this.setDefault('enableHeader', true);
-    this.setDefault('enableBreadcrumb', true);
-    this.setDefault('enableCopyHashLink', false);
-    this.setDefault('forceOpeningOfficeFilesOnline', true);
-    this.setDefault('rewriteVsdxHyperlinks', false);
-    this.setDefault('rewriteDocxHyperlinks', false);
-    this.setDefault('enableFeedback', false);
-    this.setDefault('feedbackButtonText', 'Feedback');
-    this.setDefault('enableSelection', true);
-    this.setDefault('enableBoxSelection', false);
-    this.setDefault('selectionMode', 'normal');
-    this.setDefault('enableFollowHyperlinks', true);
-    this.setDefault('enableHover', true);
-    this.setDefault('openHyperlinksInNewWindow', true);
-    this.setDefault('hyperlinkColor', DefaultColors.hyperlinkColor);
-    this.setDefault('selectionColor', DefaultColors.selectionColor);
-    this.setDefault('hoverColor', DefaultColors.hoverColor);
-    this.setDefault('dilate', 2);
-    this.setDefault('enableDilate', true);
-    this.setDefault('blur', 2);
-    this.setDefault('enableBlur', true);
-    this.setDefault('connDilate', 1);
-    this.setDefault('enableConnDilate', false);
-    this.setDefault('enablePrevShapeColor', false);
-    this.setDefault('enableNextShapeColor', false);
-    this.setDefault('enablePrevConnColor', false);
-    this.setDefault('enableNextConnColor', false);
-    this.setDefault('prevShapeColor', DefaultColors.prevShapeColor);
-    this.setDefault('nextShapeColor', DefaultColors.nextShapeColor);
-    this.setDefault('prevConnColor', DefaultColors.prevConnColor);
-    this.setDefault('nextConnColor', DefaultColors.nextConnColor);
+    if (!this.properties.protectedSettings) {
+      this.properties.protectedSettings = [];
+    }
 
-    this.setDefault('enableTooltips', false);
-    this.setDefault('tooltipTrigger', 'mouseenter');
-    this.setDefault('tooltipDelay', false);
-    this.setDefault('tooltipDelayShow', 500);
-    this.setDefault('tooltipDelayHide', 0);
-    this.setDefault('tooltipPlacement', 'auto');
-    this.setDefault('tooltipUseMousePosition', false);
-    this.setDefault('tooltipInteractive', false);
-    this.setDefault('tooltipTheme', 'dark');
+    if (!this.properties.width) {
+      this.properties.width = await SettingsService.getDefaultWidth(this.context);
+    }
 
-    this.setDefault('enableSidebar', true);
-    this.setDefault('sidebarType', 'medium');
-    this.setDefault('showSidebarOnSelection', false);
-    this.setDefault('enableSidebarTitle', true);
-    this.setDefault('enableSidebarMarkdown', false);
-    this.setDefault('sidebarMarkdown', '');
-    this.setDefault('sidebarDefaultWidth', '300px');
-    this.setDefault('enableProps', true);
-    this.setDefault('enableLayers', true);
-    this.setDefault('enableLayerLookup', false);
-    this.setDefault('enableLayerSort', false);
-    this.setDefault('enableLayerShowAll', true);
+    if (!this.properties.height) {
+      this.properties.height = await SettingsService.getDefaultHeight(this.context);
+    }
+
+    for (const key in DefaultDiagramSettings) {
+      if (typeof this.properties[key] === 'undefined' || !this.properties.protectedSettings.includes(key)) {
+        this.properties[key] = DefaultDiagramSettings[key];
+      }
+    }
 
     sp.setup({ spfxContext: this.context as any });
   }
 
+  private diagramSettings = DefaultDiagramSettings;
+  async sourceResolver(url: string, defaultResolver: (url: string) => Promise<ISvgSource>): Promise<ISvgSource> {
+
+    const result = await defaultResolver(url);
+
+    this.diagramSettings = { ...DefaultDiagramSettings, ...result.diagramInfo.settings };
+    for (const key in this.diagramSettings) {
+      if (this.properties.protectedSettings.includes(key))
+        continue;
+      if (ENUM_KEYS.includes(key) && this.diagramSettings[key] === '')
+        continue;
+      this.properties[key] = this.diagramSettings[key];
+    }
+
+    const settings = { ...this.properties };
+    for (const key of NON_SETTINGS_KEYS) {
+      delete settings[key];
+    }
+
+    for (const key of this.properties.protectedSettings) {
+      settings[key] = this.properties[key];
+    }
+
+    return {
+      svgXml: result.svgXml,
+      viewBox: result.viewBox,
+      diagramInfo: { ...result.diagramInfo, settings }
+    }
+  }
+
   public render(): void {
 
-    const element = React.createElement(TopFrame, {
-      webpart: this.properties,
-      isReadOnly: this.displayMode === DisplayMode.Read,
-      context: this.context,
-    });
+    const params = new URLSearchParams(window.location.search);
+    const paramsUrl = params.get('svgpublish-url');
+    const url = paramsUrl || this.properties.url;
+
+    const element = url
+      ? React.createElement(TopFrame, { url, properties: this.properties, sourceResolver: this.sourceResolver.bind(this) })
+      : React.createElement(BlankPlaceholder, { context: this.context, isReadOnly: this.displayMode === DisplayMode.Read });
 
     ReactDom.render(element, this.domElement);
   }
@@ -105,11 +93,28 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
     this.render();
   }
 
+  protected onPropertyPaneFieldChanged(propertyPath: keyof IWebPartProps, oldValue: any, newValue: any): void {
+
+    if (!NON_SETTINGS_KEYS.includes(propertyPath) && !this.properties.protectedSettings.includes(propertyPath)) {
+      this.properties.protectedSettings.push(propertyPath);
+    }
+
+    super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
+
+    if (propertyPath === 'protectedSettings') {
+      const diagramSettings = { ...DefaultDiagramSettings, ...this.diagramSettings };
+      for (const key in diagramSettings) {
+        this.properties[key] = diagramSettings[key];
+      }
+      this.context.propertyPane.refresh();
+    }
+  }
+
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    return Configuration.get(this.context, this.properties)
+    return Configuration.get(this.context, this.properties);
   }
 }
