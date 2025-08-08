@@ -556,19 +556,19 @@
 							</foreignObject>
 							<svg viewBox="1781 350.02 23.008 24.992" enable-background="new" color-interpolation-filters="sRGB" height="6.94961" preserveAspectRatio="none" width="6.39791" x="0" y="588.326">
 								<defs>
-									<clipPath id="mfid7">
-										<rect id="mfid8" x="1781" y="350.02" width="23.008" height="24.992" />
+									<clipPath id="mfid1">
+										<rect id="mfid2" x="1781" y="350.02" width="23.008" height="24.992" />
 									</clipPath>
 								</defs>
-								<g clip-path="url(#mfid7)">
+								<g clip-path="url(#mfid1)">
 									<defs>
-										<g id="mfid9">
+										<g id="mfid3">
 											<path transform="matrix(0.33333, 0, 0, 0.33333, 0, 0)" d="M5360,1049 C5371,1065 5371,1065 5371,1065 C5374,1069 5376,1073 5378,1077 C5379,1077 5379,1077 5379,1077 C5381,1073 5384,1069 5386,1065 C5397,1049 5397,1049 5397,1049 C5411,1049 5411,1049 5411,1049 C5386,1085 5386,1085 5386,1085 C5412,1124 5412,1124 5412,1124 C5397,1124 5397,1124 5397,1124 C5386,1107 5386,1107 5386,1107 C5383,1102 5380,1098 5378,1094 C5378,1094 5378,1094 5378,1094 C5375,1098 5372,1102 5370,1107 C5359,1124 5359,1124 5359,1124 C5344,1124 5344,1124 5344,1124 C5370,1085 5370,1085 5370,1085 C5345,1049 5345,1049 5345,1049 Z" />
 										</g>
 									</defs>
 									<g transform="matrix(0.33333, 0, 0, 0.33333, 0, 0)">
 										<g stroke-width="8.0914" stroke="none" fill="#000000">
-											<use xlink:href="#mfid9" transform="matrix(3, -0, -0, 3, -0, 0)" stroke="none" />
+											<use xlink:href="#mfid3" transform="matrix(3, -0, -0, 3, -0, 0)" stroke="none" />
 										</g>
 									</g>
 								</g>
@@ -966,7 +966,7 @@
 				<g id="shape204-439" transform="translate(5.80907,-55.4848)">
 					
 					
-					<path d="M0 591.08 A4.19241 4.19241 0 0 1 8.38 591.08 A4.19241 4.19241 0 0 1 0 591.08 Z" class="st34" />
+					<path d="M0 591.08 A4.19241 4.19241 0 0 1 8.38 591.08 A4.19241 4.19241 0 1 1 0 591.08 Z" class="st34" />
 				</g>
 				<g id="shape205-441" transform="translate(5.67349,-35.388)">
 					
@@ -1045,19 +1045,19 @@
 						</foreignObject>
 						<svg viewBox="1781 350.02 23.008 24.992" enable-background="new" color-interpolation-filters="sRGB" height="6.94961" preserveAspectRatio="none" width="6.39791" x="0" y="588.326">
 							<defs>
-								<clipPath id="mfid10">
-									<rect id="mfid11" x="1781" y="350.02" width="23.008" height="24.992" />
+								<clipPath id="mfid4">
+									<rect id="mfid5" x="1781" y="350.02" width="23.008" height="24.992" />
 								</clipPath>
 							</defs>
-							<g clip-path="url(#mfid10)">
+							<g clip-path="url(#mfid4)">
 								<defs>
-									<g id="mfid12">
+									<g id="mfid6">
 										<path transform="matrix(0.33333, 0, 0, 0.33333, 0, 0)" d="M5360,1049 C5371,1065 5371,1065 5371,1065 C5374,1069 5376,1073 5378,1077 C5379,1077 5379,1077 5379,1077 C5381,1073 5384,1069 5386,1065 C5397,1049 5397,1049 5397,1049 C5411,1049 5411,1049 5411,1049 C5386,1085 5386,1085 5386,1085 C5412,1124 5412,1124 5412,1124 C5397,1124 5397,1124 5397,1124 C5386,1107 5386,1107 5386,1107 C5383,1102 5380,1098 5378,1094 C5378,1094 5378,1094 5378,1094 C5375,1098 5372,1102 5370,1107 C5359,1124 5359,1124 5359,1124 C5344,1124 5344,1124 5344,1124 C5370,1085 5370,1085 5370,1085 C5345,1049 5345,1049 5345,1049 Z" />
 									</g>
 								</defs>
 								<g transform="matrix(0.33333, 0, 0, 0.33333, 0, 0)">
 									<g stroke-width="8.0914" stroke="none" fill="#000000">
-										<use xlink:href="#mfid12" transform="matrix(3, -0, -0, 3, -0, 0)" stroke="none" />
+										<use xlink:href="#mfid6" transform="matrix(3, -0, -0, 3, -0, 0)" stroke="none" />
 									</g>
 								</g>
 							</g>
@@ -1374,4 +1374,4 @@
 			</g>
 		</g>
 	</g>
-<SvgPublishData xmlns="http://vispublish">{"shapes":{},"pages":[{"Name":"Page-1","Id":0,"FileName":"POW.svg"},{"Name":"Read me","Id":5,"FileName":"POW__Read me.svg"}],"currentPage":{"Name":"Read me","Id":5,"FileName":"POW__Read me.svg"},"layers":[{"Name":"Connector","Index":1,"Visible":true}],"enableProps":true,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":true,"enablePages":true,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":true,"openHyperlinksInNewWindow":true,"transformVisioFileLinks":false,"useReadablePageNames":true,"keepRelativeLinks":true,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":false,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipInteractive":false,"tooltipDelay":false,"tooltipDelayShow":"","sidebarDefaultWidth":"","tooltipDelayHide":"","popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverTimeoutShow":"","popoverTimeoutHide":"","popoverUseMousePosition":false,"enableContainerTip":false,"suppressMobileTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"viewBox":"0 0 841.89 595.276","layerView":{"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":false,"enableLayerShowAll":false},"selectionView":{"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"dilate":4,"mode":"normal","selectionColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":false,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":false,"nextShapeColor":"rgba(255, 160, 255, 0.90)"}}</SvgPublishData></svg>
+<SvgPublishData xmlns="http://vispublish">{"shapes":{},"pages":[{"Name":"Page-1","Id":0,"FileName":"POW.svg"},{"Name":"Read me","Id":5,"FileName":"POW__Read me.svg"}],"currentPage":{"Name":"Read me","Id":5,"FileName":"POW__Read me.svg"},"layers":[{"Name":"Connector","Index":1,"Visible":true}],"viewBox":"0 0 841.89 595.276","settings":{"enableProps":true,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":true,"enablePages":true,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":true,"openHyperlinksInNewWindow":true,"rewriteVisioHyperlinks":false,"rewriteOfficeHyperlinks":false,"useReadablePageNames":true,"keepRelativeLinks":true,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":false,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipInteractive":false,"tooltipDelay":false,"tooltipDelayShow":"","sidebarDefaultWidth":"","tooltipDelayHide":"","popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverTimeoutShow":"","popoverTimeoutHide":"","popoverUseMousePosition":false,"enableContainerTip":false,"suppressMobileTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":false,"enableLayerShowAll":false,"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"enableConnDilate":false,"dilate":4,"connDilate":1,"selectionMode":"normal","selectionColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":false,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":false,"nextShapeColor":"rgba(255, 160, 255, 0.90)","enablePrevConnColor":false,"prevConnColor":"rgba(255, 0, 0, 1.00)","enableNextConnColor":false,"nextConnColor":"rgba(255, 0, 0, 1.00)"}}</SvgPublishData></svg>

@@ -17,7 +17,6 @@ const meta = {
       control: {
         type: 'select',
         options: [
-          'assets/Drawing1.svg',
           'assets/POW.svg',
           'assets/tooltips.svg',
           'assets/ViennaSbahn.svg',
@@ -26,7 +25,7 @@ const meta = {
     },
   },
   args: {
-    url: 'assets/Drawing1.svg',
+    url: 'assets/POW.svg',
     width: '100%',
     height: '100vh',
     enableSelection: true,
@@ -34,7 +33,6 @@ const meta = {
 
     // Basic sidebar settings
     enableSidebar: true,
-    rightSidebar: false,
     showSidebarOnSelection: false,
     enableSidebarTitle: true,
     enableSidebarMarkdown: false,
@@ -76,7 +74,7 @@ export const RightSidebar: Story = {
     },
   },
   args: {
-    rightSidebar: true,
+    sidebarType: 'customNear'
   },
 };
 
