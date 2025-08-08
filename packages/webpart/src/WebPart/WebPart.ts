@@ -79,8 +79,17 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
     const url = paramsUrl || this.properties.url;
 
     const element = url
-      ? React.createElement(TopFrame, { url, properties: this.properties, sourceResolver: this.sourceResolver.bind(this) })
-      : React.createElement(BlankPlaceholder, { context: this.context, isReadOnly: this.displayMode === DisplayMode.Read });
+      ? React.createElement(TopFrame, {
+        url,
+        properties: this.properties,
+        sourceResolver: this.sourceResolver.bind(this)
+      })
+      : React.createElement(BlankPlaceholder, {
+        isTeams: !!this.context.sdks?.microsoftTeams,
+        isPropertyPaneOpen: this.context.propertyPane.isPropertyPaneOpen(),
+        isReadOnly: this.displayMode === DisplayMode.Read,
+        onConfigure: () => this.context.propertyPane.open(),
+      });
 
     ReactDom.render(element, this.domElement);
   }

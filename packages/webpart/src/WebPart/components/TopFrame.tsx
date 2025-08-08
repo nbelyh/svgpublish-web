@@ -2,7 +2,7 @@ import * as React from 'react';
 import { IBreadcrumbItem, ThemeProvider } from '@fluentui/react';
 import { ISvgPublishContext, LinkClickedEvent, SelectionChangedEvent, SvgPublishContext } from 'svgpublish';
 import { ErrorPlaceholder } from './ErrorPlaceholder';
-import { AppSidebar } from './AppSidebar';
+import { AppSidebar } from './sidebar/AppSidebar';
 import { UtilsService } from '../services/UtilsService';
 import { Header } from './Header';
 import { ISvgSource } from 'svgpublish';
@@ -28,7 +28,7 @@ export function TopFrame(props: {
   const onBreadcrumbClick = (ev?: React.MouseEvent<HTMLElement>, item?: IBreadcrumbItem) => {
     setBreadcrumb(b => b.slice(0, b.findIndex(i => i.key === item.key) + 1));
     setSource({ pageUrl: item.key });
-    setError('');
+    setError(undefined);
   };
 
   const [breadcrumb, setBreadcrumb] = React.useState<IBreadcrumbItem[]>([{ key: props.url, text: "Home", onClick: onBreadcrumbClick }]);
@@ -87,7 +87,7 @@ export function TopFrame(props: {
 
     }).catch(err => {
       console.error(err);
-      setError(UtilsService.stringifyError(err));
+      setError(err);
     });
 
     return () => {
@@ -142,7 +142,7 @@ export function TopFrame(props: {
     }
   };
 
-  const [error, setError] = React.useState('');
+  const [error, setError] = React.useState();
 
   // Initialize sidebar state based on configuration
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);

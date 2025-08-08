@@ -12,7 +12,6 @@ import { IDefaultFolder } from '../services/IDefaultFolder';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { Text } from '@fluentui/react/lib/Text';
 import { mergeStyles } from '@fluentui/react';
-import * as strings from 'WebPartStrings';
 
 export function PropertyPaneUrlFieldComponent(props: {
   url: string;

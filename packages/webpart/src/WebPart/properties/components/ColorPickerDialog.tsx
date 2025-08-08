@@ -1,9 +1,18 @@
 import * as React from 'react';
-import { DefaultButton, Dialog, DialogFooter, DialogType, PrimaryButton, Stack, getColorFromString, ColorPicker } from '@fluentui/react';
+import { DefaultButton, Dialog, DialogFooter, DialogType, PrimaryButton, Stack, getColorFromString, ColorPicker, ContextualMenu } from '@fluentui/react';
 
-import { defaultModalProps } from './DefaultModalProps';
 import { PaletteColorPicker } from './PaletteColorPicker';
 import { SwatchPalette } from './SwatchPalette';
+
+const defaultModalProps = {
+  isBlocking: true,
+  dragOptions: {
+    moveMenuItemText: "Move",
+    closeMenuItemText: "Close",
+    menu: ContextualMenu,
+    keepInBounds: true,
+  }
+};
 
 export function ColorPickerDialog(props: {
   color: string;

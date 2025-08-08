@@ -1,24 +1,21 @@
-import { WebPartContext } from '@microsoft/sp-webpart-base';
 import * as React from 'react';
 import * as strings from 'WebPartStrings';
 import { Placeholder } from '../../min-sp-controls-react/controls/placeholder';
 
 export const BlankPlaceholder = (props: {
-  context: WebPartContext;
-  isReadOnly: boolean;
+  isTeams?: boolean;
+  isPropertyPaneOpen?: boolean;
+  isReadOnly?: boolean;
+  onConfigure?: () => void;
 }) => {
-
-  const isTeams = !!props.context.sdks?.microsoftTeams?.context;
-  const isPropertyPaneOpen = props.context.propertyPane.isPropertyPaneOpen();
-  const onConfigure = () => props.context.propertyPane.open();
 
   const placeholderIconName = strings.Edit;
   const placeholderIconText = strings.placeholderIconTextVisioNotSelected
 
-  const placeholderDescription = isPropertyPaneOpen
+  const placeholderDescription = props.isPropertyPaneOpen
     ? strings.placeholderIconTextPleaseclickBrowse
     : props.isReadOnly
-      ? (isTeams
+      ? (props.isTeams
         ? strings.placeholderIconTextPleaseclickSettings
         : strings.placeholderIconTextPleaseclickEdit
       )
@@ -30,9 +27,9 @@ export const BlankPlaceholder = (props: {
       iconText={placeholderIconText}
       description={placeholderDescription}
       buttonLabel={strings.FieldConfigureLabel}
-      onConfigure={onConfigure}
+      onConfigure={props.onConfigure}
       hideButton={props.isReadOnly}
-      disableButton={isPropertyPaneOpen}
+      disableButton={props.isPropertyPaneOpen}
     />
   );
 };
