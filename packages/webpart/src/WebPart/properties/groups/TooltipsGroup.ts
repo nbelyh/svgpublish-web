@@ -1,4 +1,4 @@
-import { PropertyPaneDropdown } from '@microsoft/sp-property-pane';
+import { PropertyPaneDropdown, PropertyPaneTextField } from '@microsoft/sp-property-pane';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { PropertyPaneNumberField } from '../PropertyPaneNumberField';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
@@ -78,6 +78,23 @@ export class TooltipsGroup {
             value: properties.tooltipDelayHide,
           }),
         ] : []),
+        PropertyPaneIndentedToggle('enableTooltipMarkdown', {
+          label: "Enable Custom Tooltip Content",
+          disabled: !properties.enableTooltips,
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.enableTooltipMarkdown,
+        }),
+        ...(properties.enableTooltipMarkdown ?
+        [PropertyPaneTextField('tooltipMarkdown', {
+          label: "Tooltip Template",
+          disabled: !(properties.enableTooltips && properties.enableTooltipMarkdown),
+          value: properties.tooltipMarkdown,
+          placeholder: "Enter HTML or Markdown template...",
+          description: "Template for tooltip content. Use {{PropertyName}} for dynamic values like {{Name}}, {{ID}}, {{Comment}}, etc.",
+          multiline: true,
+          rows: 4,
+        })] : []),
       ]
     };
   }

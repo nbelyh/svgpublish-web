@@ -41,11 +41,8 @@ export interface IDiagramSettings {
   // enableMultiPageSearch?: boolean;
   // enablePropertySearch?: boolean;
   enablePropertySearchFilter?: boolean;
-  // enablePopovers: boolean;
-  // enablePopoverMarkdown: boolean;
-  // popoverMarkdown: string;
-  // enableContentMarkdown: boolean;
-  // contentMarkdown: string;
+  enableContentMarkdown?: boolean;
+  contentMarkdown?: string;
   enableTooltips?: boolean;
   enableTooltipMarkdown?: boolean;
   tooltipMarkdown?: string;
@@ -60,12 +57,6 @@ export interface IDiagramSettings {
   tooltipTheme?: DiagramInfoTooltipTheme;
 
   // sidebarDefaultWidth: number;
-  // popoverTriggerOption: string;
-  // popoverTimeout: number;
-  // popoverLocationOption: string;
-  // popoverUseMousePosition: boolean;
-  // popoverOutsideClick: boolean;
-  // popoverKeepOnHover: boolean;
   // enableContainerTip: boolean;
   // enablePropertySearch?: boolean;
   // enablePropertySearchFilter?: boolean;

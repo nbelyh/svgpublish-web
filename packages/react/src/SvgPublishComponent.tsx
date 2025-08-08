@@ -130,6 +130,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     enableService('hover', props.enableHover);
     enableService('links', props.enableFollowHyperlinks);
     enableService('tooltip', props.enableTooltips);
+    enableService('content', props.enableContentMarkdown);
   }, [
     context,
     props.enableSelection,
@@ -170,8 +171,12 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     props.enableTooltipMarkdown,
     props.tooltipMarkdown,
     props.tooltipTheme,
+
     props.enablePan,
     props.enableZoom,
+
+    props.enableContentMarkdown,
+    props.contentMarkdown,
   ]);
 
   React.useEffect(() => {

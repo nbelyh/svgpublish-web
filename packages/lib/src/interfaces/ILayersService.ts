@@ -3,14 +3,13 @@
 // Nikolay Belykh, nbelyh@gmail.com
 //-----------------------------------------------------------------------
 
+import { IBasicService } from './IBasicService';
 import { ILayerInfo } from './ILayerInfo';
 
-export interface ILayersService {
-  reset(): void;
+export interface ILayersService extends IBasicService {
   isLayerVisible(layerName: string): boolean;
   setLayerVisible(layerName: string, visible: boolean): void;
   showAllLayers(): void;
   hideAllLayers(): void;
   getLayers(): ILayerInfo[];
-  destroy(): void;
 }

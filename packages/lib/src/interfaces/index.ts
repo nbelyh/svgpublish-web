@@ -4,6 +4,7 @@ export * from './IShapeInfo';
 export * from './ILinkInfo';
 export * from './ILayerInfo';
 export * from './ILayersService';
+export * from './IContentService';
 export * from './IPageInfo';
 export * from './ISvgPublishContext';
 export * from './IDiagramSettings';

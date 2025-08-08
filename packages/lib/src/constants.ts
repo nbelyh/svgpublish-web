@@ -91,6 +91,8 @@ export const DefaultDiagramSettings: IDiagramSettings = {
   tooltipTheme: 'dark',
   enableTooltipMarkdown: false,
   tooltipMarkdown: '',
+  enableContentMarkdown: false,
+  contentMarkdown: '',
   enableSidebar: true,
   sidebarType: 'medium',
   showSidebarOnSelection: false,

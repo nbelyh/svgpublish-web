@@ -10,6 +10,7 @@ import { HighlightGroup } from './groups/HighlightGroup';
 import { PrevNextHighlightGroup } from './groups/PrevNextHighlightGroup';
 import { HyperlinksGroup } from './groups/HyperlinksGroup';
 import { TooltipsGroup } from './groups/TooltipsGroup';
+import { ContentGroup } from './groups/ContentGroup';
 import { SidebarGroup } from './groups/SidebarGroup';
 import { AboutGroup } from './groups/AboutGroup';
 
@@ -29,6 +30,7 @@ export class Configuration {
             PrevNextHighlightGroup.get(properties),
             HyperlinksGroup.get(properties),
             TooltipsGroup.get(properties),
+            ContentGroup.get(properties),
             SidebarGroup.get(properties),
             AboutGroup.get(context, properties),
           ]

@@ -9,6 +9,7 @@ import { IServices } from './interfaces/IServices';
 import { ISvgSource } from './interfaces/ISvgSource';
 import { Utils } from './services/Utils';
 import { TooltipService } from './services/TooltipService';
+import { ContentService } from './services/ContentService';
 import { SidebarService } from './services/SidebarService';
 import { IDiagramSettings } from './interfaces/IDiagramSettings';
 import { SvgParseService } from './services/SvgParseService';
@@ -47,6 +48,7 @@ export class SvgPublishContext implements ISvgPublishContext {
     this.enableService('links', settings.enableFollowHyperlinks);
     this.enableService('hover', settings.enableHover);
     this.enableService('tooltip', settings.enableTooltips);
+    this.enableService('content', settings.enableContentMarkdown);
     this.enableService('sidebar', settings.enableSidebar);
     this.enableService('layers', settings.enableLayers);
   }
@@ -65,6 +67,7 @@ export class SvgPublishContext implements ISvgPublishContext {
       case 'links': return new LinksService(this);
       case 'hover': return new HoverService(this);
       case 'tooltip': return new TooltipService(this);
+      case 'content': return new ContentService(this);
       case 'sidebar': return new SidebarService(this);
       case 'layers': return new LayersService(this);
     }

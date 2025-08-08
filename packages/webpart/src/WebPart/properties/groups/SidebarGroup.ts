@@ -133,7 +133,7 @@ export class SidebarGroup {
           indentLevel: 0,
           checked: properties.enableSidebarMarkdown,
         }),
-        PropertyPaneTextField('sidebarMarkdown', {
+        ...(properties.enableSidebarMarkdown ? [PropertyPaneTextField('sidebarMarkdown', {
           label: "Custom Sidebar Content",
           disabled: !(properties.enableSidebar && properties.enableSidebarMarkdown),
           value: properties.sidebarMarkdown,
@@ -141,7 +141,7 @@ export class SidebarGroup {
           description: "Custom content to display in the sidebar",
           multiline: true,
           rows: 4,
-        }),
+        })] : []),
       ]
     };
   }
