@@ -153,9 +153,10 @@ export class ViewService extends BasicService implements IViewService {
       return undefined;
 
     const rect = shapeElem.getBoundingClientRect();
+    const containerRect = this.context.container.getBoundingClientRect();
     const pt = this.context.svg.createSVGPoint();
-    pt.x = (rect.left + rect.right) / 2;
-    pt.y = (rect.top + rect.bottom) / 2;
+    pt.x = (rect.left + rect.right) / 2 - containerRect.left;
+    pt.y = (rect.top + rect.bottom) / 2 - containerRect.top;
     return pt;
   }
 

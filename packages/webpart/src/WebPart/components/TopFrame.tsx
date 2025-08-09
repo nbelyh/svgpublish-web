@@ -62,19 +62,12 @@ export function TopFrame(props: {
 
   const navigateToShape = (shapeId: string, term?: string) => {
     // For current page shapes, just highlight and focus without page reload
-    if (context) {
-      // First set focus to pan/zoom to the shape
-      // context.services.view.setFocusShape(shapeId);
-
-      // Then highlight it for visual emphasis
-      context.services.view.highlightShape(shapeId);
-
-      // If search term is provided, highlight search results
-      if (term) {
-        // Note: This would need additional implementation in the core library to highlight search terms
-        console.log('Search highlighting for term:', term);
-      }
+    const view = context?.services.view;
+    if (view) {
+      view.setFocusShape(shapeId);
+      view.highlightShape(shapeId);
     }
+
   }
 
   React.useEffect(() => {
