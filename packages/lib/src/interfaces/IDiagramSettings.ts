@@ -26,10 +26,6 @@ export interface IDiagramSettings {
   sidebarMarkdown?: string;
   sidebarDefaultWidth?: string;
 
-  // enableD3: boolean;
-  // skipMinification: boolean;
-  // enableMustache: boolean;
-  // enableMarked: boolean;
   enableFollowHyperlinks?: boolean;
   openHyperlinksInNewWindow?: boolean;
   rewriteVsdxHyperlinks?: boolean;
@@ -56,10 +52,7 @@ export interface IDiagramSettings {
   tooltipInteractive?: boolean;
   tooltipTheme?: DiagramInfoTooltipTheme;
 
-  // sidebarDefaultWidth: number;
   // enableContainerTip: boolean;
-  // enablePropertySearch?: boolean;
-  // enablePropertySearchFilter?: boolean;
   enableHover?: boolean;
 
   enablePan?: boolean;
