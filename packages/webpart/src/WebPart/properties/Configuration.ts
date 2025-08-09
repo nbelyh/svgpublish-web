@@ -5,7 +5,6 @@ import { IWebPartProps } from 'WebPart/IWebPartProps';
 import { SourceFileGroup } from './groups/SourceFileGroup';
 import { AppearanceGroup } from './groups/AppearanceGroup';
 import { HeaderGroup } from './groups/HeaderGroup';
-import { SelectionGroup } from './groups/SelectionGroup';
 import { HighlightGroup } from './groups/HighlightGroup';
 import { PrevNextHighlightGroup } from './groups/PrevNextHighlightGroup';
 import { HyperlinksGroup } from './groups/HyperlinksGroup';
@@ -25,7 +24,6 @@ export class Configuration {
             SourceFileGroup.get(context, properties),
             AppearanceGroup.get(context, properties),
             HeaderGroup.get(properties),
-            SelectionGroup.get(properties),
             HighlightGroup.get(properties),
             PrevNextHighlightGroup.get(properties),
             HyperlinksGroup.get(properties),
