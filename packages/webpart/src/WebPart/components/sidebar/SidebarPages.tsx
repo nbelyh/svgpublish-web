@@ -9,7 +9,7 @@ export const SidebarPages = (props: {
   context: ISvgPublishContext;
   enablePageLookup?: boolean;
   enablePageSort?: boolean;
-  onNavigateToPage?: (pageUrl: string, pageName: string) => void;
+  onNavigateToPage?: (pageUrl: string, pageName: string, shapeId?: string) => void;
   baseUrl?: string;
 }) => {
   const [searchTerm, setSearchTerm] = React.useState('');

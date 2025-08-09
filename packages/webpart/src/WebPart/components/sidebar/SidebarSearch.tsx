@@ -9,8 +9,8 @@ import { ISvgPublishContext } from 'svgpublish';
 export interface ISidebarSearchProps {
   context: ISvgPublishContext;
   enablePropertySearchFilter?: boolean;
-  onNavigateToShape?: (shapeId: string, term?: string) => void;
-  onNavigateToPage?: (pageUrl: string, pageName: string) => void;
+  onNavigateToShape: (shapeId: string, term?: string) => void;
+  onNavigateToPage: (pageUrl: string, pageName: string, shapeId: string) => void;
   baseUrl?: string;
 }
 
@@ -156,7 +156,7 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
     if (result.isExternal && result.url && onNavigateToPage) {
       const page = context?.diagram?.pages?.find(p => p.Id === result.pageId);
       if (page) {
-        onNavigateToPage(result.url, page.Name);
+        onNavigateToPage(result.url, page.Name, result.shapeId);
       }
     } else if (onNavigateToShape) {
       onNavigateToShape(result.shapeId, searchTerm);

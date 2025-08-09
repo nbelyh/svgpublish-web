@@ -17,8 +17,8 @@ export const AppSidebar = (props: {
   context: ISvgPublishContext,
   selectedShapeId?: string;
   settings: IDiagramSettings;
-  onNavigateToPage?: (pageUrl: string, pageName: string) => void;
-  onNavigateToShape?: (shapeId: string, term?: string) => void;
+  onNavigateToPage: (pageUrl: string, pageName: string, shapeId: string) => void;
+  onNavigateToShape: (shapeId: string) => void;
   baseUrl?: string;
 }) => {
 

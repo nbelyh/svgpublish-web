@@ -55,7 +55,7 @@ export function TopFrame(props: {
     }
   }, [context]);
 
-  const navigateToPage = (pageUrl: string, pageName: string, zoom?: string, shapeId?: string) => {
+  const navigateToPage = (pageUrl: string, pageName: string, shapeId?: string, zoom?: string) => {
     setBreadcrumb(b => [...b, { key: pageUrl, text: pageName, onClick: onBreadcrumbClick }]);
     setSource({ pageUrl: pageUrl, zoom, shapeId });
   }
@@ -83,6 +83,7 @@ export function TopFrame(props: {
 
       const shapeId = source.shapeId;
       if (shapeId) {
+        newContext.services.view.setFocusShape(shapeId);
         newContext.services.view.highlightShape(shapeId);
       }
 
@@ -126,7 +127,7 @@ export function TopFrame(props: {
       const diagram = evt.detail.context.diagram;
       const page = diagram.pages.find(p => p.Id === pageId);
       const pageUrl = baseUrl + page.FileName;
-      navigateToPage(pageUrl, args.shape.Text, args.link.Zoom, args.link.ShapeId);
+      navigateToPage(pageUrl, args.shape.Text, args.link.ShapeId, args.link.Zoom);
     } else {
 
       let linkAddress = args.link.Address;
