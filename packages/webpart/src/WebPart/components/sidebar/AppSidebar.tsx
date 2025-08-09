@@ -40,13 +40,15 @@ export const AppSidebar = (props: {
   };
 
   const sidebarContent = React.useMemo(() => {
-    const diagram = props.context.diagram;
+    const diagram = props.context?.diagram;
+    if (diagram) {
       const shape = props.selectedShapeId ? diagram.shapes[props.selectedShapeId] : diagram.currentPageShape;
       const sidebarMarkdown = shape && shape.SidebarMarkdown || (diagram.settings.enableSidebarMarkdown && diagram.settings.sidebarMarkdown) || '';
       const md = sidebarMarkdown && Mustache.render(sidebarMarkdown, shape);
       const content = md && (marked.parse(md) as string).trim();
       return content;
-  }, [props.selectedShapeId]);
+    }
+  }, [props.context, props.selectedShapeId]);
 
   const renderSidebarContent = () => {
     // Get the selected shape info from the context
