@@ -67,6 +67,16 @@ build.rig.addPostBuildTask(watchCustomTask);
 
 build.initialize(gulp);
 
+// Override clean task to also remove sharepoint folder
+const originalClean = gulp.task('clean');
+gulp.task('clean', gulp.series(
+  originalClean,
+  function cleanSharepoint(cb) {
+    require('rimraf').sync('sharepoint');
+    cb();
+  }
+));
+
 build.mergeConfig({
   showToast: false
 });
