@@ -125,23 +125,7 @@ export class SidebarGroup {
           inlineLabel: true,
           indentLevel: 1,
           checked: properties.enableLayerShowAll,
-        }),
-        PropertyPaneIndentedToggle('enableSidebarMarkdown', {
-          label: "Enable Custom Sidebar Content",
-          disabled: !properties.enableSidebar,
-          inlineLabel: true,
-          indentLevel: 0,
-          checked: properties.enableSidebarMarkdown,
-        }),
-        ...(properties.enableSidebarMarkdown ? [PropertyPaneTextField('sidebarMarkdown', {
-          label: "Custom Sidebar Content",
-          disabled: !(properties.enableSidebar && properties.enableSidebarMarkdown),
-          value: properties.sidebarMarkdown,
-          placeholder: "Enter HTML or Markdown content...",
-          description: "Custom content to display in the sidebar",
-          multiline: true,
-          rows: 4,
-        })] : []),
+        })
       ]
     };
   }
