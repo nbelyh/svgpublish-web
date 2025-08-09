@@ -60,7 +60,7 @@ export function TopFrame(props: {
     setSource({ pageUrl: pageUrl, zoom, shapeId });
   }
 
-  const navigateToShape = (shapeId: string, term?: string) => {
+  const navigateToShape = (shapeId: string) => {
     // For current page shapes, just highlight and focus without page reload
     const view = context?.services.view;
     if (view) {

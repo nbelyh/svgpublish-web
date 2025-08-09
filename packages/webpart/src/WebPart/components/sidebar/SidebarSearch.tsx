@@ -12,7 +12,6 @@ export interface ISidebarSearchProps {
   onNavigateToShape?: (shapeId: string, term?: string) => void;
   onNavigateToPage?: (pageUrl: string, pageName: string) => void;
   baseUrl?: string;
-  term?: string; // Optional search term to initialize the search
 }
 
 export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
@@ -23,6 +22,7 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
   baseUrl
 }) => {
   const theme = useTheme();
+
   const [searchTerm, setSearchTerm] = React.useState('');
   const [selectedProperties, setSelectedProperties] = React.useState<string[]>([]);
   const [searchResults, setSearchResults] = React.useState<any[]>([]);
