@@ -78,13 +78,29 @@ export class SvgPublishContext implements ISvgPublishContext {
     delete this.services[name];
   }
 
-  public enableService(name: keyof IServices, enable: boolean) {
-    if (enable && !this.services[name]) {
-      this.services[name] = this.createService(name) as any;
-    } else if (!enable && this.services[name]) {
-      this.destroyService(name);
+  public enableService(name: keyof IServices, enable?: boolean) {
+    const service = this.services[name];
+    if (service) {
+      if (enable) {
+        service.reset();
+      } else {
+        this.destroyService(name);
+      }
     } else {
-      console.warn(`Service ${name} is already ${enable ? 'enabled' : 'disabled'}.`);
+      if (enable) {
+        this.services[name] = this.createService(name) as any;
+      }
     }
+  }
+
+  public configureServices() {
+    const settings = this.diagram?.settings || {} as IDiagramSettings;
+    this.enableService('selection', settings.enableSelection);
+    this.enableService('links', settings.enableFollowHyperlinks);
+    this.enableService('hover', settings.enableHover);
+    this.enableService('tooltip', settings.enableTooltips);
+    this.enableService('content', settings.enableContentMarkdown);
+    this.enableService('sidebar', settings.enableSidebar);
+    this.enableService('layers', settings.enableLayers);
   }
 }

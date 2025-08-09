@@ -9,6 +9,13 @@ import { Header } from './Header';
 import { ISvgSource } from 'svgpublish';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 
+const ADDITIONAL_PROPERTIES = [
+  'url',
+  'width',
+  'height',
+  'protectedSettings',
+];
+
 interface ITarget {
   pageUrl: string;
   zoom?: string;
@@ -24,7 +31,7 @@ export function TopFrame(props: {
   const [source, setSource] = React.useState<ITarget>({ pageUrl: props.url });
   React.useEffect(() => setSource({ pageUrl: props.url }), [props.url]);
 
-  const [context, setContext] = React.useState<ISvgPublishContext>();
+  const [context, setContext] = React.useState<SvgPublishContext>();
 
   const onBreadcrumbClick = (ev?: React.MouseEvent<HTMLElement>, item?: IBreadcrumbItem) => {
     setBreadcrumb(b => b.slice(0, b.findIndex(i => i.key === item.key) + 1));
@@ -95,7 +102,19 @@ export function TopFrame(props: {
       newContext.destroy();
       setContext(undefined)
     }
-  }, [source, JSON.stringify(props.properties)]);
+  }, [source]);
+
+  // Update services when non-reload properties change
+  React.useEffect(() => {
+    if (context) {
+      for (const key in props.properties) {
+        if (!ADDITIONAL_PROPERTIES.includes(key)) {
+          context.diagram.settings[key] = props.properties[key];
+        }
+      }
+      context.configureServices();
+    }
+  }, [context, JSON.stringify(props.properties)]);
 
   const onLinkClicked = (evt: LinkClickedEvent) => {
 

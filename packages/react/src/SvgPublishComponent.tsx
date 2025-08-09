@@ -102,22 +102,6 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
 
   }, [props.url, isVisible]);
 
-  const enableService = (name: keyof IServices, enable?: boolean) => {
-    if (context) {
-      const service = context.services?.[name];
-      if (service) {
-        service.reset();
-        if (!enable) {
-          context.enableService(name, false);
-        }
-      } else {
-        if (enable) {
-          context.enableService(name, true);
-        }
-      }
-    }
-  }
-
   React.useEffect(() => {
     context?.services?.view?.reset()
   }, [context, props.width, props.height, isVisible]);
@@ -126,11 +110,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
     if (context?.diagram?.settings) {
       applyPropertiesTo(context.diagram.settings);
     }
-    enableService('selection', props.enableSelection);
-    enableService('hover', props.enableHover);
-    enableService('links', props.enableFollowHyperlinks);
-    enableService('tooltip', props.enableTooltips);
-    enableService('content', props.enableContentMarkdown);
+    context?.configureServices();
   }, [
     context,
     props.enableSelection,
