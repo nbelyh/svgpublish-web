@@ -3,7 +3,6 @@ import { IOneDriveFilesTabProps } from './IOneDriveFilesTabProps';
 import { IOneDriveFilesTabState } from './IOneDriveFilesTabState';
 import { IFile } from '../../../services/FileBrowserService.types';
 import { OneDriveFilesBreadcrumbItem } from './OneDriveFilesTab.types';
-import { findIndex } from 'lodash';
 import { Breadcrumb, IBreadcrumbItem } from '@fluentui/react/lib/Breadcrumb';
 import { FileBrowser } from '../controls';
 import { PrimaryButton, DefaultButton } from '@fluentui/react/lib/Button';
@@ -127,7 +126,7 @@ export class OneDriveFilesTab extends React.Component<IOneDriveFilesTabProps, IO
     else if (node.folderdata != null) {
       this._handleOpenFolder(node.folderdata, false);
       // select which node has been clicked
-      breadcrumbClickedItemIndx = findIndex(breadcrumbItems, item => item.folderdata && item.folderdata.absoluteUrl === node.key);
+      breadcrumbClickedItemIndx = breadcrumbItems.findIndex(item => item.folderdata && item.folderdata.absoluteUrl === node.key);
     }
 
     // Trim nodes array

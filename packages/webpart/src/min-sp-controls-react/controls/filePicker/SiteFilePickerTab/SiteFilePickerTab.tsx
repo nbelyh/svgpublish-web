@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { findIndex } from 'lodash';
 import { ISiteFilePickerTabProps } from './ISiteFilePickerTabProps';
 import {ISiteFilePickerTabState } from './ISiteFilePickerTabState';
 import { DocumentLibraryBrowser } from '../controls/DocumentLibraryBrowser/DocumentLibraryBrowser';
@@ -217,13 +216,13 @@ export default class SiteFilePickerTab extends React.Component<ISiteFilePickerTa
     else if (node.folderdata != null) {
       this._handleOpenFolder(node.folderdata, false);
       // select which node has been clicked
-      breadcrumbClickedItemIndx = findIndex(breadcrumbItems, item => item.folderdata && item.folderdata.absoluteUrl === node.key);
+      breadcrumbClickedItemIndx = breadcrumbItems.findIndex(item => item.folderdata && item.folderdata.absoluteUrl === node.key);
     }
     // Check if it is library node
     else if (node.librarydata != null) {
       this._handleOpenLibrary(node.librarydata, false);
       // select which node has been clicked
-      breadcrumbClickedItemIndx = findIndex(breadcrumbItems, item => item.librarydata && item.librarydata.serverRelativeUrl === node.key);
+      breadcrumbClickedItemIndx = breadcrumbItems.findIndex(item => item.librarydata && item.librarydata.serverRelativeUrl === node.key);
     }
     // Trim nodes array
     breadcrumbItems = breadcrumbItems.slice(0, breadcrumbClickedItemIndx + 1);
