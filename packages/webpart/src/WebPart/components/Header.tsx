@@ -19,22 +19,19 @@ export const Header = (props: {
     return pageUrl.toString();
   }, [props.url]);
 
-  const feedbackButtonText = props.settings.feedbackButtonText || 'Feedback';
-  const feeedbackButtonTarget = '_blank';
-
   const [hashLinkTooltip, setHashLinkTooltip] = React.useState('Copy WebPart Link');
-
-  const onCopyHashLink = async () => {
-    await navigator.clipboard.writeText(pageUrl);
-    setHashLinkTooltip('Link copied!');
-    setTimeout(() => setHashLinkTooltip('Copy WebPart Link'), 2000);
-  }
 
   const formattedFeedbackUrl = React.useMemo(() => {
     const feedbackUrl = props.settings.feedbackUrl || '';
-    const result = feedbackUrl.replace('{{URL}}', pageUrl);
+    const result = feedbackUrl ? feedbackUrl.replace('{{URL}}', pageUrl) : pageUrl;
     return result;
   }, [props.settings.feedbackUrl, pageUrl]);
+
+  const onCopyHashLink = async () => {
+    await navigator.clipboard.writeText(formattedFeedbackUrl);
+    setHashLinkTooltip('Link copied!');
+    setTimeout(() => setHashLinkTooltip('Copy WebPart Link'), 2000);
+  }
 
   return (
     <Stack horizontal>
@@ -54,9 +51,6 @@ export const Header = (props: {
           </TooltipHost>
         </Stack.Item>
       )}
-      {props.settings.enableFeedback && <Stack.Item align='center'>
-        <ActionButton target={feeedbackButtonTarget} href={formattedFeedbackUrl}>{feedbackButtonText}</ActionButton>
-      </Stack.Item>}
     </Stack>
   )
 }

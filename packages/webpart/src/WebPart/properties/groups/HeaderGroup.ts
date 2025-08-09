@@ -28,26 +28,12 @@ export class HeaderGroup {
           indentLevel: 0,
           checked: properties.enableCopyHashLink,
         }),
-        PropertyPaneIndentedToggle('enableFeedback', {
-          label: "Feedback Button",
-          disabled: !properties.enableHeader,
-          inlineLabel: true,
-          indentLevel: 0,
-          checked: properties.enableFeedback,
-        }),
-        ...(properties.enableFeedback ? [
-          PropertyPaneTextField('feedbackButtonText', {
-            disabled: !properties.enableFeedback || !properties.enableHeader,
-            label: "Button Text",
-            placeholder: "Feedback",
-            description: "Label for the feedback button.",
-          })] : []),
-        ...(properties.enableFeedback ? [
+        ...(properties.enableCopyHashLink ? [
           PropertyPaneTextField('feedbackUrl', {
-            disabled: !properties.enableFeedback || !properties.enableHeader,
-            label: "Feedback URL",
+            disabled: !properties.enableCopyHashLink || !properties.enableHeader,
+            label: "Custom Feedback URL",
             placeholder: "ex: https://some.site/?src={{URL}}",
-            description: "URL to send feedback to. Use {{URL}} as a placeholder for the current page URL.",
+            description: "Use {{URL}} as a placeholder for the current page URL.",
           })] : []),
       ]
     };

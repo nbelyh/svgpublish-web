@@ -54,8 +54,6 @@ export const DefaultDiagramSettings: IDiagramSettings = {
   enableCopyHashLink: false,
   rewriteOfficeHyperlinks: true,
   rewriteVsdxHyperlinks: false,
-  enableFeedback: false,
-  feedbackButtonText: 'Feedback',
   feedbackUrl: '',
   enableSelection: true,
   enableBoxSelection: false,

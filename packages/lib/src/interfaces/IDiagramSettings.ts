@@ -65,11 +65,9 @@ export interface IDiagramSettings {
   enablePan?: boolean;
   enableZoom?: boolean;
 
-  enableFeedback?: boolean;
   enableHeader?: boolean;
   enableBreadcrumb?: boolean;
   enableCopyHashLink?: boolean;
-  feedbackButtonText?: string;
   feedbackUrl?: string;
 
   /// Enable "simple box" selection style
