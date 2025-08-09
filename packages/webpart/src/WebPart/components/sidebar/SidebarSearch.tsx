@@ -218,13 +218,7 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
                     }
                   }}
                 >
-                  <div
-                    dangerouslySetInnerHTML={{ __html: result.text }}
-                    style={{
-                      fontSize: '14px',
-                      lineHeight: '1.4'
-                    }}
-                  />
+                  <div dangerouslySetInnerHTML={{ __html: result.text }} />
                   {result.notes && (
                     <Text
                       variant="small"

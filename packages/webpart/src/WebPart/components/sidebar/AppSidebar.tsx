@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Panel, PanelType } from '@fluentui/react/lib/Panel';
-import { Text } from '@fluentui/react/lib/Text';
+import { marked } from 'marked';
+import  Mustache from 'mustache';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
@@ -38,7 +39,14 @@ export const AppSidebar = (props: {
     }));
   };
 
-  // TODO: Will integrate with marked library later for proper markdown rendering
+  const sidebarContent = React.useMemo(() => {
+    const diagram = props.context.diagram;
+      const shape = props.selectedShapeId ? diagram.shapes[props.selectedShapeId] : diagram.currentPageShape;
+      const sidebarMarkdown = shape && shape.SidebarMarkdown || (diagram.settings.enableSidebarMarkdown && diagram.settings.sidebarMarkdown) || '';
+      const md = sidebarMarkdown && Mustache.render(sidebarMarkdown, shape);
+      const content = md && (marked.parse(md) as string).trim();
+      return content;
+  }, [props.selectedShapeId]);
 
   const renderSidebarContent = () => {
     // Get the selected shape info from the context
@@ -72,14 +80,8 @@ export const AppSidebar = (props: {
       return (
         <Stack style={{ marginTop: 16 }} tokens={{ childrenGap: 16 }}>
           {hasMarkdownContent && (
-            <CollapsibleSection
-              title="Content"
-              isCollapsed={collapsedSections.content}
-              onToggle={() => toggleSection('content')}
-            >
-              <div style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '14px' }}>
-                {props.settings.sidebarMarkdown}
-              </div>
+            <CollapsibleSection title="Content" isCollapsed={collapsedSections.content} onToggle={() => toggleSection('content')}>
+              <div dangerouslySetInnerHTML={{ __html: sidebarContent }} />
             </CollapsibleSection>
           )}
 
@@ -159,15 +161,6 @@ export const AppSidebar = (props: {
         </Stack>
       );
     }
-
-    // Default content
-    return (
-      <Stack tokens={{ childrenGap: 16 }}>
-        <Text variant="medium">
-          This is the sidebar content area. Configure custom content using the sidebar markdown option.
-        </Text>
-      </Stack>
-    );
   };
 
   return (

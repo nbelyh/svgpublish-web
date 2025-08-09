@@ -12,6 +12,7 @@ import { IDiagramSettings } from './IDiagramSettings';
 export interface IDiagramInfo {
 
   shapes: { [shapeId: string] : IShapeInfo };
+  currentPageShape: IShapeInfo;
 
   pages: IPageInfo[];
   currentPage: IPageInfo;

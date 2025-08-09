@@ -5,6 +5,7 @@
     "forceConsistentCasingInFileNames": true,
     "module": "es2020",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "jsx": "react",
     "declaration": true,
     "sourceMap": true,
