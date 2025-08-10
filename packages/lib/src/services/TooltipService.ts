@@ -36,6 +36,11 @@ export class TooltipService extends BasicService implements ITooltipService {
     const diagram = this.context.diagram;
     const settings = diagram.settings || {} as IDiagramSettings;
 
+    // Check if tooltips should be suppressed on mobile devices
+    if (settings.suppressMobileTip && Utils.isTouchOnlyDevice()) {
+      return; // Exit early, don't create any tooltips
+    }
+
     tippy.setDefaultProps({
       allowHTML: true,
       appendTo: this.context.container,

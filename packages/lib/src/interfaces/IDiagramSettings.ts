@@ -129,5 +129,9 @@ export interface IDiagramSettings {
   /// Enable show/hide all switch
   enableLayerShowAll?: boolean;
 
+  /// Disable tooltips on touch devices
+  suppressMobileTip?: boolean;
+
+  /// properties to show in sidebar
   selectedProps?: string[];
 }

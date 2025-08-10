@@ -134,3 +134,19 @@ export const Markdown: Story = {
     tooltipMarkdown: 'This is a **markdown** tooltip with a [link](https://www.google.com). <br>The shape comment is: {{Comment}}',
   },
 };
+
+export const SuppressMobile: Story = {
+
+  parameters: {
+    layout: "fullscreen",
+    controls: {
+      include: [
+        "url",
+        'suppressMobileTip',
+      ]
+    },
+  },
+  args: {
+    suppressMobileTip: true,
+  },
+};

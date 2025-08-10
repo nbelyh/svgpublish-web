@@ -90,6 +90,7 @@ export const DefaultDiagramSettings: IDiagramSettings = {
   tooltipTheme: 'dark',
   enableTooltipMarkdown: false,
   tooltipMarkdown: '',
+  suppressMobileTip: true,
   enableContentMarkdown: false,
   contentMarkdown: '',
   enableSidebar: true,

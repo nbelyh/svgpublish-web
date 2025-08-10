@@ -16,6 +16,21 @@ export class Utils {
     return typeof val === 'undefined' ? def : val;
   }
 
+  public static isTouchOnlyDevice(): boolean {
+    // Check for touch-only devices (has touch but no pointer/mouse)
+    const hasTouch = 'ontouchstart' in window && navigator.maxTouchPoints > 0;
+
+    if (!hasTouch) {
+      return false; // No touch at all, definitely not mobile
+    }
+
+    // Check if device has a pointer (mouse) using CSS media queries
+    const hasPointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+    // Mobile device = has touch AND no fine pointer (mouse)
+    return hasTouch && !hasPointer;
+  }
+
   public static findTargetElement(id: string, context: ISvgPublishContext): SVGGElement {
 
     const elt = context.svg.getElementById(id);

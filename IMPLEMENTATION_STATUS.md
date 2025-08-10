@@ -95,29 +95,8 @@ This document compares the reference C# options (from `reference/Options/`) with
 
 ---
 
-## ❌ **MISSING/NOT IMPLEMENTED OPTIONS**
-
-**Reference**: `IPublishOptions` lines 48-65, 470-480
-
-```csharp
-bool SafariFullscreen { get; set; }        // Safari fullscreen mode
-bool MarkOfTheWeb { get; set; }            // Include "Mark of the Web"
-bool SkipMinification { get; set; }        // Disable script minification
-bool EnableContainerTip { get; set; }      // Container tooltip
-bool SuppressMobileTip { get; set; }       // Suppress mobile tooltips
-```
-
-**Impact**: Limited mobile support and deployment flexibility
-
----
-
 ## **IMPLEMENTATION PRIORITIES**
 
-### **Low Priority** (Advanced features - optional for web parts)
-
-1. **File Processing Options** - Advanced file processing and deployment
-2. **Advanced UI & Device Options** - Safari fullscreen, mobile optimizations  
-3. **Platform Integrations** - SharePoint, GitHub specific features
 4. **Advanced Template System** - Custom JS/CSS/HTML injection beyond current markdown
 
 ---

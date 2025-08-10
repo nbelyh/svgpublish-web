@@ -23,11 +23,18 @@ export class TooltipsGroup {
           checked: properties.tooltipUseMousePosition,
         }),
         PropertyPaneIndentedToggle('tooltipInteractive', {
-          label: "Interactive",
+          label: "Allow Tooltip Interaction",
           inlineLabel: true,
           disabled: !properties.enableTooltips,
           indentLevel: 0,
           checked: properties.tooltipInteractive,
+        }),
+        PropertyPaneIndentedToggle('suppressMobileTip', {
+          label: "Suppress Tooltips on Mobile",
+          inlineLabel: true,
+          disabled: !properties.enableTooltips,
+          indentLevel: 0,
+          checked: properties.suppressMobileTip,
         }),
         PropertyPaneDropdown('tooltipTheme', {
           label: "Tooltip Theme",
