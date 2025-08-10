@@ -15,8 +15,16 @@ export const CollapsibleSection = (props: ICollapsibleSectionProps) => {
   const { title, isCollapsed, onToggle, children } = props;
   const theme = useTheme();
 
+  const containerStyles: React.CSSProperties = {
+    backgroundColor: theme.palette.white,
+    borderRadius: theme.effects.roundedCorner4,
+    boxShadow: theme.effects.elevation4,
+    padding: '12px 16px',
+    marginBottom: '8px'
+  };
+
   return (
-    <Stack tokens={{ childrenGap: 8 }}>
+    <Stack style={containerStyles} tokens={{ childrenGap: 8 }}>
       <Stack horizontal verticalAlign="center" tokens={{ childrenGap: 8 }}>
         <Text
           variant="mediumPlus"

@@ -167,7 +167,7 @@ export const AppSidebar = (props: {
 
   return (
     <Panel
-      headerText={props.settings.enableSidebarTitle !== false ? "Sidebar" : undefined}
+      headerText={props.settings.enableSidebarTitle !== false ? "SvgPublish" : undefined}
       isOpen={props.isOpen}
       onDismiss={props.onDismiss}
       type={PanelType[(props.settings.sidebarType || 'medium') as keyof typeof PanelType] || PanelType.medium}
