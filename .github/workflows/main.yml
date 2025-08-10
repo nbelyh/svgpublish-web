@@ -44,6 +44,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Get Version
+        id: version
+        run: |
+          FULL_VERSION="${{ env.VERSION }}.${{ github.run_number }}"
+          echo "full_version=$FULL_VERSION" >> $GITHUB_OUTPUT
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -55,8 +61,7 @@ jobs:
 
       - name: Sync versions
         run: |
-          FULL_VERSION="${{ env.VERSION }}.${{ github.run_number }}"
-          pwsh -File scripts/sync-versions.ps1 -NewVersion "$FULL_VERSION"
+          pwsh -File scripts/sync-versions.ps1 -NewVersion "${{ steps.version.outputs.full_version }}"
 
       - name: Build packages
         run: |
@@ -66,10 +71,7 @@ jobs:
 
       - name: Build WebPart Variants
         run: |
-          FULL_VERSION=$(jq -r '.version' packages/webpart/package.json)
-          SHORT_VERSION=$(echo "$FULL_VERSION" | cut -d. -f1,2)
-
-          jq --arg version "$SHORT_VERSION" '.cdnBasePath = "https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-web-release/\($version)/"' packages/webpart/config/write-manifests.json > temp.json && mv temp.json packages/webpart/config/write-manifests.json
+          jq --arg version "${{ env.VERSION }}" '.cdnBasePath = "https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-web-release/\($version)/"' packages/webpart/config/write-manifests.json > temp.json && mv temp.json packages/webpart/config/write-manifests.json
 
           jq '.solution.includeClientSideAssets = false' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
           jq '.paths.zippedPackage = "solution/svgpublish-webpart-cdn.sppkg"' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
@@ -87,14 +89,6 @@ jobs:
           token: ${{ secrets.RELEASE_REPO_TOKEN }}
           path: release-repo
 
-      - name: Get Version
-        id: version
-        run: |
-          FULL_VERSION="${{ env.VERSION }}.${{ github.run_number }}"
-          SHORT_VERSION="${{ env.VERSION }}"
-          echo "full_version=$FULL_VERSION" >> $GITHUB_OUTPUT
-          echo "short_version=$SHORT_VERSION" >> $GITHUB_OUTPUT
-
       - name: Publish to NPM
         if: inputs.publish_npm == true
         run: |
@@ -110,8 +104,8 @@ jobs:
           git config --global user.email 'actions@github.com'
 
           cd release-repo
-          mkdir -p "${{ steps.version.outputs.short_version }}"
-          cp ../packages/webpart/dist/* "${{ steps.version.outputs.short_version }}/" 2>/dev/null || true
+          mkdir -p "${{ env.VERSION }}"
+          cp ../packages/webpart/dist/* "${{ env.VERSION }}/" 2>/dev/null || true
 
           git add .
           git commit -m "Release v${{ steps.version.outputs.full_version }}" || exit 0
@@ -136,12 +130,17 @@ jobs:
         if: inputs.deploy_webpart == true
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.version.outputs.short_version }}
+          tag_name: ${{ env.VERSION }}
           name: ${{ steps.version.outputs.full_version }}
           body: |
             Release v${{ steps.version.outputs.full_version }}
-            Built from commit ${{ github.sha }}
+            Built from commit [${{ github.sha }}](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+
+            Source repository: https://github.com/${{ github.repository }}
+            Workflow run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           files: |
             packages/webpart/sharepoint/solution/*.sppkg
           draft: true
           prerelease: true
+          token: ${{ secrets.RELEASE_REPO_TOKEN }}
+          repository: nbelyh/svgpublish-web-releases
