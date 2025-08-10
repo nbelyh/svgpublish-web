@@ -175,6 +175,14 @@ export const AppSidebar = (props: {
       closeButtonAriaLabel="Close sidebar"
       isHiddenOnDismiss={true}
       isBlocking={false}
+      styles={{
+        content: {
+          paddingLeft: '16px',
+          paddingRight: '16px',
+          overflowX: 'hidden', // Prevent horizontal scrollbar at panel level
+          overflowY: 'auto'     // Allow vertical scrolling when needed
+        }
+      }}
     >
       {renderSidebarContent()}
     </Panel>

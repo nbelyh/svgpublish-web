@@ -211,6 +211,8 @@ export const SidebarSearch: React.FC<ISidebarSearchProps> = ({
                       padding: '8px 12px',
                       borderRadius: '4px',
                       border: `1px solid ${theme.palette.neutralLighter}`,
+                      overflow: 'hidden', // Prevent horizontal overflow
+                      wordBreak: 'break-word', // Break long words
                       ':hover': {
                         backgroundColor: theme.palette.neutralLighter,
                         borderColor: theme.palette.neutralLight

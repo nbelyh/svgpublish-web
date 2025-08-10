@@ -3,7 +3,7 @@ import { Stack } from '@fluentui/react/lib/Stack';
 import { Text } from '@fluentui/react/lib/Text';
 import { Link } from '@fluentui/react/lib/Link';
 import { IShapeInfo } from 'svgpublish';
-import { Table } from './Table';
+import { PropertyList } from './PropertyList';
 
 export const SidebarProperties = (props: {
   shapeInfo?: IShapeInfo;
@@ -27,51 +27,35 @@ export const SidebarProperties = (props: {
     );
   }
 
-  // Transform filtered properties into table data
-  const tableItems = filteredProps.map(([propName, propValue], index) => ({
+  // Transform filtered properties into property list data
+  const propertyItems = filteredProps.map(([propName, propValue], index) => ({
     key: index,
     property: propName,
-    value: propValue || ''
-  }));
+    value: (() => {
+      // Check if the value is a URL
+      const isUrl = typeof propValue === 'string' &&
+        (propValue.indexOf('https://') >= 0 || propValue.indexOf('http://') >= 0);
 
-  // Define table columns
-  const columns = [
-    {
-      key: 'property',
-      name: 'Property',
-      fieldName: 'property' as keyof typeof tableItems[0],
-      width: 140, // Fixed width for property column to prevent jumping
-    },
-    {
-      key: 'value',
-      name: 'Value',
-      onRender: (item: typeof tableItems[0]) => {
-        // Check if the value is a URL
-        const isUrl = typeof item.value === 'string' &&
-          (item.value.indexOf('https://') >= 0 || item.value.indexOf('http://') >= 0);
-
-        if (isUrl) {
-          return (
-            <Link
-              href={item.value}
-              target={props.openHyperlinksInNewWindow ? '_blank' : '_self'}
-              rel={props.openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
-            >
-              {item.value}
-            </Link>
-          );
-        }
-
-        return <Text>{item.value}</Text>;
+      if (isUrl) {
+        return (
+          <Link
+            href={propValue}
+            target={props.openHyperlinksInNewWindow ? '_blank' : '_self'}
+            rel={props.openHyperlinksInNewWindow ? 'noopener noreferrer' : undefined}
+          >
+            {propValue}
+          </Link>
+        );
       }
-    }
-  ];
+
+      return <Text>{propValue || ''}</Text>;
+    })()
+  }));
 
   return (
     <Stack tokens={{ childrenGap: 8 }}>
-      <Table
-        items={tableItems}
-        columns={columns}
+      <PropertyList
+        items={propertyItems}
         density='comfortable'
       />
     </Stack>
