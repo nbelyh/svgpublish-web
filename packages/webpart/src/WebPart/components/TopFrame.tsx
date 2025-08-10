@@ -208,6 +208,10 @@ export function TopFrame(props: {
   // Fullscreen state
   const [isFullscreen, setIsFullscreen] = React.useState(false);
 
+  const onToggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   const style: React.CSSProperties = {
@@ -237,7 +241,7 @@ export function TopFrame(props: {
           isSidebarOpen={isSidebarOpen}
           onToggleSidebar={onToggleSidebar}
           isFullscreen={isFullscreen}
-          onToggleFullscreen={() => setIsFullscreen(!isFullscreen)}
+          onToggleFullscreen={onToggleFullscreen}
         />
       )}
 

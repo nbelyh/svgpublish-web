@@ -15,6 +15,9 @@ export class ViewService extends BasicService implements IViewService {
 
   private viewPort: SVGGElement = null;
   private viewBox: string;
+  private resizeObserver: ResizeObserver = null;
+  private lastContainerWidth: number = 0;
+  private lastContainerHeight: number = 0;
 
   private zoomScale = 0.5; // Zoom sensitivity
   private panDelta = 3; // start pan on move
@@ -58,6 +61,13 @@ export class ViewService extends BasicService implements IViewService {
     }
 
     this.reset();
+
+    // Set up container resize observer after reset to avoid it being disconnected
+    this.resizeObserver = new ResizeObserver((entries) => {
+      console.log('ResizeObserver triggered:', entries[0].contentRect);
+      this.handleContainerResize();
+    });
+    this.resizeObserver.observe(this.context.container);
   }
 
   private wrapSvgContentsInGroup(svgElement: SVGSVGElement) {
@@ -107,6 +117,20 @@ export class ViewService extends BasicService implements IViewService {
     }
   }
 
+  protected unsubscribe() {
+    super.unsubscribe();
+    // Note: We don't disconnect resizeObserver here because it should persist
+    // across reset() calls. It's only disconnected when the service is destroyed.
+  }
+
+  public destroy() {
+    this.unsubscribe();
+    if (this.resizeObserver) {
+      this.resizeObserver.disconnect();
+      this.resizeObserver = null;
+    }
+  }
+
   public reset() {
 
     this.unsubscribe();
@@ -132,7 +156,66 @@ export class ViewService extends BasicService implements IViewService {
 
     this.setCTM(m, null);
 
+    // Remember current container size for resize handling
+    this.lastContainerWidth = maxWidth;
+    this.lastContainerHeight = maxHeight;
+
     this.subscribeAll();
+  }
+
+  public handleContainerResize() {
+    console.log('handleContainerResize called');
+    
+    const currentMatrix = this.viewPort.getCTM();
+    if (!currentMatrix) {
+      console.log('No current matrix, calling reset');
+      this.reset();
+      return;
+    }
+
+    // Get new container dimensions
+    const { offsetWidth: newWidth, offsetHeight: newHeight } = this.context.container;
+    console.log('New container dimensions:', newWidth, 'x', newHeight);
+    console.log('Previous container dimensions:', this.lastContainerWidth, 'x', this.lastContainerHeight);
+
+    // If dimensions haven't actually changed, do nothing
+    if (newWidth === this.lastContainerWidth && newHeight === this.lastContainerHeight) {
+      console.log('Container dimensions unchanged, skipping resize');
+      return;
+    }
+
+    // Calculate the scaling factor for the container size change
+    const widthRatio = newWidth / this.lastContainerWidth;
+    const heightRatio = newHeight / this.lastContainerHeight;
+    
+    // Use the smaller ratio to maintain aspect ratio
+    const containerScaleRatio = Math.min(widthRatio, heightRatio);
+    
+    console.log('Container scale ratio:', containerScaleRatio);
+    
+    // Scale the current transformation by the container scale ratio
+    // This preserves the current view but scales it for the new container size
+    let newMatrix = this.context.svg.createSVGMatrix();
+    
+    // Apply the container scaling to the current transformation
+    newMatrix = newMatrix.scale(containerScaleRatio);
+    newMatrix = newMatrix.multiply(currentMatrix);
+    
+    // Adjust translation to center the scaled view in the new container
+    const centerDeltaX = (newWidth - this.lastContainerWidth * containerScaleRatio) / 2;
+    const centerDeltaY = (newHeight - this.lastContainerHeight * containerScaleRatio) / 2;
+    
+    if (centerDeltaX !== 0 || centerDeltaY !== 0) {
+      const centeringMatrix = this.context.svg.createSVGMatrix().translate(centerDeltaX, centerDeltaY);
+      newMatrix = centeringMatrix.multiply(newMatrix);
+    }
+    
+    console.log('Setting new matrix:', newMatrix);
+    this.setCTM(newMatrix, null);
+
+    // Update stored container dimensions
+    this.lastContainerWidth = newWidth;
+    this.lastContainerHeight = newHeight;
   }
 
   public setFocusShape(shapeId: string) {
