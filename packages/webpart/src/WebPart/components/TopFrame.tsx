@@ -94,7 +94,7 @@ export function TopFrame(props: {
 
     return () => {
       newContext.destroy();
-      setContext(undefined)
+      // setContext(undefined)
     }
   }, [source]);
 

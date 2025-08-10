@@ -51,10 +51,10 @@ export function NavList({
               background: theme.palette.neutralLighterAlt,
               color: theme.palette.neutralDark,
             },
-            '&:focus': {
-              outline: `2px solid ${theme.palette.themePrimary}`,
-              outlineOffset: -2,
-            },
+            // '&:focus': {
+            //   outline: `2px solid ${theme.palette.themePrimary}`,
+            //   outlineOffset: -2,
+            // },
             '&[data-selected="true"]': {
               background: theme.palette.themeLighterAlt,
               borderLeftColor: theme.palette.themePrimary,
