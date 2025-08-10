@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { Panel, PanelType } from '@fluentui/react/lib/Panel';
-import { marked } from 'marked';
-import  Mustache from 'mustache';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { SidebarProperties } from './SidebarProperties';
 import { SidebarLinks } from './SidebarLinks';
@@ -41,11 +39,11 @@ export const AppSidebar = (props: {
 
   const sidebarContent = React.useMemo(() => {
     const diagram = props.context?.diagram;
-    if (diagram) {
+    const view = props.context?.services.view;
+    if (diagram && view) {
       const shape = props.selectedShapeId ? diagram.shapes[props.selectedShapeId] : diagram.currentPageShape;
       const sidebarMarkdown = shape && shape.SidebarMarkdown || (diagram.settings.enableSidebarMarkdown && diagram.settings.sidebarMarkdown) || '';
-      const md = sidebarMarkdown && Mustache.render(sidebarMarkdown, shape);
-      const content = md && (marked.parse(md) as string).trim();
+      const content = view.renderMarkdown(sidebarMarkdown, shape);
       return content;
     }
   }, [props.context, props.selectedShapeId]);

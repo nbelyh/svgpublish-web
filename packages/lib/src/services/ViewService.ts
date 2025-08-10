@@ -10,6 +10,8 @@ import { Geometry } from './Geometry';
 import { BasicService } from './BasicService';
 import { IViewService } from '../interfaces/IViewService';
 import { Utils } from './Utils';
+import { marked } from 'marked';
+import Mustache from 'mustache';
 
 export class ViewService extends BasicService implements IViewService {
 
@@ -532,5 +534,18 @@ export class ViewService extends BasicService implements IViewService {
     }
 
     this.state = null;
+  }
+
+  public renderMarkdown(markdown: string, data: any): string {
+    const md = markdown && Mustache.render(markdown, data);
+    if (!md) return md;
+    
+    // Check if the markdown contains block-level elements
+    const hasBlockElements = /(?:^|\n)(?:#|\*\s|-\s|\d+\.\s|>\s|\||\n\s*\n)/.test(md);
+    
+    const content = hasBlockElements 
+      ? marked.parse(md) as string
+      : marked.parseInline(md) as string;
+    return content;
   }
 }

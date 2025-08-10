@@ -1,5 +1,3 @@
-import { marked } from 'marked';
-import Mustache from 'mustache';
 import { ISvgPublishContext } from '../interfaces/ISvgPublishContext';
 import { IDiagramSettings } from '../interfaces/IDiagramSettings';
 import { BasicService } from './BasicService';
@@ -33,8 +31,7 @@ export class ContentService extends BasicService implements IContentService {
         continue;
 
       const contentMarkdown = shape.ContentMarkdown || (settings.enableContentMarkdown && settings.contentMarkdown) || '';
-      const md = contentMarkdown && Mustache.render(contentMarkdown, shape);
-      const content = md && (marked.parseInline(md) as string).trim();
+      const content = this.context.services.view.renderMarkdown(contentMarkdown, shape);
 
       if (!content)
         continue;

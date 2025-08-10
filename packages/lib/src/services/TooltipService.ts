@@ -1,6 +1,4 @@
 
-import { marked } from 'marked';
-import Mustache from 'mustache';
 import { ISvgPublishContext } from '../interfaces/ISvgPublishContext';
 import { IDiagramSettings } from '../interfaces/IDiagramSettings';
 import { BasicService } from './BasicService';
@@ -62,8 +60,7 @@ export class TooltipService extends BasicService implements ITooltipService {
         continue;
 
       const tooltipMarkdown = info.TooltipMarkdown || (settings.enableTooltipMarkdown && settings.tooltipMarkdown) || info.Comment || '';
-      const md = tooltipMarkdown && Mustache.render(tooltipMarkdown, info);
-      const content = md && marked.parseInline(md) as string;
+      const content = this.context.services.view.renderMarkdown(tooltipMarkdown, info);
 
       if (!content)
         continue;
