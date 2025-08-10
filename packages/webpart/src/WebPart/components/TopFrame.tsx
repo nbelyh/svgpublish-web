@@ -162,8 +162,12 @@ export function TopFrame(props: {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   // Track selection state for showSidebarOnSelection functionality
-  const [hasSelection, setHasSelection] = React.useState(false);
   const [selectedShapeId, setSelectedShapeId] = React.useState<string | undefined>(undefined);
+
+  // Reset selection when page URL changes
+  React.useEffect(() => {
+    setSelectedShapeId(undefined);
+  }, [source.pageUrl]);
 
   const onOpenSidebar = () => {
     // Only allow opening if sidebar is enabled
@@ -179,7 +183,6 @@ export function TopFrame(props: {
   // Handle selection changes for showSidebarOnSelection functionality
   const onSelectionChanged = (evt: SelectionChangedEvent) => {
     const selectedShapeIdValue = evt.detail?.shapeId;
-    setHasSelection(!!selectedShapeIdValue);
     setSelectedShapeId(selectedShapeIdValue);
 
     // Auto-open sidebar on selection if configured
@@ -194,7 +197,7 @@ export function TopFrame(props: {
 
   // Determine if sidebar should be shown
   const shouldShowSidebar = props.properties.enableSidebar &&
-    (!props.properties.showSidebarOnSelection || hasSelection || isSidebarOpen);
+    (!props.properties.showSidebarOnSelection || !!selectedShapeId || isSidebarOpen);
 
   // Fullscreen state
   const [isFullscreen, setIsFullscreen] = React.useState(false);
