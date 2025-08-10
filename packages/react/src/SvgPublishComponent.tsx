@@ -111,53 +111,7 @@ export function SvgPublishComponent(props: ISvgPublishComponentProps) {
       applyPropertiesTo(context.diagram.settings);
     }
     context?.configureServices();
-  }, [
-    context,
-    props.enableSelection,
-    props.enableHover,
-    props.enableBlur,
-    props.blur,
-    props.enableDilate,
-    props.dilate,
-    props.selectionMode,
-    props.selectionColor,
-    props.hoverColor,
-    props.hyperlinkColor,
-    props.enableBoxSelection,
-    props.openHyperlinksInNewWindow,
-    props.twoFingersTouch,
-    props.enableFollowHyperlinks,
-    props.enableZoomShift,
-    props.enableZoomCtrl,
-    props.nextShapeColor,
-    props.enableNextConnColor,
-    props.prevShapeColor,
-    props.enablePrevShapeColor,
-    props.nextConnColor,
-    props.enableNextShapeColor,
-    props.prevConnColor,
-    props.enablePrevConnColor,
-    props.enableConnDilate,
-    props.connDilate,
-
-    props.enableTooltips,
-    props.tooltipTrigger,
-    props.tooltipDelay,
-    props.tooltipDelayShow,
-    props.tooltipDelayHide,
-    props.tooltipPlacement,
-    props.tooltipUseMousePosition,
-    props.tooltipInteractive,
-    props.enableTooltipMarkdown,
-    props.tooltipMarkdown,
-    props.tooltipTheme,
-
-    props.enablePan,
-    props.enableZoom,
-
-    props.enableContentMarkdown,
-    props.contentMarkdown,
-  ]);
+  }, [context, JSON.stringify(props)]);
 
   React.useEffect(() => {
     const selection = context?.services?.selection;
