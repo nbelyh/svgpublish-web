@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import * as strings from "ControlStrings";
-import { IIconProps } from "@fluentui/react";
+import { IIconProps } from "@fluentui/react/lib/Icon";
 import {
   ActionButton,
   PrimaryButton
