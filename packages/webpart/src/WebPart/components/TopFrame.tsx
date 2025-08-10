@@ -201,10 +201,6 @@ export function TopFrame(props: {
     }
   };
 
-  // Determine if sidebar should be shown
-  const shouldShowSidebar = props.properties.enableSidebar &&
-    (!props.properties.showSidebarOnSelection || !!selectedShapeId || isSidebarOpen);
-
   // Fullscreen state
   const [isFullscreen, setIsFullscreen] = React.useState(false);
 
@@ -249,7 +245,7 @@ export function TopFrame(props: {
 
       <div style={{ flex: 1 }} ref={containerRef} />
 
-      {shouldShowSidebar && (
+      {props.properties.enableSidebar && (
         <AppSidebar
           isOpen={isSidebarOpen}
           onDismiss={onCloseSidebar}

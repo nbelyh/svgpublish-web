@@ -1,6 +1,7 @@
 import { PropertyPaneDropdown, PropertyPaneTextField } from '@microsoft/sp-property-pane';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
+import { PropertyPaneSizeField } from '../PropertyPaneSizeField';
 
 export class SidebarGroup {
   public static get(properties: IWebPartProps) {
@@ -14,15 +15,8 @@ export class SidebarGroup {
           indentLevel: 0,
           checked: properties.enableSidebar,
         }),
-        PropertyPaneIndentedToggle('showSidebarOnSelection', {
-          label: "Auto-Show Sidebar on Selection",
-          disabled: !properties.enableSidebar,
-          inlineLabel: true,
-          indentLevel: 0,
-          checked: properties.showSidebarOnSelection,
-        }),
         PropertyPaneDropdown('sidebarType', {
-          label: "Sidebar Type",
+          label: "Sidebar Size",
           disabled: !properties.enableSidebar,
           options: [
             { key: 'smallFixedFar', text: "Small" },
@@ -36,12 +30,12 @@ export class SidebarGroup {
           ],
         }),
         ...((properties.sidebarType === 'custom' || properties.sidebarType === 'customNear') ? [
-          PropertyPaneTextField('sidebarDefaultWidth', {
-            label: "Custom Sidebar Width",
+          PropertyPaneSizeField('sidebarDefaultWidth', {
+            label: "Sidebar Width",
             disabled: !properties.enableSidebar,
             value: properties.sidebarDefaultWidth,
-            placeholder: "ex: 300px, 25%",
-            description: "Specify width with units (px, %, em, etc.)",
+            screenUnits: 'px',
+            getDefaultValue: () => Promise.resolve('400px'),
           })] : []),
         PropertyPaneIndentedToggle('enableSidebarTitle', {
           label: "Show Sidebar Title",

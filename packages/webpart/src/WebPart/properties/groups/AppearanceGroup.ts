@@ -25,14 +25,12 @@ export class AppearanceGroup {
         }),
         PropertyPaneSizeField('width', {
           label: strings.FieldWidth,
-          description: strings.FieldWidthDescription,
           value: properties.width,
           screenUnits: 'w',
           getDefaultValue: () => SettingsService.getDefaultWidth(context)
         }),
         PropertyPaneSizeField('height', {
           label: strings.FieldHeight,
-          description: strings.FieldHeightDescription,
           value: properties.height,
           screenUnits: 'h',
           getDefaultValue: () => SettingsService.getDefaultHeight(context)

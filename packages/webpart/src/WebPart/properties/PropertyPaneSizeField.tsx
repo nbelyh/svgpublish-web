@@ -7,7 +7,8 @@ export function PropertyPaneSizeField(targetProperty: string, props: {
   value: string;
   label: string;
   getDefaultValue: () => Promise<string>;
-  description: string;
+  disabled?: boolean;
+  description?: string;
   screenUnits: string;
 }) {
 
@@ -22,6 +23,7 @@ export function PropertyPaneSizeField(targetProperty: string, props: {
           <PropertyPaneSizeFieldComponent
             value={props.value}
             label={props.label}
+            disabled={props.disabled}
             getDefaultValue={props.getDefaultValue}
             description={props.description}
             screenUnits={props.screenUnits}

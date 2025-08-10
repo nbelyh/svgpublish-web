@@ -17,6 +17,7 @@ export function PropertyPaneSizeFieldComponent(props: {
   value: string;
   setValue: (value: string) => void;
   getDefaultValue: () => Promise<string>;
+  disabled?: boolean;
   label: string;
   description: string;
   screenUnits: string;
@@ -78,10 +79,10 @@ export function PropertyPaneSizeFieldComponent(props: {
     <Stack tokens={{ childrenGap: 's2' }}>
       <Stack horizontal tokens={{ childrenGap: 's2' }}>
         <Stack.Item grow>
-          <TextField label={props.label} value={number} onChange={onNumberChanged} />
+          <TextField disabled={props.disabled} label={props.label} value={number} onChange={onNumberChanged} />
         </Stack.Item>
         <Stack.Item align='end'>
-          <Dropdown style={{ minWidth: '10em' }} options={unitsOptions} selectedKey={units} disabled={number === ''} onChange={onUnitChanged} />
+          <Dropdown style={{ minWidth: '10em' }} options={unitsOptions} selectedKey={units} disabled={number === '' || props.disabled} onChange={onUnitChanged} />
         </Stack.Item>
       </Stack>
       <Text variant='small' >{props.description}</Text>

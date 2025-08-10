@@ -17,6 +17,19 @@ export class HighlightGroup {
           indentLevel: 0,
           checked: properties.enableHover,
         }),
+        PropertyPaneIndentedToggle('enableSelection', {
+          label: "Enable Selection",
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.enableSelection,
+        }),
+        PropertyPaneIndentedToggle('showSidebarOnSelection', {
+          label: "Auto-Show Sidebar on Selection",
+          disabled: !properties.enableSidebar || !properties.enableSelection,
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.showSidebarOnSelection,
+        }),
         PropertyPaneColorField('hoverColor', {
           label: "Hover Color",
           disabled: !properties.enableHover,
@@ -28,12 +41,6 @@ export class HighlightGroup {
           disabled: !properties.enableHover,
           defaultValue: DefaultColors.hyperlinkColor,
           value: properties.hyperlinkColor,
-        }),
-        PropertyPaneIndentedToggle('enableSelection', {
-          label: "Enable Selection",
-          inlineLabel: true,
-          indentLevel: 0,
-          checked: properties.enableSelection,
         }),
         PropertyPaneColorField('selectionColor', {
           label: "Selection Color",
@@ -57,11 +64,12 @@ export class HighlightGroup {
           indentLevel: 0,
           checked: properties.enableDilate,
         }),
-        PropertyPaneNumberField('dilate', {
-          disabled: !(properties.enableSelection && properties.enableDilate),
-          value: properties.dilate,
-        }),
-
+        ...(properties.enableDilate ? [
+          PropertyPaneNumberField('dilate', {
+            disabled: !(properties.enableSelection && properties.enableDilate),
+            value: properties.dilate,
+          }),
+        ] : []),
         PropertyPaneIndentedToggle('enableBlur', {
           label: "Enable Blur",
           inlineLabel: true,
@@ -69,10 +77,12 @@ export class HighlightGroup {
           indentLevel: 0,
           checked: properties.enableBlur,
         }),
-        PropertyPaneNumberField('blur', {
-          disabled: !(properties.enableSelection && properties.enableBlur),
-          value: properties.blur,
-        }),
+        ...(properties.enableBlur ? [
+          PropertyPaneNumberField('blur', {
+            disabled: !(properties.enableSelection && properties.enableBlur),
+            value: properties.blur,
+          }),
+        ] : []),
         PropertyPaneIndentedToggle('enableBoxSelection', {
           disabled: !(properties.enableSelection || properties.enableHover),
           inlineLabel: true,
