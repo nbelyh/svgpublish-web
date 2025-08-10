@@ -100,7 +100,6 @@ This document compares the reference C# options (from `reference/Options/`) with
 **Reference**: `IPublishOptions` lines 48-65, 470-480
 
 ```csharp
-bool EnableAutoFrameHeight { get; set; }   // Auto-set iframe height
 bool SafariFullscreen { get; set; }        // Safari fullscreen mode
 bool MarkOfTheWeb { get; set; }            // Include "Mark of the Web"
 bool SkipMinification { get; set; }        // Disable script minification

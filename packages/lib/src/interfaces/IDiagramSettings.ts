@@ -5,7 +5,6 @@ export interface IDiagramSettings {
   enableLayers?: boolean;
   twoFingersTouch?: boolean;
 
-  // enableAutoFrameHeight?: boolean;
   enablePages?: boolean;
   enablePageLookup?: boolean;
   enablePageSort?: boolean;
