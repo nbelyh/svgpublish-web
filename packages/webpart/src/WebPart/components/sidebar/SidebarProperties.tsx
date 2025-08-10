@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { Text } from '@fluentui/react/lib/Text';
-import { DetailsList, IColumn, DetailsListLayoutMode, SelectionMode } from '@fluentui/react/lib/DetailsList';
 import { Link } from '@fluentui/react/lib/Link';
 import { IShapeInfo } from 'svgpublish';
+import { Table } from './Table';
 
 export const SidebarProperties = (props: {
   shapeInfo?: IShapeInfo;
@@ -27,28 +27,25 @@ export const SidebarProperties = (props: {
     );
   }
 
-  // Define columns for the DetailsList
-  const columns: IColumn[] = [
+  // Transform filtered properties into table data
+  const tableItems = filteredProps.map(([propName, propValue], index) => ({
+    key: index,
+    property: propName,
+    value: propValue || ''
+  }));
+
+  // Define table columns
+  const columns = [
     {
       key: 'property',
       name: 'Property',
-      fieldName: 'property',
-      minWidth: 50,
-      maxWidth: 200,
-      isResizable: true,
-      onRender: (item: { property: string; value: string }) => (
-        <Text>
-          {item.property}
-        </Text>
-      )
+      fieldName: 'property' as keyof typeof tableItems[0],
+      width: 140, // Fixed width for property column to prevent jumping
     },
     {
       key: 'value',
       name: 'Value',
-      fieldName: 'value',
-      minWidth: 50,
-      isResizable: true,
-      onRender: (item: { property: string; value: string }) => {
+      onRender: (item: typeof tableItems[0]) => {
         // Check if the value is a URL
         const isUrl = typeof item.value === 'string' &&
           (item.value.indexOf('https://') >= 0 || item.value.indexOf('http://') >= 0);
@@ -70,22 +67,12 @@ export const SidebarProperties = (props: {
     }
   ];
 
-  // Convert filtered properties to items for DetailsList
-  const items = filteredProps.map(([propName, propValue]) => ({
-    property: propName,
-    value: propValue || ''
-  }));
-
   return (
     <Stack tokens={{ childrenGap: 8 }}>
-      <DetailsList
-        items={items}
+      <Table
+        items={tableItems}
         columns={columns}
-        setKey="set"
-        layoutMode={DetailsListLayoutMode.justified}
-        selectionMode={SelectionMode.none}
-        isHeaderVisible={false}
-        compact={true}
+        density='comfortable'
       />
     </Stack>
   );
