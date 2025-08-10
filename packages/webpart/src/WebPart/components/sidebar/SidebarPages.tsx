@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { Text } from '@fluentui/react/lib/Text';
 import { SearchBox } from '@fluentui/react/lib/SearchBox';
-import { Nav, INavLinkGroup } from '@fluentui/react/lib/Nav';
+import { NavList } from './NavList';
 import { IPageInfo, ISvgPublishContext } from 'svgpublish';
 
 export const SidebarPages = (props: {
@@ -76,36 +76,23 @@ export const SidebarPages = (props: {
     return pageName;
   };
 
-  // Build Nav groups for Fluent UI Nav component
-  const buildNavGroups = (): INavLinkGroup[] => {
-    if (filteredPages.length === 0) {
-      return [];
-    }
-
-    return [{
-      links: filteredPages.map((page) => {
-        return {
-          name: highlightSearchTerm(page.Name),
-          key: page.Id.toString(),
-          url: '#', // Required by interface, but we'll handle navigation via onLinkClick
-        };
-      })
-    }];
+  // Build page items for PageList component
+  const buildPageItems = () => {
+    return filteredPages.map((page) => ({
+      key: page.Id.toString(),
+      id: page.Id,
+      name: highlightSearchTerm(page.Name),
+      isSelected: currentPage?.Id === page.Id
+    }));
   };
 
-  const navGroups = buildNavGroups();
+  const pageItems = buildPageItems();
 
-  // Handle Nav link clicks
-  const handleNavLinkClick = (ev?: React.MouseEvent<HTMLElement>, item?: any) => {
-    if (ev) {
-      ev.preventDefault();
-    }
-    if (item && item.key) {
-      const pageId = parseInt(item.key);
-      const page = pages.find(p => p.Id === pageId);
-      if (page) {
-        handlePageClick(page);
-      }
+  // Handle page item clicks
+  const handlePageItemClick = (item: { id: number; name: string }) => {
+    const page = pages.find(p => p.Id === item.id);
+    if (page) {
+      handlePageClick(page);
     }
   };
 
@@ -137,10 +124,11 @@ export const SidebarPages = (props: {
           No pages match your search
         </Text>
       ) : (
-        <Nav
-          groups={navGroups}
+        <NavList
+          items={pageItems}
           selectedKey={currentPage?.Id.toString()}
-          onLinkClick={handleNavLinkClick}
+          onItemClick={handlePageItemClick}
+          density='comfortable'
         />
       )}
     </Stack>
