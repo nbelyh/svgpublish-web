@@ -1,6 +1,9 @@
 
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Build workflow
+name: Build
+
+env:
+  VERSION: '1.0'
 
 on:
   push:
@@ -9,6 +12,22 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      deploy_webpart:
+        description: 'Deploy to release repository'
+        required: false
+        default: false
+        type: boolean
+      publish_npm:
+        description: 'Publish packages to npm'
+        required: false
+        default: false
+        type: boolean
+      deploy_pages:
+        description: 'Deploy Storybook to GitHub Pages'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   build:
@@ -17,7 +36,7 @@ jobs:
       name: github-pages
       url: ${{ steps.pages.outputs.page_url }}
     permissions:
-      contents: read
+      contents: write
       pages: write
       id-token: write
 
@@ -26,7 +45,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
@@ -35,60 +54,94 @@ jobs:
         run: npm ci
 
       - name: Sync versions
-        run: npm run version-sync
+        run: |
+          FULL_VERSION="${{ env.VERSION }}.${{ github.run_number }}"
+          pwsh -File scripts/sync-versions.ps1 -NewVersion "$FULL_VERSION"
 
-      - name: Run Build
-        run: npm run build
+      - name: Build packages
+        run: |
+          npm run build:lib
+          npm run build:react
+          npm run build:storybook
 
-      - name: Get current version from package.json
-        id: local_version_svgpublish
-        run: echo "local_version_svgpublish=$(jq -r '.version' package.json)" >> $GITHUB_ENV
+      - name: Build WebPart Variants
+        run: |
+          FULL_VERSION=$(jq -r '.version' packages/webpart/package.json)
+          SHORT_VERSION=$(echo "$FULL_VERSION" | cut -d. -f1,2)
 
-      - name: Get published version from npm
-        id: published_version_svgpublish
-        run: echo "published_version_svgpublish=$(npm view svgpublish version || echo '0.0.0')" >> $GITHUB_ENV
+          jq --arg version "$SHORT_VERSION" '.cdnBasePath = "https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-web-release/\($version)/"' packages/webpart/config/write-manifests.json > temp.json && mv temp.json packages/webpart/config/write-manifests.json
+
+          jq '.solution.includeClientSideAssets = false' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
+          jq '.paths.zippedPackage = "solution/svgpublish-webpart-cdn.sppkg"' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
+          npm run build:webpart
+
+          jq '.solution.includeClientSideAssets = true' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
+          jq '.paths.zippedPackage = "solution/svgpublish-webpart.sppkg"' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
+          npm run build:webpart
+
+      - name: Checkout Release Repository
+        if: inputs.deploy_webpart == true
+        uses: actions/checkout@v4
+        with:
+          repository: nbelyh/svgpublish-web-releases
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: release-repo
+
+      - name: Get Version
+        id: version
+        run: |
+          FULL_VERSION="${{ env.VERSION }}.${{ github.run_number }}"
+          SHORT_VERSION="${{ env.VERSION }}"
+          echo "full_version=$FULL_VERSION" >> $GITHUB_OUTPUT
+          echo "short_version=$SHORT_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Publish to NPM
+        if: inputs.publish_npm == true
+        run: |
+          npm publish -w packages/lib --provenance
+          npm publish -w packages/react --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Deploy to Release Repository
+        if: inputs.deploy_webpart == true
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+
+          cd release-repo
+          mkdir -p "${{ steps.version.outputs.short_version }}"
+          cp ../packages/webpart/dist/* "${{ steps.version.outputs.short_version }}/" 2>/dev/null || true
+
+          git add .
+          git commit -m "Release v${{ steps.version.outputs.full_version }}" || exit 0
+          git push
 
       - name: Setup Pages
+        if: inputs.deploy_pages == true
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Pages Artifact
+        if: inputs.deploy_pages == true
         uses: actions/upload-pages-artifact@v3
         with:
           path: './packages/storybook/storybook-static'
+
       - name: Deploy to GitHub Pages
+        if: inputs.deploy_pages == true
         id: pages
         uses: actions/deploy-pages@v4
 
-      - name: Publish svgpublish
-        run: |
-          if [ "$local_version_svgpublish" != "$published_version_svgpublish" ]; then
-            echo "New version detected: $local_version. Publishing..."
-            npm publish -w packages/lib --provenance
-          else
-            echo "No new version. Skipping publish."
-          fi
-        env:
-          local_version_svgpublish: ${{ env.local_version_svgpublish }}
-          published_version_svgpublish: ${{ env.published_version_svgpublish }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Get current version from package.json
-        id: local_version_svgpublish_react
-        run: echo "local_version_svgpublish_react=$(jq -r '.version' package.json)" >> $GITHUB_ENV
-
-      - name: Get published version from npm
-        id: published_version_svgpublish_react
-        run: echo "published_version_svgpublish_react=$(npm view svgpublish-react version || echo '0.0.0')" >> $GITHUB_ENV
-
-      - name: Publish svgpublish_react
-        run: |
-          if [ "$local_version_svgpublish_react" != "$published_version_svgpublish_react" ]; then
-            echo "New version detected: $local_version. Publishing..."
-            npm publish -w packages/react --provenance
-          else
-            echo "No new version. Skipping publish."
-          fi
-        env:
-          local_version_svgpublish_react: ${{ env.local_version_svgpublish_react }}
-          published_version_svgpublish_react: ${{ env.published_version_svgpublish_react }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create GitHub Release
+        if: inputs.deploy_webpart == true
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.short_version }}
+          name: ${{ steps.version.outputs.full_version }}
+          body: |
+            Release v${{ steps.version.outputs.full_version }}
+            Built from commit ${{ github.sha }}
+          files: |
+            packages/webpart/sharepoint/solution/*.sppkg
+          draft: true
+          prerelease: true

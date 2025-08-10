@@ -15,7 +15,6 @@
   "scripts": {
     "build": "webpack --mode=production",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "prepublishOnly": "npm run build",
     "start": "webpack --watch",
     "clean": "rimraf dist"
   },
