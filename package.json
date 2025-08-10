@@ -1,6 +1,6 @@
 {
   "name": "svgpublish-monorepo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "SvgPublish monorepo containing lib, react component, and SharePoint web part",
   "license": "ISC",

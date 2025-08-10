@@ -26,6 +26,48 @@ gulp.task('update-version', function (cb) {
   cb();
 });
 
+gulp.task('configure-cdn', function (cb) {
+  const gutil = require('gulp-util');
+  const fs = require('fs');
+
+  // Get version from environment or use default
+  const version = process.env.VERSION || '1.0';
+
+  gutil.log('Configuring for CDN deployment with version:', version);
+
+  // Update write-manifests.json for CDN
+  var writeManifestsJson = require('./config/write-manifests.json');
+  writeManifestsJson.cdnBasePath = `https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-web-releases/${version}/`;
+  fs.writeFileSync('./config/write-manifests.json', JSON.stringify(writeManifestsJson, null, 2));
+
+  // Update package-solution.json for CDN variant
+  var packageSolutionJson = require('./config/package-solution.json');
+  packageSolutionJson.solution.includeClientSideAssets = false;
+  packageSolutionJson.paths.zippedPackage = "solution/svgpublish-webpart-cdn.sppkg";
+  fs.writeFileSync('./config/package-solution.json', JSON.stringify(packageSolutionJson, null, 2));
+
+  cb();
+});
+
+gulp.task('configure-selfcontained', function (cb) {
+  const gutil = require('gulp-util');
+  const fs = require('fs');
+
+  gutil.log('Configuring for self-contained deployment');
+
+  var writeManifestsJson = require('./config/write-manifests.json');
+  writeManifestsJson.cdnBasePath = `<!-- PATH TO CDN -->`;
+  fs.writeFileSync('./config/write-manifests.json', JSON.stringify(writeManifestsJson, null, 2));
+
+  // Update package-solution.json for self-contained variant
+  var packageSolutionJson = require('./config/package-solution.json');
+  packageSolutionJson.solution.includeClientSideAssets = true;
+  packageSolutionJson.paths.zippedPackage = "solution/svgpublish-webpart.sppkg";
+  fs.writeFileSync('./config/package-solution.json', JSON.stringify(packageSolutionJson, null, 2));
+
+  cb();
+});
+
 build.tslintCmd.enabled = false;
 
 var getTasks = build.rig.getTasks;

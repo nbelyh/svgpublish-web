@@ -71,15 +71,11 @@ jobs:
 
       - name: Build WebPart Variants
         run: |
-          jq --arg version "${{ env.VERSION }}" '.cdnBasePath = "https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-web-release/\($version)/"' packages/webpart/config/write-manifests.json > temp.json && mv temp.json packages/webpart/config/write-manifests.json
+          # Build CDN variant
+          npm run build:cdn -w packages/webpart
 
-          jq '.solution.includeClientSideAssets = false' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
-          jq '.paths.zippedPackage = "solution/svgpublish-webpart-cdn.sppkg"' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
-          npm run build:webpart
-
-          jq '.solution.includeClientSideAssets = true' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
-          jq '.paths.zippedPackage = "solution/svgpublish-webpart.sppkg"' packages/webpart/config/package-solution.json > temp.json && mv temp.json packages/webpart/config/package-solution.json
-          npm run build:webpart
+          # Build self-contained variant
+          npm run build:selfcontained -w packages/webpart
 
       - name: Checkout Release Repository
         if: inputs.deploy_webpart == true

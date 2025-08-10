@@ -1,10 +1,12 @@
 {
   "name": "svgpublish-web-part",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "main": "lib/index.js",
   "scripts": {
     "build": "gulp bundle --ship && gulp package-solution --ship",
+    "build:cdn": "gulp update-version && gulp configure-cdn && gulp bundle --ship && gulp package-solution --ship",
+    "build:selfcontained": "gulp update-version && gulp configure-selfcontained && gulp bundle --ship && gulp package-solution --ship",
     "clean": "gulp clean",
     "start": "gulp serve",
     "test": "gulp test"
