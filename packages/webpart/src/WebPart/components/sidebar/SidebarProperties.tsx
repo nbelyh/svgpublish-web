@@ -7,13 +7,19 @@ import { PropertyList } from './PropertyList';
 
 export const SidebarProperties = (props: {
   shapeInfo?: IShapeInfo;
-  selectedProps?: string[];
+  selectedProps?: string;
   openHyperlinksInNewWindow?: boolean;
 }) => {
 
+  // Convert selectedProps string to array
+  const selectedPropsArray = React.useMemo(() => {
+    if (!props.selectedProps) return [];
+    return props.selectedProps.split(',').map(prop => prop.trim()).filter(prop => prop.length > 0);
+  }, [props.selectedProps]);
+
   // Filter properties if selectedProps is specified
   const filteredProps = props.shapeInfo?.Props ? Object.keys(props.shapeInfo.Props)
-    .filter(propName => props.selectedProps.length === 0 || props.selectedProps.indexOf(propName) >= 0)
+    .filter(propName => selectedPropsArray.length === 0 || selectedPropsArray.indexOf(propName) >= 0)
     .map(propName => [propName, props.shapeInfo.Props[propName]] as [string, string]) : [];
 
   // If no shape is selected, no properties exist, or no properties match the filter

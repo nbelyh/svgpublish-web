@@ -43,11 +43,22 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
   }
 
   private diagramSettings = DefaultDiagramSettings;
+  private availableProperties: string[] = [];
+
   async sourceResolver(url: string, defaultResolver: (url: string) => Promise<ISvgSource>): Promise<ISvgSource> {
 
     const result = await defaultResolver(url);
 
     this.diagramSettings = { ...DefaultDiagramSettings, ...result.diagramInfo.settings };
+
+    // Extract available properties from diagram shapes
+    this.availableProperties = SettingsService.extractAvailableProperties(result.diagramInfo);
+
+    // Refresh property pane if it's open to update available properties
+    if (this.context.propertyPane.isPropertyPaneOpen()) {
+      this.context.propertyPane.refresh();
+    }
+
     for (const key in this.diagramSettings) {
       if (this.properties.protectedSettings.includes(key))
         continue;
@@ -124,6 +135,6 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    return Configuration.get(this.context, this.properties);
+    return Configuration.get(this.context, this.properties, this.availableProperties);
   }
 }

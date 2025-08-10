@@ -15,7 +15,7 @@ import { AboutGroup } from './groups/AboutGroup';
 
 export class Configuration {
 
-  public static get(context: WebPartContext, properties: IWebPartProps) {
+  public static get(context: WebPartContext, properties: IWebPartProps, availableProperties: string[] = []) {
     return {
       pages: [
         {
@@ -29,7 +29,7 @@ export class Configuration {
             HyperlinksGroup.get(properties),
             TooltipsGroup.get(properties),
             ContentGroup.get(properties),
-            SidebarGroup.get(properties),
+            SidebarGroup.get(properties, availableProperties),
             AboutGroup.get(context, properties),
           ]
         }

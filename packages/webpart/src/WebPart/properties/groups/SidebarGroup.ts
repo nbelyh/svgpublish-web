@@ -2,9 +2,10 @@ import { PropertyPaneDropdown, PropertyPaneTextField } from '@microsoft/sp-prope
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 import { PropertyPaneSizeField } from '../PropertyPaneSizeField';
+import { PropertyPanePropsListField } from '../PropertyPanePropsListField';
 
 export class SidebarGroup {
-  public static get(properties: IWebPartProps) {
+  public static get(properties: IWebPartProps, availableProperties: string[] = []) {
     return {
       groupName: "Sidebar",
       isCollapsed: true,
@@ -50,6 +51,15 @@ export class SidebarGroup {
           inlineLabel: true,
           indentLevel: 0,
           checked: properties.enableProps,
+        }),
+        PropertyPanePropsListField('selectedProps', {
+          label: "Property Filter",
+          disabled: !properties.enableSidebar || !properties.enableProps,
+          description: "Select property names to show. Leave empty to show all properties.",
+          value: Array.isArray(properties.selectedProps)
+            ? properties.selectedProps.join(', ')
+            : (properties.selectedProps || ''),
+          availableProperties: availableProperties,
         }),
         PropertyPaneIndentedToggle('enableLinks', {
           label: "Show Shape Links",

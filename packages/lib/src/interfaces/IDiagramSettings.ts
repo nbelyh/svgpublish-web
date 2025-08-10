@@ -132,6 +132,6 @@ export interface IDiagramSettings {
   /// Disable tooltips on touch devices
   suppressMobileTip?: boolean;
 
-  /// properties to show in sidebar
-  selectedProps?: string[];
+  /// properties to show in sidebar, comma separated
+  selectedProps?: string;
 }

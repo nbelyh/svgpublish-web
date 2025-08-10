@@ -155,7 +155,7 @@ export const AppSidebar = (props: {
             >
               <SidebarProperties
                 shapeInfo={selectedShapeInfo}
-                selectedProps={props.settings.selectedProps || []}
+                selectedProps={props.settings.selectedProps}
                 openHyperlinksInNewWindow={props.settings.openHyperlinksInNewWindow}
               />
             </CollapsibleSection>
