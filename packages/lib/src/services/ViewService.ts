@@ -64,7 +64,6 @@ export class ViewService extends BasicService implements IViewService {
 
     // Set up container resize observer after reset to avoid it being disconnected
     this.resizeObserver = new ResizeObserver((entries) => {
-      console.log('ResizeObserver triggered:', entries[0].contentRect);
       this.handleContainerResize();
     });
     this.resizeObserver.observe(this.context.container);
@@ -164,58 +163,75 @@ export class ViewService extends BasicService implements IViewService {
   }
 
   public handleContainerResize() {
-    console.log('handleContainerResize called');
-    
+    // Get new container dimensions
+    const { offsetWidth: newWidth, offsetHeight: newHeight } = this.context.container;
+
+    // If dimensions haven't actually changed, do nothing
+    if (newWidth === this.lastContainerWidth && newHeight === this.lastContainerHeight) {
+      return;
+    }
+
     const currentMatrix = this.viewPort.getCTM();
     if (!currentMatrix) {
-      console.log('No current matrix, calling reset');
       this.reset();
       return;
     }
 
-    // Get new container dimensions
-    const { offsetWidth: newWidth, offsetHeight: newHeight } = this.context.container;
-    console.log('New container dimensions:', newWidth, 'x', newHeight);
-    console.log('Previous container dimensions:', this.lastContainerWidth, 'x', this.lastContainerHeight);
+    // Store the old dimensions before we update them
+    const oldWidth = this.lastContainerWidth;
+    const oldHeight = this.lastContainerHeight;
 
-    // If dimensions haven't actually changed, do nothing
-    if (newWidth === this.lastContainerWidth && newHeight === this.lastContainerHeight) {
-      console.log('Container dimensions unchanged, skipping resize');
-      return;
-    }
-
-    // Calculate the scaling factor for the container size change
-    const widthRatio = newWidth / this.lastContainerWidth;
-    const heightRatio = newHeight / this.lastContainerHeight;
-    
-    // Use the smaller ratio to maintain aspect ratio
-    const containerScaleRatio = Math.min(widthRatio, heightRatio);
-    
-    console.log('Container scale ratio:', containerScaleRatio);
-    
-    // Scale the current transformation by the container scale ratio
-    // This preserves the current view but scales it for the new container size
-    let newMatrix = this.context.svg.createSVGMatrix();
-    
-    // Apply the container scaling to the current transformation
-    newMatrix = newMatrix.scale(containerScaleRatio);
-    newMatrix = newMatrix.multiply(currentMatrix);
-    
-    // Adjust translation to center the scaled view in the new container
-    const centerDeltaX = (newWidth - this.lastContainerWidth * containerScaleRatio) / 2;
-    const centerDeltaY = (newHeight - this.lastContainerHeight * containerScaleRatio) / 2;
-    
-    if (centerDeltaX !== 0 || centerDeltaY !== 0) {
-      const centeringMatrix = this.context.svg.createSVGMatrix().translate(centerDeltaX, centerDeltaY);
-      newMatrix = centeringMatrix.multiply(newMatrix);
-    }
-    
-    console.log('Setting new matrix:', newMatrix);
-    this.setCTM(newMatrix, null);
-
-    // Update stored container dimensions
+    // Update stored container dimensions immediately to prevent multiple calls
     this.lastContainerWidth = newWidth;
     this.lastContainerHeight = newHeight;
+
+    // Calculate both ratios
+    const widthRatio = newWidth / oldWidth;
+    const heightRatio = newHeight / oldHeight;
+
+    // Determine which dimension changed less significantly
+    const widthChange = Math.abs(widthRatio - 1);
+    const heightChange = Math.abs(heightRatio - 1);
+
+    // Use the ratio of the dimension that changed less (more stable)
+    const scaleRatio = widthChange < heightChange ? widthRatio : heightRatio;
+
+    // To preserve the view position, we need to:
+    // 1. Find the center point of the current view in diagram coordinates
+    // 2. Scale the transformation
+    // 3. Adjust translation to keep the same center point
+
+    // Get the center point of the old container in diagram coordinates
+    const oldCenterX = oldWidth / 2;
+    const oldCenterY = oldHeight / 2;
+    const svgPoint = this.context.svg.createSVGPoint();
+    svgPoint.x = oldCenterX;
+    svgPoint.y = oldCenterY;
+    const diagramCenterPoint = svgPoint.matrixTransform(currentMatrix.inverse());
+
+    // Scale the current transformation
+    let newMatrix = this.context.svg.createSVGMatrix();
+    newMatrix = newMatrix.scale(scaleRatio);
+    newMatrix = newMatrix.multiply(currentMatrix);
+
+    // Calculate where the diagram center point is now in the new container
+    const newCenterX = newWidth / 2;
+    const newCenterY = newHeight / 2;
+    const newSvgPoint = this.context.svg.createSVGPoint();
+    newSvgPoint.x = diagramCenterPoint.x;
+    newSvgPoint.y = diagramCenterPoint.y;
+    const currentDiagramCenter = newSvgPoint.matrixTransform(newMatrix);
+
+    // Adjust translation to center the view correctly
+    const deltaX = newCenterX - currentDiagramCenter.x;
+    const deltaY = newCenterY - currentDiagramCenter.y;
+
+    if (deltaX !== 0 || deltaY !== 0) {
+      const adjustmentMatrix = this.context.svg.createSVGMatrix().translate(deltaX, deltaY);
+      newMatrix = adjustmentMatrix.multiply(newMatrix);
+    }
+
+    this.setCTM(newMatrix, null);
   }
 
   public setFocusShape(shapeId: string) {
