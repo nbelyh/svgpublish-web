@@ -56,7 +56,7 @@ export const Header = (props: {
       )}      {props.settings.enableFullscreen && (
         <TooltipHost content={props.isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}>
           <IconButton
-            iconProps={{ iconName: props.isFullscreen ? 'ChromeRestore' : 'ChromeFullScreen' }}
+            iconProps={{ iconName: props.isFullscreen ? 'BackToWindow' : 'FullScreen' }}
             onClick={props.onToggleFullscreen}
           />
         </TooltipHost>
