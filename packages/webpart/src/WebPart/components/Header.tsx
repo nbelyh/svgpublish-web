@@ -9,7 +9,8 @@ export const Header = (props: {
   url: string;
   breadcrumb: IBreadcrumbItem[];
   settings: IDiagramSettings;
-  onOpenSidebar: () => void;
+  isSidebarOpen: boolean;
+  onToggleSidebar: () => void;
   isFullscreen?: boolean;
   onToggleFullscreen?: () => void;
 }) => {
@@ -46,8 +47,11 @@ export const Header = (props: {
           <IconButton iconProps={{ iconName: 'PageLink' }} title='Copy WebPart Link' onClick={onCopyHashLink} />
         </TooltipHost>}
       {props.settings.enableSidebar && (
-        <TooltipHost content="Open sidebar">
-          <IconButton iconProps={{ iconName: 'OpenPane' }} onClick={props.onOpenSidebar} />
+        <TooltipHost content={props.isSidebarOpen ? "Close sidebar" : "Open sidebar"}>
+          <IconButton 
+            iconProps={{ iconName: props.isSidebarOpen ? 'ClosePane' : 'OpenPane' }} 
+            onClick={props.onToggleSidebar} 
+          />
         </TooltipHost>
       )}      {props.settings.enableFullscreen && (
         <TooltipHost content={props.isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}>

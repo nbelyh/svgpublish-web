@@ -180,6 +180,12 @@ export function TopFrame(props: {
     setIsSidebarOpen(false);
   }
 
+  const onToggleSidebar = () => {
+    if (props.properties.enableSidebar) {
+      setIsSidebarOpen(!isSidebarOpen);
+    }
+  }
+
   // Handle selection changes for showSidebarOnSelection functionality
   const onSelectionChanged = (evt: SelectionChangedEvent) => {
     const selectedShapeIdValue = evt.detail?.shapeId;
@@ -228,7 +234,8 @@ export function TopFrame(props: {
           url={source.pageUrl}
           breadcrumb={breadcrumb}
           settings={props.properties}
-          onOpenSidebar={onOpenSidebar}
+          isSidebarOpen={isSidebarOpen}
+          onToggleSidebar={onToggleSidebar}
           isFullscreen={isFullscreen}
           onToggleFullscreen={() => setIsFullscreen(!isFullscreen)}
         />
