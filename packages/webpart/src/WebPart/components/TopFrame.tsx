@@ -196,6 +196,9 @@ export function TopFrame(props: {
   const shouldShowSidebar = props.properties.enableSidebar &&
     (!props.properties.showSidebarOnSelection || hasSelection || isSidebarOpen);
 
+  // Fullscreen state
+  const [isFullscreen, setIsFullscreen] = React.useState(false);
+
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   const style: React.CSSProperties = {
@@ -203,7 +206,15 @@ export function TopFrame(props: {
     height: props.properties.height,
     overflow: 'hidden',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    ...(isFullscreen ? {
+      width: '100vw',
+      height: '100vh',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      zIndex: 999999
+    } : {}),
   };
 
   return (
@@ -215,12 +226,14 @@ export function TopFrame(props: {
           breadcrumb={breadcrumb}
           settings={props.properties}
           onOpenSidebar={onOpenSidebar}
+          isFullscreen={isFullscreen}
+          onToggleFullscreen={() => setIsFullscreen(!isFullscreen)}
         />
       )}
 
       {!!error && <ErrorPlaceholder error={error} />}
 
-      <div style={style} ref={containerRef} />
+      <div style={{ flex: 1 }} ref={containerRef} />
 
       {shouldShowSidebar && (
         <AppSidebar

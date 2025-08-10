@@ -28,6 +28,13 @@ export class HeaderGroup {
           indentLevel: 0,
           checked: properties.enableCopyHashLink,
         }),
+        PropertyPaneIndentedToggle('enableFullscreen', {
+          label: "Fullscreen Button",
+          disabled: !properties.enableHeader,
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.enableFullscreen,
+        }),
         ...(properties.enableCopyHashLink ? [
           PropertyPaneTextField('feedbackUrl', {
             disabled: !properties.enableCopyHashLink || !properties.enableHeader,

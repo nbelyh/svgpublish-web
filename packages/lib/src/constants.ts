@@ -52,6 +52,7 @@ export const DefaultDiagramSettings: IDiagramSettings = {
   enableHeader: true,
   enableBreadcrumb: true,
   enableCopyHashLink: false,
+  enableFullscreen: false,
   rewriteOfficeHyperlinks: true,
   rewriteVsdxHyperlinks: false,
   feedbackUrl: '',

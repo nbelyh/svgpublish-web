@@ -60,6 +60,7 @@ export interface IDiagramSettings {
   enableHeader?: boolean;
   enableBreadcrumb?: boolean;
   enableCopyHashLink?: boolean;
+  enableFullscreen?: boolean;
   feedbackUrl?: string;
 
   /// Enable "simple box" selection style

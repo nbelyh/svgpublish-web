@@ -10,6 +10,8 @@ export const Header = (props: {
   breadcrumb: IBreadcrumbItem[];
   settings: IDiagramSettings;
   onOpenSidebar: () => void;
+  isFullscreen?: boolean;
+  onToggleFullscreen?: () => void;
 }) => {
 
   const pageUrl = React.useMemo(() => {
@@ -39,17 +41,21 @@ export const Header = (props: {
         <Stack.Item grow>
           <Breadcrumb styles={{ root: { margin: 0 } }} items={props.breadcrumb} />
         </Stack.Item>}
-      {props.settings.enableCopyHashLink && <Stack.Item align='center'>
+      {props.settings.enableCopyHashLink &&
         <TooltipHost content={hashLinkTooltip}>
           <IconButton iconProps={{ iconName: 'PageLink' }} title='Copy WebPart Link' onClick={onCopyHashLink} />
-        </TooltipHost>
-      </Stack.Item>}
+        </TooltipHost>}
       {props.settings.enableSidebar && (
-        <Stack.Item align='center'>
-          <TooltipHost content="Open sidebar">
-            <IconButton iconProps={{ iconName: 'OpenPane' }} title='Open Sidebar' onClick={props.onOpenSidebar} />
-          </TooltipHost>
-        </Stack.Item>
+        <TooltipHost content="Open sidebar">
+          <IconButton iconProps={{ iconName: 'OpenPane' }} onClick={props.onOpenSidebar} />
+        </TooltipHost>
+      )}      {props.settings.enableFullscreen && (
+        <TooltipHost content={props.isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}>
+          <IconButton
+            iconProps={{ iconName: props.isFullscreen ? 'ChromeRestore' : 'ChromeFullScreen' }}
+            onClick={props.onToggleFullscreen}
+          />
+        </TooltipHost>
       )}
     </Stack>
   )
