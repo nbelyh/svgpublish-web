@@ -97,7 +97,7 @@ This document compares the reference C# options (from `reference/Options/`) with
 
 ## **IMPLEMENTATION PRIORITIES**
 
-4. **Advanced Template System** - Custom JS/CSS/HTML injection beyond current markdown
+1. **Advanced Template System** - Custom JS/CSS/HTML injection beyond current markdown
 
 ---
 
