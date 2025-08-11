@@ -1,14 +1,12 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 
-import { PropertyPanePropsListFieldComponent } from './PropertyPanePropsListFieldComponent';
+import { PropertyPaneViewControlComponent } from './PropertyPaneViewControlComponent';
 import { IWebPartPropertiesCallback } from 'WebPart/IWebPartPropertiesCallback';
 
-export function PropertyPanePropsListField(targetProperty: string, props: {
-  value: string;
-  label: string;
-  disabled?: boolean;
-  description?: string;
+export function PropertyPaneViewControl(targetProperty: string, props: {
+  context: any;
+  currentValue: any;
   propertiesCallback: IWebPartPropertiesCallback;
 }) {
 
@@ -20,13 +18,12 @@ export function PropertyPanePropsListField(targetProperty: string, props: {
 
       onRender: (parent: HTMLElement, context: any, changeCallback: (targetProperty: string, newValue: any) => void) => {
         return ReactDom.render(
-          <PropertyPanePropsListFieldComponent
-            value={props.value}
-            label={props.label}
-            disabled={props.disabled}
-            description={props.description}
+          <PropertyPaneViewControlComponent
+            context={props.context}
+            currentValue={props.currentValue}
             propertiesCallback={props.propertiesCallback}
-            setValue={(val) => changeCallback(targetProperty, val)}
+            changeCallback={changeCallback}
+            targetProperty={targetProperty}
           />, parent);
       },
 

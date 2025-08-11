@@ -3,9 +3,10 @@ import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
 import { PropertyPaneSizeField } from '../PropertyPaneSizeField';
 import { PropertyPanePropsListField } from '../PropertyPanePropsListField';
+import { IWebPartPropertiesCallback } from 'WebPart/IWebPartPropertiesCallback';
 
 export class SidebarGroup {
-  public static get(properties: IWebPartProps, availableProperties: string[] = []) {
+  public static get(properties: IWebPartProps, propertiesCallback: IWebPartPropertiesCallback) {
     return {
       groupName: "Sidebar",
       isCollapsed: true,
@@ -59,7 +60,7 @@ export class SidebarGroup {
           value: Array.isArray(properties.selectedProps)
             ? properties.selectedProps.join(', ')
             : (properties.selectedProps || ''),
-          availableProperties: availableProperties,
+          propertiesCallback: propertiesCallback,
         }),
         PropertyPaneIndentedToggle('enableLinks', {
           label: "Show Shape Links",

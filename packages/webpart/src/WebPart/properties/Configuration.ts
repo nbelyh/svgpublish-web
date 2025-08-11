@@ -12,24 +12,25 @@ import { TooltipsGroup } from './groups/TooltipsGroup';
 import { ContentGroup } from './groups/ContentGroup';
 import { SidebarGroup } from './groups/SidebarGroup';
 import { AboutGroup } from './groups/AboutGroup';
+import { IWebPartPropertiesCallback } from 'WebPart/IWebPartPropertiesCallback';
 
 export class Configuration {
 
-  public static get(context: WebPartContext, properties: IWebPartProps, availableProperties: string[] = []) {
+  public static get(context: WebPartContext, properties: IWebPartProps, propertiesCallback: IWebPartPropertiesCallback) {
     return {
       pages: [
         {
           displayGroupsAsAccordion: true,
           groups: [
             SourceFileGroup.get(context, properties),
-            AppearanceGroup.get(context, properties),
+            AppearanceGroup.get(context, properties, propertiesCallback),
             HeaderGroup.get(properties),
             HighlightGroup.get(properties),
             PrevNextHighlightGroup.get(properties),
             HyperlinksGroup.get(properties),
             TooltipsGroup.get(properties),
             ContentGroup.get(properties),
-            SidebarGroup.get(properties, availableProperties),
+            SidebarGroup.get(properties, propertiesCallback),
             AboutGroup.get(context, properties),
           ]
         }

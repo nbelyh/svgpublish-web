@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Dropdown, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 import { Stack } from '@fluentui/react/lib/Stack';
 import { Text } from '@fluentui/react/lib/Text';
+import { IWebPartPropertiesCallback } from 'WebPart/IWebPartPropertiesCallback';
 
 export function PropertyPanePropsListFieldComponent(props: {
   value: string;
@@ -9,7 +10,7 @@ export function PropertyPanePropsListFieldComponent(props: {
   disabled?: boolean;
   label: string;
   description?: string;
-  availableProperties?: string[];
+  propertiesCallback: IWebPartPropertiesCallback;
 }) {
 
   // Convert comma-separated string to array
@@ -20,9 +21,10 @@ export function PropertyPanePropsListFieldComponent(props: {
 
   // Get available properties from the provided list or fallback to current value
   const availableProperties: IDropdownOption[] = React.useMemo(() => {
-    if (props.availableProperties && props.availableProperties.length > 0) {
+    const availableProperties = props.propertiesCallback.getAvailableProperties();
+    if (availableProperties.length > 0) {
       // Use properties from the diagram
-      return props.availableProperties.map(prop => ({
+      return availableProperties.map(prop => ({
         key: prop,
         text: prop
       }));
@@ -38,7 +40,7 @@ export function PropertyPanePropsListFieldComponent(props: {
 
     // Fallback to empty array
     return [];
-  }, [props.availableProperties, selectedPropsArray, props.value]);
+  }, [props.propertiesCallback, selectedPropsArray, props.value]);
 
   const handleSelectionChange = React.useCallback((event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
     if (option) {

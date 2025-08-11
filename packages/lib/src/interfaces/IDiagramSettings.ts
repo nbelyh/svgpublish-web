@@ -134,4 +134,6 @@ export interface IDiagramSettings {
 
   /// properties to show in sidebar, comma separated
   selectedProps?: string;
+
+  savedViewMatrix?: string;
 }

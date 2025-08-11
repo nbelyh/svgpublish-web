@@ -4,9 +4,11 @@ import { PropertyPaneSizeField } from '../PropertyPaneSizeField';
 import { PropertyPaneIndentedToggle } from '../PropertyPaneIndentedToggle';
 import { SettingsService } from '../../services/SettingsService';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
+import { PropertyPaneViewControl } from '../PropertyPaneViewControl';
+import { IWebPartPropertiesCallback } from 'WebPart/IWebPartPropertiesCallback';
 
 export class AppearanceGroup {
-  public static get(context: WebPartContext, properties: IWebPartProps) {
+  public static get(context: WebPartContext, properties: IWebPartProps, propertiesCallback: IWebPartPropertiesCallback) {
     return {
       groupName: strings.PropertyPaneLabelAppearance,
       isCollapsed: true,
@@ -35,6 +37,11 @@ export class AppearanceGroup {
           screenUnits: 'h',
           getDefaultValue: () => SettingsService.getDefaultHeight(context)
         }),
+        PropertyPaneViewControl('savedViewMatrix', {
+          context: context,
+          currentValue: properties.savedViewMatrix,
+          propertiesCallback: propertiesCallback
+        })
       ]
     };
   }

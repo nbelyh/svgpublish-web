@@ -11,6 +11,7 @@ import { IWebPartProps } from './IWebPartProps';
 import { SettingsService } from './services/SettingsService';
 import { BlankPlaceholder } from './components/BlankPlaceholder';
 import { DefaultDiagramSettings, ISvgSource } from 'svgpublish';
+import { IWebPartPropertiesCallback } from './IWebPartPropertiesCallback';
 
 const NON_SETTINGS_KEYS = ['url', 'protectedSettings', 'width', 'height'];
 const ENUM_KEYS = ['selectionMode', 'tooltipTheme', 'tooltipTrigger', 'tooltipPlacement', 'sidebarType'];
@@ -43,17 +44,15 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
   }
 
   private diagramSettings = DefaultDiagramSettings;
-  private availableProperties: string[] = [];
+  private propertiesCallback: IWebPartPropertiesCallback | null = null;
 
-  async sourceResolver(url: string, defaultResolver: (url: string) => Promise<ISvgSource>): Promise<ISvgSource> {
+  async onPageLoad(url: string, propertiesCallback: IWebPartPropertiesCallback, defaultResolver: (url: string) => Promise<ISvgSource>): Promise<ISvgSource> {
 
     const result = await defaultResolver(url);
 
     this.diagramSettings = { ...DefaultDiagramSettings, ...result.diagramInfo.settings };
 
-    // Extract available properties from diagram shapes
-    this.availableProperties = SettingsService.extractAvailableProperties(result.diagramInfo);
-
+    this.propertiesCallback = propertiesCallback;
     // Refresh property pane if it's open to update available properties
     if (this.context.propertyPane.isPropertyPaneOpen()) {
       this.context.propertyPane.refresh();
@@ -93,7 +92,7 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
       ? React.createElement(TopFrame, {
         url,
         properties: this.properties,
-        sourceResolver: this.sourceResolver.bind(this)
+        onPageLoad: this.onPageLoad.bind(this)
       })
       : React.createElement(BlankPlaceholder, {
         isTeams: !!this.context.sdks?.microsoftTeams,
@@ -121,6 +120,11 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
 
     super.onPropertyPaneFieldChanged(propertyPath, oldValue, newValue);
 
+    // Handle savedViewMatrix being cleared - reset the view to default
+    if (propertyPath === 'savedViewMatrix' && !newValue && oldValue && this.propertiesCallback) {
+      this.propertiesCallback.resetView();
+    }
+
     if (propertyPath === 'protectedSettings') {
       const diagramSettings = { ...DefaultDiagramSettings, ...this.diagramSettings };
       for (const key in diagramSettings) {
@@ -135,6 +139,6 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
-    return Configuration.get(this.context, this.properties, this.availableProperties);
+    return Configuration.get(this.context, this.properties, this.propertiesCallback);
   }
 }

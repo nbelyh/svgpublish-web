@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { IBreadcrumbItem } from '@fluentui/react/lib/Breadcrumb';
 import { ThemeProvider } from '@fluentui/react/lib/Theme';
-import { ISvgPublishContext, LinkClickedEvent, SelectionChangedEvent, SvgPublishContext } from 'svgpublish';
+import { LinkClickedEvent, SelectionChangedEvent, SvgPublishContext } from 'svgpublish';
 import { ErrorPlaceholder } from './ErrorPlaceholder';
 import { AppSidebar } from './sidebar/AppSidebar';
 import { UtilsService } from '../services/UtilsService';
 import { Header } from './Header';
 import { ISvgSource } from 'svgpublish';
 import { IWebPartProps } from 'WebPart/IWebPartProps';
+import { IWebPartPropertiesCallback } from './../IWebPartPropertiesCallback'
 
 const ADDITIONAL_PROPERTIES = [
   'url',
@@ -25,7 +26,8 @@ interface ITarget {
 export function TopFrame(props: {
   url: string;
   properties: IWebPartProps;
-  sourceResolver: (url: string, defaultResolver: (url: string) => Promise<ISvgSource>) => Promise<ISvgSource>;
+  onPageLoad: (url: string, propertiesCallback: IWebPartPropertiesCallback, defaultSourceResolver: (url: string) => Promise<ISvgSource>) => Promise<ISvgSource>;
+  onViewReset?: () => void;
 }) {
 
   const [source, setSource] = React.useState<ITarget>({ pageUrl: props.url });
@@ -73,12 +75,26 @@ export function TopFrame(props: {
   React.useEffect(() => {
 
     const newContext = new SvgPublishContext(containerRef.current);
-    newContext.init(source.pageUrl, props.sourceResolver).then(() => {
+
+    const sourceResolver = async (url: string, defaultResolver: (url: string) => Promise<ISvgSource>): Promise<ISvgSource> => {
+      const propertiesCallback: IWebPartPropertiesCallback = {
+        getAvailableProperties: () => newContext.services.view.getAvailablePropertyNames(),
+        getViewMatrix: () => newContext.services.view.getViewMatrix(),
+        resetView: () => newContext.services.view.reset(),
+      }
+      const source = await props.onPageLoad(url, propertiesCallback, defaultResolver);
+      return source;
+    }
+
+    newContext.init(source.pageUrl, sourceResolver).then(() => {
       setContext(newContext);
 
       const zoom = +source.zoom;
       if (zoom) {
         newContext.services.view.zoom(zoom);
+      } else if (props.properties.savedViewMatrix && source.pageUrl === props.url) {
+        // Only apply saved view matrix if we're on the root page
+        newContext.services.view.setViewMatrix(props.properties.savedViewMatrix);
       }
 
       const shapeId = source.shapeId;

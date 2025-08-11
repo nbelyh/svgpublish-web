@@ -81,23 +81,4 @@ export class SettingsService {
     }
     return this.defaultHeight = '50vh';
   }
-
-  public static extractAvailableProperties(diagramInfo?: IDiagramInfo): string[] {
-    if (!diagramInfo?.shapes) {
-      return [];
-    }
-
-    const usedPropSet: { [key: string]: boolean } = {};
-
-    for (const shapeId in diagramInfo.shapes) {
-      const shape = diagramInfo.shapes[shapeId];
-      if (shape.Props) {
-        for (const propName in shape.Props) {
-          usedPropSet[propName] = true;
-        }
-      }
-    }
-
-    return Object.keys(usedPropSet).sort();
-  }
 }
