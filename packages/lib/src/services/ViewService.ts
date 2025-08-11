@@ -582,4 +582,26 @@ export class ViewService extends BasicService implements IViewService {
       console.error('Error setting view matrix:', error);
     }
   }
+
+  public getAvailablePropertyNames(): string[] {
+
+    const shapes = this.context?.diagram?.shapes
+    if (!shapes) {
+      return [];
+    }
+
+    const usedPropSet: { [key: string]: boolean } = {};
+
+    for (const shapeId in shapes) {
+      const shape = shapes[shapeId];
+      if (shape.Props) {
+        for (const propName in shape.Props) {
+          usedPropSet[propName] = true;
+        }
+      }
+    }
+
+    return Object.keys(usedPropSet).sort();
+  }
+
 }
