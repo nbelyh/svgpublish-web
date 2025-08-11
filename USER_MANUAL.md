@@ -90,8 +90,10 @@ Controls highlighting of connected shapes:
 
 - **Enable Previous/Next Shape Colors**: Highlight connected shapes
 - **Enable Previous/Next Connection Colors**: Highlight connections
-- **Previous/Next Shape Colors**: Color settings for connected shapes <span style="display:inline-block;width:12px;height:12px;background-color:rgba(160, 255, 255, 0.8);border:1px solid #ccc;vertical-align:middle;margin-left:4px;"></span><span style="display:inline-block;width:12px;height:12px;background-color:rgba(255, 160, 255, 0.8);border:1px solid #ccc;vertical-align:middle;margin-left:2px;"></span>
-- **Previous/Next Connection Colors**: Color settings for connections <span style="display:inline-block;width:12px;height:12px;background-color:rgba(255, 0, 0, 1.0);border:1px solid #ccc;vertical-align:middle;margin-left:4px;"></span>
+- **Previous Shape Color**: Color for previous shapes <span style="display:inline-block;width:12px;height:12px;background-color:rgba(160, 255, 255, 0.8);border:1px solid #ccc;vertical-align:middle;margin-left:4px;"></span>
+- **Next Shape Color**: Color for next shapes <span style="display:inline-block;width:12px;height:12px;background-color:rgba(255, 160, 255, 0.8);border:1px solid #ccc;vertical-align:middle;margin-left:4px;"></span>
+- **Previous Connection Color**: Color for previous connections <span style="display:inline-block;width:12px;height:12px;background-color:rgba(255, 0, 0, 1.0);border:1px solid #ccc;vertical-align:middle;margin-left:4px;"></span>
+- **Next Connection Color**: Color for next connections <span style="display:inline-block;width:12px;height:12px;background-color:rgba(255, 0, 0, 1.0);border:1px solid #ccc;vertical-align:middle;margin-left:4px;"></span>
 
 ### 6. Hyperlinks Group
 
