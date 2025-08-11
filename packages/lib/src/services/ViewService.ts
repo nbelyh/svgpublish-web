@@ -539,13 +539,47 @@ export class ViewService extends BasicService implements IViewService {
   public renderMarkdown(markdown: string, data: any): string {
     const md = markdown && Mustache.render(markdown, data);
     if (!md) return md;
-    
+
     // Check if the markdown contains block-level elements
     const hasBlockElements = /(?:^|\n)(?:#|\*\s|-\s|\d+\.\s|>\s|\||\n\s*\n)/.test(md);
-    
-    const content = hasBlockElements 
+
+    const content = hasBlockElements
       ? marked.parse(md) as string
       : marked.parseInline(md) as string;
     return content;
+  }
+
+  public getViewMatrix(): string {
+    const matrix = this.viewPort.getCTM();
+    if (!matrix) {
+      return '';
+    }
+    return `${matrix.a},${matrix.b},${matrix.c},${matrix.d},${matrix.e},${matrix.f}`;
+  }
+
+  public setViewMatrix(matrixString: string): void {
+    if (!matrixString) {
+      return;
+    }
+
+    try {
+      const values = matrixString.split(',').map(v => parseFloat(v.trim()));
+      if (values.length !== 6 || values.some(v => isNaN(v))) {
+        console.warn('Invalid view matrix format:', matrixString);
+        return;
+      }
+
+      const matrix = this.context.svg.createSVGMatrix();
+      matrix.a = values[0];
+      matrix.b = values[1];
+      matrix.c = values[2];
+      matrix.d = values[3];
+      matrix.e = values[4];
+      matrix.f = values[5];
+
+      this.setCTM(matrix, null);
+    } catch (error) {
+      console.error('Error setting view matrix:', error);
+    }
   }
 }

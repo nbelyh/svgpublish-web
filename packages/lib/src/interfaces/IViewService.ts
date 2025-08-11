@@ -7,4 +7,6 @@ export interface IViewService extends IBasicService {
   highlightShape(shapeId: string): void;
   zoom(z: number): void;
   renderMarkdown(markdown: string, data: any): string;
+  getViewMatrix(): string;
+  setViewMatrix(matrix: string): void;
 }
