@@ -12,6 +12,7 @@ import { IViewService } from '../interfaces/IViewService';
 import { Utils } from './Utils';
 import { marked } from 'marked';
 import Mustache from 'mustache';
+import  DOMPurify from 'dompurify';
 
 export class ViewService extends BasicService implements IViewService {
 
@@ -543,10 +544,13 @@ export class ViewService extends BasicService implements IViewService {
     // Check if the markdown contains block-level elements
     const hasBlockElements = /(?:^|\n)(?:#|\*\s|-\s|\d+\.\s|>\s|\||\n\s*\n)/.test(md);
 
-    const content = hasBlockElements
+    const dirty = hasBlockElements
       ? marked.parse(md) as string
       : marked.parseInline(md) as string;
-    return content;
+
+    const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
+
+    return clean;
   }
 
   public getViewMatrix(): string {
