@@ -27,7 +27,7 @@ export interface IDiagramSettings {
 
   enableFollowHyperlinks?: boolean;
   openHyperlinksInNewWindow?: boolean;
-  rewriteVsdxHyperlinks?: boolean;
+  rewriteVisioHyperlinks?: boolean;
   rewriteOfficeHyperlinks?: boolean;
 
   // keepRelativeLinks: boolean;

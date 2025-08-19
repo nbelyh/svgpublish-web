@@ -149,7 +149,7 @@ export function TopFrame(props: {
       let linkAddress = args.link.Address;
       if (linkAddress) {
 
-        if (props.properties.rewriteVsdxHyperlinks && linkAddress.endsWith('.vsdx')) {
+        if (props.properties.rewriteVisioHyperlinks && linkAddress.endsWith('.vsdx')) {
           linkAddress = linkAddress.replace('.vsdx', '.svg');
         }
 

@@ -1,4 +1,6 @@
 
+# SVG Publish SharePoint Web Part User Manual
+
 ## Overview
 
 The **SVG Publish SharePoint Web Part** is an interactive web part that allows you to display and interact with SVG diagrams exported from Microsoft Visio directly within SharePoint Online. This web part provides rich interactivity features including pan, zoom, hyperlinks, tooltips, layers, shape selection, and more.
@@ -14,9 +16,8 @@ The web part runs entirely inside your SharePoint tenant to display the diagram.
 1. [Installation and Setup](#installation-and-setup)
 2. [Basic Configuration](#basic-configuration)
 3. [Property Panel Groups](#property-panel-groups)
-4. [IDiagramSettings Reference](#idiagramsettings-reference)
-5. [Usage Examples](#usage-examples)
-6. [Troubleshooting](#troubleshooting)
+4. [Usage Examples](#usage-examples)
+5. [Troubleshooting](#troubleshooting)
 
 ## Installation and Setup
 
@@ -259,7 +260,7 @@ Version information and help resources.
 |----------|------|---------|-------------|
 | `enableFollowHyperlinks` | boolean | true | Allow following hyperlinks |
 | `openHyperlinksInNewWindow` | boolean | true | Open links in new window/tab |
-| `rewriteVsdxHyperlinks` | boolean | false | Rewrite Visio hyperlinks for web |
+| `rewriteVisioHyperlinks` | boolean | false | Rewrite Visio hyperlinks for web |
 | `rewriteOfficeHyperlinks` | boolean | true | Rewrite Office hyperlinks for web |
 
 ### Search

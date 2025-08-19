@@ -19,11 +19,11 @@ export class HyperlinksGroup {
           indentLevel: 0,
           checked: properties.openHyperlinksInNewWindow,
         }),
-        PropertyPaneIndentedToggle('rewriteVsdxHyperlinks', {
+        PropertyPaneIndentedToggle('rewriteVisioHyperlinks', {
           label: "Rewrite VSDX Hyperlinks as SVG",
           inlineLabel: true,
           indentLevel: 0,
-          checked: properties.rewriteVsdxHyperlinks,
+          checked: properties.rewriteVisioHyperlinks,
         }),
         PropertyPaneIndentedToggle('rewriteOfficeHyperlinks', {
           label: "Always Open Office Files in Browser",

@@ -57,7 +57,7 @@ export const DefaultDiagramSettings: IDiagramSettings = {
   enableCopyHashLink: false,
   enableFullscreen: false,
   rewriteOfficeHyperlinks: true,
-  rewriteVsdxHyperlinks: false,
+  rewriteVisioHyperlinks: false,
   feedbackUrl: '',
   enableSelection: true,
   enableBoxSelection: false,
