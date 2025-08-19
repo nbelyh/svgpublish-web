@@ -33,6 +33,8 @@ The web part runs entirely inside your SharePoint tenant to display the diagram.
 3. Search for "SVG Publish" or find it in the web part gallery
 4. Add the web part to your page
 
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755598446038.png)
+
 ## Basic Configuration
 
 ### Essential Settings
@@ -61,7 +63,15 @@ The web part organizes settings into logical groups for easy configuration:
 
 - **SVG File**: Select the SVG file exported from Visio using file picker
 
-### 2. Appearance Group  
+For most options to work you should select an SVG file that was published using the SVGPublish add-in. This web part is a "companion" web part for it. If you select just a random SVG file, only basic appearance options will work.
+
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755598565630.png)
+
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755598535266.png)
+
+### 2. Appearance Group
+
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755598616884.png)
 
 - **Enable Pan**: Allow users to pan around the diagram
 - **Enable Zoom**: Allow users to zoom in/out
@@ -73,6 +83,8 @@ The web part organizes settings into logical groups for easy configuration:
 
 ### 3. Header Group
 
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755598825569.png)
+
 - **Enable Header**: Show/hide the diagram header
 - **Breadcrumb**: Show navigation breadcrumbs for multi-page diagrams (when header enabled)
 - **Copy Link Button**: Enable copy hash link functionality (when header enabled)
@@ -80,6 +92,8 @@ The web part organizes settings into logical groups for easy configuration:
 - **Custom Feedback URL**: Set custom feedback URL with {{URL}} placeholder (when copy link enabled)
 
 ### 4. Highlight & Selection Group
+
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755598953999.png)
 
 - **Enable Highlight**: Enable hover highlighting effects
 - **Enable Selection**: Allow selecting shapes
@@ -98,6 +112,8 @@ The web part organizes settings into logical groups for easy configuration:
 
 Controls highlighting of connected shapes:
 
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755599091361.png)
+
 - **Enable Previous/Next Shape Colors**: Highlight connected shapes
 - **Enable Previous/Next Connection Colors**: Highlight connections
 - **Previous Shape Color**: Color for previous shapes <span style="display:inline-block;width:12px;height:12px;background-color:rgba(160, 255, 255, 0.8);border:1px solid #ccc;vertical-align:middle;margin-left:4px;"></span>
@@ -114,6 +130,8 @@ Controls highlighting of connected shapes:
 
 ### 7. Tooltips Group
 
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755599355672.png)
+
 - **Enable Tooltips**: Show tooltips on hover or click
 - **Use Mouse Position**: Position tooltip at mouse cursor
 - **Allow Tooltip Interaction**: Enable interaction with tooltip content
@@ -123,15 +141,19 @@ Controls highlighting of connected shapes:
 - **Tooltip Placement**: Position relative to cursor/shape
 - **Enable Tooltip Delays**: Enable show/hide delays
 - **Show/Hide Delays**: Timing for tooltip appearance/disappearance
-- **Enable Custom Tooltip Markdown**: Use custom Markdown content for tooltips
-- **Tooltip Markdown Content**: Custom Markdown content (when custom enabled)
 
-### 8. Content Group
+### 8. Custom Content Group
 
-- **Enable Custom Content Markdown**: Add custom content with Markdown support
-- **Content Markdown**: Custom Markdown content to display
+- **Enable Custom Tooltip Content**: Use custom Markdown content for tooltips
+- **Tooltip Content Template**: Custom Markdown content (when enabled)
+- **Enable Custom Overlay Content**: Add custom content with Markdown support
+- **Overlay Content Template**: Custom Markdown content to display (when enabled)
+- **Enable Custom Sidebar Content**: Add custom content with Markdown support
+- **Sidebar Content Template**: Custom Markdown content to display (when enabled)
 
 ### 9. Sidebar Group
+
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/08/image-1755599844086.png)
 
 - **Enable Sidebar**: Show/hide the information sidebar
 - **Sidebar Size**: Size and position options ("Small", "Medium", "Large", "Custom", etc.)
@@ -154,9 +176,7 @@ Controls highlighting of connected shapes:
 
 Version information and help resources.
 
-## IDiagramSettings Reference
-
-The `IDiagramSettings` interface defines all configurable options for the diagram viewer:
+## Diagram Settings Reference
 
 ### Core Interaction Settings
 
@@ -405,7 +425,3 @@ For complete interactive experience:
 3. **Performance**: Test with your actual file sizes and user base
 4. **Mobile**: Test on mobile devices and consider disabling complex features for touch devices
 5. **Accessibility**: Ensure your Visio diagrams include appropriate alt text and descriptions
-
----
-
-*This web part is in active development. Features and configuration options may change in future versions.*
