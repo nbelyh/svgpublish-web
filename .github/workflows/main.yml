@@ -122,9 +122,9 @@ jobs:
         id: pages
         uses: actions/deploy-pages@v4
 
-      - name: Create GitHub Release
+      - name: Create or Update GitHub Release
         if: inputs.deploy_webpart == true
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ env.VERSION }}
           name: ${{ steps.version.outputs.full_version }}
@@ -136,7 +136,7 @@ jobs:
             Workflow run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           files: |
             packages/webpart/sharepoint/solution/*.sppkg
-          draft: true
+          draft: false
           prerelease: true
           token: ${{ secrets.RELEASE_REPO_TOKEN }}
           repository: nbelyh/svgpublish-web-releases
