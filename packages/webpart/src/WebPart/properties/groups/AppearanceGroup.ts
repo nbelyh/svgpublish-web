@@ -25,6 +25,26 @@ export class AppearanceGroup {
           indentLevel: 0,
           checked: properties.enableZoom,
         }),
+        PropertyPaneIndentedToggle('enableZoomCtrl', {
+          label: "Require Ctrl key for zoom",
+          inlineLabel: true,
+          indentLevel: 1,
+          checked: properties.enableZoomCtrl,
+          disabled: !properties.enableZoom,
+        }),
+        PropertyPaneIndentedToggle('enableZoomShift', {
+          label: "Require Shift key for zoom",
+          inlineLabel: true,
+          indentLevel: 1,
+          checked: properties.enableZoomShift,
+          disabled: !properties.enableZoom,
+        }),
+        PropertyPaneIndentedToggle('twoFingersTouch', {
+          label: "Require two fingers for touch gestures",
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.twoFingersTouch,
+        }),
         PropertyPaneSizeField('width', {
           label: strings.FieldWidth,
           value: properties.width,

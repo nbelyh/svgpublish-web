@@ -48,6 +48,9 @@ export type DiagramSidebarType =
 export const DefaultDiagramSettings: IDiagramSettings = {
   enablePan: true,
   enableZoom: true,
+  enableZoomCtrl: false,
+  enableZoomShift: false,
+  twoFingersTouch: true,
   enableLinks: true,
   enableHeader: true,
   enableBreadcrumb: true,

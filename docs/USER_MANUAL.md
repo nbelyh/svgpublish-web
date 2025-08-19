@@ -48,8 +48,10 @@ The web part runs entirely inside your SharePoint tenant to display the diagram.
 
 - **Diagram Width**: Set the width of the diagram (e.g., "800px", "100%")
 - **Diagram Height**: Set the height of the diagram (e.g., "600px", "auto")
-- **Default Zoom (%)**: Initial zoom level when the diagram loads (default: 100%)
-- **Initial Page**: Specify which page to display first (for multi-page diagrams)
+- **Saved View**: Save and restore a specific view (zoom level and position) for the diagram
+- **Pan & Zoom Controls**: Enable/disable user interaction with the diagram
+  - Option to require modifier keys (Ctrl/Shift) for zoom to prevent accidental zooming
+  - Option to require two-finger touch gestures for better mobile experience
 
 ## Property Panel Groups
 
@@ -63,6 +65,9 @@ The web part organizes settings into logical groups for easy configuration:
 
 - **Enable Pan**: Allow users to pan around the diagram
 - **Enable Zoom**: Allow users to zoom in/out
+  - **Require Ctrl key for zoom**: When enabled, users must hold Ctrl while scrolling to zoom (prevents accidental zooming)
+  - **Require Shift key for zoom**: When enabled, users must hold Shift while scrolling to zoom (prevents accidental zooming)
+- **Require two fingers for touch gestures**: When enabled, single-finger touch gestures are disabled, requiring two fingers for pan/zoom operations (better for mobile/tablet experiences)
 - **Diagram Width**: Set the width of the diagram (e.g., "800px", "100%")
 - **Diagram Height**: Set the height of the diagram (e.g., "600px", "auto")
 
@@ -158,7 +163,7 @@ The `IDiagramSettings` interface defines all configurable options for the diagra
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `enablePan` | boolean | true | Allow panning around the diagram |
-| `enableZoom` | boolean | true | Allow zooming in/out |
+| `enableZoom` | boolean | true | Allow zooming in/out. See Touch and Mobile section for modifier key options |
 | `enableSelection` | boolean | true | Allow selecting shapes |
 | `enableHover` | boolean | true | Enable hover effects |
 | `enableLinks` | boolean | true | Enable clickable links |
@@ -189,9 +194,9 @@ The `IDiagramSettings` interface defines all configurable options for the diagra
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `twoFingersTouch` | boolean | - | Require two fingers for touch gestures |
-| `enableZoomShift` | boolean | - | Require Shift key for zoom |
-| `enableZoomCtrl` | boolean | - | Require Ctrl key for zoom |
+| `twoFingersTouch` | boolean | true | Require two fingers for touch gestures. When enabled, single-finger touch will not trigger pan operations, requiring users to use two fingers for touch interactions |
+| `enableZoomShift` | boolean | false | Require Shift key for zoom. When enabled, mouse wheel zoom only works when the Shift key is pressed, preventing accidental zooming |
+| `enableZoomCtrl` | boolean | false | Require Ctrl key for zoom. When enabled, mouse wheel zoom only works when the Ctrl key is pressed, preventing accidental zooming |
 | `suppressMobileTip` | boolean | true | Disable tooltips on touch devices |
 
 ### Selection and Highlighting
