@@ -1,10 +1,11 @@
+
 ## Overview
 
 The **SVG Publish SharePoint Web Part** is an interactive web part that allows you to display and interact with SVG diagrams exported from Microsoft Visio directly within SharePoint Online. This web part provides rich interactivity features including pan, zoom, hyperlinks, tooltips, layers, shape selection, and more.
 
-The web part runs entirely inside your SharePoint tenant to display the diagram. It does not call, depend on, or send data to any external services or third-party servers — this is an explicit privacy feature so your diagram content remains within your tenant.
+The web part runs entirely inside your SharePoint tenant to display the diagram. It does not call, depend on, or send your data to any external services or third-party servers. This is an explicit privacy feature so your diagram content remains within your tenant.
 
-[notification type=warning]The web part is designed to work within the constraints of SharePoint Online, which means that custom scripts are disabled in the web part settings, and you will not be able to use any custom JavaScript code in the web part in the custom content. This is done on purpose to allow the web part to run in the "custom scripts disabled" environment. The formatting and markdown is supported[/notification]
+[notification type=warning]The web part is designed to work within the constraints of SharePoint Online, which means that **custom scripts are disabled** in the web part settings, and you will not be able to use any custom JavaScript code in the web part in the custom content. This is done on purpose to allow the web part to run in the "custom scripts disabled" environment. The formatting and markdown is supported[/notification]
 
 [![SVG Publish web part screenshot](https://unmanagedvisio.com/wp-content/uploads/2025/08/main.png)](https://unmanagedvisio.com/wp-content/uploads/2025/08/main.png)
 
@@ -132,13 +133,13 @@ Controls highlighting of connected shapes:
 - **Sidebar Width**: Custom width setting (when custom size selected)
 - **Show Sidebar Title**: Display title in sidebar
 - **Show Shape Properties**: Display shape properties in sidebar
-- **Property Filter**: Select specific properties to show (comma-separated)
+- **Property Filter**: Select specific properties to show
 - **Show Shape Links**: Display hyperlinks in sidebar
 - **Enable Pages Navigation**: Enable multi-page navigation controls
 - **Page Search**: Enable page search functionality (when pages enabled)
 - **Sort Pages Alphabetically**: Sort pages alphabetically (when pages enabled)
 - **Enable Shape Search**: Enable shape search functionality
-- **Property Filter**: Enable property-based search filtering (when search enabled)
+- **Property Search Filter**: Enable property-based search filtering (when search enabled)
 - **Show Layers**: Display layer controls in sidebar
 - **Layer Search**: Enable layer search (when layers enabled)
 - **Sort Layers Alphabetically**: Sort layers alphabetically (when layers enabled)
@@ -399,12 +400,6 @@ For complete interactive experience:
 3. **Performance**: Test with your actual file sizes and user base
 4. **Mobile**: Test on mobile devices and consider disabling complex features for touch devices
 5. **Accessibility**: Ensure your Visio diagrams include appropriate alt text and descriptions
-
-### Support and Resources
-
-- **Feature Requests**: Submit issues and feature requests through the project's issue tracker
-- **Documentation**: Refer to the SVG Publish documentation for Visio export settings
-- **Community**: Join discussions with other users for tips and best practices
 
 ---
 
