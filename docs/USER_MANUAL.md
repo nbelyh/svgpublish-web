@@ -1,8 +1,12 @@
-# SVG Publish SharePoint Web Part - User Manual
-
 ## Overview
 
 The **SVG Publish SharePoint Web Part** is an interactive web part that allows you to display and interact with SVG diagrams exported from Microsoft Visio directly within SharePoint Online. This web part provides rich interactivity features including pan, zoom, hyperlinks, tooltips, layers, shape selection, and more.
+
+The web part runs entirely inside your SharePoint tenant to display the diagram. It does not call, depend on, or send data to any external services or third-party servers — this is an explicit privacy feature so your diagram content remains within your tenant.
+
+[notification type=warning]The web part is designed to work within the constraints of SharePoint Online, which means that custom scripts are disabled in the web part settings, and you will not be able to use any custom JavaScript code in the web part in the custom content. This is done on purpose to allow the web part to run in the "custom scripts disabled" environment. The formatting and markdown is supported[/notification]
+
+[![SVG Publish web part screenshot](https://unmanagedvisio.com/wp-content/uploads/2025/08/main.png)](https://unmanagedvisio.com/wp-content/uploads/2025/08/main.png)
 
 ## Table of Contents
 
