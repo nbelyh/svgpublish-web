@@ -8,14 +8,31 @@ export class ContentGroup {
       groupName: "Custom Content",
       isCollapsed: true,
       groupFields: [
+        PropertyPaneIndentedToggle('enableTooltipMarkdown', {
+          label: "Enable Custom Tooltip Content",
+          disabled: !properties.enableTooltips,
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.enableTooltipMarkdown,
+        }),
+        ...(properties.enableTooltipMarkdown ?
+          [PropertyPaneTextField('tooltipMarkdown', {
+            label: "Tooltip Content Template",
+            disabled: !(properties.enableTooltips && properties.enableTooltipMarkdown),
+            value: properties.tooltipMarkdown,
+            placeholder: "Enter HTML or Markdown template...",
+            description: "Template for tooltip content. Use {{PropertyName}} for dynamic values like {{Name}}, {{ID}}, {{Comment}}, etc.",
+            multiline: true,
+            rows: 4,
+          })] : []),
         PropertyPaneIndentedToggle('enableContentMarkdown', {
-          label: "Enable Shape Overlay Content",
+          label: "Enable Custom Overlay Content",
           inlineLabel: true,
           indentLevel: 0,
           checked: properties.enableContentMarkdown,
         }),
         ...(properties.enableContentMarkdown ? [PropertyPaneTextField('contentMarkdown', {
-          label: "Shape Content Template",
+          label: "Overlay Content Template",
           disabled: !properties.enableContentMarkdown,
           value: properties.contentMarkdown,
           placeholder: "Enter HTML or Markdown template...",
