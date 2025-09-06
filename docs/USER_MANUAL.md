@@ -1,11 +1,13 @@
-
-# SVG Publish SharePoint Web Part User Manual
-
 ## Overview
 
 The **SVG Publish SharePoint Web Part** is an interactive web part that allows you to display and interact with SVG diagrams exported from Microsoft Visio directly within SharePoint Online. This web part provides rich interactivity features including pan, zoom, hyperlinks, tooltips, layers, shape selection, and more.
 
 The web part runs entirely inside your SharePoint tenant to display the diagram. It does not call, depend on, or send your data to any external services or third-party servers. This is an explicit privacy feature so your diagram content remains within your tenant.
+<a href="https://appsource.microsoft.com/en-us/product/office/WA200009144" target="_blank" rel="noopener">
+<img src="https://unmanagedvisio.com/wp-content/uploads/2025/09/image-1757072019258.png"></img>
+</a>
+
+https://appsource.microsoft.com/en-us/product/office/WA200009144
 
 [notification type=warning]The web part is designed to work within the constraints of SharePoint Online, which means that **custom scripts are disabled** in the web part settings, and you will not be able to use any custom JavaScript code in the web part in the custom content. This is done on purpose to allow the web part to run in the "custom scripts disabled" environment. The formatting and markdown is supported[/notification]
 
@@ -126,8 +128,8 @@ Controls highlighting of connected shapes:
 
 - **Enable Follow Hyperlinks**: Allow clicking on hyperlinks in shapes
 - **Open in New Window**: Control how hyperlinks open
-- **Rewrite Visio Hyperlinks**: Convert Visio hyperlinks for web use
-- **Rewrite Office Hyperlinks**: Convert Office hyperlinks for web use
+- **Rewrite Visio Hyperlinks**: Convert hyperlinks to Visio files (.vsdx or .vsd) to SVG files with the same name (.svg). Can be useful when publishing a bunch of inter-linked diagrams, which is the case for many SvgPublish users.
+- **Rewrite Office Hyperlinks**: Always use web-version for the office file links (open in the web-apps, i.e. automatically append ?web=1 if not present)
 
 ### 7. Tooltips Group
 
@@ -144,6 +146,14 @@ Controls highlighting of connected shapes:
 - **Show/Hide Delays**: Timing for tooltip appearance/disappearance
 
 ### 8. Custom Content Group
+
+You can specify your content for tooltips, sidebar, or shape overlays.
+The custom content can contain markdown and reference shape properties.
+
+For the future details on templates, please refer the article below. In the web part, the custom content works exactly the same way.
+https://unmanagedvisio.com/using-custom-templates-in-svgpublish/
+
+![file](https://unmanagedvisio.com/wp-content/uploads/2025/09/image-1756802733296.png)
 
 - **Enable Custom Tooltip Content**: Use custom Markdown content for tooltips
 - **Tooltip Content Template**: Custom Markdown content (when enabled)
@@ -260,7 +270,7 @@ Version information and help resources.
 |----------|------|---------|-------------|
 | `enableFollowHyperlinks` | boolean | true | Allow following hyperlinks |
 | `openHyperlinksInNewWindow` | boolean | true | Open links in new window/tab |
-| `rewriteVisioHyperlinks` | boolean | false | Rewrite Visio hyperlinks for web |
+| `rewriteVsdxHyperlinks` | boolean | false | Rewrite Visio hyperlinks for web |
 | `rewriteOfficeHyperlinks` | boolean | true | Rewrite Office hyperlinks for web |
 
 ### Search
