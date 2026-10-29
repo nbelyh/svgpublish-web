@@ -122,7 +122,9 @@ export default class SiteFilePickerTab extends React.Component<ISiteFilePickerTa
 
       let breadcrumbFolderServRelPath = libraryServRelUrl;
 
-      let crumbs: FilePickerBreadcrumbItem[] = folderLibRelPath.split("/").map((currFolderName => {
+      // Empty names come from the library root itself (its path may differ from libraryServRelUrl
+      // only in encoding, e.g. "Shared Documents" vs "Shared%20Documents") or a trailing slash.
+      let crumbs: FilePickerBreadcrumbItem[] = folderLibRelPath.split("/").filter(currFolderName => !!currFolderName).map((currFolderName => {
         breadcrumbFolderServRelPath += `/${currFolderName}`;
         return {
           isCurrentItem: false,

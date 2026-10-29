@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styles from './FolderExplorer.module.scss';
 import * as strings from 'ControlStrings';
-import { Icon } from "@fluentui/react/lib/Icon";
 import { IFolderExplorerProps, IFolderExplorerState } from '.';
 import { FolderExplorerService } from '../../../services/FolderExplorerService';
 import { IFolder, IFolderExplorerService } from '../../../services/IFolderExplorerService';
@@ -65,7 +64,7 @@ export class FolderExplorer extends React.Component<IFolderExplorerProps, IFolde
               {this.state.folders.map((folder) => {
                 return (
                   <div key={folder.Name} className={styles.libraryItem} onClick={() => { this._getFolders(folder); }}>
-                    <Icon iconName="FabricFolder" className={styles.folderIcon} />
+                    <img src={strings.FolderIconUrl} className={styles.folderIcon} alt="" />
                     {folder.Name}
                   </div>
                 );
