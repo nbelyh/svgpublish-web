@@ -51,6 +51,12 @@ export class AppearanceGroup {
           screenUnits: 'w',
           getDefaultValue: () => SettingsService.getDefaultWidth(context)
         }),
+        PropertyPaneIndentedToggle('stretchToPageWidth', {
+          label: "Stretch to page width (team sites)",
+          inlineLabel: true,
+          indentLevel: 0,
+          checked: properties.stretchToPageWidth,
+        }),
         PropertyPaneSizeField('height', {
           label: strings.FieldHeight,
           value: properties.height,

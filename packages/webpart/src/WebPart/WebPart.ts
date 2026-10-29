@@ -12,8 +12,9 @@ import { SettingsService } from './services/SettingsService';
 import { BlankPlaceholder } from './components/BlankPlaceholder';
 import { DefaultDiagramSettings, ISvgSource } from 'svgpublish';
 import { IWebPartPropertiesCallback } from './IWebPartPropertiesCallback';
+import { PageStretch } from './services/PageStretch';
 
-const NON_SETTINGS_KEYS = ['url', 'protectedSettings', 'width', 'height'];
+const NON_SETTINGS_KEYS = ['url', 'protectedSettings', 'width', 'height', 'stretchToPageWidth'];
 const ENUM_KEYS = ['selectionMode', 'tooltipTheme', 'tooltipTrigger', 'tooltipPlacement', 'sidebarType'];
 
 export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
@@ -45,6 +46,7 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
 
   private diagramSettings = DefaultDiagramSettings;
   private propertiesCallback: IWebPartPropertiesCallback | null = null;
+  private pageStretch: PageStretch | null = null;
 
   async onPageLoad(url: string, propertiesCallback: IWebPartPropertiesCallback, defaultResolver: (url: string) => Promise<ISvgSource>): Promise<ISvgSource> {
 
@@ -102,6 +104,21 @@ export default class WebPart extends BaseClientSideWebPart<IWebPartProps> {
       });
 
     ReactDom.render(element, this.domElement);
+
+    if (!this.pageStretch) {
+      this.pageStretch = new PageStretch(this.domElement);
+    }
+    if (this.properties.stretchToPageWidth) {
+      this.pageStretch.enable();
+    } else {
+      this.pageStretch.disable();
+    }
+  }
+
+  protected onDispose(): void {
+    this.pageStretch?.disable();
+    ReactDom.unmountComponentAtNode(this.domElement);
+    super.onDispose();
   }
 
   public onPropertyPaneConfigurationStart() {
